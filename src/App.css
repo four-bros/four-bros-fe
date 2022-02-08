@@ -1,0 +1,245 @@
+* {
+  box-sizing: border-box;
+  color: #d5d5d6;
+  background-color: #03111e;
+  font-family: 'Nunito Sans', sans-serif;
+  text-decoration: none;
+}
+
+.navbar_container {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0d5796;
+  padding: 1em 0;
+}
+
+.nav_logo {
+  display: none;
+}
+
+.logo_link {
+  background-color: inherit;
+}
+
+.nav_links_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: inherit;
+}
+
+.nav_link {
+  background-color: inherit;
+  border-bottom: 2px solid transparent;
+}
+
+.nav_link:hover {
+  color: #cb2c2c;
+  border-bottom: 2px solid #cb2c2c;
+  transition: all 0.3s;
+}
+
+.user_team_container {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.user_team_link {
+  background-color: #0d5796;
+  border: 2px solid #cb2c2c;
+  border-radius: 10px;
+  margin: 20px 0;
+  padding: 5px;
+  font-size: 1.1em;
+}
+
+.cpu_team_dropdown_container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.cpu_dropdown_btn {
+  width: 40%;
+  margin: 20px auto 0 auto;
+  font-size: 17px;    
+  border: 1px solid #cb2c2c;
+  border-radius: 5px;
+  color: #0d5796;
+  padding: 10px 12px;
+  background-color: #d5d5d6;
+  font-family: inherit;
+}
+
+.cpu_team_links_hidden {
+  display: none;
+}
+
+.cpu_team_links_responsive {
+  display: block;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50%;
+  height: 300px;
+  overflow: auto;
+}
+
+.selected_cpu_team {
+  width: 100%;
+  color: #d5d5d6;
+  background-color: #0d5796;
+  border: 2px solid #cb2c2c;
+  padding: 5px;
+  display: inline-block;
+}
+
+.selected_cpu_team:hover {
+  background-color: #cb2c2c;
+}
+
+.team_info_container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.team_rank_and_name_container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0 5px 0;
+}
+
+.team_rank, .team_name {
+  margin: 10px;
+}
+
+.team_record {
+  font-size: 1.1em;
+}
+
+.position_btns_container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 90%;
+  margin: 20px auto 0 auto;
+}
+
+.position_btns_container button {
+  padding: 5px;
+}
+
+.position_links_btn {
+  width: 30%;
+  margin: 20px auto 0 auto;
+  font-size: 17px;    
+  border: 1px solid #cb2c2c;
+  border-radius: 5px;
+  color: #0d5796;
+  padding: 10px 12px;
+  background-color: #d5d5d6;
+  font-family: inherit;
+}
+
+.position_links_hidden {
+  display: none;
+}
+
+.position_links_responsive {
+  display: block;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50%;
+  height: 300px;
+  overflow: auto;
+}
+
+.position_link {
+  width: 100%;
+  color: #d5d5d6;
+  background-color: #0d5796;
+  border: 2px solid #cb2c2c;
+  padding: 5px;
+  display: inline-block;
+}
+
+.roster_container {
+  margin: 20px auto 20px auto;
+}
+
+
+/* Media Queries */
+
+@media screen and (min-width: 767px) {
+  .navbar_container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0d5796;
+    padding: 1em 0;
+  }
+  
+  .nav_logo {
+    display: flex;
+    height: 75px;
+    margin-left: 5em;
+    background-color: inherit;
+  }
+  
+  .logo_link {
+    background-color: inherit;
+  }
+  
+  .nav_links_container {
+    width: 33%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: inherit;
+    margin-right: 5em;
+  }
+  
+  .nav_link {
+    background-color: inherit;
+    padding: 5px;
+  }
+
+  
+  .empty_header {
+    text-align: center;
+  }
+
+  .user_team_container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin: 5% auto;
+  }
+
+  .user_team_link {
+    background-color: #0d5796;
+    border: 2px solid #cb2c2c;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .cpu_team_dropdown {
+    width: 50%;
+  }
+
+}
