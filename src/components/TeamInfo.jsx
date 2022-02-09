@@ -11,7 +11,7 @@ export default function TeamInfo() {
     useEffect(() => {
 
         const fetchTeam = () => {
-            axios.get(`http://localhost:5000/teams/${teamId}`)
+            axios.get(`https://four-bros-be.herokuapp.com/teams/${teamId}`)
             .then(res => {
                 setTeam(res.data)
                 console.log(res)
