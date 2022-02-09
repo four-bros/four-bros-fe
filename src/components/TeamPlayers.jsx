@@ -74,7 +74,7 @@ export default function TeamPlayers() {
     useEffect(() => {
 
         const fetchPlayers = () => {
-            axios.get(`http://localhost:5000/players/team/${teamId}`)
+            axios.get(`https://four-bros-be.herokuapp.com/players/team/${teamId}`)
             .then(res => {
                 setPlayers(res.data.players)
                 console.log(res)

@@ -13,7 +13,7 @@ export default function TeamNav() {
     useEffect(() => {
 
         const fetchTeams = () => {
-            axios.get('http://localhost:5000/teams')
+            axios.get('https://four-bros-be.herokuapp.com/teams')
             .then(res => {
                 setTeams(res.data.teams)
                 console.log(res)
