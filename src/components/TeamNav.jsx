@@ -31,7 +31,7 @@ export default function TeamNav() {
 
     teams.forEach( team => {
 
-        let href = `/teams/${team.team_id}`;
+        let href = `/teams/${team.id}`;
 
         if (team.is_user === true) {
             let a = (
