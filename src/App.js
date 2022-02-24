@@ -1,18 +1,16 @@
-import './App.css';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import TeamPage from './pages/TeamPage';
-import TeamNavPage from './pages/TeamNavPage'
+import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import TeamsPage from "./components/pages/TeamsPage/TeamsPage";
 
 function App() {
   return (
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/teams" element={<TeamNavPage />} />
-          <Route path='/teams/:teamId' element={<TeamPage />}/>
-        </Routes>
-      </Router>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/teams" element={<TeamsPage />} />
+      </Routes>
+    </Router>
   );
 }
 
