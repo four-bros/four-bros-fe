@@ -51,6 +51,7 @@ const TeamsPage = () => {
     <div>
       <Navbar />
 
+      {/* Note: These tables/sections will be styled after the reset file is added in */}
       <TeamsDropdown
         options={teamOptions}
         setSelection={handleChange}
