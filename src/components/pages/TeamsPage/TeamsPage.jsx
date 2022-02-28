@@ -1,8 +1,8 @@
 import * as React from "react";
-import Navbar from "../../NavBar";
 import { Teams } from "../../../api";
 
-import TeamsDropdown from "../../common/TeamsDropdown";
+import { TeamsDropdown, NavBar } from "../../common";
+
 import TeamOverview from "./components/TeamOverview";
 import TeamRoster from "./components/TeamRoster";
 import TeamLeaders from "./components/TeamLeaders";
@@ -49,29 +49,28 @@ const TeamsPage = () => {
 
   return (
     <div>
-      <Navbar />
+      <NavBar />
 
-      {/* Note: These tables/sections will be styled after the reset file is added in */}
       <TeamsDropdown
         options={teamOptions}
         setSelection={handleChange}
         selection={selectedTeam}
       />
+      <div className="page-container">
+        {singleTeam && (
+          <div>
+            <TeamOverview
+              simplifiedTeam={allTeams[selectedTeam]}
+              overview={singleTeam.team_details}
+              overallStats={singleTeam.team_stats}
+            />
 
-      {singleTeam && (
-        <div>
-          <p>{singleTeam.team_details.team_name}</p>
-          <TeamOverview
-            simplifiedTeam={allTeams[selectedTeam]}
-            overview={singleTeam.team_details}
-            overallStats={singleTeam.team_stats}
-          />
+            <TeamLeaders leaders={teamLeaders} />
 
-          <TeamLeaders leaders={teamLeaders} />
-
-          <TeamRoster roster={singleTeam.team_roster} />
-        </div>
-      )}
+            <TeamRoster roster={singleTeam.team_roster} />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

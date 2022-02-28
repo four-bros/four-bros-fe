@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Table } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 const TeamRoster = ({ roster }) => {
   return (
@@ -21,7 +22,9 @@ const TeamRoster = ({ roster }) => {
           {roster.map((player) => (
             <Table.Row key={player.id}>
               <Table.Cell>
-                {player.first_name} {player.last_name}
+                <Link to={`/players/${player.id}`}>
+                  {player.first_name} {player.last_name}
+                </Link>
               </Table.Cell>
               <Table.Cell>{player.player_year}</Table.Cell>
               <Table.Cell>
