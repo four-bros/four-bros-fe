@@ -1,0 +1,14 @@
+.tableContainer {
+  width: 100%;
+  background-color: #0d5796;
+  margin-bottom: 5%;
+
+  .tableTitle {
+    display: flex;
+    justify-content: center;
+
+    h2 {
+      margin-top: 1%;
+    }
+  }
+}

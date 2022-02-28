@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+  text-decoration: none;
+}
+
+html,
+body,
+#root {
+  min-height: 100vh;
+  color: #d5d5d6;
+  background-color: #03111e;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.App {
+  min-width: 350px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.hasError {
+  color: red;
+}
+
+// Page
+.page-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.coming-soon {
+  margin-top: 20%;
+  margin-left: 20%;
+
+  h2 {
+    color: white;
+    font-size: 5rem;
+  }
+}
