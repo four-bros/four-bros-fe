@@ -12,13 +12,13 @@ const getOverviewInfo = (overview, simplifiedTeam) => {
 
 const passingHeaders = [
     'Name',
-    'Completions',
-    'Attempts',
-    'Yards',
+    'Comp.',
+    'Att.',
+    'Yds',
     'YPG',
     'TDs',
     'INTs',
-    'Rating',
+    // 'Rating',
 ];
 
 const getPassingInfo = (passingLeaders) => {
@@ -33,7 +33,7 @@ const getPassingInfo = (passingLeaders) => {
             leader.passing_stats.pass_yp_game,
             leader.passing_stats.pass_tds,
             leader.passing_stats.ints,
-            leader.passing_stats.pass_rating,
+            // leader.passing_stats.pass_rating,
         ]);
     });
     return renderedInfo;
@@ -41,12 +41,12 @@ const getPassingInfo = (passingLeaders) => {
 
 const rushingHeaders = [
     'Name',
-    'Attempts',
+    'Att',
     'Yards',
     'YPG',
     'TDs',
     'Br. Tkls',
-    'Fumbles',
+    'Fum',
 ];
 
 const getRushingInfo = (rushingLeaders) => {
@@ -66,15 +66,7 @@ const getRushingInfo = (rushingLeaders) => {
     return renderedInfo;
 };
 
-const receivingHeaders = [
-    'Name',
-    'Catches',
-    'Yards',
-    'YPG',
-    'TDs',
-    'YAC',
-    'Drops',
-];
+const receivingHeaders = ['Name', 'Rec', 'Yds', 'YPG', 'TDs', 'YAC', 'Drp'];
 
 const getReceivingInfo = (receivingLeaders) => {
     let renderedInfo = [];
@@ -99,11 +91,11 @@ const defendingHeaders = [
     'Tackles',
     'TFL',
     'Sacks',
-    'Pass Def.',
+    // 'Pass Def.',
     'INTs',
     'FF',
     'FR',
-    'TDs',
+    // 'TDs',
 ];
 
 const getDefendingInfo = (defendingLeaders) => {
@@ -115,11 +107,11 @@ const getDefendingInfo = (defendingLeaders) => {
             leader.defensive_stats.total_tkls,
             leader.defensive_stats.tfl,
             leader.defensive_stats.sacks,
-            leader.defensive_stats.pass_def,
+            // leader.defensive_stats.pass_def,
             leader.defensive_stats.ints_made,
             leader.defensive_stats.forced_fumbles,
             leader.defensive_stats.fumbles_rec,
-            leader.defensive_stats.def_tds,
+            // leader.defensive_stats.def_tds,
         ]);
     });
 
@@ -171,7 +163,7 @@ const kickingHeaders = [
     'Long',
     'XP Made',
     'XP Att',
-    'XP %',
+    // 'XP %',
 ];
 
 const getKickingInfo = (kickingLeaders) => {
@@ -186,7 +178,7 @@ const getKickingInfo = (kickingLeaders) => {
             leader.kicking_stats.long_fg,
             leader.kicking_stats.xp_made,
             leader.kicking_stats.xp_att,
-            leader.kicking_stats.xp_pct,
+            // leader.kicking_stats.xp_pct,
         ]);
     });
 
@@ -219,14 +211,7 @@ const getPuntingInfo = (puntingLeaders) => {
     return renderedInfo;
 };
 
-const rosterHeaders = [
-    'Name',
-    'Class',
-    'Ht/Wt',
-    'Number',
-    'Position',
-    'Overall',
-];
+const rosterHeaders = ['Name', 'Class', 'Ht/Wt', '#', 'Pos', 'Overall'];
 
 const getRosterInfo = (roster) => {
     let renderedInfo = [];

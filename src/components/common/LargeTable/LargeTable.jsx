@@ -5,7 +5,7 @@ import { Table } from 'semantic-ui-react';
 const LargeTable = ({ header, contents }) => {
     return (
         <div>
-            <Table>
+            <Table unstackable small>
                 {header && (
                     <Table.Header>
                         <Table.Row>
