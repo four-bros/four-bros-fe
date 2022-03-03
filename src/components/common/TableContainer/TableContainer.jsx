@@ -2,14 +2,25 @@ import * as React from 'react';
 
 import style from './tableContainer.module.scss';
 
-const TableContainer = ({ title, children }) => {
+const TableContainer = ({ title, children, small }) => {
     return (
-        <div className={style.tableContainer}>
-            <div className={style.tableTitle}>
-                <h2>{title}</h2>
-            </div>
-            {children}
-        </div>
+        <>
+            {small ? (
+                <div className={style.smallTableContainer}>
+                    <div className={style.tableTitle}>
+                        <h2>{title}</h2>
+                    </div>
+                    {children}
+                </div>
+            ) : (
+                <div className={style.tableContainer}>
+                    <div className={style.tableTitle}>
+                        <h2>{title}</h2>
+                    </div>
+                    {children}
+                </div>
+            )}
+        </>
     );
 };
 

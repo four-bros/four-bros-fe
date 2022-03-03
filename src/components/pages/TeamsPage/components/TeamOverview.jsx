@@ -1,7 +1,14 @@
 import * as React from 'react';
-import { Table } from 'semantic-ui-react';
+
+import { LargeTable, TableContainer } from 'components/common';
 
 import style from './teamOverview.module.scss';
+
+import {
+    getOverviewInfo,
+    getDefenseOverview,
+    getOffenseOverview,
+} from '../tableTransform';
 
 const TeamOverview = ({ simplifiedTeam, overview, overallStats }) => {
     return (
@@ -15,64 +22,20 @@ const TeamOverview = ({ simplifiedTeam, overview, overallStats }) => {
             </div>
             {/* 2nd section */}
             <div className={style.teamSummary}>
-                <h3>
-                    {simplifiedTeam.wins} - {simplifiedTeam.losses}
-                </h3>
-                <h3>Overall = {overview.avg_overall}</h3>
-                <h3>Offense = {overview.avg_offense}</h3>
-                <h3>Defense = {overview.avg_defense}</h3>
-                <h3>Sp. Teams = {overview.avg_sp_teams}</h3>
+                <TableContainer title='Overview' small>
+                    <LargeTable
+                        contents={getOverviewInfo(overview, simplifiedTeam)}
+                    />
+                </TableContainer>
             </div>
             {/* 3rd section */}
             <div className={style.tablesContainer}>
-                <div>
-                    <Table>
-                        <Table.Body>
-                            <Table.Row>
-                                <Table.Cell>PPG</Table.Cell>
-                                <Table.Cell>{overallStats.ppg}</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell>Total YPG</Table.Cell>
-                                <Table.Cell>
-                                    {overallStats.total_ypg}
-                                </Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell>Rush YPG</Table.Cell>
-                                <Table.Cell>{overallStats.rush_ypg}</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell>Pass YPG</Table.Cell>
-                                <Table.Cell>{overallStats.pass_ypg}</Table.Cell>
-                            </Table.Row>
-                        </Table.Body>
-                    </Table>
-                </div>
-                <div>
-                    <Table>
-                        <Table.Body>
-                            <Table.Row>
-                                <Table.Cell>TOs</Table.Cell>
-                                <Table.Cell>
-                                    {overallStats.turnovers}
-                                </Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell>INTs</Table.Cell>
-                                <Table.Cell>{overallStats.ints}</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell>Fumbles</Table.Cell>
-                                <Table.Cell>{overallStats.fr}</Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell>Def. TDs</Table.Cell>
-                                <Table.Cell>{overallStats.def_tds}</Table.Cell>
-                            </Table.Row>
-                        </Table.Body>
-                    </Table>
-                </div>
+                <TableContainer title='Defense' small>
+                    <LargeTable contents={getDefenseOverview(overallStats)} />
+                </TableContainer>
+                <TableContainer title='Offense' small>
+                    <LargeTable contents={getOffenseOverview(overallStats)} />
+                </TableContainer>
             </div>
         </div>
     );

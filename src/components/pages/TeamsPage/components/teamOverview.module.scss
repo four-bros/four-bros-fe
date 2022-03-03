@@ -1,44 +1,38 @@
 .teamOverview {
-  width: 80%;
-  margin: 0 auto;
-  padding-bottom: 5%;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 5%;
+
+    .tablesContainer {
+        display: flex;
+        margin: 0 auto;
+        align-items: baseline;
+        justify-content: space-between;
+    }
 }
 
 .teamName {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  align-items: baseline;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: baseline;
 
-  h3 {
-    padding-right: 2%;
-  }
+    h3 {
+        padding-right: 2%;
+    }
 
-  h2 {
-    font-size: 2rem;
-  }
+    h2 {
+        font-size: 2rem;
+    }
 }
 
 .teamSummary {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
 
-  h3 {
-    padding: 0 2%;
-  }
-}
-
-.tablesContainer {
-  display: flex;
-  //   width: 98%;
-  margin: 0 auto;
-  align-items: baseline;
-  //   justify-content: space-between;
-
-  div {
-    width: 48%;
-    margin: 0 auto;
-  }
+    h3 {
+        padding: 0 2%;
+    }
 }
