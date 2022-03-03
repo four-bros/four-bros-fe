@@ -1,48 +1,6 @@
-.navBarContainer {
-  font-weight: bold;
-  width: 100%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #0d5796;
-  padding: 1em 0;
-
-  a {
-    color: white;
-  }
-}
-
-.navLogo {
-  display: none;
-}
-
-.logoLink {
-  background-color: inherit;
-}
-
-.navLinksContainer {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: inherit;
-}
-
-.navLink {
-  background-color: inherit;
-  border-bottom: 2px solid transparent;
-}
-
-.navLink:hover {
-  color: #cb2c2c;
-  border-bottom: 2px solid #cb2c2c;
-  transition: all 0.3s;
-}
-
-@media screen and (min-width: 767px) {
-  .navbarContainer {
+.navbarContainer {
     font-weight: bold;
+    width: 100%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -51,32 +9,74 @@
     padding: 1em 0;
 
     a {
-      color: white;
+        color: white;
     }
-  }
+}
 
-  .navLogo {
-    display: flex;
-    height: 75px;
-    margin-left: 5em;
+.navLogo {
+    display: none;
+}
+
+.logoLink {
     background-color: inherit;
-  }
+}
 
-  .logoLink {
-    background-color: inherit;
-  }
-
-  .navLinksContainer {
-    width: 33%;
+.navLinksContainer {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: inherit;
-    margin-right: 5em;
-  }
+}
 
-  .navLink {
+.navLink {
     background-color: inherit;
-    padding: 5px;
-  }
+    border-bottom: 2px solid transparent;
+}
+
+.navLink:hover {
+    color: #cb2c2c;
+    border-bottom: 2px solid #cb2c2c;
+    transition: all 0.3s;
+}
+
+@media screen and (min-width: 767px) {
+    .navbarContainer {
+        font-weight: bold;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #0d5796;
+        padding: 1em 0;
+
+        a {
+            color: white;
+        }
+    }
+
+    .navLogo {
+        display: flex;
+        height: 75px;
+        margin-left: 5em;
+        background-color: inherit;
+    }
+
+    .logoLink {
+        background-color: inherit;
+    }
+
+    .navLinksContainer {
+        width: 33%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: inherit;
+        margin-right: 5em;
+    }
+
+    .navLink {
+        background-color: inherit;
+        padding: 5px;
+    }
 }

@@ -8,6 +8,14 @@
         margin: 0 auto;
         align-items: baseline;
         justify-content: space-between;
+
+        @media screen and (max-width: 767px) {
+            flex-direction: column;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        width: 100%;
     }
 }
 
