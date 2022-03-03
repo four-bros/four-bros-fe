@@ -1,6 +1,15 @@
 import { Link } from 'react-router-dom';
 
-// Passing Table
+const getOverviewInfo = (overview, simplifiedTeam) => {
+    return [
+        ['Record', `${simplifiedTeam.wins} - ${simplifiedTeam.losses}`],
+        ['Overall', overview.avg_overall],
+        ['Offense', overview.avg_offense],
+        ['Defense', overview.avg_defense],
+        ['Sp. Teams', overview.avg_sp_teams],
+    ];
+};
+
 const passingHeaders = [
     'Name',
     'Completions',
@@ -9,6 +18,7 @@ const passingHeaders = [
     'YPG',
     'TDs',
     'INTs',
+    'Rating',
 ];
 
 const getPassingInfo = (passingLeaders) => {
@@ -23,13 +33,21 @@ const getPassingInfo = (passingLeaders) => {
             leader.passing_stats.pass_yp_game,
             leader.passing_stats.pass_tds,
             leader.passing_stats.ints,
+            leader.passing_stats.pass_rating,
         ]);
     });
     return renderedInfo;
 };
 
-// Rushing Table
-const rushingHeaders = ['Name', 'Attempts', 'Yards', 'YPG', 'TDs', 'Fumbles'];
+const rushingHeaders = [
+    'Name',
+    'Attempts',
+    'Yards',
+    'YPG',
+    'TDs',
+    'Br. Tkls',
+    'Fumbles',
+];
 
 const getRushingInfo = (rushingLeaders) => {
     let renderedInfo = [];
@@ -41,13 +59,22 @@ const getRushingInfo = (rushingLeaders) => {
             leader.rushing_stats.rush_yards,
             leader.rushing_stats.rush_yp_game,
             leader.rushing_stats.rush_tds,
+            leader.rushing_stats.broke_tkls,
             leader.rushing_stats.fumbles,
         ]);
     });
     return renderedInfo;
 };
 
-const receivingHeaders = ['Name', 'Catches', 'Yards', 'TDs', 'Drops'];
+const receivingHeaders = [
+    'Name',
+    'Catches',
+    'Yards',
+    'YPG',
+    'TDs',
+    'YAC',
+    'Drops',
+];
 
 const getReceivingInfo = (receivingLeaders) => {
     let renderedInfo = [];
@@ -57,7 +84,9 @@ const getReceivingInfo = (receivingLeaders) => {
             `${leader.player_details.first_name} ${leader.player_details.last_name}`,
             leader.receiving_stats.receptions,
             leader.receiving_stats.rec_yards,
+            leader.receiving_stats.rec_yp_game,
             leader.receiving_stats.rec_tds,
+            leader.receiving_stats.yac,
             leader.receiving_stats.drops,
         ]);
     });
@@ -97,6 +126,99 @@ const getDefendingInfo = (defendingLeaders) => {
     return renderedInfo;
 };
 
+// Used for both kickReturnInfo and puntReturnInfo
+const returnsHeaders = ['Name', 'Ret.', 'Yards', 'AVG', 'Long', 'TDs'];
+
+const getKickReturnsInfo = (kickReturnLeaders) => {
+    let renderedInfo = [];
+
+    kickReturnLeaders.map((leader) => {
+        return renderedInfo.push([
+            `${leader.player_details.first_name} ${leader.player_details.last_name}`,
+            leader.return_stats.kick_returns,
+            leader.return_stats.kr_yds,
+            leader.return_stats.kr_avg,
+            leader.return_stats.long_kr,
+            leader.return_stats.kr_tds,
+        ]);
+    });
+
+    return renderedInfo;
+};
+
+const getPuntReturnsInfo = (puntReturnLeaders) => {
+    let renderedInfo = [];
+
+    puntReturnLeaders.map((leader) => {
+        return renderedInfo.push([
+            `${leader.player_details.first_name} ${leader.player_details.last_name}`,
+            leader.return_stats.punt_returns,
+            leader.return_stats.pr_yds,
+            leader.return_stats.pr_avg,
+            leader.return_stats.long_pr,
+            leader.return_stats.pr_tds,
+        ]);
+    });
+
+    return renderedInfo;
+};
+
+const kickingHeaders = [
+    'Name',
+    'FG Made',
+    'FG Att',
+    'FG %',
+    'Long',
+    'XP Made',
+    'XP Att',
+    'XP %',
+];
+
+const getKickingInfo = (kickingLeaders) => {
+    let renderedInfo = [];
+
+    kickingLeaders.map((leader) => {
+        return renderedInfo.push([
+            `${leader.player_details.first_name} ${leader.player_details.last_name}`,
+            leader.kicking_stats.fg_made,
+            leader.kicking_stats.fg_att,
+            leader.kicking_stats.fg_pct,
+            leader.kicking_stats.long_fg,
+            leader.kicking_stats.xp_made,
+            leader.kicking_stats.xp_att,
+            leader.kicking_stats.xp_pct,
+        ]);
+    });
+
+    return renderedInfo;
+};
+
+const puntingHeaders = [
+    'Name',
+    'Punts',
+    'Punt Yards',
+    'Punt AVG',
+    'Long',
+    'Inside 20',
+];
+
+const getPuntingInfo = (puntingLeaders) => {
+    let renderedInfo = [];
+
+    puntingLeaders.map((leader) => {
+        return renderedInfo.push([
+            `${leader.player_details.first_name} ${leader.player_details.last_name}`,
+            leader.kicking_stats.number_punts,
+            leader.kicking_stats.total_punt_yards,
+            leader.kicking_stats.punt_avg,
+            leader.kicking_stats.long_punt,
+            leader.kicking_stats.inside_twenty,
+        ]);
+    });
+
+    return renderedInfo;
+};
+
 const rosterHeaders = [
     'Name',
     'Class',
@@ -125,7 +247,33 @@ const getRosterInfo = (roster) => {
     return renderedInfo;
 };
 
+const getDefenseOverview = (overallStats) => {
+    return [
+        ['PPG', overallStats.ppg],
+        ['Total YPG', overallStats.total_ypg],
+        ['Rush YPG', overallStats.rush_ypg],
+        ['Pass YPG', overallStats.pass_ypg],
+    ];
+};
+
+const getOffenseOverview = (overallStats) => {
+    return [
+        ['TOs', overallStats.turnovers],
+        ['INTs', overallStats.ints],
+        ['Fumbles', overallStats.fr],
+        ['Def. TDs', overallStats.def_tds],
+    ];
+};
+
+const getTopThree = (topPerformers) => {
+    if (topPerformers.length <= 3) {
+        return topPerformers;
+    }
+    return [topPerformers[0], topPerformers[1], topPerformers[2]];
+};
+
 export {
+    getOverviewInfo,
     passingHeaders,
     getPassingInfo,
     rushingHeaders,
@@ -134,6 +282,16 @@ export {
     getReceivingInfo,
     defendingHeaders,
     getDefendingInfo,
+    returnsHeaders,
+    getKickReturnsInfo,
+    getPuntReturnsInfo,
+    kickingHeaders,
+    getKickingInfo,
+    puntingHeaders,
+    getPuntingInfo,
     rosterHeaders,
     getRosterInfo,
+    getDefenseOverview,
+    getOffenseOverview,
+    getTopThree,
 };

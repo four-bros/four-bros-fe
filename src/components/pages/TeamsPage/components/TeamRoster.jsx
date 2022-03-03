@@ -1,17 +1,18 @@
 import * as React from 'react';
 
-import { LargeTable } from 'components/common';
+import { LargeTable, TableContainer } from 'components/common';
 
 import { rosterHeaders, getRosterInfo } from '../tableTransform';
 
 const TeamRoster = ({ roster }) => {
     return (
         <div>
-            <h1>Team Roster</h1>
-            <LargeTable
-                header={rosterHeaders}
-                contents={getRosterInfo(roster)}
-            />
+            <TableContainer title='Roster'>
+                <LargeTable
+                    header={rosterHeaders}
+                    contents={getRosterInfo(roster)}
+                />
+            </TableContainer>
         </div>
     );
 };

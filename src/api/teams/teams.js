@@ -20,7 +20,7 @@ export const getSingleTeam = async (teamId) => {
 
 export const getSingleTeamLeaders = async (teamId) => {
     try {
-        const response = await baseGet(`/teams/${teamId}/stats/leaders`);
+        const response = await baseGet(`/teams/${teamId}/stats`);
         return response.data;
     } catch (err) {
         return err;
