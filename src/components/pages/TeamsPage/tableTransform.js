@@ -131,11 +131,11 @@ const getKickReturnsInfo = (kickReturnLeaders) => {
     kickReturnLeaders.map((leader) => {
         return renderedInfo.push([
             `${leader.player_details.first_name} ${leader.player_details.last_name}`,
-            leader.return_stats.kick_returns,
-            leader.return_stats.kr_yds,
-            leader.return_stats.kr_avg,
-            leader.return_stats.long_kr,
-            leader.return_stats.kr_tds,
+            leader.kick_return_stats.kick_returns,
+            leader.kick_return_stats.kr_yds,
+            leader.kick_return_stats.kr_avg,
+            leader.kick_return_stats.long_kr,
+            leader.kick_return_stats.kr_tds,
         ]);
     });
 
@@ -148,11 +148,11 @@ const getPuntReturnsInfo = (puntReturnLeaders) => {
     puntReturnLeaders.map((leader) => {
         return renderedInfo.push([
             `${leader.player_details.first_name} ${leader.player_details.last_name}`,
-            leader.return_stats.punt_returns,
-            leader.return_stats.pr_yds,
-            leader.return_stats.pr_avg,
-            leader.return_stats.long_pr,
-            leader.return_stats.pr_tds,
+            leader.punt_return_stats.punt_returns,
+            leader.punt_return_stats.pr_yds,
+            leader.punt_return_stats.pr_avg,
+            leader.punt_return_stats.long_pr,
+            leader.punt_return_stats.pr_tds,
         ]);
     });
 
@@ -202,11 +202,11 @@ const getPuntingInfo = (puntingLeaders) => {
     puntingLeaders.map((leader) => {
         return renderedInfo.push([
             `${leader.player_details.first_name} ${leader.player_details.last_name}`,
-            leader.kicking_stats.number_punts,
-            leader.kicking_stats.total_punt_yards,
-            leader.kicking_stats.punt_avg,
-            leader.kicking_stats.long_punt,
-            leader.kicking_stats.inside_twenty,
+            leader.punting_stats.number_punts,
+            leader.punting_stats.total_punt_yards,
+            leader.punting_stats.punt_avg,
+            leader.punting_stats.long_punt,
+            leader.punting_stats.inside_twenty,
         ]);
     });
 
