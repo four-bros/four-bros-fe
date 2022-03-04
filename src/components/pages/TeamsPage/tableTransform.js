@@ -86,17 +86,7 @@ const getReceivingInfo = (receivingLeaders) => {
     return renderedInfo;
 };
 
-const defendingHeaders = [
-    'Name',
-    'Tackles',
-    'TFL',
-    'Sacks',
-    // 'Pass Def.',
-    'INTs',
-    'FF',
-    'FR',
-    // 'TDs',
-];
+const defendingHeaders = ['Name', 'Tackles', 'TFL', 'Sacks', 'Pass Def.'];
 
 const getDefendingInfo = (defendingLeaders) => {
     let renderedInfo = [];
@@ -107,11 +97,25 @@ const getDefendingInfo = (defendingLeaders) => {
             leader.defensive_stats.total_tkls,
             leader.defensive_stats.tfl,
             leader.defensive_stats.sacks,
-            // leader.defensive_stats.pass_def,
+            leader.defensive_stats.pass_def,
+        ]);
+    });
+
+    return renderedInfo;
+};
+
+const turnoverHeaders = ['Name', 'INTs', 'FF', 'FR', 'TDs'];
+
+const getTurnoverInfo = (defendingLeaders) => {
+    let renderedInfo = [];
+
+    defendingLeaders.map((leader) => {
+        return renderedInfo.push([
+            `${leader.player_details.first_name} ${leader.player_details.last_name}`,
             leader.defensive_stats.ints_made,
             leader.defensive_stats.forced_fumbles,
             leader.defensive_stats.fumbles_rec,
-            // leader.defensive_stats.def_tds,
+            leader.defensive_stats.def_tds,
         ]);
     });
 
@@ -267,6 +271,8 @@ export {
     getReceivingInfo,
     defendingHeaders,
     getDefendingInfo,
+    turnoverHeaders,
+    getTurnoverInfo,
     returnsHeaders,
     getKickReturnsInfo,
     getPuntReturnsInfo,

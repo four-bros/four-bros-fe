@@ -9,8 +9,6 @@ import TeamOverview from './components/TeamOverview';
 import TeamRoster from './components/TeamRoster';
 import TeamLeaders from './components/TeamLeaders';
 
-import style from './teamsPage.module.scss';
-
 const TeamsPage = () => {
     const isFirstRender = React.useRef(true);
     const [allTeams, setAllTeams] = React.useState();
@@ -60,7 +58,7 @@ const TeamsPage = () => {
         <div>
             <NavBar />
 
-            <div className={style.buttonsContainer}>
+            <div className='buttonsContainer'>
                 <Button
                     name='overview'
                     active={infoType === 'overview'}
@@ -87,13 +85,11 @@ const TeamsPage = () => {
                 {singleTeam && (
                     <div>
                         <>
-                            {infoType === 'overview' && (
-                                <TeamOverview
-                                    simplifiedTeam={allTeams[selectedTeam]}
-                                    overview={singleTeam.team_details}
-                                    overallStats={singleTeam.team_stats}
-                                />
-                            )}
+                            <TeamOverview
+                                simplifiedTeam={allTeams[selectedTeam]}
+                                overview={singleTeam.team_details}
+                                overallStats={singleTeam.team_stats}
+                            />
 
                             <TeamLeaders
                                 leaders={teamLeaders}
