@@ -30,11 +30,11 @@ const TeamOverview = ({ simplifiedTeam, overview, overallStats }) => {
             </div>
             {/* 3rd section */}
             <div className={style.tablesContainer}>
-                <TableContainer title='Defense' small>
-                    <LargeTable contents={getDefenseOverview(overallStats)} />
-                </TableContainer>
                 <TableContainer title='Offense' small>
                     <LargeTable contents={getOffenseOverview(overallStats)} />
+                </TableContainer>
+                <TableContainer title='Defense' small>
+                    <LargeTable contents={getDefenseOverview(overallStats)} />
                 </TableContainer>
             </div>
         </div>
