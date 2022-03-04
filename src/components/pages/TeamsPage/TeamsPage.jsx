@@ -91,10 +91,14 @@ const TeamsPage = () => {
                                 overallStats={singleTeam.team_stats}
                             />
 
+                            <hr/>
+
                             <TeamLeaders
                                 leaders={teamLeaders}
                                 infoType={infoType}
                             />
+
+                            <hr/>
 
                             {infoType === 'overview' && (
                                 <TeamRoster roster={singleTeam.team_roster} />

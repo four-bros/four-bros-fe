@@ -104,9 +104,9 @@ const getDefendingInfo = (defendingLeaders) => {
     return renderedInfo;
 };
 
-const turnoverHeaders = ['Name', 'INTs', 'FF', 'FR', 'TDs'];
+const defTurnoverHeaders = ['Name', 'INTs', 'FF', 'FR', 'TDs'];
 
-const getTurnoverInfo = (defendingLeaders) => {
+const getDefTurnoverInfo = (defendingLeaders) => {
     let renderedInfo = [];
 
     defendingLeaders.map((leader) => {
@@ -167,7 +167,6 @@ const kickingHeaders = [
     'Long',
     'XP Made',
     'XP Att',
-    // 'XP %',
 ];
 
 const getKickingInfo = (kickingLeaders) => {
@@ -182,7 +181,6 @@ const getKickingInfo = (kickingLeaders) => {
             leader.kicking_stats.long_fg,
             leader.kicking_stats.xp_made,
             leader.kicking_stats.xp_att,
-            // leader.kicking_stats.xp_pct,
         ]);
     });
 
@@ -236,7 +234,7 @@ const getRosterInfo = (roster) => {
     return renderedInfo;
 };
 
-const getDefenseOverview = (overallStats) => {
+const getOffenseOverview = (overallStats) => {
     return [
         ['PPG', overallStats.ppg],
         ['Total YPG', overallStats.total_ypg],
@@ -245,7 +243,7 @@ const getDefenseOverview = (overallStats) => {
     ];
 };
 
-const getOffenseOverview = (overallStats) => {
+const getDefenseOverview = (overallStats) => {
     return [
         ['TOs', overallStats.turnovers],
         ['INTs', overallStats.ints],
@@ -271,8 +269,8 @@ export {
     getReceivingInfo,
     defendingHeaders,
     getDefendingInfo,
-    turnoverHeaders,
-    getTurnoverInfo,
+    defTurnoverHeaders as turnoverHeaders,
+    getDefTurnoverInfo as getTurnoverInfo,
     returnsHeaders,
     getKickReturnsInfo,
     getPuntReturnsInfo,
