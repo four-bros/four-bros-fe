@@ -24,9 +24,27 @@ const PlayerAbilities = ({ player }) => {
     return (
         <div>
             <div className='buttonsContainer'>
-                <Button onClick={() => setTableType('athletic')}>Athletic</Button>
-                <Button onClick={() => setTableType('offense')}>Offense</Button>
-                <Button onClick={() => setTableType('defense')}>Defense</Button>
+                <Button 
+                name='athletic'
+                active={tableType === 'athletic'}
+                onClick={() => setTableType('athletic')}
+                >
+                    Athletic
+                </Button>
+                <Button 
+                name='offense'
+                active={tableType === 'offense'}
+                onClick={() => setTableType('offense')}
+                >
+                    Offense
+                </Button>
+                <Button 
+                name='defense'
+                active={tableType === 'defense'}
+                onClick={() => setTableType('defense')}
+                >
+                    Defense
+                </Button>
             </div>
            
             <div>
