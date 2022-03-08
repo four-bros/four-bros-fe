@@ -30,9 +30,27 @@ const TeamLeaders = ({ leaders, infoType }) => {
     return (
         <div>
             <div className='buttonsContainer'>
-                <Button onClick={() => setTableType('offense')}>Offense</Button>
-                <Button onClick={() => setTableType('defense')}>Defense</Button>
-                <Button onClick={() => setTableType('special')}>Special Teams</Button>
+                <Button 
+                    name='offense'
+                    active={tableType === 'offense'}
+                    onClick={() => setTableType('offense')}
+                >
+                    Offense
+                </Button>
+                <Button 
+                name='defense'
+                active={tableType === 'defense'}
+                onClick={() => setTableType('defense')}
+                >
+                    Defense
+                </Button>
+                <Button 
+                name='special'
+                active={tableType === 'special'}
+                onClick={() => setTableType('special')}
+                >
+                    Special Teams
+                </Button>
             </div>
 
             {tableType === 'offense' && (
