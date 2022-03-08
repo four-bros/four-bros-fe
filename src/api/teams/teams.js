@@ -12,6 +12,7 @@ export const getTeams = async () => {
 export const getSingleTeam = async (teamId) => {
     try {
         const response = await baseGet(`/teams/${teamId}`);
+        console.log(response)
         return response.data;
     } catch (err) {
         return err;
