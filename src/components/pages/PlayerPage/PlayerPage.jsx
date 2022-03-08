@@ -37,22 +37,6 @@ const PlayerPage = () => {
         <div>
             <NavBar />
             
-            <div className='buttonsContainer'>
-                <Button
-                    name='abilities'
-                    active={infoType === 'abilities'}
-                    onClick={() => handleClick('abilities')}
-                >
-                    Abilities
-                </Button>
-                <Button
-                    name='stats'
-                    active={infoType === 'stats'}
-                    onClick={() => handleClick('stats')}
-                >
-                    Stats
-                </Button>
-            </div>
             <div className='page-container'>
                 {singlePlayer && (
                     <div>
@@ -60,6 +44,25 @@ const PlayerPage = () => {
                             <PlayerDetails
                                 player={singlePlayer}
                             />
+
+                    <hr/>
+                    
+                    <div className='buttonsContainer'>
+                        <Button
+                            name='abilities'
+                            active={infoType === 'abilities'}
+                            onClick={() => handleClick('abilities')}
+                        >
+                            Abilities
+                        </Button>
+                        <Button
+                            name='stats'
+                            active={infoType === 'stats'}
+                            onClick={() => handleClick('stats')}
+                        >
+                            Stats
+                        </Button>
+                    </div>
 
                             <hr/>
 
