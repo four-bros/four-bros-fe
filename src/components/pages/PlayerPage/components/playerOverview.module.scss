@@ -1,17 +1,18 @@
-.teamOverview {
+.playerOverview {
+    display: flex;
+    flex-direction: column;
     width: 80%;
     margin: 0 auto;
     padding-bottom: 5%;
 
-    .tablesContainer {
+    .playerNameContainer {
         display: flex;
+        flex: row;
+        width: 90%;
         margin: 0 auto;
         align-items: baseline;
-        justify-content: space-between;
+        justify-content: center;
 
-        @media screen and (max-width: 767px) {
-            flex-direction: column;
-        }
     }
 
     @media screen and (max-width: 767px) {
@@ -19,9 +20,9 @@
     }
 }
 
-.teamName {
+.playerName {
     display: flex;
-    margin: 1em auto;
+    margin: 0 2em;
     align-content: center;
     justify-content: center;
     flex-wrap: nowrap;
@@ -36,14 +37,14 @@
     }
 }
 
-.teamSummary {
+.playerClassPosition {
     display: flex;
-    width: 50%;
-    margin: 0 auto;
+    flex-direction: row;
+    align-content: center;
     justify-content: center;
     align-items: baseline;
 
     h3 {
-        padding: 0 2%;
+        margin: 0 0.5em;
     }
 }

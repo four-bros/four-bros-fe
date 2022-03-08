@@ -18,7 +18,6 @@ const passingHeaders = [
     'YPG',
     'TDs',
     'INTs',
-    // 'Rating',
 ];
 
 const getPassingInfo = (passingLeaders) => {
@@ -26,7 +25,9 @@ const getPassingInfo = (passingLeaders) => {
 
     passingLeaders.map((leader) => {
         return renderedInfo.push([
-            `${leader.player_details.first_name} ${leader.player_details.last_name}`,
+            <Link to={`/players/${leader.player_details.id}`}>
+                {leader.player_details.first_name} {leader.player_details.last_name}
+            </Link>,
             leader.passing_stats.completions,
             leader.passing_stats.pass_att,
             leader.passing_stats.pass_yards,
@@ -54,7 +55,9 @@ const getRushingInfo = (rushingLeaders) => {
 
     rushingLeaders.map((leader) => {
         return renderedInfo.push([
-            `${leader.player_details.first_name} ${leader.player_details.last_name}`,
+            <Link to={`/players/${leader.player_details.id}`}>
+                {leader.player_details.first_name} {leader.player_details.last_name}
+            </Link>,
             leader.rushing_stats.rush_att,
             leader.rushing_stats.rush_yards,
             leader.rushing_stats.rush_yp_game,
@@ -73,7 +76,9 @@ const getReceivingInfo = (receivingLeaders) => {
 
     receivingLeaders.map((leader) => {
         return renderedInfo.push([
-            `${leader.player_details.first_name} ${leader.player_details.last_name}`,
+            <Link to={`/players/${leader.player_details.id}`}>
+                {leader.player_details.first_name} {leader.player_details.last_name}
+            </Link>,
             leader.receiving_stats.receptions,
             leader.receiving_stats.rec_yards,
             leader.receiving_stats.rec_yp_game,
@@ -93,7 +98,9 @@ const getDefendingInfo = (defendingLeaders) => {
 
     defendingLeaders.map((leader) => {
         return renderedInfo.push([
-            `${leader.player_details.first_name} ${leader.player_details.last_name}`,
+            <Link to={`/players/${leader.player_details.id}`}>
+                {leader.player_details.first_name} {leader.player_details.last_name}
+            </Link>,
             leader.defensive_stats.total_tkls,
             leader.defensive_stats.tfl,
             leader.defensive_stats.sacks,
@@ -111,7 +118,9 @@ const getDefTurnoverInfo = (defendingLeaders) => {
 
     defendingLeaders.map((leader) => {
         return renderedInfo.push([
-            `${leader.player_details.first_name} ${leader.player_details.last_name}`,
+            <Link to={`/players/${leader.player_details.id}`}>
+                {leader.player_details.first_name} {leader.player_details.last_name}
+            </Link>,
             leader.defensive_stats.ints_made,
             leader.defensive_stats.forced_fumbles,
             leader.defensive_stats.fumbles_rec,
@@ -130,7 +139,9 @@ const getKickReturnsInfo = (kickReturnLeaders) => {
 
     kickReturnLeaders.map((leader) => {
         return renderedInfo.push([
-            `${leader.player_details.first_name} ${leader.player_details.last_name}`,
+            <Link to={`/players/${leader.player_details.id}`}>
+                {leader.player_details.first_name} {leader.player_details.last_name}
+            </Link>,
             leader.kick_return_stats.kick_returns,
             leader.kick_return_stats.kr_yds,
             leader.kick_return_stats.kr_avg,
@@ -147,7 +158,9 @@ const getPuntReturnsInfo = (puntReturnLeaders) => {
 
     puntReturnLeaders.map((leader) => {
         return renderedInfo.push([
-            `${leader.player_details.first_name} ${leader.player_details.last_name}`,
+            <Link to={`/players/${leader.player_details.id}`}>
+                {leader.player_details.first_name} {leader.player_details.last_name}
+            </Link>,
             leader.punt_return_stats.punt_returns,
             leader.punt_return_stats.pr_yds,
             leader.punt_return_stats.pr_avg,
@@ -174,7 +187,9 @@ const getKickingInfo = (kickingLeaders) => {
 
     kickingLeaders.map((leader) => {
         return renderedInfo.push([
-            `${leader.player_details.first_name} ${leader.player_details.last_name}`,
+            <Link to={`/players/${leader.player_details.id}`}>
+                {leader.player_details.first_name} {leader.player_details.last_name}
+            </Link>,
             leader.kicking_stats.fg_made,
             leader.kicking_stats.fg_att,
             leader.kicking_stats.fg_pct,
@@ -201,7 +216,9 @@ const getPuntingInfo = (puntingLeaders) => {
 
     puntingLeaders.map((leader) => {
         return renderedInfo.push([
-            `${leader.player_details.first_name} ${leader.player_details.last_name}`,
+            <Link to={`/players/${leader.player_details.id}`}>
+                {leader.player_details.first_name} {leader.player_details.last_name}
+            </Link>,
             leader.punting_stats.number_punts,
             leader.punting_stats.total_punt_yards,
             leader.punting_stats.punt_avg,
@@ -269,8 +286,8 @@ export {
     getReceivingInfo,
     defendingHeaders,
     getDefendingInfo,
-    defTurnoverHeaders as turnoverHeaders,
-    getDefTurnoverInfo as getTurnoverInfo,
+    defTurnoverHeaders,
+    getDefTurnoverInfo,
     returnsHeaders,
     getKickReturnsInfo,
     getPuntReturnsInfo,

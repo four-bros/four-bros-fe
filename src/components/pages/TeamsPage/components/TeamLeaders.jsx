@@ -12,8 +12,8 @@ import {
     getReceivingInfo,
     defendingHeaders,
     getDefendingInfo,
-    turnoverHeaders,
-    getTurnoverInfo,
+    defTurnoverHeaders,
+    getDefTurnoverInfo,
     getTopThree,
     returnsHeaders,
     getKickReturnsInfo,
@@ -32,9 +32,7 @@ const TeamLeaders = ({ leaders, infoType }) => {
             <div className='buttonsContainer'>
                 <Button onClick={() => setTableType('offense')}>Offense</Button>
                 <Button onClick={() => setTableType('defense')}>Defense</Button>
-                <Button onClick={() => setTableType('special')}>
-                    Special Teams
-                </Button>
+                <Button onClick={() => setTableType('special')}>Special Teams</Button>
             </div>
 
             {tableType === 'offense' && (
@@ -106,13 +104,13 @@ const TeamLeaders = ({ leaders, infoType }) => {
                     {leaders.defense.length > 0 && (
                         <TableContainer title='Turnovers'>
                             <LargeTable
-                                header={turnoverHeaders}
+                                header={defTurnoverHeaders}
                                 contents={
                                     infoType === 'overview'
-                                        ? getTurnoverInfo(
+                                        ? getDefTurnoverInfo(
                                               getTopThree(leaders.defense)
                                           )
-                                        : getTurnoverInfo(leaders.defense)
+                                        : getDefTurnoverInfo(leaders.defense)
                                 }
                             />
                         </TableContainer>

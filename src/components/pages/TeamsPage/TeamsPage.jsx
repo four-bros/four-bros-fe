@@ -58,6 +58,14 @@ const TeamsPage = () => {
         <div>
             <NavBar />
 
+            <TeamsDropdown
+                options={teamOptions}
+                setSelection={handleChange}
+                selection={selectedTeam}
+            />
+
+            <hr />
+
             <div className='buttonsContainer'>
                 <Button
                     name='overview'
@@ -67,19 +75,13 @@ const TeamsPage = () => {
                     Overview
                 </Button>
                 <Button
-                    name='details'
-                    active={infoType === 'details'}
-                    onClick={() => handleClick('details')}
+                    name='stats'
+                    active={infoType === 'stats'}
+                    onClick={() => handleClick('stats')}
                 >
                     Stats
                 </Button>
             </div>
-
-            <TeamsDropdown
-                options={teamOptions}
-                setSelection={handleChange}
-                selection={selectedTeam}
-            />
 
             <div className='page-container'>
                 {singleTeam && (
@@ -89,6 +91,7 @@ const TeamsPage = () => {
                                 simplifiedTeam={allTeams[selectedTeam]}
                                 overview={singleTeam.team_details}
                                 overallStats={singleTeam.team_stats}
+                                infoType={infoType}
                             />
 
                             <hr/>
