@@ -40,14 +40,44 @@ const PlayerStats = ({ player }) => {
     return (
         <div>
             <div className='buttonsContainer'>
-                <Button onClick={() => setTableType('offense')}>Offense</Button>
-                <Button onClick={() => setTableType('defense')}>Defense</Button>
-                <Button onClick={() => setTableType('special')}>Special Teams</Button>
+                <Button 
+                    name='offense'
+                    active={tableType === 'offense'}
+                    onClick={() => setTableType('offense')}
+                >
+                    Offense
+                </Button>
+                <Button 
+                name='defense'
+                active={tableType === 'defense'}
+                onClick={() => setTableType('defense')}
+                >
+                    Defense
+                </Button>
+                <Button 
+                name='special'
+                active={tableType === 'special'}
+                onClick={() => setTableType('special')}
+                >
+                    Special Teams
+                </Button>
             </div>
             <hr/>
             <div className='buttonsContainer'>
-                <Button onClick={() => setStatsType('season')}>Season</Button>
-                <Button onClick={() => setStatsType('career')}>Career</Button>
+                <Button 
+                name='season'
+                active={statsType === 'season'}
+                onClick={() => setStatsType('season')}
+                >
+                    Season
+                </Button>
+                <Button 
+                name='career'
+                active={statsType === 'career'}
+                onClick={() => setStatsType('career')}
+                >
+                    Career
+                </Button>
             </div>
 
             {tableType === 'offense' && (
