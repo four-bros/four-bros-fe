@@ -1,0 +1,24 @@
+
+.welcomeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: baseline;
+    margin: 0 auto;
+    width: 80%;
+
+    h1 {
+        text-align: center;
+        margin: 3% auto;
+    }
+
+    @media screen and (max-width: 767px) {
+        width: 100%;
+
+
+        h1 {
+            margin: 5% auto;
+        }
+    }
+}
