@@ -11,37 +11,21 @@ const athleticAbilitiesHeaders = [
     'Awr.',
 ];
 
-const getPlayerAthleticAbilities = (player: any) => {
-    const playerAbilities = player.abilities;
-
-    let renderedInfo = [
-        [
-            playerAbilities.overall,
-            playerAbilities.speed,
-            playerAbilities.strength,
-            playerAbilities.agility,
-            playerAbilities.acceleration,
-            playerAbilities.stamina,
-            playerAbilities.jump,
-            playerAbilities.injury,
-            playerAbilities.awareness,
-        ],
-    ];
-
-    return renderedInfo;
-};
+const athleticAbilityFields = new Set([
+    'overall',
+    'speed',
+    'strength',
+    'agility',
+    'acceleration',
+    'stamina',
+    'jump',
+    'injury',
+    'awareness',
+]);
 
 const passingAbilityHeaders = ['Th. Pow.', 'Th. Acc.'];
 
-const getPlayerPassingAbilities = (player: any) => {
-    const playerAbilities = player.abilities;
-
-    let renderedInfo = [
-        [playerAbilities.throwing_power, playerAbilities.throwing_accuracy],
-    ];
-
-    return renderedInfo;
-};
+const passingAbilityFields = new Set(['throwing_power', 'throwing_accuracy']);
 
 const rushingAbilitiesHeaders = [
     'Cry',
@@ -54,42 +38,26 @@ const rushingAbilitiesHeaders = [
     'BCV',
 ];
 
-const getPlayerRushingAbilities = (player: any) => {
-    const playerAbilities = player.abilities;
-
-    let renderedInfo = [
-        [
-            playerAbilities.carry,
-            playerAbilities.break_tackle,
-            playerAbilities.stiff_arm,
-            playerAbilities.trucking,
-            playerAbilities.elusiveness,
-            playerAbilities.spin_move,
-            playerAbilities.juke_move,
-            playerAbilities.ball_carrier_vision,
-        ],
-    ];
-
-    return renderedInfo;
-};
+const rushingAbilityFields = new Set([
+    'cary',
+    'break_tackle',
+    'stiff_arm',
+    'trucking',
+    'elusiveness',
+    'spin_move',
+    'juke_move',
+    'ball_carrier_vision',
+]);
 
 const recAbilitiesHeaders = ['Ctch', 'Rte', 'CiT', 'Rel.', 'Spec. Ctch.'];
 
-const getPlayerRecAbilities = (player: any) => {
-    const playerAbilities = player.abilities;
-
-    let renderedInfo = [
-        [
-            playerAbilities.catch,
-            playerAbilities.route_running,
-            playerAbilities.catch_in_traffic,
-            playerAbilities.release,
-            playerAbilities.spec_catch,
-        ],
-    ];
-
-    return renderedInfo;
-};
+const recAbilityFields = new Set([
+    'catch',
+    'route_running',
+    'catch_in_traffic',
+    'release',
+    'spec_catch',
+]);
 
 const tackleAbilitiesHeaders = [
     'Tkl',
@@ -101,40 +69,24 @@ const tackleAbilitiesHeaders = [
     'Play Rec.',
 ];
 
-const getPlayerTackleAbilities = (player: any) => {
-    const playerAbilities = player.abilities;
-
-    let renderedInfo = [
-        [
-            playerAbilities.tackling,
-            playerAbilities.hit_power,
-            playerAbilities.block_shedding,
-            playerAbilities.power_moves,
-            playerAbilities.finesse_moves,
-            playerAbilities.pursuit,
-            playerAbilities.play_recognition,
-        ],
-    ];
-
-    return renderedInfo;
-};
+const tackleAbilityFields = new Set([
+    'tackling',
+    'hit_power',
+    'block_shedding',
+    'power_moves',
+    'finesse_moves',
+    'pursuit',
+    'play_recognition',
+]);
 
 const coverageAbilitiesHeaders = ['Man', 'Zone', 'Press', 'Catch'];
 
-const getPlayerCoverageAbilities = (player: any) => {
-    const playerAbilities = player.abilities;
-
-    let renderedInfo = [
-        [
-            playerAbilities.man_coverage,
-            playerAbilities.zone_coverage,
-            playerAbilities.press,
-            playerAbilities.catch,
-        ],
-    ];
-
-    return renderedInfo;
-};
+const coverageAbilityFields = new Set([
+    'man_coverage',
+    'zone_coverage',
+    'press',
+    'catch',
+]);
 
 const playerPassingHeaders = [
     'Comp',
@@ -146,119 +98,71 @@ const playerPassingHeaders = [
     'Rtg',
 ];
 
-// Get player stats
-const getPlayerPassingStats = (playerStats: any) => {
-    let renderInfo = [
-        [
-            playerStats.completions,
-            playerStats.pass_att,
-            playerStats.pass_yards,
-            playerStats.pass_yp_game,
-            playerStats.pass_tds,
-            playerStats.ints,
-            playerStats.pass_rating,
-        ],
-    ];
-
-    return renderInfo;
-};
+const passingFields = new Set([
+    'completions',
+    'pass_att',
+    'pass_yards',
+    'pass_yp_game',
+    'pass_tds',
+    'ints',
+    'pass_rating',
+]);
 
 const playerRushingHeaders = ['Att', 'Yds', 'YPG', 'TDs', 'Br Tkl', 'Fum'];
 
-const getPlayerRushingStats = (rushStats: any) => {
-    let renderInfo = [
-        [
-            rushStats.rush_att,
-            rushStats.rush_yards,
-            rushStats.rush_yp_game,
-            rushStats.rush_tds,
-            rushStats.broke_tkls,
-            rushStats.fumbles,
-        ],
-    ];
-
-    return renderInfo;
-};
+const rushingFields = new Set([
+    'rush_att',
+    'rush_yards',
+    'rush_yp_game',
+    'rush_tds',
+    'broke_tkls',
+    'fumbles',
+]);
 
 const playerRecHeaders = ['Rec', 'Yds', 'YPG', 'TDs', 'YAC', 'Drp'];
 
-const getPlayerRecStats = (recStats: any) => {
-    let renderInfo = [
-        [
-            recStats.receptions,
-            recStats.rec_yards,
-            recStats.rec_yp_game,
-            recStats.rec_tds,
-            recStats.yac,
-            recStats.drops,
-        ],
-    ];
-
-    return renderInfo;
-};
+const receivingFields = new Set([
+    'receptions',
+    'rec_yards',
+    'rec_yp_game',
+    'rec_tds',
+    'yac',
+    'drops',
+]);
 
 const playerTackleHeaders = ['Tkls', 'TFL', 'Sacks', 'Pass Def'];
 
-const getPlayerTackleStats = (tackleStats: any) => {
-    let renderInfo = [
-        [
-            tackleStats.total_tkls,
-            tackleStats.tfl,
-            tackleStats.sacks,
-            tackleStats.pass_def,
-        ],
-    ];
-
-    return renderInfo;
-};
+const tackleFields = new Set(['total_tkls', 'tfl', 'sacks', 'pass_def']);
 
 const playerDefToHeaders = ['INTs', 'FF', 'FR', 'TDs', 'Safe.'];
 
-const getPlayerDefToStats = (toStats: any) => {
-    let renderInfo = [
-        [
-            toStats.ints_made,
-            toStats.forced_fumbles,
-            toStats.fumbles_rec,
-            toStats.def_tds,
-            toStats.safeties,
-        ],
-    ];
-
-    return renderInfo;
-};
+const defToFields = new Set([
+    'ints_made',
+    'forced_fumbles',
+    'fumbles_rec',
+    'def_tds',
+    'safeties',
+]);
 
 const playerKrHeaders = ['Ret', 'Yds', 'AVG', 'Long', 'TDs'];
 
-const getPlayerKrStats = (krStats: any) => {
-    let renderInfo = [
-        [
-            krStats.kick_returns,
-            krStats.kr_yds,
-            krStats.kr_avg,
-            krStats.long_kr,
-            krStats.kr_tds,
-        ],
-    ];
-
-    return renderInfo;
-};
+const kickReturnFields = new Set([
+    'kick_returns',
+    'kr_yds',
+    'kr_avg',
+    'long_kr',
+    'kr_tds',
+]);
 
 const playerPrHeaders = ['Ret', 'Yds', 'AVG', 'Long', 'TDs'];
 
-const getPlayerPrStats = (prStats: any) => {
-    let renderInfo = [
-        [
-            prStats.punt_returns,
-            prStats.pr_yds,
-            prStats.pr_avg,
-            prStats.long_pr,
-            prStats.pr_tds,
-        ],
-    ];
-
-    return renderInfo;
-};
+const puntReturnFields = new Set([
+    'punt_returns',
+    'pr_yds',
+    'pr_avg',
+    'long_pr',
+    'pr_tds',
+]);
 
 const playerKickingHeaders = [
     'FG',
@@ -270,67 +174,55 @@ const playerKickingHeaders = [
     'XP %',
 ];
 
-const getPlayerKickingStats = (kickStats: any) => {
-    let renderInfo = [
-        [
-            kickStats.fg_made,
-            kickStats.fg_att,
-            kickStats.fg_pct,
-            kickStats.long_fg,
-            kickStats.xp_made,
-            kickStats.xp_att,
-            kickStats.xp_pct,
-        ],
-    ];
-
-    return renderInfo;
-};
+const kickingFields = new Set([
+    'fg_made',
+    'fg_att',
+    'fg_pct',
+    'long_fg',
+    'xp_made',
+    'xp_att',
+    'xp_pct',
+]);
 
 const playerPuntingHeaders = ['Punts', 'Yds', 'AVG', 'Long', '< 20'];
 
-const getPlayerPuntingStats = (puntStats: any) => {
-    let renderInfo = [
-        [
-            puntStats.number_punts,
-            puntStats.total_punt_yards,
-            puntStats.punt_avg,
-            puntStats.long_punt,
-            puntStats.inside_twenty,
-        ],
-    ];
-
-    return renderInfo;
-};
+const puntingFields = new Set([
+    'number_punts',
+    'total_punt_yards',
+    'punt_avg',
+    'long_punt',
+    'inside_twenty',
+]);
 
 export {
     athleticAbilitiesHeaders,
-    getPlayerAthleticAbilities,
     passingAbilityHeaders,
-    getPlayerPassingAbilities,
     rushingAbilitiesHeaders,
-    getPlayerRushingAbilities,
     recAbilitiesHeaders,
-    getPlayerRecAbilities,
     tackleAbilitiesHeaders,
-    getPlayerTackleAbilities,
     coverageAbilitiesHeaders,
-    getPlayerCoverageAbilities,
     playerPassingHeaders,
-    getPlayerPassingStats,
     playerRushingHeaders,
-    getPlayerRushingStats,
     playerRecHeaders,
-    getPlayerRecStats,
     playerTackleHeaders,
-    getPlayerTackleStats,
     playerDefToHeaders,
-    getPlayerDefToStats,
     playerKrHeaders,
-    getPlayerKrStats,
     playerPrHeaders,
-    getPlayerPrStats,
     playerKickingHeaders,
-    getPlayerKickingStats,
     playerPuntingHeaders,
-    getPlayerPuntingStats,
+    athleticAbilityFields,
+    passingAbilityFields,
+    rushingAbilityFields,
+    recAbilityFields,
+    tackleAbilityFields,
+    coverageAbilityFields,
+    passingFields,
+    rushingFields,
+    receivingFields,
+    tackleFields,
+    defToFields,
+    kickReturnFields,
+    puntReturnFields,
+    kickingFields,
+    puntingFields,
 };

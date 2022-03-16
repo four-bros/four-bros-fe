@@ -1,29 +1,30 @@
 import * as React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Table } from 'semantic-ui-react';
 
 import { TableContainer, LargeTable } from 'components/common';
 
 import {
     playerPassingHeaders,
-    getPlayerPassingStats,
     playerRushingHeaders,
-    getPlayerRushingStats,
     playerRecHeaders,
-    getPlayerRecStats,
     playerTackleHeaders,
-    getPlayerTackleStats,
     playerDefToHeaders,
-    getPlayerDefToStats,
     playerKrHeaders,
-    getPlayerKrStats,
     playerPrHeaders,
-    getPlayerPrStats,
     playerKickingHeaders,
-    getPlayerKickingStats,
     playerPuntingHeaders,
-    getPlayerPuntingStats,
+    passingFields,
+    rushingFields,
+    receivingFields,
+    tackleFields,
+    defToFields,
+    kickReturnFields,
+    puntReturnFields,
+    kickingFields,
+    puntingFields,
 } from '../tableTransform';
 import { PlayerStatsStructure } from 'api/players';
+import { getFields } from 'utils';
 
 type Props = {
     player: PlayerStatsStructure;
@@ -32,13 +33,29 @@ type Props = {
 const PlayerStats = ({ player }: Props) => {
     const [tableType, setTableType] = React.useState('offense');
     const [statsType, setStatsType] = React.useState('season');
-    let stats;
+    let stats: any;
 
     if (statsType === 'season') {
         stats = player.season_stats;
     } else {
         stats = player.career_stats;
     }
+
+    const fieldRows = (fields: Set<string>, fieldType: string) => {
+        console.log(stats);
+        const values = Array.from(getFields(stats[fieldType], fields));
+        console.log(values);
+
+        return (
+            <>
+                <Table.Row>
+                    {values.map((value, idx) => (
+                        <Table.Cell key={`${value}-${idx}`}>{value}</Table.Cell>
+                    ))}
+                </Table.Row>
+            </>
+        );
+    };
 
     return (
         <div>
@@ -89,16 +106,7 @@ const PlayerStats = ({ player }: Props) => {
                         <TableContainer title='Passing'>
                             <LargeTable
                                 header={playerPassingHeaders}
-                                contents={
-                                    statsType === 'season' &&
-                                    player.season_stats.passing
-                                        ? getPlayerPassingStats(
-                                              player.season_stats.passing
-                                          )
-                                        : getPlayerPassingStats(
-                                              player.career_stats.passing
-                                          )
-                                }
+                                contents={fieldRows(passingFields, 'passing')}
                             />
                         </TableContainer>
                     )}
@@ -107,33 +115,19 @@ const PlayerStats = ({ player }: Props) => {
                         <TableContainer title='Rushing'>
                             <LargeTable
                                 header={playerRushingHeaders}
-                                contents={
-                                    statsType === 'season' &&
-                                    player.season_stats.rushing
-                                        ? getPlayerRushingStats(
-                                              player.season_stats.rushing
-                                          )
-                                        : getPlayerRushingStats(
-                                              player.career_stats.rushing
-                                          )
-                                }
+                                contents={fieldRows(rushingFields, 'rushing')}
                             />
                         </TableContainer>
                     )}
+
                     {stats.receiving && (
                         <TableContainer title='Receiving'>
                             <LargeTable
                                 header={playerRecHeaders}
-                                contents={
-                                    statsType === 'season' &&
-                                    player.season_stats.receiving
-                                        ? getPlayerRecStats(
-                                              player.season_stats.receiving
-                                          )
-                                        : getPlayerRecStats(
-                                              player.career_stats.receiving
-                                          )
-                                }
+                                contents={fieldRows(
+                                    receivingFields,
+                                    'receiving'
+                                )}
                             />
                         </TableContainer>
                     )}
@@ -145,33 +139,16 @@ const PlayerStats = ({ player }: Props) => {
                         <TableContainer title='Defense'>
                             <LargeTable
                                 header={playerTackleHeaders}
-                                contents={
-                                    statsType === 'season' &&
-                                    player.season_stats.defensive
-                                        ? getPlayerTackleStats(
-                                              player.season_stats.defensive
-                                          )
-                                        : getPlayerTackleStats(
-                                              player.career_stats.defensive
-                                          )
-                                }
+                                contents={fieldRows(tackleFields, 'defensive')}
                             />
                         </TableContainer>
                     )}
+
                     {stats.defensive && (
                         <TableContainer title='Turnovers'>
                             <LargeTable
                                 header={playerDefToHeaders}
-                                contents={
-                                    statsType === 'season' &&
-                                    player.season_stats.defensive
-                                        ? getPlayerDefToStats(
-                                              player.season_stats.defensive
-                                          )
-                                        : getPlayerDefToStats(
-                                              player.career_stats.defensive
-                                          )
-                                }
+                                contents={fieldRows(defToFields, 'defensive')}
                             />
                         </TableContainer>
                     )}
@@ -184,67 +161,40 @@ const PlayerStats = ({ player }: Props) => {
                         <TableContainer title='Kick Return'>
                             <LargeTable
                                 header={playerKrHeaders}
-                                contents={
-                                    statsType === 'season' &&
-                                    player.season_stats.kick_return
-                                        ? getPlayerKrStats(
-                                              player.season_stats.kick_return
-                                          )
-                                        : getPlayerKrStats(
-                                              player.career_stats.kick_return
-                                          )
-                                }
+                                contents={fieldRows(
+                                    kickReturnFields,
+                                    'kick_return'
+                                )}
                             />
                         </TableContainer>
                     )}
+
                     {stats.punt_return && (
                         <TableContainer title='Punt Return'>
                             <LargeTable
                                 header={playerPrHeaders}
-                                contents={
-                                    statsType === 'season' &&
-                                    player.season_stats.punt_return
-                                        ? getPlayerPrStats(
-                                              player.season_stats.punt_return
-                                          )
-                                        : getPlayerPrStats(
-                                              player.career_stats.punt_return
-                                          )
-                                }
+                                contents={fieldRows(
+                                    puntReturnFields,
+                                    'punt_return'
+                                )}
                             />
                         </TableContainer>
                     )}
+
                     {stats.kicking && (
                         <TableContainer title='Kicking'>
                             <LargeTable
                                 header={playerKickingHeaders}
-                                contents={
-                                    statsType === 'season' &&
-                                    player.season_stats.kicking
-                                        ? getPlayerKickingStats(
-                                              player.season_stats.kicking
-                                          )
-                                        : getPlayerKickingStats(
-                                              player.career_stats.kicking
-                                          )
-                                }
+                                contents={fieldRows(kickingFields, 'kicking')}
                             />
                         </TableContainer>
                     )}
+
                     {stats.punting && (
                         <TableContainer title='Punting'>
                             <LargeTable
                                 header={playerPuntingHeaders}
-                                contents={
-                                    statsType === 'season' &&
-                                    player.season_stats.punting
-                                        ? getPlayerPuntingStats(
-                                              player.season_stats.punting
-                                          )
-                                        : getPlayerPuntingStats(
-                                              player.career_stats.punting
-                                          )
-                                }
+                                contents={fieldRows(puntingFields, 'punting')}
                             />
                         </TableContainer>
                     )}
