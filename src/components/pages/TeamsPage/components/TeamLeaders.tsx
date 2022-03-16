@@ -72,17 +72,17 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
         return (
             <>
                 {conditionalLeaders.map((leader: any, idx: number) => {
-                    const otherFields = getFields(
-                        leader[fieldType],
-                        fields,
-                        infoType
-                    );
+                    const otherFields = getFields(leader[fieldType], fields);
                     const fieldsArr = Array.from(otherFields);
 
                     return (
-                        <>
+                        <React.Fragment
+                            key={`row-${idx}-${leader.player_details.id}`}
+                        >
                             <Table.Row>
-                                <Table.Cell>
+                                <Table.Cell
+                                    key={`cell-${leader.player_details.id}`}
+                                >
                                     <Link
                                         to={`/players/${leader.player_details.id}`}
                                     >
@@ -90,13 +90,19 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
                                         {leader.player_details.last_name}
                                     </Link>
                                 </Table.Cell>
-                                {fieldsArr.map((fieldValue: any) => {
-                                    return (
-                                        <Table.Cell>{fieldValue}</Table.Cell>
-                                    );
-                                })}
+                                {fieldsArr.map(
+                                    (fieldValue: string, idx: number) => {
+                                        return (
+                                            <Table.Cell
+                                                key={`cell-${idx}-${fieldValue}`}
+                                            >
+                                                {fieldValue}
+                                            </Table.Cell>
+                                        );
+                                    }
+                                )}
                             </Table.Row>
-                        </>
+                        </React.Fragment>
                     );
                 })}
             </>
@@ -104,7 +110,7 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
     };
 
     return (
-        <div>
+        <>
             <div className='buttonsContainer'>
                 <Button
                     name='offense'
@@ -257,7 +263,7 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
                     )}
                 </>
             )}
-        </div>
+        </>
     );
 };
 

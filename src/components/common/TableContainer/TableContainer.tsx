@@ -1,6 +1,13 @@
+import React from 'react';
 import style from './tableContainer.module.scss';
 
-const TableContainer = ({ title, children, small }: any) => {
+type Props = {
+    title: string;
+    children: React.ReactNode;
+    small?: boolean;
+};
+
+const TableContainer = ({ title, children, small }: Props) => {
     return (
         <>
             {small ? (

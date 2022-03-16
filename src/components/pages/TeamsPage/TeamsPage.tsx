@@ -76,7 +76,7 @@ const TeamsPage = () => {
     };
 
     return (
-        <div>
+        <>
             <NavBar />
 
             <TeamsDropdown
@@ -133,7 +133,7 @@ const TeamsPage = () => {
                     </div>
                 )}
             </div>
-        </div>
+        </>
     );
 };
 

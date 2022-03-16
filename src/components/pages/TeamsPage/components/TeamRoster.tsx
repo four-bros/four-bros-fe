@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { LargeTable, TableContainer } from 'components/common';
 import { Link } from 'react-router-dom';
 import { Table } from 'semantic-ui-react';
@@ -11,13 +12,12 @@ type Props = {
 const TeamRoster = ({ roster }: Props) => {
     const getRosterInfo = () => {
         return roster.map((player: RosterPlayer) => (
-            <>
+            <React.Fragment key={player.id}>
                 <Table.Row>
                     <Table.Cell>
                         <Link to={`/players/${player.id}`}>
                             {player.first_name} {player.last_name}
                         </Link>
-                        ,
                     </Table.Cell>
                     <Table.Cell>{player.player_year}</Table.Cell>
                     <Table.Cell>
@@ -27,16 +27,16 @@ const TeamRoster = ({ roster }: Props) => {
                     <Table.Cell>{player.position}</Table.Cell>
                     <Table.Cell>{player.overall}</Table.Cell>
                 </Table.Row>
-            </>
+            </React.Fragment>
         ));
     };
 
     return (
-        <div>
+        <>
             <TableContainer title='Roster'>
                 <LargeTable header={rosterHeaders} contents={getRosterInfo()} />
             </TableContainer>
-        </div>
+        </>
     );
 };
 
