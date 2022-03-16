@@ -1,8 +1,6 @@
-import * as React from 'react';
-
 import style from './tableContainer.module.scss';
 
-const TableContainer = ({ title, children, small }) => {
+const TableContainer = ({ title, children, small }: any) => {
     return (
         <>
             {small ? (

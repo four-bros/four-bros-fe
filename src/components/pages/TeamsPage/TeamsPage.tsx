@@ -5,52 +5,73 @@ import { Teams } from 'api';
 
 import { TeamsDropdown, NavBar } from 'components/common';
 
+import type { SingleTeamInfo, Team } from 'api/teams';
+
+import { SingleTeamLeaders } from 'api/teams';
+
 import TeamOverview from './components/TeamOverview';
 import TeamRoster from './components/TeamRoster';
 import TeamLeaders from './components/TeamLeaders';
 
+interface DropdownTeamOption {
+    key: number;
+    value: number;
+    text: string;
+}
+
 const TeamsPage = () => {
+    // console.log(navigator.userAgent);
+
     const isFirstRender = React.useRef(true);
-    const [allTeams, setAllTeams] = React.useState();
-    const [teamOptions, setTeamOptions] = React.useState();
-    const [selectedTeam, setSelectedTeam] = React.useState(null);
-    const [singleTeam, setSingleTeam] = React.useState();
-    const [teamLeaders, setTeamLeaders] = React.useState();
-    const [infoType, setInfoType] = React.useState('overview');
+    const [allTeams, setAllTeams] = React.useState<Team[]>();
+    const [teamOptions, setTeamOptions] =
+        React.useState<DropdownTeamOption[]>();
+    const [selectedTeam, setSelectedTeam] = React.useState<any>(null);
+    const [singleTeam, setSingleTeam] = React.useState<SingleTeamInfo>();
+    const [teamLeaders, setTeamLeaders] = React.useState<SingleTeamLeaders>();
+    const [infoType, setInfoType] = React.useState<string>('overview');
 
     React.useEffect(() => {
         if (isFirstRender.current) {
             (async () => {
                 const teams = await Teams.getTeams();
-                let newList = [];
-                for (let i = 0; i < teams.length; i++) {
-                    newList.push({
-                        key: teams[i].id,
-                        value: i,
-                        text: `${teams[i].team_name} ${teams[i].nickname}`,
-                    });
+                let newList: DropdownTeamOption[] = [];
+                if (teams) {
+                    for (let i = 0; i < teams.length; i++) {
+                        newList.push({
+                            key: teams[i].id,
+                            value: i,
+                            text: `${teams[i].team_name} ${teams[i].nickname}`,
+                        });
+                    }
+                    setTeamOptions(newList);
+                    setAllTeams(teams);
                 }
-                setTeamOptions(newList);
-                setAllTeams(teams);
             })();
             isFirstRender.current = false;
             return;
         }
     }, []);
 
-    const handleChange = (_, { value }) => {
+    const handleChange = (_: any, { value }: any) => {
         setSelectedTeam(value);
         getTeam(value);
     };
 
-    const getTeam = async (idx) => {
-        const team = await Teams.getSingleTeam(allTeams[idx].id);
-        const leaders = await Teams.getSingleTeamLeaders(allTeams[idx].id);
-        setTeamLeaders(leaders);
-        setSingleTeam(team);
+    const getTeam = async (idx: string) => {
+        if (allTeams) {
+            const team = await Teams.getSingleTeam(allTeams[idx].id);
+            const leaders = await Teams.getSingleTeamLeaders(allTeams[idx].id);
+            if (leaders) {
+                setTeamLeaders(leaders);
+            }
+            if (team) {
+                setSingleTeam(team);
+            }
+        }
     };
 
-    const handleClick = (value) => {
+    const handleClick = (value: string) => {
         setInfoType(value);
     };
 
@@ -84,7 +105,7 @@ const TeamsPage = () => {
             </div>
 
             <div className='page-container'>
-                {singleTeam && (
+                {allTeams && singleTeam && (
                     <div>
                         <>
                             <TeamOverview
@@ -94,14 +115,16 @@ const TeamsPage = () => {
                                 infoType={infoType}
                             />
 
-                            <hr/>
+                            <hr />
 
-                            <TeamLeaders
-                                leaders={teamLeaders}
-                                infoType={infoType}
-                            />
+                            {teamLeaders && (
+                                <TeamLeaders
+                                    leaders={teamLeaders}
+                                    infoType={infoType}
+                                />
+                            )}
 
-                            <hr/>
+                            <hr />
 
                             {infoType === 'overview' && (
                                 <TeamRoster roster={singleTeam.team_roster} />
