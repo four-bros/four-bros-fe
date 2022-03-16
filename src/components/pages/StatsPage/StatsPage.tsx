@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { NavBar } from 'components/common';
 
 const StatsPage = () => {

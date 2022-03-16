@@ -1,8 +1,6 @@
-import * as React from 'react';
-
 import { NavBar } from 'components/common';
 
-const HallOfFamePage = () => {
+const RecordsPage = () => {
     return (
         <div>
             <NavBar />
@@ -13,4 +11,4 @@ const HallOfFamePage = () => {
     );
 };
 
-export default HallOfFamePage;
+export default RecordsPage;
