@@ -5,7 +5,6 @@ import { Button, Table } from 'semantic-ui-react';
 import { TableContainer, LargeTable } from 'components/common';
 
 import {
-    getFields,
     getTopThree,
     passingHeaders,
     passingFields,
@@ -25,6 +24,8 @@ import {
     puntingHeaders,
     puntingFields,
 } from '../tableTransform';
+
+import { getFields } from 'utils';
 
 import type {
     SingleTeamLeaders,

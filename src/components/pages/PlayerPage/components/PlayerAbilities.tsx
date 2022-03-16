@@ -16,37 +16,42 @@ import {
     coverageAbilitiesHeaders,
     getPlayerCoverageAbilities,
 } from '../tableTransform';
+import { PlayerStatsStructure } from 'api/players';
+import { getFields } from 'utils';
 
-const PlayerAbilities = ({ player }) => {
-    
+type Props = {
+    player: PlayerStatsStructure;
+};
+
+const PlayerAbilities = ({ player }: Props) => {
     const [tableType, setTableType] = React.useState('athletic');
 
     return (
         <div>
             <div className='buttonsContainer'>
-                <Button 
-                name='athletic'
-                active={tableType === 'athletic'}
-                onClick={() => setTableType('athletic')}
+                <Button
+                    name='athletic'
+                    active={tableType === 'athletic'}
+                    onClick={() => setTableType('athletic')}
                 >
                     Athletic
                 </Button>
-                <Button 
-                name='offense'
-                active={tableType === 'offense'}
-                onClick={() => setTableType('offense')}
+                <Button
+                    name='offense'
+                    active={tableType === 'offense'}
+                    onClick={() => setTableType('offense')}
                 >
                     Offense
                 </Button>
-                <Button 
-                name='defense'
-                active={tableType === 'defense'}
-                onClick={() => setTableType('defense')}
+                <Button
+                    name='defense'
+                    active={tableType === 'defense'}
+                    onClick={() => setTableType('defense')}
                 >
                     Defense
                 </Button>
             </div>
-           
+
             <div>
                 {tableType === 'athletic' && (
                     <>
@@ -101,10 +106,9 @@ const PlayerAbilities = ({ player }) => {
                         </TableContainer>
                     </>
                 )}
-
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default PlayerAbilities;

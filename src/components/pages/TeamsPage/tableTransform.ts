@@ -19,20 +19,6 @@ const getOverviewInfo = (
     ];
 };
 
-const getFields = (obj: any, fields: Set<string>): Set<string> => {
-    let valuesSet: Set<string> = new Set();
-    // for (const [key, value] of Object.entries(obj)) {
-    //     if (fields.has(key)) {
-    //         valuesSet.add(`${key}-${value}`);
-    //     }
-    // }
-    fields.forEach((element: any) => {
-        valuesSet.add(`${element} -- ${obj[element]}`);
-    });
-
-    return valuesSet;
-};
-
 const passingHeaders = ['Name', 'Comp.', 'Att.', 'Yds', 'YPG', 'TDs', 'INTs'];
 
 const passingFields = new Set([
@@ -204,7 +190,6 @@ export {
     getDefenseOverview,
     getOffenseOverview,
     getTopThree,
-    getFields,
     passingFields,
     rushingFields,
     receivingFields,
