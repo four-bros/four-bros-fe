@@ -85,7 +85,6 @@ export interface PlayerStatsStructure {
 export const getPlayer = async (id: string) => {
     try {
         const response = await baseGet(`/players/${id}`);
-        console.log(response.data);
         return response.data;
     } catch (err) {
         return err;

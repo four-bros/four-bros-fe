@@ -42,9 +42,7 @@ const PlayerStats = ({ player }: Props) => {
     }
 
     const fieldRows = (fields: Set<string>, fieldType: string) => {
-        console.log(stats);
         const values = Array.from(getFields(stats[fieldType], fields));
-        console.log(values);
 
         return (
             <>

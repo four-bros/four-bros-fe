@@ -1,10 +1,16 @@
-import * as React from 'react';
 import 'semantic-ui-css/semantic.min.css';
 import { Dropdown } from 'semantic-ui-react';
 
+import { DropdownTeamOption } from 'components/pages/TeamsPage/TeamsPage';
+
 import style from './teamsDropdown.module.scss';
 
-const TeamsDropdown = ({ options, setSelection, selection }) => {
+type Props = {
+    options: DropdownTeamOption[];
+    setSelection: (_: any, { value }: any) => void;
+    selection?: string;
+};
+const TeamsDropdown = ({ options, setSelection, selection }: Props) => {
     // There is a known bug, for progress updates, see: https://github.com/Semantic-Org/Semantic-UI-React/pull/4233
     return (
         <div className={style.dropdownContainer}>

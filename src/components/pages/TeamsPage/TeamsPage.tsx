@@ -13,15 +13,13 @@ import TeamOverview from './components/TeamOverview';
 import TeamRoster from './components/TeamRoster';
 import TeamLeaders from './components/TeamLeaders';
 
-interface DropdownTeamOption {
+export interface DropdownTeamOption {
     key: number;
     value: number;
     text: string;
 }
 
 const TeamsPage = () => {
-    // console.log(navigator.userAgent);
-
     const isFirstRender = React.useRef(true);
     const [allTeams, setAllTeams] = React.useState<Team[]>();
     const [teamOptions, setTeamOptions] =
@@ -79,11 +77,13 @@ const TeamsPage = () => {
         <>
             <NavBar />
 
-            <TeamsDropdown
-                options={teamOptions}
-                setSelection={handleChange}
-                selection={selectedTeam}
-            />
+            {teamOptions && (
+                <TeamsDropdown
+                    options={teamOptions}
+                    setSelection={handleChange}
+                    selection={selectedTeam}
+                />
+            )}
 
             <hr />
 

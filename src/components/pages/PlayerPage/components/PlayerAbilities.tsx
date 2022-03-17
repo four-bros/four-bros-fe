@@ -28,7 +28,6 @@ const PlayerAbilities = ({ player }: Props) => {
 
     const fieldRows = (fields: Set<string>) => {
         const values = Array.from(getFields(player.abilities, fields));
-        console.log(values);
 
         return (
             <>
