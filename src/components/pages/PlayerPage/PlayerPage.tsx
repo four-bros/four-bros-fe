@@ -23,7 +23,9 @@ const PlayerPage = () => {
         if (isFirstRender.current && playerId) {
             (async () => {
                 const player = await Players.getPlayer(playerId);
-                setSinglePlayer(player);
+                if (player) {
+                    setSinglePlayer(player);
+                }
             })();
 
             isFirstRender.current = false;

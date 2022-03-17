@@ -82,11 +82,13 @@ export interface PlayerStatsStructure {
     };
 }
 
-export const getPlayer = async (id: string) => {
+export const getPlayer = async (
+    id: string
+): Promise<PlayerStatsStructure | void> => {
     try {
         const response = await baseGet(`/players/${id}`);
         return response.data;
     } catch (err) {
-        return err;
+        console.log(err);
     }
 };

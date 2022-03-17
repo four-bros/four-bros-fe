@@ -42,21 +42,23 @@ export const HomePage = () => {
     return (
         <div>
             <NavBar />
-            <div className='page-container'>
-                <div className={style.welcomeContainer}>
-                    <h1>Welcome to 4bros</h1>
-                    <h1>
-                        Week {week}, {year}
-                    </h1>
-                </div>
+            {week && (
+                <div className='page-container'>
+                    <div className={style.welcomeContainer}>
+                        <h1>Welcome to 4bros</h1>
+                        <h1>
+                            Week {week}, {year}
+                        </h1>
+                    </div>
 
-                {teamOptions && (
-                    <TeamsDropdown
-                        options={teamOptions}
-                        setSelection={handleChange}
-                    />
-                )}
-            </div>
+                    {teamOptions && (
+                        <TeamsDropdown
+                            options={teamOptions}
+                            setSelection={handleChange}
+                        />
+                    )}
+                </div>
+            )}
         </div>
     );
 };
