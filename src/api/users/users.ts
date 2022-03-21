@@ -13,6 +13,7 @@ export interface UserTeams {
 export const getUserTeams = async (): Promise<UserTeams | void> => {
     try {
         const response = await baseGet('/users');
+        console.log(response.data);
         return response.data;
     } catch (err) {
         console.log(err);
