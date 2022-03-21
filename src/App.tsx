@@ -11,12 +11,12 @@ function App() {
     return (
         <Router>
             <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/teams" element={<TeamsPage />} />
-                <Route path="/players/:playerId" element={<PlayerPage />} />
-                <Route path="/stats" element={<StatsPage />} />
-                <Route path="/records" element={<RecordsPage />} />
-                <Route path="/hof" element={<HallOfFamePage />} />
+                <Route path='/' element={<HomePage />} />
+                <Route path='/teams' element={<TeamsPage />} />
+                <Route path='/players/:playerId' element={<PlayerPage />} />
+                <Route path='/stats' element={<StatsPage />} />
+                <Route path='/records' element={<RecordsPage />} />
+                <Route path='/hof' element={<HallOfFamePage />} />
             </Routes>
         </Router>
     );

@@ -1,4 +1,3 @@
-import React from 'react';
 import ncaaLogo from 'assets/ncaa_football_logo.png';
 import style from './navBar.module.scss';
 

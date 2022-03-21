@@ -1,6 +1,6 @@
-import * as React from 'react';
-
 import { LargeTable, TableContainer } from 'components/common';
+
+import { Team, TeamDetails, TeamStats } from 'api/teams';
 
 import style from './teamOverview.module.scss';
 
@@ -10,8 +10,19 @@ import {
     getOffenseOverview,
 } from '../tableTransform';
 
-const TeamOverview = ({ simplifiedTeam, overview, overallStats, infoType }) => {
-    console.log(infoType)
+type Props = {
+    simplifiedTeam: Team;
+    overview: TeamDetails;
+    overallStats: TeamStats;
+    infoType: string;
+};
+
+const TeamOverview = ({
+    simplifiedTeam,
+    overview,
+    overallStats,
+    infoType,
+}: Props) => {
     return (
         <div className={style.teamOverview}>
             {/* 1st section */}
@@ -27,17 +38,24 @@ const TeamOverview = ({ simplifiedTeam, overview, overallStats, infoType }) => {
                     <div className={style.teamSummary}>
                         <TableContainer title='Overview' small>
                             <LargeTable
-                                contents={getOverviewInfo(overview, simplifiedTeam)}
+                                contents={getOverviewInfo(
+                                    overview,
+                                    simplifiedTeam
+                                )}
                             />
                         </TableContainer>
                     </div>
                     {/* 3rd section */}
                     <div className={style.tablesContainer}>
                         <TableContainer title='Offense' small>
-                            <LargeTable contents={getOffenseOverview(overallStats)} />
+                            <LargeTable
+                                contents={getOffenseOverview(overallStats)}
+                            />
                         </TableContainer>
                         <TableContainer title='Defense' small>
-                            <LargeTable contents={getDefenseOverview(overallStats)} />
+                            <LargeTable
+                                contents={getDefenseOverview(overallStats)}
+                            />
                         </TableContainer>
                     </div>
                 </>
