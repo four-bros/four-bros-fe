@@ -92,12 +92,13 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
                                     </Link>
                                 </Table.Cell>
                                 {fieldsArr.map(
-                                    (fieldValue: string, idx: number) => {
+                                    (fieldValue: number, idx: number) => {
+                                        const flooredValue = Math.floor(fieldValue)
                                         return (
                                             <Table.Cell
                                                 key={`cell-${idx}-${fieldValue}`}
                                             >
-                                                {fieldValue}
+                                                {flooredValue}
                                             </Table.Cell>
                                         );
                                     }
