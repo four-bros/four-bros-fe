@@ -23,8 +23,18 @@ const TeamOverview = ({
     overallStats,
     infoType,
 }: Props) => {
+    console.log(getOverviewInfo(
+        overview,
+        simplifiedTeam
+    ));
     return (
         <div className={style.teamOverview}>
+            <TableContainer title="Testing Title">
+            <div>
+                <p>1</p>
+                <p>2</p>
+            </div>
+        </TableContainer>
             {/* 1st section */}
             <div className={style.teamName}>
                 <h3>#{simplifiedTeam.coachs_poll_rank}</h3>

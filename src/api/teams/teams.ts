@@ -98,7 +98,6 @@ export const getSingleTeam = async (
 ): Promise<SingleTeamInfo | void> => {
     try {
         const response = await baseGet(`/teams/${teamId}`);
-        console.log(response.data);
         return response.data;
     } catch (err) {
         console.log(err);
