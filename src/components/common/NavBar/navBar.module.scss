@@ -40,6 +40,37 @@
     transition: all 0.3s;
 }
 
+.navDropDownContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-items: center;
+    justify-content: center;
+}
+
+.dropdownBtn {
+    background-color: inherit;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+.dropDownContainer {
+    position: absolute;
+    overflow: auto;
+    z-index: 99999;
+}
+
+.dropdownLink {
+    background-color: inherit;
+    border: none;
+    color: white;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    font-weight: bold;
+}
+
+
 @media screen and (min-width: 767px) {
     .navbarContainer {
         font-weight: bold;

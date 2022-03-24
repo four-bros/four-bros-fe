@@ -86,7 +86,7 @@ const TeamsPage = () => {
 
     return (
         <>
-            <NavBar />
+            {/* <NavBar /> */}
 
             {teamOptions && (
                 <TeamsDropdown

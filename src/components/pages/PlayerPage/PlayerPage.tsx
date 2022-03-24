@@ -39,7 +39,7 @@ const PlayerPage = () => {
 
     return (
         <div>
-            <NavBar />
+            {/* <NavBar /> */}
 
             <div className='page-container'>
                 {singlePlayer && (

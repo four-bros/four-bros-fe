@@ -1,26 +1,40 @@
+import * as React from 'react';
+import { NavLink } from 'react-router-dom';
+import { Dropdown } from 'semantic-ui-react';
+
 import ncaaLogo from 'assets/ncaa_football_logo.png';
 import style from './navBar.module.scss';
 
-const Navbar = () => {
+type Props = {
+    typeHandler: (e: React.MouseEvent<HTMLButtonElement>) => void
+}
+
+const Navbar = ({typeHandler}: Props) => {
+
+    const [isSelected, setIsSelected] = React.useState(false);
+
     return (
         <div className={style.navbarContainer}>
-            <a href='/' className={style.logoLink}>
+            <NavLink to='/' className={style.logoLink}>
                 <img src={ncaaLogo} className={style.navLogo} alt='ncaa logo' />
-            </a>
+            </NavLink>
             <div className={style.navLinksContainer}>
-                <a href='/teams' className={style.navLink}>
-                    Teams
-                </a>
-                <a href='/stats' className={style.navLink}>
-                    Stats
-                </a>
-                <a href='/records' className={style.navLink}>
-                    Records
-                </a>
-                {/* <a href="/recruiting" className="nav_link">Recruiting</a> */}
-                <a href='/hof' className={style.navLink}>
-                    HOF
-                </a>
+                <NavLink to="/teams" className={style.navLink}>Teams</NavLink>
+                <NavLink to="/stats" className={style.navLink}>Stats</NavLink>
+                <div className={style.navDropDownContainer}>
+                    <button className={style.dropdownBtn} onClick={() => setIsSelected(!isSelected)}>Records</button>
+                    {isSelected && (
+                        <>
+                        <div className={style.dropDownContainer}>
+                            <button className={style.dropdownLink} value='career' onClick={(e) => typeHandler(e)}>Career</button>
+                            <button className={style.dropdownLink} value='game' onClick={(e) => typeHandler(e)}>Game</button>
+                            <button className={style.dropdownLink} value='season' onClick={(e) => typeHandler(e)}>Season</button>
+                        </div>
+                        </>
+                    )}
+                </div>
+                <NavLink to="/recruiting" className={style.navLink}>Recruiting</NavLink>
+                <NavLink to="/hof" className={style.navLink}>HOF</NavLink>
             </div>
         </div>
     );

@@ -41,7 +41,7 @@ export const HomePage = () => {
 
     return (
         <div>
-            <NavBar />
+            {/* <NavBar /> */}
             {week && (
                 <div className='page-container'>
                     <div className={style.welcomeContainer}>
