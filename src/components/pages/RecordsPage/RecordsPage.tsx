@@ -16,6 +16,12 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
     const [records, setRecords] = React.useState<RecordsInfo>();
     const [recordCategory, setRecordCategory] = React.useState('total');
 
+    const recordHeaderLower = recordType.recordType.slice(1)
+
+    const recordHeaderUpper = recordType.recordType.charAt(0).toUpperCase()
+
+    const header = recordHeaderUpper + recordHeaderLower + ' Records'
+
 
     React.useEffect(() => {
 
@@ -43,6 +49,8 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
 
     return (
         <>
+            <h1 className={style.header}>{header}</h1>
+
             <div className={style.btnContainer}>
                 <Button
                     name='total'
