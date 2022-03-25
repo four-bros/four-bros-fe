@@ -57,6 +57,13 @@
     font-weight: bold;
 }
 
+.dropdownBtn:hover {
+    color: #cb2c2c;
+    border-bottom: 2px solid #cb2c2c;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
 .dropDownContainer {
     top: 0;
     height: 0;
@@ -73,6 +80,13 @@
     position: relative;
     font-weight: bold;
     overflow: auto;
+}
+
+.dropdownLink:hover {
+    color: #cb2c2c;
+    border-bottom: 2px solid #cb2c2c;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 

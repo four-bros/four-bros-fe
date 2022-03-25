@@ -325,37 +325,23 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
-                        record='blocked_kicks'
+                        record='total_tkls'
                         statCategory='defensive_stats'
-                        fieldName='blocked_kicks'
+                        fieldName='total_tkls'
                     />
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
-                        record='def_tds'
+                        record='total_sack'
                         statCategory='defensive_stats'
-                        fieldName='def_tds'
+                        fieldName='total_sacks'
                     />
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
-                        record='forced_fumbles'
+                        record='tfl'
                         statCategory='defensive_stats'
-                        fieldName='forced_fumbles'
-                    />
-                    <RecordsTable 
-                        recordInfo={records}
-                        genCategory={recordCategory}
-                        record='fum_rec_yards'
-                        statCategory='defensive_stats'
-                        fieldName='fum_rec_yards'
-                    />
-                    <RecordsTable 
-                        recordInfo={records}
-                        genCategory={recordCategory}
-                        record='int_ret_yards'
-                        statCategory='defensive_stats'
-                        fieldName='int_ret_yards'
+                        fieldName='tfl'
                     />
                     <RecordsTable 
                         recordInfo={records}
@@ -374,44 +360,59 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
-                        record='pass_def'
+                        record='forced_fumbles'
                         statCategory='defensive_stats'
-                        fieldName='pass_def'
+                        fieldName='forced_fumbles'
                     />
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
-                        record='sacks'
+                        record='fumbles_rec'
                         statCategory='defensive_stats'
-                        fieldName='sacks'
+                        fieldName='fumbles_rec'
                     />
+                    <RecordsTable 
+                        recordInfo={records}
+                        genCategory={recordCategory}
+                        record='def_tds'
+                        statCategory='defensive_stats'
+                        fieldName='def_tds'
+                    />
+                    <RecordsTable 
+                        recordInfo={records}
+                        genCategory={recordCategory}
+                        record='blocked_kicks'
+                        statCategory='defensive_stats'
+                        fieldName='blocked_kicks'
+                    />
+                    <RecordsTable 
+                        recordInfo={records}
+                        genCategory={recordCategory}
+                        record='fum_rec_yards'
+                        statCategory='defensive_stats'
+                        fieldName='fum_rec_yards'
+                    />
+                    <RecordsTable 
+                        recordInfo={records}
+                        genCategory={recordCategory}
+                        record='int_ret_yards'
+                        statCategory='defensive_stats'
+                        fieldName='int_ret_yards'
+                    />
+                    <RecordsTable 
+                        recordInfo={records}
+                        genCategory={recordCategory}
+                        record='pass_def'
+                        statCategory='defensive_stats'
+                        fieldName='pass_def'
+                    />
+                    
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
                         record='safeties'
                         statCategory='defensive_stats'
                         fieldName='safeties'
-                    />
-                    <RecordsTable 
-                        recordInfo={records}
-                        genCategory={recordCategory}
-                        record='tfl'
-                        statCategory='defensive_stats'
-                        fieldName='tfl'
-                    />
-                    <RecordsTable 
-                        recordInfo={records}
-                        genCategory={recordCategory}
-                        record='total_sack'
-                        statCategory='defensive_stats'
-                        fieldName='total_sacks'
-                    />
-                    <RecordsTable 
-                        recordInfo={records}
-                        genCategory={recordCategory}
-                        record='total_tkls'
-                        statCategory='defensive_stats'
-                        fieldName='total_tkls'
                     />
                 </>
             )}
