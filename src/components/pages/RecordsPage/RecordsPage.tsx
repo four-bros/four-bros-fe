@@ -43,7 +43,7 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
 
     return (
         <>
-            <div className='buttonsContainer'>
+            <div className={style.btnContainer}>
                 <Button
                     name='total'
                     active={recordCategory === 'total'}

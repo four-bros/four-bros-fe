@@ -45,22 +45,22 @@
     flex-flow: column nowrap;
     justify-items: center;
     justify-content: center;
+    background-color: #0d5796;
 }
 
 .dropdownBtn {
+    display: inline-block;
+    position: relative;
     background-color: inherit;
     border: none;
     color: white;
     font-weight: bold;
-    position: relative;
-    display: inline-block;
-
 }
 
 .dropDownContainer {
     top: 0;
-    height: 10px;
-    z-index: 1;
+    height: 0;
+    background-color: inherit;
 }
 
 .dropdownLink {
@@ -68,7 +68,8 @@
     border: none;
     color: white;
     display: block;
-    margin: 10px auto;
+    padding: 10px;
+    width: 70px;
     position: relative;
     font-weight: bold;
     overflow: auto;

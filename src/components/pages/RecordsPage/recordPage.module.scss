@@ -1,6 +1,19 @@
 
+.btnContainer {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 2em auto;
+    width: 90%;
+    justify-content: center;
+}
 
 .recordTableContainer {
     margin: 1em auto;
     width: 80%;
+}
+
+@media screen and (min-width: 767px) {
+    .recordTableContainer {
+        width: 40%;
+    }
 }
