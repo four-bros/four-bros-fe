@@ -28,11 +28,13 @@ const TeamsPage = () => {
     const [singleTeam, setSingleTeam] = React.useState<SingleTeamInfo>();
     const [teamLeaders, setTeamLeaders] = React.useState<SingleTeamLeaders>();
     const [infoType, setInfoType] = React.useState<string>('overview');
+    const [isLoading, setIsLoading] = React.useState(true);
 
     React.useEffect(() => {
         if (isFirstRender.current) {
             (async () => {
                 const teams = await Teams.getTeams();
+                console.log(teams);
                 let newList: DropdownTeamOption[] = [];
                 if (teams) {
                     for (let i = 0; i < teams.length; i++) {
@@ -47,6 +49,7 @@ const TeamsPage = () => {
                 }
             })();
             isFirstRender.current = false;
+            setIsLoading(false)
             return;
         }
     }, []);
@@ -72,6 +75,14 @@ const TeamsPage = () => {
     const handleClick = (value: string) => {
         setInfoType(value);
     };
+
+    if (isLoading) {
+        return (
+            <div className='loading'>
+                <h1>Loading...</h1>
+            </div>
+        )
+    }
 
     return (
         <>

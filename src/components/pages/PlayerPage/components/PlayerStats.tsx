@@ -48,7 +48,9 @@ const PlayerStats = ({ player }: Props) => {
             <>
                 <Table.Row>
                     {values.map((value, idx) => (
-                        <Table.Cell key={`${value}-${idx}`}>{value}</Table.Cell>
+                        <Table.Cell key={`${value}-${idx}`}>
+                            {Math.floor(value)}
+                        </Table.Cell>
                     ))}
                 </Table.Row>
             </>
