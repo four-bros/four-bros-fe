@@ -52,12 +52,15 @@
     border: none;
     color: white;
     font-weight: bold;
+    position: relative;
+    display: inline-block;
+
 }
 
 .dropDownContainer {
-    position: absolute;
-    overflow: auto;
-    z-index: 99999;
+    top: 0;
+    height: 10px;
+    z-index: 1;
 }
 
 .dropdownLink {
@@ -65,9 +68,10 @@
     border: none;
     color: white;
     display: block;
-    margin: 0 auto;
+    margin: 10px auto;
     position: relative;
     font-weight: bold;
+    overflow: auto;
 }
 
 

@@ -1,28 +1,20 @@
 import * as React from 'react';
-// import { useParams } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 
-import { NavBar } from 'components/common';
 import { Records } from 'api';
-
 import { 
     RecordsInfo
 } from 'api/records';
 
 import RecordsTable from './RecordsTable';
+import style from './recordPage.module.scss'
 
 const RecordsPage = (recordType: any, setRecordType: any) => {
     console.log(recordType, setRecordType);
 
     const isFirstRender = React.useRef(true);
-    // const { recordType } = useParams();
     const [records, setRecords] = React.useState<RecordsInfo>();
-    const [infoType, setInfoType] = React.useState('career');
     const [recordCategory, setRecordCategory] = React.useState('total');
-    // const [recordKey, setRecordKey] = React.useState('total')
-    // const [careerRecords, setCareerRecords] = React.useState<RecordsInfo>();
-    // const [gameRecords, setGameRecords] = React.useState<RecordsInfo>();
-    // const [seasonRecords, setSeasonRecords] = React.useState<RecordsInfo>();
 
 
     React.useEffect(() => {
@@ -51,30 +43,6 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
 
     return (
         <>
-            {/* <NavBar setRecordType={setRecordType} /> */}
-            {/* <div className='buttonsContainer'>
-                <Button
-                    name='career'
-                    active={infoType === 'career'}
-                    onClick={() => setInfoType('career')}
-                >
-                    Career
-                </Button>
-                <Button
-                    name='game'
-                    active={infoType === 'game'}
-                    onClick={() => setInfoType('game')}
-                >
-                    Game
-                </Button>
-                <Button
-                    name='season'
-                    active={infoType === 'season'}
-                    onClick={() => setInfoType('season')}
-                >
-                    Season
-                </Button>
-            </div> */}
             <div className='buttonsContainer'>
                 <Button
                     name='total'
@@ -141,7 +109,9 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                 </Button>
             </div>
 
-            {records && infoType === 'career' && recordCategory === 'total' && (
+            <div className={style.recordTableContainer}>
+
+            {records && recordCategory === 'total' && (
                 <>
                     <RecordsTable 
                         recordInfo={records}
@@ -174,7 +144,7 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                 </>
             )}
 
-            {records && infoType === 'career' && recordCategory === 'passing' && (
+            {records && recordCategory === 'passing' && (
                 <>
                     <RecordsTable 
                         recordInfo={records}
@@ -235,7 +205,7 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                 </>
             )}
 
-            {records && infoType === 'career' && recordCategory === 'rushing' && (
+            {records && recordCategory === 'rushing' && (
                 <>
                     <RecordsTable 
                         recordInfo={records}
@@ -296,7 +266,7 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                 </>
             )}
 
-            {records && infoType === 'career' && recordCategory === 'receiving' && (
+            {records && recordCategory === 'receiving' && (
                 <>
                     <RecordsTable 
                         recordInfo={records}
@@ -350,7 +320,7 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                 </>
             )}
 
-            {records && infoType === 'career' && recordCategory === 'defense' && (
+            {records && recordCategory === 'defense' && (
                 <>
                     <RecordsTable 
                         recordInfo={records}
@@ -446,7 +416,7 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                 </>
             )}
 
-            {records && infoType === 'career' && recordCategory === 'kick_return' && (
+            {records && recordCategory === 'kick_return' && (
                 <>
                     <RecordsTable 
                         recordInfo={records}
@@ -486,7 +456,7 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                 </>
             )}
 
-            {records && infoType === 'career' && recordCategory === 'punt_return' && (
+            {records && recordCategory === 'punt_return' && (
                 <>
                     <RecordsTable 
                         recordInfo={records}
@@ -526,7 +496,7 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                 </>
             )}
 
-            {records && infoType === 'career' && recordCategory === 'kicking' && (
+            {records && recordCategory === 'kicking' && (
                 <>
                     <RecordsTable 
                         recordInfo={records}
@@ -545,7 +515,7 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
-                        record='fg_50_plus_made'
+                        record='fg_made_50_plus'
                         statCategory='kicking_stats'
                         fieldName='fg_made_50_plus'
                     />
@@ -559,7 +529,7 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
-                        record='fg_50_plus_pct'
+                        record='fg_made_50_plus_pct'
                         statCategory='kicking_stats'
                         fieldName='fg_50_plus_pct'
                     />
@@ -573,7 +543,7 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                 </>
             )}
 
-            {records && infoType === 'career' && recordCategory === 'punting' && (
+            {records && recordCategory === 'punting' && (
                 <>
                     <RecordsTable 
                         recordInfo={records}
@@ -619,7 +589,7 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                     />
                 </>
             )}
-
+            </div>
         </>
     );
 };
