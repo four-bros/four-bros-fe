@@ -14,4 +14,5 @@ const getFields = (obj: any, fields: Set<string>): Set<number> => {
     return valuesSet;
 };
 
+
 export { getFields };

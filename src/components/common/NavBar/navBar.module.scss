@@ -40,6 +40,42 @@
     transition: all 0.3s;
 }
 
+.navDropDownContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-items: center;
+    justify-content: center;
+    background-color: #0d5796;
+}
+
+.dropdownBtn {
+    display: inline-block;
+    position: relative;
+    background-color: inherit;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+.dropDownContainer {
+    top: 0;
+    height: 0;
+    background-color: inherit;
+}
+
+.dropdownLink {
+    background-color: inherit;
+    border: none;
+    color: white;
+    display: block;
+    padding: 10px;
+    width: 70px;
+    position: relative;
+    font-weight: bold;
+    overflow: auto;
+}
+
+
 @media screen and (min-width: 767px) {
     .navbarContainer {
         font-weight: bold;
