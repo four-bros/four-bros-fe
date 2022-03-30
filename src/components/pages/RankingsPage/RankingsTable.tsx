@@ -15,6 +15,9 @@ type Props = {
 
 const RankingsTable = ( { poll, rankingsArr }: Props ) => {
 
+    const rankedArr: TeamDetails[] = rankingsArr.slice(0, 25);
+    const others: TeamDetails[] = rankingsArr.slice(25, rankingsArr.length);
+
     const fieldRows = (
         poll: string,
         rankingsArr: TeamDetails[]
@@ -68,18 +71,30 @@ const RankingsTable = ( { poll, rankingsArr }: Props ) => {
     };
 
     return (
-        <div>
-            {rankingsArr && (<TableContainer title={getTableHeader(poll)}>
+        <>
+        {rankingsArr && (
+            <TableContainer title={getTableHeader(poll)}>
                 <LargeTable
                     header={['Rank', 'Team', 'Record', 'Pts']}
                     contents={fieldRows(
                         poll,
-                        rankingsArr
+                        rankedArr
                     )}
                 />
             </TableContainer>
             )}
-        </div>
+        {others && (
+            <TableContainer title='Others Receiving Votes'>
+                <LargeTable
+                    header={['Rank', 'Team', 'Record', 'Pts']}
+                    contents={fieldRows(
+                        poll,
+                        others
+                    )}
+                />
+            </TableContainer>
+            )}
+        </>
     )
 
 }
