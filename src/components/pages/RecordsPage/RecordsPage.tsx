@@ -2,24 +2,18 @@ import * as React from 'react';
 import { Button } from 'semantic-ui-react';
 
 import { Records } from 'api';
-import { 
-    RecordsInfo
-} from 'api/records';
-
+import { RecordsInfo} from 'api/records';
 import RecordsTable from './RecordsTable';
 import style from './recordPage.module.scss'
 
 const RecordsPage = (recordType: any, setRecordType: any) => {
-    console.log(recordType, setRecordType);
 
     const isFirstRender = React.useRef(true);
     const [records, setRecords] = React.useState<RecordsInfo>();
     const [recordCategory, setRecordCategory] = React.useState('total');
 
     const recordHeaderLower = recordType.recordType.slice(1)
-
     const recordHeaderUpper = recordType.recordType.charAt(0).toUpperCase()
-
     const header = recordHeaderUpper + recordHeaderLower + ' Records'
 
 
@@ -279,10 +273,11 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
-                        record='drops'
+                        record='rec_yards'
                         statCategory='receiving_stats'
-                        fieldName='drops'
+                        fieldName='rec_yards'
                     />
+
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
@@ -290,27 +285,7 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                         statCategory='receiving_stats'
                         fieldName='rec_tds'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
-                        genCategory={recordCategory}
-                        record='rec_yards'
-                        statCategory='receiving_stats'
-                        fieldName='rec_yards'
-                    />
-                    <RecordsTable 
-                        recordInfo={records}
-                        genCategory={recordCategory}
-                        record='rec_yp_catch'
-                        statCategory='receiving_stats'
-                        fieldName='rec_yp_catch'
-                    />
-                    <RecordsTable 
-                        recordInfo={records}
-                        genCategory={recordCategory}
-                        record='rec_yp_game'
-                        statCategory='receiving_stats'
-                        fieldName='rec_yp_game'
-                    />
+
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
@@ -318,12 +293,37 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                         statCategory='receiving_stats'
                         fieldName='receptions'
                     />
+
+                    <RecordsTable 
+                        recordInfo={records}
+                        genCategory={recordCategory}
+                        record='rec_yp_game'
+                        statCategory='receiving_stats'
+                        fieldName='rec_yp_game'
+                    />
+
+                    <RecordsTable 
+                        recordInfo={records}
+                        genCategory={recordCategory}
+                        record='rec_yp_catch'
+                        statCategory='receiving_stats'
+                        fieldName='rec_yp_catch'
+                    />
+
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
                         record='yac'
                         statCategory='receiving_stats'
                         fieldName='yac'
+                    />
+
+                    <RecordsTable 
+                        recordInfo={records}
+                        genCategory={recordCategory}
+                        record='drops'
+                        statCategory='receiving_stats'
+                        fieldName='drops'
                     />
                 </>
             )}

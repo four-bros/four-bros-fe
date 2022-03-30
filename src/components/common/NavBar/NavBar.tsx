@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Dropdown } from 'semantic-ui-react';
 
 import ncaaLogo from 'assets/ncaa_football_logo.png';
 import style from './navBar.module.scss';
@@ -25,11 +24,11 @@ const Navbar = ({typeHandler}: Props) => {
                     <button className={style.dropdownBtn} onClick={() => setIsSelected(!isSelected)}>Records</button>
                     {isSelected && (
                         <>
-                        <div className={style.dropDownContainer}>
-                            <button className={style.dropdownLink} value='career' onClick={(e) => typeHandler(e)}>Career</button>
-                            <button className={style.dropdownLink} value='game' onClick={(e) => typeHandler(e)}>Game</button>
-                            <button className={style.dropdownLink} value='season' onClick={(e) => typeHandler(e)}>Season</button>
-                        </div>
+                            <div className={style.dropDownContainer}>
+                                <button className={style.dropdownLink} value='career' onClick={(e) => typeHandler(e)}>Career</button>
+                                <button className={style.dropdownLink} value='game' onClick={(e) => typeHandler(e)}>Game</button>
+                                <button className={style.dropdownLink} value='season' onClick={(e) => typeHandler(e)}>Season</button>
+                            </div>
                         </>
                     )}
                 </div>
