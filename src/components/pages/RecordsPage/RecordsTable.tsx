@@ -12,20 +12,10 @@ import {
     Receiving,
     Rushing,
     Total,
-    TotalStats,
-    PlayerDetails,
 } from 'api/teams';
-import { 
-    DefensiveRecordsCategories,
-    KickingRecordsCategories,
-    KickReturnRecordsCategories,
-    PassingRecordsCategories,
-    PuntReturnRecordsCategories,
-    PuntingRecordsCategories,
-    RecordsInfo,
-    TotalRecordsCategories
-} from 'api/records';
+import {  RecordsInfo } from 'api/records';
 import { TableContainer, LargeTable } from 'components/common';
+import { getTableHeader } from 'utils';
 
 
 type Props = {
@@ -64,6 +54,7 @@ const RecordsTable = ( {recordInfo, genCategory, record, statCategory, fieldName
                 {recordArr.map((leader: any, idx: number) => {
 
                     const value = leader[statCategory][fieldName]
+                    const year = leader[statCategory]['year']
 
                     return (
                         <React.Fragment
@@ -87,6 +78,12 @@ const RecordsTable = ( {recordInfo, genCategory, record, statCategory, fieldName
                                 </Table.Cell>
 
                                 <Table.Cell
+                                    key={`cell-${idx}-${year}`}
+                                >
+                                    {year}
+                                </Table.Cell>
+
+                                <Table.Cell
                                     key={`cell-${idx}-${value}`}
                                 >
                                     {value}
@@ -101,9 +98,9 @@ const RecordsTable = ( {recordInfo, genCategory, record, statCategory, fieldName
 
     return (
         <div>
-            {recordInfo && (<TableContainer title={fieldName}>
+            {recordInfo && (<TableContainer title={getTableHeader(fieldName)}>
                 <LargeTable
-                    header={['Name', 'Team', fieldName]}
+                    header={['Name', 'Team', 'Years', getTableHeader(fieldName)]}
                     contents={fieldRows(
                         recordInfo,
                         genCategory,

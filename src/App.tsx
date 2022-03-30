@@ -6,6 +6,7 @@ import HomePage from './components/pages/HomePage/HomePage';
 import TeamsPage from './components/pages/TeamsPage/TeamsPage';
 import PlayerPage from './components/pages/PlayerPage/PlayerPage';
 import StatsPage from './components/pages/StatsPage/StatsPage';
+import RankingsPage from 'components/pages/RankingsPage/RankingsPage';
 import RecordsPage from './components/pages/RecordsPage/RecordsPage';
 import HallOfFamePage from './components/pages/HallOfFamePage/HallOfFamePage';
 
@@ -32,6 +33,7 @@ function App() {
                 <Route path='/teams' element={<TeamsPage />} />
                 <Route path='/players/:playerId' element={<PlayerPage />} />
                 <Route path='/stats' element={<StatsPage />} />
+                <Route path='/rankings' element={<RankingsPage />} />
                 <Route path={`/records/${recordType}`} element={<RecordsPage recordType={recordType} setRecordType={changeType} />} />
                 <Route path='/hof' element={<HallOfFamePage />} />
             </Routes>

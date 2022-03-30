@@ -14,5 +14,21 @@ const getFields = (obj: any, fields: Set<string>): Set<number> => {
     return valuesSet;
 };
 
+const getTableHeader = (header: string): string => {
 
-export { getFields };
+    const words: string[] = header.split('_');
+    let capitalizedWords: string[] = [];
+
+    words.forEach( word => {
+        const upperLetter = word.charAt(0).toUpperCase();
+        const lowerLetters = word.slice(1);
+        capitalizedWords.push(upperLetter + lowerLetters)
+    })
+
+    return (capitalizedWords.join(' '))
+
+}
+
+
+
+export { getFields, getTableHeader };
