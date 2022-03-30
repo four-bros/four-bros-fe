@@ -18,19 +18,21 @@ const Navbar = ({typeHandler}: Props) => {
 
     return (
         <div className={style.navbarContainer}>
-            <NavLink to='/' className={style.logoLink}>
-                <img src={ncaaLogo} className={style.navLogo} alt='ncaa logo' />
-            </NavLink>
+
+            <div className={style.navLogoContainer}>
+                <NavLink to='/' className={style.logoLink}>
+                    <img src={ncaaLogo} className={style.navLogo} alt='ncaa logo' />
+                </NavLink>
+            </div>
+            
             <div className={style.navLinksContainer}>
                 <NavLink to="/teams" className={style.navLink}>Teams</NavLink>
-                {/* <NavLink to="/stats" className={style.navLink}>Season</NavLink> */}
                 <div className={style.navDropDownContainer}>
                     <button className={style.dropdownBtn} onClick={() => setIsSeasonSelected(!isSeasonSelected)}>Season</button>
                     {isSeasonSelected && (
                         <>
                             <div className={style.dropDownContainer}>
-                                <NavLink to='/commits' className={style.dropdownLink} >Commits</NavLink>
-                                <NavLink to='rankings' className={style.dropdownLink} >Rankings</NavLink>
+                                <NavLink to='/rankings' className={style.dropdownLink} >Rankings</NavLink>
                                 <NavLink to="/recruiting" className={style.dropdownLink}>Recruiting</NavLink>
                                 <NavLink to='/stats' className={style.dropdownLink} >Stats</NavLink>
                             </div>
@@ -51,7 +53,6 @@ const Navbar = ({typeHandler}: Props) => {
                         </>
                     )}
                 </div>
-                
             </div>
         </div>
     );
