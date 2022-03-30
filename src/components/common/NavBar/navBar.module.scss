@@ -14,7 +14,14 @@
 }
 
 .navLogo {
-    display: none;
+    margin-left: 1em;
+    height: 3em;
+    width: 4.5em;
+}
+
+.homeIcon {
+    height: 2em;
+    width: 2em;
 }
 
 .logoLink {
@@ -74,12 +81,14 @@
     background-color: inherit;
     border: none;
     color: white;
+    text-align: center;
     display: block;
     padding: 10px;
-    width: 70px;
+    width: 8em;
     position: relative;
     font-weight: bold;
     overflow: auto;
+    z-index: 1;
 }
 
 .dropdownLink:hover {
