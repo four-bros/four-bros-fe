@@ -98,22 +98,25 @@ const TeamsPage = () => {
 
             <hr />
 
-            <div className='buttonsContainer'>
-                <Button
-                    name='overview'
-                    active={infoType === 'overview'}
-                    onClick={() => handleClick('overview')}
-                >
-                    Overview
-                </Button>
-                <Button
-                    name='stats'
-                    active={infoType === 'stats'}
-                    onClick={() => handleClick('stats')}
-                >
-                    Stats
-                </Button>
-            </div>
+            {singleTeam && (
+                <div className='buttonsContainer'>
+                    <Button
+                        name='overview'
+                        active={infoType === 'overview'}
+                        onClick={() => handleClick('overview')}
+                    >
+                        Overview
+                    </Button>
+                    <Button
+                        name='stats'
+                        active={infoType === 'stats'}
+                        onClick={() => handleClick('stats')}
+                    >
+                        Stats
+                    </Button>
+                </div>
+            )}
+
 
             <div className='page-container'>
                 {allTeams && singleTeam && (

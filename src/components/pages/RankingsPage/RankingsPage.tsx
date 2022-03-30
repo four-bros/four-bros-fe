@@ -4,7 +4,6 @@ import { Button } from 'semantic-ui-react';
 import { Rankings } from 'api';
 import BcsTable from './BcsTable';
 import RankingsTable from './RankingsTable';
-import { TeamDetails } from 'api/teams';
 import { RankingsInfo } from 'api/rankings';
 import style from './rankingsPage.module.scss'
 

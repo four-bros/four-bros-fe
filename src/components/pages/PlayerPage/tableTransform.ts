@@ -39,7 +39,7 @@ const rushingAbilitiesHeaders = [
 ];
 
 const rushingAbilityFields = new Set([
-    'cary',
+    'carry',
     'break_tackle',
     'stiff_arm',
     'trucking',
