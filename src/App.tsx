@@ -8,6 +8,7 @@ import PlayerPage from './components/pages/PlayerPage/PlayerPage';
 import StatsPage from './components/pages/StatsPage/StatsPage';
 import RankingsPage from 'components/pages/RankingsPage/RankingsPage';
 import RecordsPage from './components/pages/RecordsPage/RecordsPage';
+import RecruitingPage from 'components/pages/RecruitingPage/RecruitingPage';
 import HallOfFamePage from './components/pages/HallOfFamePage/HallOfFamePage';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
                 <Route path='/stats' element={<StatsPage />} />
                 <Route path='/rankings' element={<RankingsPage />} />
                 <Route path={`/records/${recordType}`} element={<RecordsPage recordType={recordType} setRecordType={changeType} />} />
+                <Route path='/recruiting' element={<RecruitingPage />} />
                 <Route path='/hof' element={<HallOfFamePage />} />
             </Routes>
         </>
