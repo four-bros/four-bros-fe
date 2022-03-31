@@ -37,7 +37,6 @@ const rushingHeaders = [
     'YPC',
     'YPG',
     'TDs',
-    'Br. Tkls',
 ];
 
 const rushingFields = new Set([
@@ -46,10 +45,9 @@ const rushingFields = new Set([
     'rush_yp_carry',
     'rush_yp_game',
     'rush_tds',
-    'broke_tkls',
 ]);
 
-const receivingHeaders = ['Name', 'Rec', 'Yds', 'YPG', 'TDs', 'YAC', 'Drp'];
+const receivingHeaders = ['Name', 'Rec', 'Yds', 'YPG', 'TDs', 'YAC'];
 
 const receivingFields = new Set([
     'receptions',
@@ -57,7 +55,6 @@ const receivingFields = new Set([
     'rec_yp_game',
     'rec_tds',
     'yac',
-    'drops',
 ]);
 
 const defendingHeaders = ['Name', 'Tackles', 'TFL', 'Sacks', 'Pass Def.'];
@@ -133,7 +130,7 @@ const puntingFields = new Set([
     'inside_twenty',
 ]);
 
-const rosterHeaders = ['Name', 'Class', 'Ht/Wt', '#', 'Pos', 'Overall'];
+const rosterHeaders = ['Name', 'Class', 'Ht/Wt', '#', 'Pos', 'Ovr'];
 
 const rosterFields = new Set([
     'player_year',
