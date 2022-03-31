@@ -62,6 +62,11 @@ const RecordsTable = ( {recordInfo, genCategory, record, statCategory, fieldName
                         >
                             <Table.Row>
                                 <Table.Cell
+                                    key={`cell-${idx+1}`}
+                                >
+                                    {idx+1}
+                                </Table.Cell>
+                                <Table.Cell
                                     key={`cell-${leader.player_details.id}`}
                                 >
                                     <Link
@@ -100,7 +105,7 @@ const RecordsTable = ( {recordInfo, genCategory, record, statCategory, fieldName
         <div>
             {recordInfo && (<TableContainer title={getTableHeader(fieldName)}>
                 <LargeTable
-                    header={['Name', 'Team', 'Years', getTableHeader(fieldName)]}
+                    header={['#', 'Name', 'Team', 'Years', getTableHeader(fieldName)]}
                     contents={fieldRows(
                         recordInfo,
                         genCategory,

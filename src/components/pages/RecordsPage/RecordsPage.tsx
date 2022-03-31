@@ -571,16 +571,16 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
-                        record='inside_twenty'
+                        record='net_avg'
                         statCategory='punting_stats'
-                        fieldName='inside_twenty'
+                        fieldName='net_avg'
                     />
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
-                        record='net_punting'
+                        record='inside_twenty'
                         statCategory='punting_stats'
-                        fieldName='net_punting'
+                        fieldName='inside_twenty'
                     />
                     <RecordsTable 
                         recordInfo={records}
