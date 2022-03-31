@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Users } from 'api';
-import { TeamsDropdown, NavBar } from 'components/common';
+import { TeamsDropdown } from 'components/common';
 
 import style from './homePage.module.scss';
 
@@ -41,7 +41,6 @@ export const HomePage = () => {
 
     return (
         <div>
-            {/* <NavBar /> */}
             {week && (
                 <div className='page-container'>
                     <div className={style.welcomeContainer}>

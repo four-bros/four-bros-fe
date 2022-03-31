@@ -32,7 +32,8 @@ const Navbar = ({typeHandler}: Props) => {
                     {isSeasonSelected && (
                         <>
                             <div className={style.dropDownContainer}>
-                                <NavLink to='/rankings' className={style.dropdownLink} >Rankings</NavLink>
+                                <NavLink to='/leaders' className={style.dropdownLink}>Leaders</NavLink>
+                                <NavLink to='/rankings' className={style.dropdownLink}>Rankings</NavLink>
                                 <NavLink to="/recruiting" className={style.dropdownLink}>Recruiting</NavLink>
                                 <NavLink to='/stats' className={style.dropdownLink} >Stats</NavLink>
                             </div>

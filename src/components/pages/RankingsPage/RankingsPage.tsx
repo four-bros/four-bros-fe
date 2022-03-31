@@ -28,7 +28,7 @@ const RankingsPage = () => {
     return (
         <div>
             <div className={style.headerContainer}>
-                <h1 className={style.header}>Rankings</h1>
+                <h1>Rankings</h1>
             </div>
             
             <div className={style.btnContainer}>

@@ -361,6 +361,13 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
+                        record='pass_def'
+                        statCategory='defensive_stats'
+                        fieldName='pass_def'
+                    />
+                    <RecordsTable 
+                        recordInfo={records}
+                        genCategory={recordCategory}
                         record='long_int_ret'
                         statCategory='defensive_stats'
                         fieldName='long_int_ret'
@@ -396,6 +403,13 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
+                        record='safeties'
+                        statCategory='defensive_stats'
+                        fieldName='safeties'
+                    />
+                    <RecordsTable 
+                        recordInfo={records}
+                        genCategory={recordCategory}
                         record='fum_rec_yards'
                         statCategory='defensive_stats'
                         fieldName='fum_rec_yards'
@@ -406,21 +420,6 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
                         record='int_ret_yards'
                         statCategory='defensive_stats'
                         fieldName='int_ret_yards'
-                    />
-                    <RecordsTable 
-                        recordInfo={records}
-                        genCategory={recordCategory}
-                        record='pass_def'
-                        statCategory='defensive_stats'
-                        fieldName='pass_def'
-                    />
-                    
-                    <RecordsTable 
-                        recordInfo={records}
-                        genCategory={recordCategory}
-                        record='safeties'
-                        statCategory='defensive_stats'
-                        fieldName='safeties'
                     />
                 </>
             )}

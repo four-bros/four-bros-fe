@@ -1,25 +1,5 @@
-import { TeamDetails, Team, TeamStats } from 'api/teams';
 
-const getOverviewInfo = (
-    overview: TeamDetails,
-    simplifiedTeam: Team
-): [
-    string[],
-    (string | number)[],
-    (string | number)[],
-    (string | number)[],
-    (string | number)[]
-] => {
-    return [
-        ['Record', `${simplifiedTeam.wins} - ${simplifiedTeam.losses}`],
-        ['Overall', overview.avg_overall],
-        ['Offense', overview.avg_offense],
-        ['Defense', overview.avg_defense],
-        ['Sp. Teams', overview.avg_sp_teams],
-    ];
-};
-
-const passingHeaders = ['Name', 'Comp.', 'Att.', 'Yds', 'YPG', 'TDs', 'INTs'];
+const passingHeaders = ['Name', 'Team', 'Comp.', 'Att.', 'Yds', 'YPG', 'TDs', 'INTs'];
 
 const passingFields = new Set([
     'completions',
@@ -142,47 +122,7 @@ const rosterFields = new Set([
     'overall',
 ]);
 
-const getOffenseOverview = (
-    overallStats: TeamStats
-): [
-    (string | number)[],
-    (string | number)[],
-    (string | number)[],
-    (string | number)[]
-] => {
-    return [
-        ['PPG', overallStats.ppg],
-        ['Total YPG', overallStats.total_ypg],
-        ['Rush YPG', overallStats.rush_ypg],
-        ['Pass YPG', overallStats.pass_ypg],
-    ];
-};
-
-const getDefenseOverview = (
-    overallStats: TeamStats
-): [
-    (string | number)[],
-    (string | number)[],
-    (string | number)[],
-    (string | number)[]
-] => {
-    return [
-        ['TOs', overallStats.turnovers],
-        ['INTs', overallStats.ints],
-        ['Fumbles', overallStats.fr],
-        ['Def. TDs', overallStats.def_tds],
-    ];
-};
-
-const getTopThree = (topPerformers: Array<any>): Array<any> => {
-    if (topPerformers.length <= 3) {
-        return topPerformers;
-    }
-    return [topPerformers[0], topPerformers[1], topPerformers[2]];
-};
-
 export {
-    getOverviewInfo,
     passingHeaders,
     rushingHeaders,
     receivingHeaders,
@@ -192,9 +132,6 @@ export {
     kickingHeaders,
     puntingHeaders,
     rosterHeaders,
-    getDefenseOverview,
-    getOffenseOverview,
-    getTopThree,
     passingFields,
     rushingFields,
     receivingFields,
