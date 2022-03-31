@@ -146,7 +146,12 @@ const TeamsPage = () => {
                             <hr />
 
                             {infoType === 'overview' && (
-                                <TeamRoster roster={singleTeam.team_roster} />
+                                <>
+                                    <div className={style.headerContainer}>
+                                        <h1>{singleTeam.team_details.team_name} Roster</h1>
+                                    </div>
+                                    <TeamRoster roster={singleTeam.team_roster} />
+                                </>
                             )}
                         </>
                     </div>
