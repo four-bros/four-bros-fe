@@ -6,7 +6,7 @@ import { RecordsInfo} from 'api/records';
 import RecordsTable from '../RecordsPage/RecordsTable';
 import style from './statsPage.module.scss';
 
-const StatsLeadersPage = () => {
+const SeasonLeadersPage = () => {
 
     const isFirstRender = React.useRef(true);
     const [seasonLeaders, setSeasonLeaders] = React.useState<RecordsInfo>();
@@ -33,7 +33,7 @@ const StatsLeadersPage = () => {
         <div>
             {year && (
                 <div className={style.headerContainer}>
-                    <h1>{year} Season Stats</h1>
+                    <h1>{year} Season Leaders</h1>
                 </div>
             )}
 
@@ -594,4 +594,4 @@ const StatsLeadersPage = () => {
     );
 };
 
-export default StatsLeadersPage;
+export default SeasonLeadersPage;

@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-route
 import HomePage from './components/pages/HomePage/HomePage';
 import TeamsPage from './components/pages/TeamsPage/TeamsPage';
 import PlayerPage from './components/pages/PlayerPage/PlayerPage';
-import StatsLeadersPage from './components/pages/StatsLeadersPage/StatsLeadersPage';
+import SeasonLeadersPage from './components/pages/SeasonLeadersPage/SeasonLeadersPage';
 import StatsPage from 'components/pages/StatsPage/StatsPage';
 import RankingsPage from 'components/pages/RankingsPage/RankingsPage';
 import RecordsPage from './components/pages/RecordsPage/RecordsPage';
@@ -34,7 +34,7 @@ function App() {
                 <Route path='/' element={<HomePage />} />
                 <Route path='/teams' element={<TeamsPage />} />
                 <Route path='/players/:playerId' element={<PlayerPage />} />
-                <Route path='/leaders' element={<StatsLeadersPage />} />
+                <Route path='/leaders' element={<SeasonLeadersPage />} />
                 <Route path='/rankings' element={<RankingsPage />} />
                 <Route path={`/records/${recordType}`} element={<RecordsPage recordType={recordType} setRecordType={changeType} />} />
                 <Route path='/recruiting' element={<RecruitingPage />} />
