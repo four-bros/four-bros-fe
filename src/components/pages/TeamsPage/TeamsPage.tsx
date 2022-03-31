@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Button } from 'semantic-ui-react';
 import { Teams } from 'api';
 
-import { TeamsDropdown, NavBar } from 'components/common';
+import { TeamsDropdown } from 'components/common';
 
 import type { SingleTeamInfo, Team } from 'api/teams';
 
@@ -86,7 +86,6 @@ const TeamsPage = () => {
 
     return (
         <>
-            {/* <NavBar /> */}
 
             {teamOptions && (
                 <TeamsDropdown
