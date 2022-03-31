@@ -18,13 +18,13 @@
     justify-content: center;
 }
 
-.recordTableContainer {
+.tableContainer {
     margin: 1em auto;
     width: 90%;
 }
 
 @media screen and (min-width: 767px) {
-    .recordTableContainer {
-        width: 40%;
+    .tableContainer {
+        width: 50%;
     }
 }
