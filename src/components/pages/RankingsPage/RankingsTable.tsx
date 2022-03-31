@@ -23,7 +23,6 @@ const RankingsTable = ( { poll, rankingsArr }: Props ) => {
         rankingsArr: TeamDetails[]
     ) => {
 
-
         return (
             <>
                 {rankingsArr.map((leader: any, idx: number) => {
