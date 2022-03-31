@@ -1,14 +1,12 @@
 import { LargeTable, TableContainer } from 'components/common';
-
 import { Team, TeamDetails, TeamStats } from 'api/teams';
-
 import style from './teamOverview.module.scss';
-
 import {
     getOverviewInfo,
     getDefenseOverview,
     getOffenseOverview,
 } from '../tableTransform';
+
 
 type Props = {
     simplifiedTeam: Team;
@@ -47,12 +45,13 @@ const TeamOverview = ({
                         </TableContainer>
                     </div>
                     {/* 3rd section */}
-                    <div className={style.tablesContainer}>
+                    <div className={style.teamStatsContainer}>
                         <TableContainer title='Offense' small>
                             <LargeTable
                                 contents={getOffenseOverview(overallStats)}
                             />
                         </TableContainer>
+
                         <TableContainer title='Defense' small>
                             <LargeTable
                                 contents={getDefenseOverview(overallStats)}

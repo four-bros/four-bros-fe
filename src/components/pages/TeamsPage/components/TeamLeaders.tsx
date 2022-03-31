@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Button, Table } from 'semantic-ui-react';
 
 import { TableContainer, LargeTable } from 'components/common';
-
 import {
     getTopThree,
     passingHeaders,
@@ -24,9 +23,7 @@ import {
     puntingHeaders,
     puntingFields,
 } from '../tableTransform';
-
 import { getFields } from 'utils';
-
 import type {
     SingleTeamLeaders,
     Defense,
@@ -39,6 +36,7 @@ import type {
     Rushing,
     Total,
 } from 'api/teams';
+import style from '../teamsPage.module.scss';
 
 type Props = {
     leaders: SingleTeamLeaders;
@@ -113,7 +111,7 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
 
     return (
         <>
-            <div className='buttonsContainer'>
+            <div className={style.btnContainer}>
                 <Button
                     name='offense'
                     active={tableType === 'offense'}
