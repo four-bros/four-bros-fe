@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Button } from 'semantic-ui-react';
 
 import { Stats, Users } from 'api';
 import { RecordsInfo} from 'api/records';
