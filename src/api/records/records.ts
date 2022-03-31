@@ -13,24 +13,24 @@ import {
 } from '../teams';
 
 
-export interface DefensiveRecordsCategories {
-    blocked_kicks_leaders: Defense[],
-    def_tds_leaders: Defense[],
-    forced_fumbles_leaders: Defense[],
-    fum_rec_yards_leaders: Defense[],
-    fumbles_rec_leaders: Defense[],
-    int_ret_yards_leaders: Defense[],
-    ints_made_leaders: Defense[],
-    long_int_ret_leaders: Defense[],
-    pass_def_leaders: Defense[],
-    sacks_leaders: Defense[],
-    safeties_leaders: Defense[],
-    tfl_leaders: Defense[],
-    total_sack_leaders: Defense[],
-    total_tkls_leaders: Defense[]
+export interface DefensiveLeadersCategories {
+    blocked_kicks: Defense[],
+    def_tds: Defense[],
+    forced_fumbles: Defense[],
+    fum_rec_yards: Defense[],
+    fumbles_rec: Defense[],
+    int_ret_yards: Defense[],
+    ints_made: Defense[],
+    long_int_ret: Defense[],
+    pass_def: Defense[],
+    sacks: Defense[],
+    safeties: Defense[],
+    tfl: Defense[],
+    total_sack: Defense[],
+    total_tkls: Defense[]
 }
 
-export interface KickReturnRecordsCategories {
+export interface KickReturnLeadersCategories {
     kick_returns: KickReturn[],
     kr_avg: KickReturn[],
     kr_tds: KickReturn[],
@@ -38,7 +38,7 @@ export interface KickReturnRecordsCategories {
     long_kr: KickReturn[]
 }
 
-export interface KickingRecordsCategories {
+export interface KickingLeadersCategories {
     fg_50_plus_made: Kicking[],
     fg_50_plus_pct: Kicking[],
     fg_att: Kicking[],
@@ -47,7 +47,7 @@ export interface KickingRecordsCategories {
     long_fg: Kicking[]
 }
 
-export interface PassingRecordsCategories {
+export interface PassingLeadersCategories {
     completions: Passing[],
     interceptions: Passing[],
     longest_pass: Passing[],
@@ -58,7 +58,7 @@ export interface PassingRecordsCategories {
     pass_yp_game: Passing[]
 }
 
-export interface PuntReturnRecordsCategories {
+export interface PuntReturnLeadersCategories {
     long_pr: PuntReturn[],
     pr_avg: PuntReturn[],
     pr_tds: PuntReturn[],
@@ -66,7 +66,7 @@ export interface PuntReturnRecordsCategories {
     punt_returns: PuntReturn[]
 }
 
-export interface PuntingRecordsCategories {
+export interface PuntingLeadersCategories {
     inside_twenty: Punting[],
     long_punt: Punting[],
     net_punting: Punting[],
@@ -75,7 +75,7 @@ export interface PuntingRecordsCategories {
     total_punt_yards: Punting[]
 }
 
-export interface ReceivingRecordsCategories {
+export interface ReceivingLeadersCategories {
     drops: Receiving[],
     rec_tds: Receiving[],
     rec_yards: Receiving[],
@@ -85,7 +85,7 @@ export interface ReceivingRecordsCategories {
     yac: Receiving[]
 }
 
-export interface RushingRecordsCategories {
+export interface RushingLeadersCategories {
     broken_tackles: Rushing[],
     fumbles: Rushing[],
     rush_att: Rushing[],
@@ -96,7 +96,7 @@ export interface RushingRecordsCategories {
     ya_contact: Rushing[]
 }
 
-export interface TotalRecordsCategories {
+export interface TotalLeadersCategories {
     tds: Total[],
     turnovers: Total[],
     yards: Total[],
@@ -104,15 +104,15 @@ export interface TotalRecordsCategories {
 }
 
 export interface RecordsInfo {
-    defense: DefensiveRecordsCategories,
-    kick_return: KickReturnRecordsCategories,
-    kicking: KickingRecordsCategories,
-    passing: PassingRecordsCategories,
-    punt_return: PuntReturnRecordsCategories,
-    punting: PuntingRecordsCategories,
-    receiving: ReceivingRecordsCategories,
-    rushing: RushingRecordsCategories,
-    total: TotalRecordsCategories
+    defense: DefensiveLeadersCategories,
+    kick_return: KickReturnLeadersCategories,
+    kicking: KickingLeadersCategories,
+    passing: PassingLeadersCategories,
+    punt_return: PuntReturnLeadersCategories,
+    punting: PuntingLeadersCategories,
+    receiving: ReceivingLeadersCategories,
+    rushing: RushingLeadersCategories,
+    total: TotalLeadersCategories
 }
 
 
