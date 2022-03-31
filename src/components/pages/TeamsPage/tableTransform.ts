@@ -34,19 +34,19 @@ const rushingHeaders = [
     'Name',
     'Att',
     'Yards',
+    'YPC',
     'YPG',
     'TDs',
     'Br. Tkls',
-    'Fum',
 ];
 
 const rushingFields = new Set([
     'rush_att',
     'rush_yards',
+    'rush_yp_carry',
     'rush_yp_game',
     'rush_tds',
     'broke_tkls',
-    'fumbles',
 ]);
 
 const receivingHeaders = ['Name', 'Rec', 'Yds', 'YPG', 'TDs', 'YAC', 'Drp'];

@@ -4,3 +4,14 @@
     margin: 0 auto;
     padding-top: 2%;
 }
+
+.headerContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: 2em;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    width: 80%;
+    margin: 1em auto;
+}

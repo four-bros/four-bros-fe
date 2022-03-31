@@ -12,35 +12,36 @@ const passingFields = new Set([
 
 const rushingHeaders = [
     'Name',
+    'Team',
     'Att',
     'Yards',
+    'YPC',
     'YPG',
     'TDs',
     'Br. Tkls',
-    'Fum',
 ];
 
 const rushingFields = new Set([
     'rush_att',
     'rush_yards',
+    'rush_yp_carry',
     'rush_yp_game',
     'rush_tds',
     'broke_tkls',
-    'fumbles',
 ]);
 
-const receivingHeaders = ['Name', 'Rec', 'Yds', 'YPG', 'TDs', 'YAC', 'Drp'];
+const receivingHeaders = ['Name', 'Team', 'Rec', 'Yds', 'YPR', 'YPG', 'TDs', 'YAC'];
 
 const receivingFields = new Set([
     'receptions',
     'rec_yards',
+    'rec_yp_catch',
     'rec_yp_game',
     'rec_tds',
     'yac',
-    'drops',
 ]);
 
-const defendingHeaders = ['Name', 'Tackles', 'TFL', 'Sacks', 'Pass Def.'];
+const defendingHeaders = ['Name', 'Team', 'Tackles', 'TFL', 'Sacks', 'Pass Def.'];
 
 const defendingFields = new Set([
     'total_tkls',
@@ -49,7 +50,7 @@ const defendingFields = new Set([
     'pass_def'
 ]);
 
-const defensiveTurnoverHeaders = ['Name', 'INTs', 'FF', 'FR', 'TDs'];
+const defensiveTurnoverHeaders = ['Name', 'Team', 'INTs', 'FF', 'FR', 'TDs'];
 
 const defensiveTurnoverFields = new Set([
     'ints_made',
@@ -59,7 +60,7 @@ const defensiveTurnoverFields = new Set([
 ]);
 
 // Used for both kickReturnInfo and puntReturnInfo
-const returnsHeaders = ['Name', 'Ret.', 'Yards', 'AVG', 'Long', 'TDs'];
+const returnsHeaders = ['Name', 'Team', 'Ret.', 'Yards', 'AVG', 'Long', 'TDs'];
 
 const kickReturnFields = new Set([
     'kick_returns',
@@ -79,6 +80,7 @@ const puntReturnFields = new Set([
 
 const kickingHeaders = [
     'Name',
+    'Team',
     'FG Made',
     'FG Att',
     'FG %',
@@ -98,6 +100,7 @@ const kickingFields = new Set([
 
 const puntingHeaders = [
     'Name',
+    'Team',
     'Punts',
     'Punt Yards',
     'Punt AVG',
@@ -113,14 +116,22 @@ const puntingFields = new Set([
     'inside_twenty',
 ]);
 
-const rosterHeaders = ['Name', 'Class', 'Ht/Wt', '#', 'Pos', 'Overall'];
+const totalHeaders = [
+    'Name',
+    'Team',
+    'Yards',
+    'YPG',
+    'TDs',
+    'TOs',
+];
 
-const rosterFields = new Set([
-    'player_year',
-    'jersey_number',
-    'position',
-    'overall',
+const totalFields = new Set([
+    'total_yards',
+    'total_ypg',
+    'total_tds',
+    'turnovers',
 ]);
+
 
 export {
     passingHeaders,
@@ -131,7 +142,7 @@ export {
     returnsHeaders,
     kickingHeaders,
     puntingHeaders,
-    rosterHeaders,
+    totalHeaders,
     passingFields,
     rushingFields,
     receivingFields,
@@ -141,5 +152,5 @@ export {
     puntReturnFields,
     kickingFields,
     puntingFields,
-    rosterFields,
+    totalFields
 };

@@ -12,6 +12,7 @@ import { SingleTeamLeaders } from 'api/teams';
 import TeamOverview from './components/TeamOverview';
 import TeamRoster from './components/TeamRoster';
 import TeamLeaders from './components/TeamLeaders';
+import style from './teamsPage.module.scss';
 
 export interface DropdownTeamOption {
     key: number;
@@ -131,10 +132,15 @@ const TeamsPage = () => {
                             <hr />
 
                             {teamLeaders && (
-                                <TeamLeaders
-                                    leaders={teamLeaders}
-                                    infoType={infoType}
-                                />
+                                <>
+                                <div className={style.headerContainer}>
+                                    <h1>{singleTeam.team_details.team_name} Team Leaders</h1>
+                                </div>
+                                    <TeamLeaders
+                                        leaders={teamLeaders}
+                                        infoType={infoType}
+                                    />
+                                </>
                             )}
 
                             <hr />

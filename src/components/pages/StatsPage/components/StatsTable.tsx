@@ -22,6 +22,8 @@ import {
     kickingFields,
     puntingHeaders,
     puntingFields,
+    totalHeaders,
+    totalFields
 } from '../tableTransform';
 
 import { getFields } from 'utils';
@@ -38,6 +40,7 @@ import type {
     Total,
 } from 'api/teams';
 import { RecordsInfo } from 'api/records';
+import style from '../statsPage.module.scss';
 
 type Props = {
     leaders: RecordsInfo;
@@ -112,6 +115,13 @@ const StatsTable = ({ leaders }: Props) => {
         <>
             <div className='buttonsContainer'>
                 <Button
+                    name='total'
+                    active={tableType === 'total'}
+                    onClick={() => setTableType('total')}
+                >
+                    Total
+                </Button>
+                <Button
                     name='offense'
                     active={tableType === 'offense'}
                     onClick={() => setTableType('offense')}
@@ -134,134 +144,153 @@ const StatsTable = ({ leaders }: Props) => {
                 </Button>
             </div>
 
-            {tableType === 'offense' && (
-                <>
-                    {leaders.passing.pass_yards.length > 0 && (
-                        <TableContainer title='Passing'>
-                            <LargeTable
-                                header={passingHeaders}
-                                contents={fieldRows(
-                                    leaders.passing.pass_yards,
-                                    passingFields,
-                                    'passing_stats'
-                                )}
-                            />
-                        </TableContainer>
-                    )}
+            <div className={style.tableContainer}>
+                {tableType === 'total' && (
+                    <>
+                        {leaders.total.yards.length > 0 && (
+                            <TableContainer title='Total Offense'>
+                                <LargeTable
+                                    header={totalHeaders}
+                                    contents={fieldRows(
+                                        leaders.total.yards,
+                                        totalFields,
+                                        'total_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
+                    </>
+                )}
 
-                    {leaders.rushing.rush_yards.length > 0 && (
-                        <TableContainer title='Rushing'>
-                            <LargeTable
-                                header={rushingHeaders}
-                                contents={fieldRows(
-                                    leaders.rushing.rush_yards,
-                                    rushingFields,
-                                    'rushing_stats'
-                                )}
-                            />
-                        </TableContainer>
-                    )}
+                {tableType === 'offense' && (
+                    <>
+                        {leaders.passing.pass_yards.length > 0 && (
+                            <TableContainer title='Passing'>
+                                <LargeTable
+                                    header={passingHeaders}
+                                    contents={fieldRows(
+                                        leaders.passing.pass_yards,
+                                        passingFields,
+                                        'passing_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
 
-                    {leaders.receiving.rec_yards.length > 0 && (
-                        <TableContainer title='Receiving'>
-                            <LargeTable
-                                header={receivingHeaders}
-                                contents={fieldRows(
-                                    leaders.receiving.rec_yards,
-                                    receivingFields,
-                                    'receiving_stats'
-                                )}
-                            />
-                        </TableContainer>
-                    )}
-                </>
-            )}
+                        {leaders.rushing.rush_yards.length > 0 && (
+                            <TableContainer title='Rushing'>
+                                <LargeTable
+                                    header={rushingHeaders}
+                                    contents={fieldRows(
+                                        leaders.rushing.rush_yards,
+                                        rushingFields,
+                                        'rushing_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
 
-            {tableType === 'defense' && (
-                <>
-                    {leaders.defense.total_tkls.length > 0 && (
-                        <TableContainer title='Defense'>
-                            <LargeTable
-                                header={defendingHeaders}
-                                contents={fieldRows(
-                                    leaders.defense.total_tkls,
-                                    defendingFields,
-                                    'defensive_stats'
-                                )}
-                            />
-                        </TableContainer>
-                    )}
+                        {leaders.receiving.rec_yards.length > 0 && (
+                            <TableContainer title='Receiving'>
+                                <LargeTable
+                                    header={receivingHeaders}
+                                    contents={fieldRows(
+                                        leaders.receiving.rec_yards,
+                                        receivingFields,
+                                        'receiving_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
+                    </>
+                )}
 
-                    {leaders.defense.ints_made.length > 0 && (
-                        <TableContainer title='Turnovers'>
-                            <LargeTable
-                                header={defensiveTurnoverHeaders}
-                                contents={fieldRows(
-                                    leaders.defense.ints_made,
-                                    defensiveTurnoverFields,
-                                    'defensive_stats'
-                                )}
-                            />
-                        </TableContainer>
-                    )}
-                </>
-            )}
+                {tableType === 'defense' && (
+                    <>
+                        {leaders.defense.total_tkls.length > 0 && (
+                            <TableContainer title='Defense'>
+                                <LargeTable
+                                    header={defendingHeaders}
+                                    contents={fieldRows(
+                                        leaders.defense.total_tkls,
+                                        defendingFields,
+                                        'defensive_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
 
-            {tableType === 'special' && (
-                <>
-                    {leaders.kick_return.kr_yards.length > 0 && (
-                        <TableContainer title='Kick Return'>
-                            <LargeTable
-                                header={returnsHeaders}
-                                contents={fieldRows(
-                                    leaders.kick_return.kr_yards,
-                                    kickReturnFields,
-                                    'kick_return_stats'
-                                )}
-                            />
-                        </TableContainer>
-                    )}
+                        {leaders.defense.ints_made.length > 0 && (
+                            <TableContainer title='Turnovers'>
+                                <LargeTable
+                                    header={defensiveTurnoverHeaders}
+                                    contents={fieldRows(
+                                        leaders.defense.ints_made,
+                                        defensiveTurnoverFields,
+                                        'defensive_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
+                    </>
+                )}
 
-                    {leaders.punt_return.pr_yards.length > 0 && (
-                        <TableContainer title='Punt Return'>
-                            <LargeTable
-                                header={returnsHeaders}
-                                contents={fieldRows(
-                                    leaders.punt_return.pr_yards,
-                                    puntReturnFields,
-                                    'punt_return_stats'
-                                )}
-                            />
-                        </TableContainer>
-                    )}
+                {tableType === 'special' && (
+                    <>
+                        {leaders.kick_return.kr_yards.length > 0 && (
+                            <TableContainer title='Kick Return'>
+                                <LargeTable
+                                    header={returnsHeaders}
+                                    contents={fieldRows(
+                                        leaders.kick_return.kr_yards,
+                                        kickReturnFields,
+                                        'kick_return_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
 
-                    {leaders.kicking.fg_made.length > 0 && (
-                        <TableContainer title='Kicking'>
-                            <LargeTable
-                                header={kickingHeaders}
-                                contents={fieldRows(
-                                    leaders.kicking.fg_made,
-                                    kickingFields,
-                                    'kicking_stats'
-                                )}
-                            />
-                        </TableContainer>
-                    )}
+                        {leaders.punt_return.pr_yards.length > 0 && (
+                            <TableContainer title='Punt Return'>
+                                <LargeTable
+                                    header={returnsHeaders}
+                                    contents={fieldRows(
+                                        leaders.punt_return.pr_yards,
+                                        puntReturnFields,
+                                        'punt_return_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
 
-                    {leaders.punting.punt_avg.length > 0 && (
-                        <TableContainer title='Punting'>
-                            <LargeTable
-                                header={puntingHeaders}
-                                contents={fieldRows(
-                                    leaders.punting.punt_avg,
-                                    puntingFields,
-                                    'punting_stats'
-                                )}
-                            />
-                        </TableContainer>
-                    )}
-                </>
-            )}
+                        {leaders.kicking.fg_made.length > 0 && (
+                            <TableContainer title='Kicking'>
+                                <LargeTable
+                                    header={kickingHeaders}
+                                    contents={fieldRows(
+                                        leaders.kicking.fg_made,
+                                        kickingFields,
+                                        'kicking_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
+
+                        {leaders.punting.punt_avg.length > 0 && (
+                            <TableContainer title='Punting'>
+                                <LargeTable
+                                    header={puntingHeaders}
+                                    contents={fieldRows(
+                                        leaders.punting.punt_avg,
+                                        puntingFields,
+                                        'punting_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
+                    </>
+                )}
+            </div>
         </>
     );
 };
