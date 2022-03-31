@@ -1,8 +1,7 @@
-.buttonsContainer {
+.btnContainer {
     display: flex;
     justify-content: center;
-    margin: 0 auto;
-    padding-top: 2%;
+    margin: 2em auto;
 }
 
 .headerContainer {
@@ -14,4 +13,8 @@
     text-align: center;
     width: 80%;
     margin: 1em auto;
+}
+
+hr {
+    margin: 2em auto;
 }

@@ -99,7 +99,7 @@ const TeamsPage = () => {
             <hr />
 
             {singleTeam && (
-                <div className='buttonsContainer'>
+                <div className={style.btnContainer}>
                     <Button
                         name='overview'
                         active={infoType === 'overview'}
@@ -133,9 +133,9 @@ const TeamsPage = () => {
 
                             {teamLeaders && (
                                 <>
-                                <div className={style.headerContainer}>
-                                    <h1>{singleTeam.team_details.team_name} Team Leaders</h1>
-                                </div>
+                                    <div className={style.headerContainer}>
+                                        <h1>{singleTeam.team_details.team_name} Team Leaders</h1>
+                                    </div>
                                     <TeamLeaders
                                         leaders={teamLeaders}
                                         infoType={infoType}
