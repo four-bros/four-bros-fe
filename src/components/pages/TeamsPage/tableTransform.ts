@@ -19,7 +19,7 @@ const getOverviewInfo = (
     ];
 };
 
-const passingHeaders = ['Name', 'Comp.', 'Att.', 'Yds', 'YPG', 'TDs', 'INTs'];
+const passingHeaders = ['Name', 'C.', 'Att.', 'Yds', 'YPG', 'TDs', 'INT'];
 
 const passingFields = new Set([
     'completions',
