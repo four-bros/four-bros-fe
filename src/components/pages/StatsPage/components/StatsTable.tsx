@@ -47,7 +47,7 @@ type Props = {
 };
 
 const StatsTable = ({ leaders }: Props) => {
-    const [tableType, setTableType] = React.useState('offense');
+    const [tableType, setTableType] = React.useState('total');
 
     const fieldRows = (
         leadersArr:
