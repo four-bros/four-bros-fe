@@ -89,7 +89,11 @@ const StatsTable = ({ leaders }: Props) => {
                                 <Table.Cell
                                     key={`cell-${leader.player_details.team_name}-${leader.player_details.id}`}
                                 >
-                                    {leader.player_details.team_name}
+                                    <Link
+                                        to={`/team/${leader.player_details.team_id}`}
+                                    >
+                                        {leader.player_details.team_name}
+                                    </Link>
                                 </Table.Cell>
                                 {fieldsArr.map(
                                     (fieldValue: number, idx: number) => {

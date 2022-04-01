@@ -1,22 +1,12 @@
 import { PlayerStatsStructure } from 'api/players';
 import style from './playerOverview.module.scss';
+import {getPlayerYearAndRedshirt} from 'utils';
 
 type Props = {
     player: PlayerStatsStructure;
 };
 
 const PlayerDetails = ({ player }: Props) => {
-    const getPlayerRedshirt = (player: PlayerStatsStructure) => {
-        if (player.details.redshirt) {
-            return ' (Rs.)';
-        } else {
-            return '';
-        }
-    };
-
-    const playerYearAndRedShirt = `${
-        player.details.player_year
-    }. ${getPlayerRedshirt(player)}`;
 
     return (
         <div className={style.playerOverview}>
@@ -30,7 +20,7 @@ const PlayerDetails = ({ player }: Props) => {
                 <h3>{player.details.team_name}</h3>
             </div>
             <div className={style.playerClassPosition}>
-                <h3>{playerYearAndRedShirt}</h3>
+                <h3>{getPlayerYearAndRedshirt(player.details)}</h3>
                 <h3>{player.details.position}</h3>
             </div>
         </div>

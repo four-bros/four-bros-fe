@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Table } from 'semantic-ui-react';
 import { rosterHeaders } from '../tableTransform';
 import { RosterPlayer } from 'api/teams';
+import {getPlayerYearAndRedshirt} from 'utils';
 
 type Props = {
     roster: RosterPlayer[];
@@ -19,7 +20,7 @@ const TeamRoster = ({ roster }: Props) => {
                             {player.first_name} {player.last_name}
                         </Link>
                     </Table.Cell>
-                    <Table.Cell>{player.player_year}</Table.Cell>
+                    <Table.Cell>{getPlayerYearAndRedshirt(player)}</Table.Cell>
                     <Table.Cell>
                         {`${player.height} / ${player.weight}`}
                     </Table.Cell>

@@ -1,4 +1,5 @@
-import { Team } from 'api/teams';
+import { PlayerStatsStructure } from 'api/players';
+import { PlayerDetails, RosterPlayer } from 'api/teams';
 
 const getFields = (obj: any, fields: Set<string>): Set<number> => {
     let valuesSet: Set<number> = new Set();
@@ -31,5 +32,13 @@ const getTableHeader = (header: string): string => {
 
 }
 
+const getPlayerYearAndRedshirt = (playerDetails: PlayerDetails | RosterPlayer) => {
+    if (playerDetails.redshirt) {
+        return `${playerDetails.player_year}. (Rs.)`;
+    } else {
+        return `${playerDetails.player_year}.`;
+    }
+};
 
-export { getFields, getTableHeader };
+
+export { getFields, getTableHeader, getPlayerYearAndRedshirt };
