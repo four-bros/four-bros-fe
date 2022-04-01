@@ -15,7 +15,7 @@ import HallOfFamePage from './components/pages/HallOfFamePage/HallOfFamePage';
 
 function App() {
     const navigate = useNavigate();
-    const [recordType, setRecordType] = React.useState('')
+    const [recordType, setRecordType] = React.useState('');
 
     const changeType = (e: React.MouseEvent<HTMLButtonElement>): void => {
         e.preventDefault();

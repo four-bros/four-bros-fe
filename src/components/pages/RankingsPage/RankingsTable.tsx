@@ -45,7 +45,7 @@ const RankingsTable = ( { poll, rankingsArr }: Props ) => {
                                     key={`cell-${leader.id}`}
                                 >
                                     <Link
-                                        to={`/teams/${leader.id}`}
+                                        to={`/team/${leader.id}`}
                                     >
                                         {leader.team_name}
                                     </Link>
