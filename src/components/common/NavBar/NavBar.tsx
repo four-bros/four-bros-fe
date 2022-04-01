@@ -5,12 +5,7 @@ import ncaaLogo from 'assets/ncaa_football_logo.png';
 import style from './navBar.module.scss';
 
 
-
-type Props = {
-    typeHandler: (e: React.MouseEvent<HTMLButtonElement>) => void
-}
-
-const Navbar = ({typeHandler}: Props) => {
+const Navbar = () => {
 
     const [isSeasonSelected, setIsSeasonSelected] = React.useState(false);
     const [isRecordsSelected, setIsRecordsSelected] = React.useState(false);
@@ -45,9 +40,9 @@ const Navbar = ({typeHandler}: Props) => {
                     {isRecordsSelected && (
                         <>
                             <div className={style.dropDownContainer}>
-                                <button className={style.dropdownLink} value='career' onClick={(e) => typeHandler(e)}>Career</button>
-                                <button className={style.dropdownLink} value='game' onClick={(e) => typeHandler(e)}>Game</button>
-                                <button className={style.dropdownLink} value='season' onClick={(e) => typeHandler(e)}>Season</button>
+                                <NavLink to ='/records/career' className={style.dropdownLink}>Career</NavLink>
+                                <NavLink to ='/records/game' className={style.dropdownLink}>Game</NavLink>
+                                <NavLink to ='/records/season' className={style.dropdownLink}>Season</NavLink>
                                 <NavLink to='/hof' className={style.dropdownLink}>HOF</NavLink>
                             </div>
                         </>

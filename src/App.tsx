@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './styles/index.scss';
 import { NavBar } from 'components/common';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import HomePage from './components/pages/HomePage/HomePage';
 import TeamPage from 'components/pages/TeamsPage/TeamPage';
 import TeamsPage from './components/pages/TeamsPage/TeamsPage';
@@ -14,23 +14,10 @@ import RecruitingPage from 'components/pages/RecruitingPage/RecruitingPage';
 import HallOfFamePage from './components/pages/HallOfFamePage/HallOfFamePage';
 
 function App() {
-    const navigate = useNavigate();
-    const [recordType, setRecordType] = React.useState('');
-
-    const changeType = (e: React.MouseEvent<HTMLButtonElement>): void => {
-        e.preventDefault();
-        const {target} = e;
-        if(target) {
-            const value = ((target as HTMLButtonElement).value);
-            setRecordType(value);
-            navigate(`/records/${value}`);
-        }
-        return
-    }
 
     return (
         <>
-        <NavBar typeHandler={changeType} />
+        <NavBar />
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/teams' element={<TeamsPage />} />
@@ -38,7 +25,7 @@ function App() {
                 <Route path='/players/:playerId' element={<PlayerPage />} />
                 <Route path='/season/leaders' element={<SeasonLeadersPage />} />
                 <Route path='/rankings' element={<RankingsPage />} />
-                <Route path={`/records/${recordType}`} element={<RecordsPage recordType={recordType} setRecordType={changeType} />} />
+                <Route path={'/records/:recordType'} element={<RecordsPage />} />
                 <Route path='/recruiting' element={<RecruitingPage />} />
                 <Route path='/hof' element={<HallOfFamePage />} />
                 <Route path='/stats' element={<StatsPage />} />
