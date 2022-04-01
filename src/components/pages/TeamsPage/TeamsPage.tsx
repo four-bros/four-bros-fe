@@ -1,18 +1,9 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { Button } from 'semantic-ui-react';
 import { Teams } from 'api';
-
 import { TeamsDropdown } from 'components/common';
-
-import type { SingleTeamInfo, Team } from 'api/teams';
-
-import { SingleTeamLeaders } from 'api/teams';
-
-import TeamOverview from './components/TeamOverview';
-import TeamRoster from './components/TeamRoster';
-import TeamLeaders from './components/TeamLeaders';
-import style from './teamsPage.module.scss';
+import type { Team } from 'api/teams';
 
 export interface DropdownTeamOption {
     key: number;
@@ -25,17 +16,12 @@ const TeamsPage = () => {
     const [allTeams, setAllTeams] = React.useState<Team[]>();
     const [teamOptions, setTeamOptions] =
         React.useState<DropdownTeamOption[]>();
-    const [selectedTeam, setSelectedTeam] = React.useState<any>(null);
-    const [singleTeam, setSingleTeam] = React.useState<SingleTeamInfo>();
-    const [teamLeaders, setTeamLeaders] = React.useState<SingleTeamLeaders>();
-    const [infoType, setInfoType] = React.useState<string>('overview');
-    const [isLoading, setIsLoading] = React.useState(true);
+    const navigate = useNavigate();
 
     React.useEffect(() => {
         if (isFirstRender.current) {
             (async () => {
                 const teams = await Teams.getTeams();
-                console.log(teams);
                 let newList: DropdownTeamOption[] = [];
                 if (teams) {
                     for (let i = 0; i < teams.length; i++) {
@@ -50,113 +36,25 @@ const TeamsPage = () => {
                 }
             })();
             isFirstRender.current = false;
-            setIsLoading(false)
             return;
         }
     }, []);
 
-    const handleChange = (_: any, { value }: any) => {
-        setSelectedTeam(value);
-        getTeam(value);
-    };
-
-    const getTeam = async (idx: string) => {
+    const handleTeamChange = async (_: any, { value }: any) => {
         if (allTeams) {
-            const team = await Teams.getSingleTeam(allTeams[idx].id);
-            const leaders = await Teams.getSingleTeamLeaders(allTeams[idx].id);
-            if (leaders) {
-                setTeamLeaders(leaders);
-            }
-            if (team) {
-                setSingleTeam(team);
-            }
+            const team = allTeams[value];
+            navigate(`/team/${team.id}`);
         }
     };
 
-    const handleClick = (value: string) => {
-        setInfoType(value);
-    };
-
-    if (isLoading) {
-        return (
-            <div className='loading'>
-                <h1>Loading...</h1>
-            </div>
-        )
-    }
-
     return (
         <>
-
             {teamOptions && (
                 <TeamsDropdown
                     options={teamOptions}
-                    setSelection={handleChange}
-                    selection={selectedTeam}
+                    setSelection={handleTeamChange}
                 />
             )}
-
-            <hr />
-
-            {singleTeam && (
-                <div className={style.btnContainer}>
-                    <Button
-                        name='overview'
-                        active={infoType === 'overview'}
-                        onClick={() => handleClick('overview')}
-                    >
-                        Overview
-                    </Button>
-                    <Button
-                        name='stats'
-                        active={infoType === 'stats'}
-                        onClick={() => handleClick('stats')}
-                    >
-                        Stats
-                    </Button>
-                </div>
-            )}
-
-
-            <div className='page-container'>
-                {allTeams && singleTeam && (
-                    <div>
-                        <>
-                            <TeamOverview
-                                simplifiedTeam={allTeams[selectedTeam]}
-                                overview={singleTeam.team_details}
-                                overallStats={singleTeam.team_stats}
-                                infoType={infoType}
-                            />
-
-                            <hr />
-
-                            {teamLeaders && (
-                                <>
-                                    <div className={style.headerContainer}>
-                                        <h1>{singleTeam.team_details.team_name} Team Leaders</h1>
-                                    </div>
-                                    <TeamLeaders
-                                        leaders={teamLeaders}
-                                        infoType={infoType}
-                                    />
-                                </>
-                            )}
-
-                            <hr />
-
-                            {infoType === 'overview' && (
-                                <>
-                                    <div className={style.headerContainer}>
-                                        <h1>{singleTeam.team_details.team_name} Roster</h1>
-                                    </div>
-                                    <TeamRoster roster={singleTeam.team_roster} />
-                                </>
-                            )}
-                        </>
-                    </div>
-                )}
-            </div>
         </>
     );
 };

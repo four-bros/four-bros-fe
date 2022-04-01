@@ -1,16 +1,13 @@
 import * as React from 'react';
-
+import { useParams } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
+
 import { Players } from 'api';
-
 import { PlayerStatsStructure } from 'api/players';
-
-import { NavBar } from 'components/common';
-
 import PlayerAbilities from './components/PlayerAbilities';
 import PlayerDetails from './components/PlayerDetails';
 import PlayerStats from './components/PlayerStats';
-import { useParams } from 'react-router-dom';
+
 
 const PlayerPage = () => {
     const isFirstRender = React.useRef(true);
@@ -39,7 +36,6 @@ const PlayerPage = () => {
 
     return (
         <div>
-            {/* <NavBar /> */}
 
             <div className='page-container'>
                 {singlePlayer && (

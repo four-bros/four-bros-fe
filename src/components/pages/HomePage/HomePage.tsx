@@ -4,10 +4,12 @@ import { Users } from 'api';
 import { TeamsDropdown } from 'components/common';
 
 import style from './homePage.module.scss';
+import { Team } from 'api/teams';
 
 export const HomePage = () => {
     const isFirstRender = React.useRef(true);
     const navigate = useNavigate();
+    const [userTeams, setUserTeams] = React.useState<Team[]>();
     const [teamOptions, setTeamOptions] = React.useState();
     const [week, setWeek] = React.useState<number>();
     const [year, setYear] = React.useState<number>();
@@ -28,6 +30,7 @@ export const HomePage = () => {
                     setTeamOptions(newList);
                     setWeek(data.week_year.week);
                     setYear(data.week_year.year);
+                    setUserTeams(data.user_teams)
                 }
             })();
             isFirstRender.current = false;
@@ -35,8 +38,12 @@ export const HomePage = () => {
         }
     }, []);
 
-    const handleChange = (_: any, { value }: any) => {
-        navigate('/teams');
+    const handleTeamChange = async (_: any, { value }: any) => {
+        if (userTeams) {
+            const team = userTeams[value];
+            const teamId = team.id.toString();
+            navigate(`/team/${teamId}`);
+        }
     };
 
     return (
@@ -53,8 +60,8 @@ export const HomePage = () => {
                     {teamOptions && (
                         <TeamsDropdown
                             options={teamOptions}
-                            setSelection={handleChange}
-                        />
+                            setSelection={handleTeamChange}
+                    />
                     )}
                 </div>
             )}
