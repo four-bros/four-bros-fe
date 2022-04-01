@@ -21,7 +21,7 @@ const TeamOverview = ({
     overallStats,
     infoType,
 }: Props) => {
-    console.log(getOverviewInfo(overview, simplifiedTeam));
+
     return (
         <div className={style.teamOverview}>
             {/* 1st section */}

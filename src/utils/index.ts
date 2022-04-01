@@ -1,3 +1,5 @@
+import { Team } from 'api/teams';
+
 const getFields = (obj: any, fields: Set<string>): Set<number> => {
     let valuesSet: Set<number> = new Set();
     let incrementor = 0.1;
@@ -28,7 +30,6 @@ const getTableHeader = (header: string): string => {
     return (capitalizedWords.join(' '))
 
 }
-
 
 
 export { getFields, getTableHeader };

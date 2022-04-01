@@ -3,6 +3,7 @@ import './styles/index.scss';
 import { NavBar } from 'components/common';
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import HomePage from './components/pages/HomePage/HomePage';
+import TeamPage from 'components/pages/TeamsPage/TeamPage';
 import TeamsPage from './components/pages/TeamsPage/TeamsPage';
 import PlayerPage from './components/pages/PlayerPage/PlayerPage';
 import SeasonLeadersPage from './components/pages/SeasonLeadersPage/SeasonLeadersPage';
@@ -33,6 +34,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/teams' element={<TeamsPage />} />
+                <Route path='/team/:teamId' element={<TeamPage />} />
                 <Route path='/players/:playerId' element={<PlayerPage />} />
                 <Route path='/leaders' element={<SeasonLeadersPage />} />
                 <Route path='/rankings' element={<RankingsPage />} />
