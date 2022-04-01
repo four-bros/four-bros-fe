@@ -79,9 +79,12 @@ const RecordsTable = ( {recordInfo, genCategory, record, statCategory, fieldName
                                 <Table.Cell
                                     key={`cell-${leader.player_details.team_id}-${leader.player_details.team_name}`}
                                 >
-                                    {leader.player_details.team_name}
+                                    <Link
+                                        to={`/team/${leader.player_details.team_id}`}
+                                    >
+                                        {leader.player_details.team_name}
+                                    </Link>
                                 </Table.Cell>
-
                                 <Table.Cell
                                     key={`cell-${idx}-${year}`}
                                 >

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import ncaaLogo from 'assets/ncaa_football_logo.png';
-import homeIcon from 'assets/home_icon.png';
 import style from './navBar.module.scss';
 
 
@@ -32,7 +31,7 @@ const Navbar = ({typeHandler}: Props) => {
                     {isSeasonSelected && (
                         <>
                             <div className={style.dropDownContainer}>
-                                <NavLink to='/leaders' className={style.dropdownLink}>Leaders</NavLink>
+                                <NavLink to='/season/leaders' className={style.dropdownLink}>Leaders</NavLink>
                                 <NavLink to='/rankings' className={style.dropdownLink}>Rankings</NavLink>
                                 <NavLink to="/recruiting" className={style.dropdownLink}>Recruiting</NavLink>
                                 <NavLink to='/stats' className={style.dropdownLink} >Stats</NavLink>

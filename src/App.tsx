@@ -36,7 +36,7 @@ function App() {
                 <Route path='/teams' element={<TeamsPage />} />
                 <Route path='/team/:teamId' element={<TeamPage />} />
                 <Route path='/players/:playerId' element={<PlayerPage />} />
-                <Route path='/leaders' element={<SeasonLeadersPage />} />
+                <Route path='/season/leaders' element={<SeasonLeadersPage />} />
                 <Route path='/rankings' element={<RankingsPage />} />
                 <Route path={`/records/${recordType}`} element={<RecordsPage recordType={recordType} setRecordType={changeType} />} />
                 <Route path='/recruiting' element={<RecruitingPage />} />

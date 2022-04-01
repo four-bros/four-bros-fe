@@ -43,7 +43,9 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
 
     return (
         <>
-            <h1 className={style.header}>{header}</h1>
+            <div className={style.headerContainer}>
+                    <h1>{header}</h1>
+                </div>
 
             <div className={style.btnContainer}>
                 <Button
