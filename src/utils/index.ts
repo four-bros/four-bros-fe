@@ -1,5 +1,5 @@
-import { PlayerStatsStructure } from 'api/players';
 import { PlayerDetails, RosterPlayer } from 'api/teams';
+
 
 const getFields = (obj: any, fields: Set<string>): Set<number> => {
     let valuesSet: Set<number> = new Set();

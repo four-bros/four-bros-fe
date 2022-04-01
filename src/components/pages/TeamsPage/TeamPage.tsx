@@ -15,7 +15,6 @@ import { DropdownTeamOption } from './TeamsPage';
 
 const TeamPage = () => {
 
-    const isFirstRender = React.useRef(true);
     const { teamId } = useParams();
     const [allTeams, setAllTeams] = React.useState<Team[]>();
     const [teamOptions, setTeamOptions] = React.useState<DropdownTeamOption[]>();
@@ -25,7 +24,7 @@ const TeamPage = () => {
     const navigate = useNavigate()
 
     React.useEffect(() => {
-        if (isFirstRender.current && teamId) {
+        if (teamId) {
             (async () => {
                 const allTeams = await Teams.getTeams();
                 const team = await Teams.getSingleTeam(teamId);
@@ -51,7 +50,6 @@ const TeamPage = () => {
                 }
             })();
 
-            isFirstRender.current = false;
             return;
         }
     }, [teamId]);
@@ -60,16 +58,7 @@ const TeamPage = () => {
     const handleTeamChange = async (_: any, { value }: any) => {
         if (allTeams) {
             const team = allTeams[value];
-            const teamId = team.id.toString()
-            const teamResponse = await Teams.getSingleTeam(teamId);
-            const leaders = await Teams.getSingleTeamLeaders(teamId);
-            if (leaders) {
-                setTeamLeaders(leaders);
-            }
-            if (teamResponse) {
-                setSingleTeam(teamResponse);
-            }
-            navigate(`/team/${teamId}`);
+            navigate(`/team/${team.id}`);
         }
     };
 
