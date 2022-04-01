@@ -5,39 +5,38 @@ import { Records } from 'api';
 import { RecordsInfo} from 'api/records';
 import RecordsTable from './RecordsTable';
 import style from './recordPage.module.scss'
+import { useParams } from 'react-router-dom';
 
-const RecordsPage = (recordType: any, setRecordType: any) => {
+const RecordsPage = () => {
 
-    const isFirstRender = React.useRef(true);
+    const recordType = useParams();
     const [records, setRecords] = React.useState<RecordsInfo>();
     const [recordCategory, setRecordCategory] = React.useState('total');
 
-    const recordHeaderLower = recordType.recordType.slice(1)
-    const recordHeaderUpper = recordType.recordType.charAt(0).toUpperCase()
-    const header = recordHeaderUpper + recordHeaderLower + ' Records'
+    const recordHeader = recordType?.recordType?.toString();
+    let header: string;
 
+
+    if (recordHeader) {
+        const recordHeaderUpper = recordHeader.charAt(0).toUpperCase();
+        const recordHeaderLower = recordHeader.slice(1);
+        header = recordHeaderUpper + recordHeaderLower + ' Records';
+    } else {
+        header = ''
+    }
 
     React.useEffect(() => {
 
-        if (isFirstRender.current && recordType !== '') {
+        if (recordType) {
             (async () => {
-                const response = await Records.getRecords(recordType.recordType);
+                const response = await Records.getRecords(`${recordType.recordType}`);
                 if (response) {
                     setRecords(response);
                 }
             })();
-            isFirstRender.current = false;
+
             return;
-        } else {
-            (async () => {
-                const response = await Records.getRecords(recordType.recordType);
-                if (response) {
-                    setRecords(response);
-                }
-            })();
-            isFirstRender.current = false;
-            return;
-        }
+        } 
     }, [recordType]);
 
 
@@ -150,6 +149,13 @@ const RecordsPage = (recordType: any, setRecordType: any) => {
 
             {records && recordCategory === 'passing' && (
                 <>
+                    <RecordsTable 
+                        recordInfo={records}
+                        genCategory={recordCategory}
+                        record='pass_rating'
+                        statCategory='passing_stats'
+                        fieldName='pass_rating'
+                    />
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
