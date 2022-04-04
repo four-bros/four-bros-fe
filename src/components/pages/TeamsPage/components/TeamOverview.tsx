@@ -47,15 +47,10 @@ const TeamOverview = ({
                     {/* 3rd section */}
                     <div className={style.teamStatsContainer}>
                         <TableContainer title='Offense' small>
-                            <LargeTable
-                                contents={getOffenseOverview(overallStats)}
-                            />
+                            <LargeTable contents={getOffenseOverview(overallStats)} />
                         </TableContainer>
-
                         <TableContainer title='Defense' small>
-                            <LargeTable
-                                contents={getDefenseOverview(overallStats)}
-                            />
+                            <LargeTable contents={getDefenseOverview(overallStats)} />
                         </TableContainer>
                     </div>
                 </>

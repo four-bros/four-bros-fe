@@ -1,21 +1,30 @@
 import * as React from 'react';
 import { Button, Table } from 'semantic-ui-react';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { TableContainer, LargeTable } from 'components/common';
 import {
-    athleticAbilitiesHeaders,
-    passingAbilityHeaders,
-    rushingAbilitiesHeaders,
-    recAbilitiesHeaders,
-    tackleAbilitiesHeaders,
-    coverageAbilitiesHeaders,
-    athleticAbilityFields,
-    passingAbilityFields,
-    rushingAbilityFields,
-    recAbilityFields,
-    tackleAbilityFields,
-    coverageAbilityFields,
-} from '../tableTransform';
+    desktopAthleticAbilitiesHeaders,
+    desktopAthleticAbilityFields,
+    desktopOffenseAbilitiesHeaders,
+    desktopOffenseAbilitiesFields,
+    desktopDefenseAbilitiesHeaders,
+    desktopDefenseAbilitiesFields,
+} from './desktopTableTransform';
+import {
+    mobileAthleticAbilitiesHeaders,
+    mobilePassingAbilityHeaders,
+    mobileRushingAbilitiesHeaders,
+    mobileRecAbilitiesHeaders,
+    mobileTackleAbilitiesHeaders,
+    mobileCoverageAbilitiesHeaders,
+    mobileAthleticAbilityFields,
+    mobilePassingAbilityFields,
+    mobileRushingAbilityFields,
+    mobileRecAbilityFields,
+    mobileTackleAbilityFields,
+    mobileCoverageAbilityFields,
+} from './mobileTableTransform';
 import { PlayerStatsStructure } from 'api/players';
 import { getFields } from 'utils';
 
@@ -25,6 +34,7 @@ type Props = {
 
 const PlayerAbilities = ({ player }: Props) => {
     const [tableType, setTableType] = React.useState('athletic');
+    const mobile = useMediaQuery('(max-width: 767px)');
 
     const fieldRows = (fields: Set<string>) => {
         const values = Array.from(getFields(player.abilities, fields));
@@ -71,55 +81,93 @@ const PlayerAbilities = ({ player }: Props) => {
             <div>
                 {tableType === 'athletic' && (
                     <>
-                        <TableContainer title='Athletic'>
-                            <LargeTable
-                                header={athleticAbilitiesHeaders}
-                                contents={fieldRows(athleticAbilityFields)}
-                            />
-                        </TableContainer>
+                        {mobile && (
+                            <TableContainer title='Athletic Abilities'>
+                                <LargeTable
+                                    header={mobileAthleticAbilitiesHeaders}
+                                    contents={fieldRows(mobileAthleticAbilityFields)}
+                                />
+                            </TableContainer>
+                        )}
+                        {!mobile && (
+                            <TableContainer title='Athletic Abilities'>
+                                <LargeTable
+                                    header={desktopAthleticAbilitiesHeaders}
+                                    contents={fieldRows(desktopAthleticAbilityFields)}
+                                />
+                            </TableContainer>
+                        )}
                     </>
                 )}
 
                 {tableType === 'offense' && (
                     <>
-                        <TableContainer title='Passing'>
-                            <LargeTable
-                                header={passingAbilityHeaders}
-                                contents={fieldRows(passingAbilityFields)}
-                            />
-                        </TableContainer>
-
-                        <TableContainer title='Rushing'>
-                            <LargeTable
-                                header={rushingAbilitiesHeaders}
-                                contents={fieldRows(rushingAbilityFields)}
-                            />
-                        </TableContainer>
-
-                        <TableContainer title='Receiving'>
-                            <LargeTable
-                                header={recAbilitiesHeaders}
-                                contents={fieldRows(recAbilityFields)}
-                            />
-                        </TableContainer>
+                    {mobile && (
+                        <>
+                            <TableContainer title='Passing'>
+                                <LargeTable
+                                    header={mobilePassingAbilityHeaders}
+                                    contents={fieldRows(mobilePassingAbilityFields)}
+                                />
+                            </TableContainer>
+    
+                            <TableContainer title='Rushing'>
+                                <LargeTable
+                                    header={mobileRushingAbilitiesHeaders}
+                                    contents={fieldRows(mobileRushingAbilityFields)}
+                                />
+                            </TableContainer>
+    
+                            <TableContainer title='Receiving'>
+                                <LargeTable
+                                    header={mobileRecAbilitiesHeaders}
+                                    contents={fieldRows(mobileRecAbilityFields)}
+                                />
+                            </TableContainer>
+                        </>
+                    )}
+                    {!mobile && (
+                        <>
+                            <TableContainer title='Offensive Abilities'>
+                                <LargeTable
+                                    header={desktopOffenseAbilitiesHeaders}
+                                    contents={fieldRows(desktopOffenseAbilitiesFields)}
+                                />
+                            </TableContainer>
+                        </>
+                    )}
                     </>
                 )}
 
                 {tableType === 'defense' && (
                     <>
-                        <TableContainer title='Tackling'>
-                            <LargeTable
-                                header={tackleAbilitiesHeaders}
-                                contents={fieldRows(tackleAbilityFields)}
-                            />
-                        </TableContainer>
+                    {mobile && (
+                        <>
+                            <TableContainer title='Tackling'>
+                                <LargeTable
+                                    header={mobileTackleAbilitiesHeaders}
+                                    contents={fieldRows(mobileTackleAbilityFields)}
+                                />
+                            </TableContainer>
 
-                        <TableContainer title='Coverage'>
-                            <LargeTable
-                                header={coverageAbilitiesHeaders}
-                                contents={fieldRows(coverageAbilityFields)}
-                            />
-                        </TableContainer>
+                            <TableContainer title='Coverage'>
+                                <LargeTable
+                                    header={mobileCoverageAbilitiesHeaders}
+                                    contents={fieldRows(mobileCoverageAbilityFields)}
+                                />
+                            </TableContainer>
+                        </>
+                    )}
+                    {!mobile && (
+                        <>
+                            <TableContainer title='Defensive Abilities'>
+                                <LargeTable
+                                    header={desktopDefenseAbilitiesHeaders}
+                                    contents={fieldRows(desktopDefenseAbilitiesFields)}
+                                />
+                            </TableContainer>
+                        </>
+                    )}
                     </>
                 )}
             </div>

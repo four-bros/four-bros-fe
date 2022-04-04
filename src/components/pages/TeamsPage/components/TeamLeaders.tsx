@@ -1,28 +1,48 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Table } from 'semantic-ui-react';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { TableContainer, LargeTable } from 'components/common';
 import {
-    getTopThree,
-    passingHeaders,
-    passingFields,
-    rushingHeaders,
-    rushingFields,
-    receivingHeaders,
-    receivingFields,
-    defendingHeaders,
-    defendingFields,
-    defensiveTurnoverHeaders,
-    defensiveTurnoverFields,
-    returnsHeaders,
-    kickReturnFields,
-    puntReturnFields,
-    kickingHeaders,
-    kickingFields,
-    puntingHeaders,
-    puntingFields,
-} from '../tableTransform';
+    desktopPassingHeaders,
+    desktopRushingHeaders,
+    desktopReceivingHeaders,
+    desktopDefenseHeaders,
+    desktopKickReturnHeaders,
+    desktopPuntReturnHeaders,
+    desktopKickingHeaders,
+    desktopPuntingHeaders,
+    desktopPassingFields,
+    desktopRushingFields,
+    desktopReceivingFields,
+    desktopDefenseFields,
+    desktopKickReturnFields,
+    desktopPuntReturnFields,
+    desktopKickingFields,
+    desktopPuntingFields,
+} from './desktopTableTransform';
+import {
+    mobilePassingHeaders,
+    mobileRushingHeaders,
+    mobileReceivingHeaders,
+    mobileTackleHeaders,
+    mobileDefToHeaders,
+    mobileKickReturnHeaders,
+    mobilePuntReturnHeaders,
+    mobileKickingHeaders,
+    mobilePuntingHeaders,
+    mobilePassingFields,
+    mobileRushingFields,
+    mobileReceivingFields,
+    mobileTackleFields,
+    mobileDefToFields,
+    mobileKickReturnFields,
+    mobilePuntReturnFields,
+    mobileKickingFields,
+    mobilePuntingFields,
+} from './mobileTableTransform';
+import { getTopThree } from '../tableTransform';
 import { getFields } from 'utils';
 import type {
     SingleTeamLeaders,
@@ -45,6 +65,7 @@ type Props = {
 
 const TeamLeaders = ({ leaders, infoType }: Props) => {
     const [tableType, setTableType] = React.useState('offense');
+    const mobile = useMediaQuery('(max-width: 767px)');
 
     const fieldRows = (
         leadersArr:
@@ -137,39 +158,75 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
 
             {tableType === 'offense' && (
                 <>
-                    {leaders.passing.length > 0 && (
+                    {leaders.passing.length > 0 && mobile && (
                         <TableContainer title='Passing'>
                             <LargeTable
-                                header={passingHeaders}
+                                header={mobilePassingHeaders}
                                 contents={fieldRows(
                                     leaders.passing,
-                                    passingFields,
+                                    mobilePassingFields,
+                                    'passing_stats'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {leaders.passing.length > 0 && !mobile && (
+                        <TableContainer title='Passing'>
+                            <LargeTable
+                                header={desktopPassingHeaders}
+                                contents={fieldRows(
+                                    leaders.passing,
+                                    desktopPassingFields,
                                     'passing_stats'
                                 )}
                             />
                         </TableContainer>
                     )}
 
-                    {leaders.rushing.length > 0 && (
+                    {leaders.rushing.length > 0 && mobile && (
                         <TableContainer title='Rushing'>
                             <LargeTable
-                                header={rushingHeaders}
+                                header={mobileRushingHeaders}
                                 contents={fieldRows(
                                     leaders.rushing,
-                                    rushingFields,
+                                    mobileRushingFields,
+                                    'rushing_stats'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {leaders.rushing.length > 0 && !mobile && (
+                        <TableContainer title='Rushing'>
+                            <LargeTable
+                                header={desktopRushingHeaders}
+                                contents={fieldRows(
+                                    leaders.rushing,
+                                    desktopRushingFields,
                                     'rushing_stats'
                                 )}
                             />
                         </TableContainer>
                     )}
 
-                    {leaders.receiving.length > 0 && (
+                    {leaders.receiving.length > 0 && mobile && (
                         <TableContainer title='Receiving'>
                             <LargeTable
-                                header={receivingHeaders}
+                                header={mobileReceivingHeaders}
                                 contents={fieldRows(
                                     leaders.receiving,
-                                    receivingFields,
+                                    mobileReceivingFields,
+                                    'receiving_stats'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {leaders.receiving.length > 0 && !mobile && (
+                        <TableContainer title='Receiving'>
+                            <LargeTable
+                                header={desktopReceivingHeaders}
+                                contents={fieldRows(
+                                    leaders.receiving,
+                                    desktopReceivingFields,
                                     'receiving_stats'
                                 )}
                             />
@@ -180,26 +237,39 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
 
             {tableType === 'defense' && (
                 <>
-                    {leaders.defense.length > 0 && (
+                    {leaders.defense.length > 0 && mobile && (
                         <TableContainer title='Defense'>
                             <LargeTable
-                                header={defendingHeaders}
+                                header={mobileTackleHeaders}
                                 contents={fieldRows(
                                     leaders.defense,
-                                    defendingFields,
+                                    mobileTackleFields,
                                     'defensive_stats'
                                 )}
                             />
                         </TableContainer>
                     )}
 
-                    {leaders.defense.length > 0 && (
+                    {leaders.defense.length > 0 && mobile && (
                         <TableContainer title='Turnovers'>
                             <LargeTable
-                                header={defensiveTurnoverHeaders}
+                                header={mobileDefToHeaders}
                                 contents={fieldRows(
                                     leaders.defense,
-                                    defensiveTurnoverFields,
+                                    mobileDefToFields,
+                                    'defensive_stats'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+
+                    {leaders.defense.length > 0 && !mobile && (
+                        <TableContainer title='Defense'>
+                            <LargeTable
+                                header={desktopDefenseHeaders}
+                                contents={fieldRows(
+                                    leaders.defense,
+                                    desktopDefenseFields,
                                     'defensive_stats'
                                 )}
                             />
@@ -210,52 +280,102 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
 
             {tableType === 'special' && (
                 <>
-                    {leaders.kick_return.length > 0 && (
+                    {leaders.kick_return.length > 0 && mobile && (
                         <TableContainer title='Kick Return'>
                             <LargeTable
-                                header={returnsHeaders}
+                                header={mobileKickReturnHeaders}
                                 contents={fieldRows(
                                     leaders.kick_return,
-                                    kickReturnFields,
+                                    mobileKickReturnFields,
                                     'kick_return_stats'
                                 )}
                             />
                         </TableContainer>
                     )}
 
-                    {leaders.punt_return.length > 0 && (
+                    {leaders.kick_return.length > 0 && !mobile && (
+                        <TableContainer title='Kick Return'>
+                            <LargeTable
+                                header={desktopKickReturnHeaders}
+                                contents={fieldRows(
+                                    leaders.kick_return,
+                                    desktopKickReturnFields,
+                                    'kick_return_stats'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+
+                    {leaders.punt_return.length > 0 && mobile && (
                         <TableContainer title='Punt Return'>
                             <LargeTable
-                                header={returnsHeaders}
+                                header={mobilePuntReturnHeaders}
                                 contents={fieldRows(
                                     leaders.punt_return,
-                                    puntReturnFields,
+                                    mobilePuntReturnFields,
                                     'punt_return_stats'
                                 )}
                             />
                         </TableContainer>
                     )}
 
-                    {leaders.kicking.length > 0 && (
+                    {leaders.punt_return.length > 0 && !mobile && (
+                        <TableContainer title='Punt Return'>
+                            <LargeTable
+                                header={desktopPuntReturnHeaders}
+                                contents={fieldRows(
+                                    leaders.punt_return,
+                                    desktopPuntReturnFields,
+                                    'punt_return_stats'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+
+                    {leaders.kicking.length > 0 && mobile && (
                         <TableContainer title='Kicking'>
                             <LargeTable
-                                header={kickingHeaders}
+                                header={mobileKickingHeaders}
                                 contents={fieldRows(
                                     leaders.kicking,
-                                    kickingFields,
+                                    mobileKickingFields,
+                                    'kicking_stats'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {leaders.kicking.length > 0 && !mobile && (
+                        <TableContainer title='Kicking'>
+                            <LargeTable
+                                header={desktopKickingHeaders}
+                                contents={fieldRows(
+                                    leaders.kicking,
+                                    desktopKickingFields,
                                     'kicking_stats'
                                 )}
                             />
                         </TableContainer>
                     )}
 
-                    {leaders.punting.length > 0 && (
+                    {leaders.punting.length > 0 && mobile && (
                         <TableContainer title='Punting'>
                             <LargeTable
-                                header={puntingHeaders}
+                                header={mobilePuntingHeaders}
                                 contents={fieldRows(
                                     leaders.punting,
-                                    puntingFields,
+                                    mobilePuntingFields,
+                                    'punting_stats'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {leaders.punting.length > 0 && !mobile && (
+                        <TableContainer title='Punting'>
+                            <LargeTable
+                                header={desktopPuntingHeaders}
+                                contents={fieldRows(
+                                    leaders.punting,
+                                    desktopPuntingFields,
                                     'punting_stats'
                                 )}
                             />

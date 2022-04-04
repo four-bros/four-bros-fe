@@ -1,30 +1,51 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Table } from 'semantic-ui-react';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { TableContainer, LargeTable } from 'components/common';
-
 import {
-    passingHeaders,
-    passingFields,
-    rushingHeaders,
-    rushingFields,
-    receivingHeaders,
-    receivingFields,
-    defendingHeaders,
-    defendingFields,
-    defensiveTurnoverHeaders,
-    defensiveTurnoverFields,
-    returnsHeaders,
-    kickReturnFields,
-    puntReturnFields,
-    kickingHeaders,
-    kickingFields,
-    puntingHeaders,
-    puntingFields,
-    totalHeaders,
-    totalFields
-} from '../tableTransform';
+    desktopTotalHeaders,
+    desktopPassingHeaders,
+    desktopRushingHeaders,
+    desktopReceivingHeaders,
+    desktopDefenseHeaders,
+    desktopKickReturnHeaders,
+    desktopPuntReturnHeaders,
+    desktopKickingHeaders,
+    desktopPuntingHeaders,
+    desktopTotalFields,
+    desktopPassingFields,
+    desktopRushingFields,
+    desktopReceivingFields,
+    desktopDefenseFields,
+    desktopKickReturnFields,
+    desktopPuntReturnFields,
+    desktopKickingFields,
+    desktopPuntingFields,
+} from './desktopTableTransform';
+import {
+    mobileTotalHeaders,
+    mobilePassingHeaders,
+    mobileRushingHeaders,
+    mobileReceivingHeaders,
+    mobileTackleHeaders,
+    mobileDefToHeaders,
+    mobileKickReturnHeaders,
+    mobilePuntReturnHeaders,
+    mobileKickingHeaders,
+    mobilePuntingHeaders,
+    mobileTotalFields,
+    mobilePassingFields,
+    mobileRushingFields,
+    mobileReceivingFields,
+    mobileTackleFields,
+    mobileDefToFields,
+    mobileKickReturnFields,
+    mobilePuntReturnFields,
+    mobileKickingFields,
+    mobilePuntingFields,
+} from './mobileTableTransform';
 
 import { getFields } from 'utils';
 
@@ -48,6 +69,7 @@ type Props = {
 
 const StatsTable = ({ leaders }: Props) => {
     const [tableType, setTableType] = React.useState('total');
+    const mobile = useMediaQuery('(max-width: 767px)');
 
     const fieldRows = (
         leadersArr:
@@ -151,13 +173,27 @@ const StatsTable = ({ leaders }: Props) => {
             <div className={style.tableContainer}>
                 {tableType === 'total' && (
                     <>
-                        {leaders.total.yards.length > 0 && (
+                    {/* If mobile, render mobile tables */}
+                        {leaders.total.yards.length > 0 && mobile && (
                             <TableContainer title='Total Offense'>
                                 <LargeTable
-                                    header={totalHeaders}
+                                    header={mobileTotalHeaders}
                                     contents={fieldRows(
                                         leaders.total.yards,
-                                        totalFields,
+                                        mobileTotalFields,
+                                        'total_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
+                    {/* If desktop, render desktop tables */}
+                        {leaders.total.yards.length > 0 && !mobile && (
+                            <TableContainer title='Total Offense'>
+                                <LargeTable
+                                    header={desktopTotalHeaders}
+                                    contents={fieldRows(
+                                        leaders.total.yards,
+                                        desktopTotalFields,
                                         'total_stats'
                                     )}
                                 />
@@ -168,39 +204,80 @@ const StatsTable = ({ leaders }: Props) => {
 
                 {tableType === 'offense' && (
                     <>
-                        {leaders.passing.pass_yards.length > 0 && (
+                    {/* If mobile, render mobile tables */}
+                        {leaders.passing.pass_yards.length > 0 && mobile && (
                             <TableContainer title='Passing'>
                                 <LargeTable
-                                    header={passingHeaders}
+                                    header={mobilePassingHeaders}
                                     contents={fieldRows(
                                         leaders.passing.pass_yards,
-                                        passingFields,
+                                        mobilePassingFields,
                                         'passing_stats'
                                     )}
                                 />
                             </TableContainer>
                         )}
 
-                        {leaders.rushing.rush_yards.length > 0 && (
+                        {leaders.rushing.rush_yards.length > 0 && mobile && (
                             <TableContainer title='Rushing'>
                                 <LargeTable
-                                    header={rushingHeaders}
+                                    header={mobileRushingHeaders}
                                     contents={fieldRows(
                                         leaders.rushing.rush_yards,
-                                        rushingFields,
+                                        mobileRushingFields,
                                         'rushing_stats'
                                     )}
                                 />
                             </TableContainer>
                         )}
 
-                        {leaders.receiving.rec_yards.length > 0 && (
+                        {leaders.receiving.rec_yards.length > 0 && mobile && (
                             <TableContainer title='Receiving'>
                                 <LargeTable
-                                    header={receivingHeaders}
+                                    header={mobileReceivingHeaders}
                                     contents={fieldRows(
                                         leaders.receiving.rec_yards,
-                                        receivingFields,
+                                        mobileReceivingFields,
+                                        'receiving_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
+
+                    {/* If desktop, render desktop tables */}
+                        {leaders.passing.pass_yards.length > 0 && !mobile && (
+                            <TableContainer title='Passing'>
+                                <LargeTable
+                                    header={desktopPassingHeaders}
+                                    contents={fieldRows(
+                                        leaders.passing.pass_yards,
+                                        desktopPassingFields,
+                                        'passing_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
+
+                        {leaders.rushing.rush_yards.length > 0 && !mobile && (
+                            <TableContainer title='Rushing'>
+                                <LargeTable
+                                    header={desktopRushingHeaders}
+                                    contents={fieldRows(
+                                        leaders.rushing.rush_yards,
+                                        desktopRushingFields,
+                                        'rushing_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
+
+                        {leaders.receiving.rec_yards.length > 0 && !mobile && (
+                            <TableContainer title='Receiving'>
+                                <LargeTable
+                                    header={desktopReceivingHeaders}
+                                    contents={fieldRows(
+                                        leaders.receiving.rec_yards,
+                                        desktopReceivingFields,
                                         'receiving_stats'
                                     )}
                                 />
@@ -211,26 +288,40 @@ const StatsTable = ({ leaders }: Props) => {
 
                 {tableType === 'defense' && (
                     <>
-                        {leaders.defense.total_tkls.length > 0 && (
+                    {/* If mobile, render mobile tables */}
+                        {leaders.defense.total_tkls.length > 0 && mobile && (
                             <TableContainer title='Defense'>
                                 <LargeTable
-                                    header={defendingHeaders}
+                                    header={mobileTackleHeaders}
                                     contents={fieldRows(
                                         leaders.defense.total_tkls,
-                                        defendingFields,
+                                        mobileTackleFields,
                                         'defensive_stats'
                                     )}
                                 />
                             </TableContainer>
                         )}
 
-                        {leaders.defense.ints_made.length > 0 && (
+                        {leaders.defense.ints_made.length > 0 && mobile && (
                             <TableContainer title='Turnovers'>
                                 <LargeTable
-                                    header={defensiveTurnoverHeaders}
+                                    header={mobileDefToHeaders}
                                     contents={fieldRows(
                                         leaders.defense.ints_made,
-                                        defensiveTurnoverFields,
+                                        mobileDefToFields,
+                                        'defensive_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
+                    {/* If desktop, render desktop tables */}
+                    {leaders.defense.ints_made.length > 0 && !mobile && (
+                            <TableContainer title='Defense'>
+                                <LargeTable
+                                    header={desktopDefenseHeaders}
+                                    contents={fieldRows(
+                                        leaders.defense.ints_made,
+                                        desktopDefenseFields,
                                         'defensive_stats'
                                     )}
                                 />
@@ -241,52 +332,106 @@ const StatsTable = ({ leaders }: Props) => {
 
                 {tableType === 'special' && (
                     <>
-                        {leaders.kick_return.kr_yards.length > 0 && (
+                    {/* If mobile, render mobile tables */}
+                        {leaders.kick_return.kr_yards.length > 0 && mobile && (
                             <TableContainer title='Kick Return'>
                                 <LargeTable
-                                    header={returnsHeaders}
+                                    header={mobileKickReturnHeaders}
                                     contents={fieldRows(
                                         leaders.kick_return.kr_yards,
-                                        kickReturnFields,
+                                        mobileKickReturnFields,
                                         'kick_return_stats'
                                     )}
                                 />
                             </TableContainer>
                         )}
 
-                        {leaders.punt_return.pr_yards.length > 0 && (
+                        {leaders.punt_return.pr_yards.length > 0 && mobile && (
                             <TableContainer title='Punt Return'>
                                 <LargeTable
-                                    header={returnsHeaders}
+                                    header={mobilePuntReturnHeaders}
                                     contents={fieldRows(
                                         leaders.punt_return.pr_yards,
-                                        puntReturnFields,
+                                        mobilePuntReturnFields,
                                         'punt_return_stats'
                                     )}
                                 />
                             </TableContainer>
                         )}
 
-                        {leaders.kicking.fg_made.length > 0 && (
+                        {leaders.kicking.fg_made.length > 0 && mobile && (
                             <TableContainer title='Kicking'>
                                 <LargeTable
-                                    header={kickingHeaders}
+                                    header={mobileKickingHeaders}
                                     contents={fieldRows(
                                         leaders.kicking.fg_made,
-                                        kickingFields,
+                                        mobileKickingFields,
                                         'kicking_stats'
                                     )}
                                 />
                             </TableContainer>
                         )}
 
-                        {leaders.punting.punt_avg.length > 0 && (
+                        {leaders.punting.punt_avg.length > 0 && mobile && (
                             <TableContainer title='Punting'>
                                 <LargeTable
-                                    header={puntingHeaders}
+                                    header={mobilePuntingHeaders}
                                     contents={fieldRows(
                                         leaders.punting.punt_avg,
-                                        puntingFields,
+                                        mobilePuntingFields,
+                                        'punting_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
+
+                    {/* If desktop, render desktop tables */}
+                    {leaders.kick_return.kr_yards.length > 0 && !mobile && (
+                            <TableContainer title='Kick Return'>
+                                <LargeTable
+                                    header={desktopKickReturnHeaders}
+                                    contents={fieldRows(
+                                        leaders.kick_return.kr_yards,
+                                        desktopKickReturnFields,
+                                        'kick_return_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
+
+                        {leaders.punt_return.pr_yards.length > 0 && !mobile && (
+                            <TableContainer title='Punt Return'>
+                                <LargeTable
+                                    header={desktopPuntReturnHeaders}
+                                    contents={fieldRows(
+                                        leaders.punt_return.pr_yards,
+                                        desktopPuntReturnFields,
+                                        'punt_return_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
+
+                        {leaders.kicking.fg_made.length > 0 && !mobile && (
+                            <TableContainer title='Kicking'>
+                                <LargeTable
+                                    header={desktopKickingHeaders}
+                                    contents={fieldRows(
+                                        leaders.kicking.fg_made,
+                                        desktopKickingFields,
+                                        'kicking_stats'
+                                    )}
+                                />
+                            </TableContainer>
+                        )}
+
+                        {leaders.punting.punt_avg.length > 0 && !mobile && (
+                            <TableContainer title='Punting'>
+                                <LargeTable
+                                    header={desktopPuntingHeaders}
+                                    contents={fieldRows(
+                                        leaders.punting.punt_avg,
+                                        desktopPuntingFields,
                                         'punting_stats'
                                     )}
                                 />
