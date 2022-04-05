@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import { Table } from 'semantic-ui-react';
 
 import { TableContainer, LargeTable } from 'components/common';
