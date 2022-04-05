@@ -22,12 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Backend
-/backend/four_bros/
-/backend/src/__pycache__/
-/backend/src/data_models/__pycache__/
-__pycache__/
-/backend/src/tempCodeRunnerFile.py
-
 # VS 
 .vscode/
