@@ -27,12 +27,11 @@
         "sass": "^1.49.9",
         "semantic-ui-css": "^2.4.1",
         "semantic-ui-react": "^2.1.2",
-        "serve": "^13.0.2",
         "typescript": "^4.6.2",
         "web-vitals": "^1.1.2"
     },
     "scripts": {
-        "start": "serve -s build",
+        "start": "react-scripts build",
         "dev": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import './styles/index.scss';
 import { NavBar } from 'components/common';
 import { Route, Routes } from 'react-router-dom';
