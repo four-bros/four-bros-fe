@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Table } from 'semantic-ui-react';
-import useMediaQuery from '@mui/material/useMediaQuery';
+// import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { TableContainer, LargeTable } from 'components/common';
 import {
@@ -65,7 +65,7 @@ type Props = {
 
 const TeamLeaders = ({ leaders, infoType }: Props) => {
     const [tableType, setTableType] = React.useState('offense');
-    const mobile = useMediaQuery('(max-width: 767px)');
+    // const mobile = useMediaQuery('(max-width: 767px)');
 
     const fieldRows = (
         leadersArr:
@@ -112,7 +112,8 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
                                 </Table.Cell>
                                 {fieldsArr.map(
                                     (fieldValue: number, idx: number) => {
-                                        const flooredValue = Math.floor(fieldValue)
+                                        const flooredValue =
+                                            Math.floor(fieldValue);
                                         return (
                                             <Table.Cell
                                                 key={`cell-${idx}-${fieldValue}`}
@@ -156,7 +157,7 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
                 </Button>
             </div>
 
-            {tableType === 'offense' && (
+            {/* {tableType === 'offense' && (
                 <>
                     {leaders.passing.length > 0 && mobile && (
                         <TableContainer title='Passing'>
@@ -233,9 +234,9 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
                         </TableContainer>
                     )}
                 </>
-            )}
+            )} */}
 
-            {tableType === 'defense' && (
+            {/* {tableType === 'defense' && (
                 <>
                     {leaders.defense.length > 0 && mobile && (
                         <TableContainer title='Defense'>
@@ -276,9 +277,9 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
                         </TableContainer>
                     )}
                 </>
-            )}
+            )} */}
 
-            {tableType === 'special' && (
+            {/* {tableType === 'special' && (
                 <>
                     {leaders.kick_return.length > 0 && mobile && (
                         <TableContainer title='Kick Return'>
@@ -382,7 +383,7 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
                         </TableContainer>
                     )}
                 </>
-            )}
+            )} */}
         </>
     );
 };

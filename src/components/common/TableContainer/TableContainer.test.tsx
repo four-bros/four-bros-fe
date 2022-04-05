@@ -1,4 +1,4 @@
-import { getByText, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { LargeTable } from '..';
 
 import TableContainer from './TableContainer';

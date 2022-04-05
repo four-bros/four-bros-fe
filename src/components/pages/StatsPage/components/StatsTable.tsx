@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Table } from 'semantic-ui-react';
-import useMediaQuery from '@mui/material/useMediaQuery';
+// import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { TableContainer, LargeTable } from 'components/common';
 import {
@@ -69,7 +69,7 @@ type Props = {
 
 const StatsTable = ({ leaders }: Props) => {
     const [tableType, setTableType] = React.useState('total');
-    const mobile = useMediaQuery('(max-width: 767px)');
+    // const mobile = useMediaQuery('(max-width: 767px)');
 
     const fieldRows = (
         leadersArr:
@@ -85,11 +85,9 @@ const StatsTable = ({ leaders }: Props) => {
         fields: Set<string>,
         fieldType: string
     ) => {
-
         return (
             <>
                 {leadersArr.map((leader: any, idx: number) => {
-
                     const otherFields = getFields(leader[fieldType], fields);
                     const fieldsArr = Array.from(otherFields);
 
@@ -119,7 +117,8 @@ const StatsTable = ({ leaders }: Props) => {
                                 </Table.Cell>
                                 {fieldsArr.map(
                                     (fieldValue: number, idx: number) => {
-                                        const flooredValue = Math.floor(fieldValue)
+                                        const flooredValue =
+                                            Math.floor(fieldValue);
                                         return (
                                             <Table.Cell
                                                 key={`cell-${idx}-${fieldValue}`}
@@ -173,8 +172,8 @@ const StatsTable = ({ leaders }: Props) => {
             <div className={style.tableContainer}>
                 {tableType === 'total' && (
                     <>
-                    {/* If mobile, render mobile tables */}
-                        {leaders.total.yards.length > 0 && mobile && (
+                        {/* If mobile, render mobile tables */}
+                        {/* {leaders.total.yards.length > 0 && mobile && (
                             <TableContainer title='Total Offense'>
                                 <LargeTable
                                     header={mobileTotalHeaders}
@@ -185,9 +184,9 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
-                    {/* If desktop, render desktop tables */}
-                        {leaders.total.yards.length > 0 && !mobile && (
+                        )} */}
+                        {/* If desktop, render desktop tables */}
+                        {/* {leaders.total.yards.length > 0 && !mobile && (
                             <TableContainer title='Total Offense'>
                                 <LargeTable
                                     header={desktopTotalHeaders}
@@ -198,14 +197,14 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
                     </>
                 )}
 
                 {tableType === 'offense' && (
                     <>
-                    {/* If mobile, render mobile tables */}
-                        {leaders.passing.pass_yards.length > 0 && mobile && (
+                        {/* If mobile, render mobile tables */}
+                        {/* {leaders.passing.pass_yards.length > 0 && mobile && (
                             <TableContainer title='Passing'>
                                 <LargeTable
                                     header={mobilePassingHeaders}
@@ -216,9 +215,9 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
 
-                        {leaders.rushing.rush_yards.length > 0 && mobile && (
+                        {/* {leaders.rushing.rush_yards.length > 0 && mobile && (
                             <TableContainer title='Rushing'>
                                 <LargeTable
                                     header={mobileRushingHeaders}
@@ -229,9 +228,9 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
 
-                        {leaders.receiving.rec_yards.length > 0 && mobile && (
+                        {/* {leaders.receiving.rec_yards.length > 0 && mobile && (
                             <TableContainer title='Receiving'>
                                 <LargeTable
                                     header={mobileReceivingHeaders}
@@ -242,10 +241,10 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
 
-                    {/* If desktop, render desktop tables */}
-                        {leaders.passing.pass_yards.length > 0 && !mobile && (
+                        {/* If desktop, render desktop tables */}
+                        {/* {leaders.passing.pass_yards.length > 0 && !mobile && (
                             <TableContainer title='Passing'>
                                 <LargeTable
                                     header={desktopPassingHeaders}
@@ -256,9 +255,9 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
 
-                        {leaders.rushing.rush_yards.length > 0 && !mobile && (
+                        {/* {leaders.rushing.rush_yards.length > 0 && !mobile && (
                             <TableContainer title='Rushing'>
                                 <LargeTable
                                     header={desktopRushingHeaders}
@@ -269,9 +268,9 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
 
-                        {leaders.receiving.rec_yards.length > 0 && !mobile && (
+                        {/* {leaders.receiving.rec_yards.length > 0 && !mobile && (
                             <TableContainer title='Receiving'>
                                 <LargeTable
                                     header={desktopReceivingHeaders}
@@ -282,14 +281,14 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
                     </>
                 )}
 
                 {tableType === 'defense' && (
                     <>
-                    {/* If mobile, render mobile tables */}
-                        {leaders.defense.total_tkls.length > 0 && mobile && (
+                        {/* If mobile, render mobile tables */}
+                        {/* {leaders.defense.total_tkls.length > 0 && mobile && (
                             <TableContainer title='Defense'>
                                 <LargeTable
                                     header={mobileTackleHeaders}
@@ -300,9 +299,9 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
 
-                        {leaders.defense.ints_made.length > 0 && mobile && (
+                        {/* {leaders.defense.ints_made.length > 0 && mobile && (
                             <TableContainer title='Turnovers'>
                                 <LargeTable
                                     header={mobileDefToHeaders}
@@ -313,9 +312,9 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
-                    {/* If desktop, render desktop tables */}
-                    {leaders.defense.ints_made.length > 0 && !mobile && (
+                        )} */}
+                        {/* If desktop, render desktop tables */}
+                        {/* {leaders.defense.ints_made.length > 0 && !mobile && (
                             <TableContainer title='Defense'>
                                 <LargeTable
                                     header={desktopDefenseHeaders}
@@ -326,14 +325,14 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
                     </>
                 )}
 
                 {tableType === 'special' && (
                     <>
-                    {/* If mobile, render mobile tables */}
-                        {leaders.kick_return.kr_yards.length > 0 && mobile && (
+                        {/* If mobile, render mobile tables */}
+                        {/* {leaders.kick_return.kr_yards.length > 0 && mobile && (
                             <TableContainer title='Kick Return'>
                                 <LargeTable
                                     header={mobileKickReturnHeaders}
@@ -344,9 +343,9 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
 
-                        {leaders.punt_return.pr_yards.length > 0 && mobile && (
+                        {/* {leaders.punt_return.pr_yards.length > 0 && mobile && (
                             <TableContainer title='Punt Return'>
                                 <LargeTable
                                     header={mobilePuntReturnHeaders}
@@ -357,9 +356,9 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
 
-                        {leaders.kicking.fg_made.length > 0 && mobile && (
+                        {/* {leaders.kicking.fg_made.length > 0 && mobile && (
                             <TableContainer title='Kicking'>
                                 <LargeTable
                                     header={mobileKickingHeaders}
@@ -370,9 +369,9 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
 
-                        {leaders.punting.punt_avg.length > 0 && mobile && (
+                        {/* {leaders.punting.punt_avg.length > 0 && mobile && (
                             <TableContainer title='Punting'>
                                 <LargeTable
                                     header={mobilePuntingHeaders}
@@ -383,10 +382,10 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
 
-                    {/* If desktop, render desktop tables */}
-                    {leaders.kick_return.kr_yards.length > 0 && !mobile && (
+                        {/* If desktop, render desktop tables */}
+                        {/* {leaders.kick_return.kr_yards.length > 0 && !mobile && (
                             <TableContainer title='Kick Return'>
                                 <LargeTable
                                     header={desktopKickReturnHeaders}
@@ -397,9 +396,9 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
 
-                        {leaders.punt_return.pr_yards.length > 0 && !mobile && (
+                        {/* {leaders.punt_return.pr_yards.length > 0 && !mobile && (
                             <TableContainer title='Punt Return'>
                                 <LargeTable
                                     header={desktopPuntReturnHeaders}
@@ -410,9 +409,9 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
 
-                        {leaders.kicking.fg_made.length > 0 && !mobile && (
+                        {/* {leaders.kicking.fg_made.length > 0 && !mobile && (
                             <TableContainer title='Kicking'>
                                 <LargeTable
                                     header={desktopKickingHeaders}
@@ -423,9 +422,9 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
 
-                        {leaders.punting.punt_avg.length > 0 && !mobile && (
+                        {/* {leaders.punting.punt_avg.length > 0 && !mobile && (
                             <TableContainer title='Punting'>
                                 <LargeTable
                                     header={desktopPuntingHeaders}
@@ -436,7 +435,7 @@ const StatsTable = ({ leaders }: Props) => {
                                     )}
                                 />
                             </TableContainer>
-                        )}
+                        )} */}
                     </>
                 )}
             </div>

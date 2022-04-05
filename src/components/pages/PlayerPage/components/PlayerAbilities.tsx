@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button, Table } from 'semantic-ui-react';
-import useMediaQuery from '@mui/material/useMediaQuery';
+// import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { TableContainer, LargeTable } from 'components/common';
 import {
@@ -34,7 +34,7 @@ type Props = {
 
 const PlayerAbilities = ({ player }: Props) => {
     const [tableType, setTableType] = React.useState('athletic');
-    const mobile = useMediaQuery('(max-width: 767px)');
+    // const mobile = useMediaQuery('(max-width: 767px)');
 
     const fieldRows = (fields: Set<string>) => {
         const values = Array.from(getFields(player.abilities, fields));
@@ -79,7 +79,7 @@ const PlayerAbilities = ({ player }: Props) => {
             </div>
 
             <div>
-                {tableType === 'athletic' && (
+                {/* {tableType === 'athletic' && (
                     <>
                         {mobile && (
                             <TableContainer title='Athletic Abilities'>
@@ -98,9 +98,9 @@ const PlayerAbilities = ({ player }: Props) => {
                             </TableContainer>
                         )}
                     </>
-                )}
+                )} */}
 
-                {tableType === 'offense' && (
+                {/* {tableType === 'offense' && (
                     <>
                     {mobile && (
                         <>
@@ -137,9 +137,9 @@ const PlayerAbilities = ({ player }: Props) => {
                         </>
                     )}
                     </>
-                )}
+                )} */}
 
-                {tableType === 'defense' && (
+                {/* {tableType === 'defense' && (
                     <>
                     {mobile && (
                         <>
@@ -169,7 +169,7 @@ const PlayerAbilities = ({ player }: Props) => {
                         </>
                     )}
                     </>
-                )}
+                )} */}
             </div>
         </div>
     );

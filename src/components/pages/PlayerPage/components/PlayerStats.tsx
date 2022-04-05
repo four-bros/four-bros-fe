@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button, Table } from 'semantic-ui-react';
-import useMediaQuery from '@mui/material/useMediaQuery';
+// import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { TableContainer, LargeTable } from 'components/common';
 import {
@@ -52,7 +52,7 @@ type Props = {
 const Stats = ({ player }: Props) => {
     const [tableType, setTableType] = React.useState('offense');
     const [statsType, setStatsType] = React.useState('season');
-    const mobile = useMediaQuery('(max-width: 767px)');
+    // const mobile = useMediaQuery('(max-width: 767px)');
     let stats: any;
 
     if (statsType === 'season') {
@@ -120,7 +120,7 @@ const Stats = ({ player }: Props) => {
                 </Button>
             </div>
 
-            {tableType === 'offense' && (
+            {/* {tableType === 'offense' && (
                 <>
                     {stats.passing && mobile && (
                         <TableContainer title='Passing'>
@@ -175,8 +175,8 @@ const Stats = ({ player }: Props) => {
                         </TableContainer>
                     )}
                 </>
-            )}
-            {tableType === 'defense' && (
+            )} */}
+            {/* {tableType === 'defense' && (
                 <>
                     {stats.defensive && mobile && (
                         <TableContainer title='Defense'>
@@ -204,9 +204,9 @@ const Stats = ({ player }: Props) => {
                         </TableContainer>
                     )}
                 </>
-            )}
+            )} */}
 
-            {tableType === 'special' && (
+            {/* {tableType === 'special' && (
                 <>
                     {stats.kick_return && mobile && (
                         <TableContainer title='Kick Return'>
@@ -280,7 +280,7 @@ const Stats = ({ player }: Props) => {
                         </TableContainer>
                     )}
                 </>
-            )}
+            )} */}
         </div>
     );
 };
