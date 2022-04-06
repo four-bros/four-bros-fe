@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Button, Table } from 'semantic-ui-react';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { TableContainer, LargeTable } from 'components/common';
 import {
@@ -41,9 +40,10 @@ import {
     mobileKickingFields,
     mobilePuntingFields,
 } from './mobileTableTransform';
-
 import { PlayerStatsStructure } from 'api/players';
 import { getFields } from 'utils';
+import useMediaQuery from '../../../../hooks/useMediaQuery';
+
 
 type Props = {
     player: PlayerStatsStructure;
