@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Icon } from 'semantic-ui-react';
 
 import ncaaLogo from 'assets/ncaa_football_logo.png';
 import style from './navBar.module.scss';
@@ -16,6 +17,7 @@ const Navbar = () => {
             <div className={style.navLogoContainer}>
                 <NavLink to='/' className={style.logoLink}>
                     <img src={ncaaLogo} className={style.navLogo} alt='ncaa logo' />
+                    {/* <Icon name='home' size='big' className={style.mobileLogo}></Icon> */}
                 </NavLink>
             </div>
             
