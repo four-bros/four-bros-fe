@@ -319,7 +319,7 @@ const StatsTable = ({ leaders }: Props) => {
                                 <LargeTable
                                     header={desktopDefenseHeaders}
                                     contents={fieldRows(
-                                        leaders.defense.ints_made,
+                                        leaders.defense.total_tkls,
                                         desktopDefenseFields,
                                         'defensive_stats'
                                     )}
