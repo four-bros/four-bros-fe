@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Table } from 'semantic-ui-react';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { TableContainer, LargeTable } from 'components/common';
 import {
@@ -57,6 +56,7 @@ import type {
     Total,
 } from 'api/teams';
 import style from '../teamsPage.module.scss';
+import useMediaQuery from '../../../../hooks/useMediaQuery';
 
 type Props = {
     leaders: SingleTeamLeaders;

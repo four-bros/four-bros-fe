@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Table } from 'semantic-ui-react';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { TableContainer, LargeTable } from 'components/common';
 import {
@@ -46,9 +45,7 @@ import {
     mobileKickingFields,
     mobilePuntingFields,
 } from './mobileTableTransform';
-
 import { getFields } from 'utils';
-
 import type {
     Defense,
     KickReturn,
@@ -62,6 +59,8 @@ import type {
 } from 'api/teams';
 import { RecordsInfo } from 'api/records';
 import style from '../statsPage.module.scss';
+import useMediaQuery from '../../../../hooks/useMediaQuery';
+
 
 type Props = {
     leaders: RecordsInfo;
