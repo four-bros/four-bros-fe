@@ -29,7 +29,8 @@
 }
 
 .navLinksContainer {
-    width: 100%;
+    width: 60%;
+    margin-right: 2em;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -43,7 +44,6 @@
 
 .navLink:hover {
     color: #cb2c2c;
-    border-bottom: 2px solid #cb2c2c;
     transition: all 0.3s;
 }
 
@@ -59,6 +59,7 @@
     display: inline-block;
     position: relative;
     padding: 5px;
+    width: 6em;
     background-color: inherit;
     border: none;
     color: white;
@@ -91,12 +92,11 @@
 
 .dropdownLink {
     background-color: inherit;
-    border-bottom: 2px solid transparent;
     color: white;
     text-align: center;
     display: block;
     padding: 5px;
-    width: 8em;
+    width: 6em;
     position: relative;
     font-weight: bold;
     overflow: auto;
@@ -105,7 +105,6 @@
 
 .dropdownLink:hover {
     color: #cb2c2c;
-    border-bottom: 2px solid #cb2c2c;
     cursor: pointer;
     transition: all 0.3s;
 }
@@ -128,8 +127,8 @@
 
     .navLogo {
         display: flex;
-        height: 5em;
-        width: 7em;
+        height: 4em;
+        width: 6em;
         margin-left: 5em;
         background-color: inherit;
     }

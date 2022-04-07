@@ -1,6 +1,6 @@
 import './styles/index.scss';
 import { NavBar } from 'components/common';
-import MenuNav from 'components/common/Menu/MenuNav';
+// import MenuNav from 'components/common/Menu/MenuNav';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './components/pages/HomePage/HomePage';
 import TeamPage from 'components/pages/TeamsPage/TeamPage';

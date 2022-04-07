@@ -3,14 +3,14 @@ import { NavLink } from 'react-router-dom';
 
 import ncaaLogo from 'assets/ncaa_football_logo.png';
 import style from './navBar.module.scss';
-import useMediaQuery from 'hooks/useMediaQuery';
+// import useMediaQuery from 'hooks/useMediaQuery';
 
 
 const Navbar = () => {
 
     const [isSeasonSelected, setIsSeasonSelected] = React.useState(false);
     const [isRecordsSelected, setIsRecordsSelected] = React.useState(false);
-    const mobile = useMediaQuery('(max-width: 767px)');
+    // const mobile = useMediaQuery('(max-width: 767px)');
 
     return (
         <div className={style.navbarContainer}>

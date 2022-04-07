@@ -21,7 +21,7 @@
         "typescript": "^4.6.2"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "react-scripts build",
         "dev": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
