@@ -167,7 +167,7 @@ const getDefenseOverview = (
         ['TOs', overallStats.turnovers],
         ['INTs', overallStats.ints],
         ['Fumbles', overallStats.fr],
-        ['Def. TDs', overallStats.def_tds],
+        ['Sacks', overallStats.sacks],
     ];
 };
 

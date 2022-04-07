@@ -91,28 +91,30 @@ const desktopPassingHeaders = [
     'Games',
     'Comp',
     'Att',
+    '%',
     'Yards',
     'YPA',
     'YPG',
     'TDs',
     'INTs',
-    'Rating',
     'Long',
-    'Sacked'
+    'Sacked',
+    'Rating',
 ];
 
 const desktopPassingFields = new Set([
     'games_played',
     'completions',
     'pass_att',
+    'comp_pct',
     'pass_yards',
     'pass_yp_attempt',
     'pass_yp_game',
     'pass_tds',
     'ints',
-    'pass_rating',
     'longest_pass',
-    'sacked'
+    'sacked',
+    'pass_rating',
 ]);
 
 const desktopRushingHeaders = [
