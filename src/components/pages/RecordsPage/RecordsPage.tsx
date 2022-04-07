@@ -180,6 +180,13 @@ const RecordsPage = () => {
                     <RecordsTable 
                         recordInfo={records}
                         genCategory={recordCategory}
+                        record='comp_pct'
+                        statCategory='passing_stats'
+                        fieldName='comp_pct'
+                    />
+                    <RecordsTable 
+                        recordInfo={records}
+                        genCategory={recordCategory}
                         record='pass_att'
                         statCategory='passing_stats'
                         fieldName='pass_att'

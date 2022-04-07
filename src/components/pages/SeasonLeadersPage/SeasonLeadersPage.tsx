@@ -164,6 +164,13 @@ const SeasonLeadersPage = () => {
                         <RecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
+                            record='comp_pct'
+                            statCategory='passing_stats'
+                            fieldName='comp_pct'
+                        />
+                        <RecordsTable 
+                            recordInfo={seasonLeaders}
+                            genCategory={leaderCategory}
                             record='pass_att'
                             statCategory='passing_stats'
                             fieldName='pass_att'
