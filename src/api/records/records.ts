@@ -118,7 +118,7 @@ export interface RecordsInfo {
 
 export const getCareerRecords = async (): Promise<RecordsInfo | void> => {
     try {
-        const response = await baseGet('/records/career/');
+        const response = await baseGet('/records/career');
         return response.data;
     } catch (err) {
         console.log(err);
@@ -127,7 +127,7 @@ export const getCareerRecords = async (): Promise<RecordsInfo | void> => {
 
 export const getGameRecords = async (): Promise<RecordsInfo | void> => {
     try {
-        const response = await baseGet('/records/game/');
+        const response = await baseGet('/records/game');
         return response.data;
     } catch (err) {
         console.log(err);
@@ -136,7 +136,7 @@ export const getGameRecords = async (): Promise<RecordsInfo | void> => {
 
 export const getSeasonRecords = async (): Promise<RecordsInfo | void> => {
     try {
-        const response = await baseGet('/records/season/');
+        const response = await baseGet('/records/season');
         return response.data;
     } catch (err) {
         console.log(err);
@@ -145,7 +145,7 @@ export const getSeasonRecords = async (): Promise<RecordsInfo | void> => {
 
 export const getRecords = async (recordType: string): Promise<RecordsInfo | void> => {
     try {
-        const response = await baseGet(`/records/${recordType}/`);
+        const response = await baseGet(`/records/${recordType}`);
         return response.data;
     } catch (err) {
         console.log(err);
