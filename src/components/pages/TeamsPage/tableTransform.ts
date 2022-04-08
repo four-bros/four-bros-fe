@@ -130,7 +130,7 @@ const puntingFields = new Set([
     'inside_twenty',
 ]);
 
-const rosterHeaders = ['Name', 'Class', 'Ht/Wt', '#', 'Pos', 'Ovr'];
+const rosterHeaders = ['Name', 'Class', 'Ht / Wt', '#', 'Pos', 'Ovr'];
 
 const rosterFields = new Set([
     'player_year',

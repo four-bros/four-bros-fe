@@ -29,7 +29,7 @@ const Navbar = () => {
                         <>
                             <div className={style.dropDownContainer}>
                                 <NavLink 
-                                    to='/season/leaders'
+                                    to='/season/leaders/players'
                                     className={style.dropdownLink}
                                     onClick={() => {setIsSeasonSelected(!isSeasonSelected)}}
                                 >

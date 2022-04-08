@@ -263,6 +263,7 @@ export type Total = [PlayerDetails, TotalStats?];
 
 export type SingleTeamLeaders = {
     defense: Defense;
+    defense_to: Defense;
     kick_return: KickReturn;
     kicking: Kicking;
     passing: Passing;

@@ -1,38 +1,38 @@
 
 const mobilePassingHeaders = [
     'Name',
-    'Comp',
+    'Cmp',
     'Att',
+    '%',
     'Yds',
-    'YPG',
-    'TDs',
-    'INTs',
+    'TD',
+    'INT'
 ];
 
 const mobilePassingFields = new Set([
     'completions',
     'pass_att',
+    'comp_pct',
     'pass_yards',
-    'pass_yp_game',
     'pass_tds',
-    'ints',
+    'ints'
 ]);
 
 const mobileRushingHeaders = [
     'Name',
     'Att',
     'Yds',
+    'YPC',
     'YPG',
     'TDs',
-    'Br Tkl',
 ];
 
 const mobileRushingFields = new Set([
     'rush_att',
     'rush_yards',
+    'rush_yp_carry',
     'rush_yp_game',
     'rush_tds',
-    'broke_tkls',
 ]);
 
 const mobileReceivingHeaders = [
