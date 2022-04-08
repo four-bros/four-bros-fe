@@ -255,7 +255,7 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
                             <LargeTable
                                 header={mobileDefToHeaders}
                                 contents={fieldRows(
-                                    leaders.defense,
+                                    leaders.defense_to,
                                     mobileDefToFields,
                                     'defensive_stats'
                                 )}
