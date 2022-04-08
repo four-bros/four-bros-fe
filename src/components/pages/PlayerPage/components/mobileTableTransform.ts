@@ -93,8 +93,8 @@ const mobilePassingHeaders = [
     'Att',
     'Yds',
     'YPG',
-    'TDs',
-    'INTs',
+    'TD',
+    'INT',
     'Rtg',
 ];
 
