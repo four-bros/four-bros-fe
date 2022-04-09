@@ -38,9 +38,10 @@ const desktopRushingHeaders = [
     'YPC',
     'YPG', 
     'TDs',
-    '20+ Runs',
+    'Long',
     'Br. Tackles',
     'YAC',
+    '20+ Runs',
     'Fumbles'
 ];
 
@@ -51,9 +52,10 @@ const desktopRushingFields = new Set([
     'rush_yp_carry',
     'rush_yp_game',
     'rush_tds',
-    'twenty_plus_yd_runs',
+    'longest_run',
     'broke_tkls',
     'ya_contact',
+    'twenty_plus_yd_runs',
     'fumbles',
 ]);
 
@@ -65,6 +67,7 @@ const desktopReceivingHeaders = [
     'YPC',
     'YPG',
     'TDs',
+    'Long',
     'YAC',
     'Drops'
 ];
@@ -76,6 +79,7 @@ const desktopReceivingFields = new Set([
     'rec_yp_catch',
     'rec_yp_game',
     'rec_tds',
+    'longest_rec',
     'yac',
     'drops',
 ]);

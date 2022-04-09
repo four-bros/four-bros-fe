@@ -25,11 +25,11 @@ function App() {
                 <Route path='/team/:teamId' element={<TeamPage />} />
                 <Route path='/players/:playerId' element={<PlayerPage />} />
                 <Route path='/season/leaders/players' element={<SeasonLeadersPage />} />
-                <Route path='/rankings' element={<RankingsPage />} />
+                <Route path='/season/rankings' element={<RankingsPage />} />
                 <Route path={'/records/:recordType'} element={<RecordsPage />} />
-                <Route path='/recruiting' element={<RecruitingPage />} />
+                <Route path='/season/recruiting' element={<RecruitingPage />} />
                 <Route path='/hof' element={<HallOfFamePage />} />
-                <Route path='/stats' element={<StatsPage />} />
+                <Route path='/season/stats' element={<StatsPage />} />
             </Routes>
         </>
     );
