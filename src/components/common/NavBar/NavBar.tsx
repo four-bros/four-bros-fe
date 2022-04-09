@@ -36,21 +36,21 @@ const Navbar = () => {
                                     Leaders
                                 </NavLink>
                                 <NavLink
-                                    to='/rankings'
+                                    to='/season/rankings'
                                     className={style.dropdownLink}
                                     onClick={() => {setIsSeasonSelected(!isSeasonSelected)}}
                                 >
                                     Rankings
                                 </NavLink>
                                 <NavLink
-                                    to="/recruiting"
+                                    to="/season/recruiting"
                                     className={style.dropdownLink}
                                     onClick={() => {setIsSeasonSelected(!isSeasonSelected)}}
                                 >
                                     Recruiting
                                 </NavLink>
                                 <NavLink
-                                to='/stats'
+                                to='/season/stats'
                                 className={style.dropdownLink}
                                 onClick={() => {setIsSeasonSelected(!isSeasonSelected)}}
                                 >
