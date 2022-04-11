@@ -21,7 +21,7 @@
 
 .teamName {
     display: flex;
-    margin: 1em auto;
+    margin: 0 auto 1em auto;
     align-content: center;
     justify-content: center;
     flex-wrap: nowrap;
@@ -29,10 +29,12 @@
 
     h3 {
         padding-right: 2%;
+        font-weight: 400;
     }
 
     h2 {
         font-size: 2rem;
+        font-weight: 400;
     }
 }
 

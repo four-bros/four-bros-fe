@@ -8,7 +8,7 @@ type Props = {
 const LargeTable = ({ header, contents }: Props) => {
     return (
         <div>
-            <Table unstackable small='true'>
+            <Table unstackable small='true' color='grey' inverted>
                 {header ? (
                     <>
                         <Table.Header data-testid='table-header'>

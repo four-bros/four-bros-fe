@@ -105,6 +105,7 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
                                 >
                                     <Link
                                         to={`/players/${leader.player_details.id}`}
+                                        className={style.tableLink}
                                     >
                                         {leader.player_details.first_name}{' '}
                                         {leader.player_details.last_name}

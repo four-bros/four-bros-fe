@@ -3,7 +3,6 @@ const mobilePassingHeaders = [
     'Name',
     'Cmp',
     'Att',
-    '%',
     'Yds',
     'TD',
     'INT'
@@ -12,7 +11,6 @@ const mobilePassingHeaders = [
 const mobilePassingFields = new Set([
     'completions',
     'pass_att',
-    'comp_pct',
     'pass_yards',
     'pass_tds',
     'ints'

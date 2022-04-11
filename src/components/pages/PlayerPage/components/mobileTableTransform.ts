@@ -1,14 +1,13 @@
 // Get player abilities
 const mobileAthleticAbilitiesHeaders = [
-    'Ovr.',
-    'Spd.',
-    'Str.',
-    'Agl.',
-    'Acc.',
-    'Stam.',
-    'Jmp.',
-    'Inj.',
-    'Awr.',
+    'Ovr',
+    'Spd',
+    'Str',
+    'Ag',
+    'Acc',
+    'Stm',
+    'Jmp',
+    'Inj',
 ];
 
 const mobileAthleticAbilityFields = new Set([
@@ -20,21 +19,28 @@ const mobileAthleticAbilityFields = new Set([
     'stamina',
     'jump',
     'injury',
+]);
+
+const mobilePassingAbilityHeaders = [
+    'Th. Pow.',
+    'Th. Acc.',
+    'Awr',
+];
+
+const mobilePassingAbilityFields = new Set([
+    'throwing_power',
+    'throwing_accuracy',
     'awareness',
 ]);
 
-const mobilePassingAbilityHeaders = ['Th. Pow.', 'Th. Acc.'];
-
-const mobilePassingAbilityFields = new Set(['throwing_power', 'throwing_accuracy']);
-
 const mobileRushingAbilitiesHeaders = [
-    'Cry',
-    'Br. Tkl.',
-    'Stf. Arm',
+    'Car',
+    'B.T.',
+    'S.A.',
     'Tr.',
-    'Elus',
-    'Spin',
-    'Juke',
+    'Els',
+    'Spn',
+    'Jk',
     'BCV',
 ];
 
@@ -49,7 +55,13 @@ const mobileRushingAbilityFields = new Set([
     'ball_carrier_vision',
 ]);
 
-const mobileRecAbilitiesHeaders = ['Ctch', 'Rte', 'CiT', 'Rel.', 'Spec. Ctch.'];
+const mobileRecAbilitiesHeaders = [
+    'Catch',
+    'Route',
+    'CiT',
+    'Rel.',
+    'Spec. Catch'
+];
 
 const mobileRecAbilityFields = new Set([
     'catch',
@@ -62,11 +74,11 @@ const mobileRecAbilityFields = new Set([
 const mobileTackleAbilitiesHeaders = [
     'Tkl',
     'Hit Pow.',
-    'Bl. Shed',
-    'Pow. Move',
-    'Fin. Move',
-    'Purs.',
-    'Play Rec.',
+    'Shed',
+    'Pow',
+    'Fin',
+    'Purs',
+    'Rec',
 ];
 
 const mobileTackleAbilityFields = new Set([
