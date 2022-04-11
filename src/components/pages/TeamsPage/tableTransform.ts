@@ -149,7 +149,7 @@ const getOffenseOverview = (
 ] => {
     return [
         ['PPG', overallStats.ppg],
-        ['Total YPG', overallStats.total_ypg],
+        ['Off. YPG', overallStats.off_ypg],
         ['Rush YPG', overallStats.rush_ypg],
         ['Pass YPG', overallStats.pass_ypg],
     ];
@@ -164,7 +164,7 @@ const getDefenseOverview = (
     (string | number)[]
 ] => {
     return [
-        ['TOs', overallStats.turnovers],
+        ['TOs', overallStats.def_turnovers],
         ['INTs', overallStats.ints],
         ['Fumbles', overallStats.fr],
         ['Sacks', overallStats.sacks],

@@ -30,22 +30,22 @@
     h3 {
         padding: 0 3%;
         font-size: 1em;
+        font-weight: 400;
     }
 
     h2 {
         font-size: 2rem;
+        font-weight: 400;
     }
 
     @media screen and (min-width: 767px) {
         h3 {
             font-size: 1.5em;
             padding: 0 2%;
-            font-weight: 400;
         }
 
         h2 {
             font-size: 2.5em;
-            font-weight: 400;
         }
     }
 }
