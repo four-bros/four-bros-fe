@@ -3,14 +3,12 @@ import { NavLink } from 'react-router-dom';
 
 import ncaaLogo from 'assets/ncaa_football_logo.png';
 import style from './navBar.module.scss';
-// import useMediaQuery from 'hooks/useMediaQuery';
 
 
 const Navbar = () => {
 
     const [isSeasonSelected, setIsSeasonSelected] = React.useState(false);
     const [isRecordsSelected, setIsRecordsSelected] = React.useState(false);
-    // const mobile = useMediaQuery('(max-width: 767px)');
 
     return (
         <div className={style.navbarContainer}>
@@ -60,16 +58,6 @@ const Navbar = () => {
                         </>
                     )}
                 </div>
-
-                {/* <div className={style.navDropDownContainer}>
-                    <button className={style.dropdownBtn}>Season</button>
-                    <div className={style.dropdownContent}>
-                        <NavLink to='/season/leaders' className={style.dropdownLink}>Leaders</NavLink>
-                        <NavLink to='/rankings' className={style.dropdownLink}>Rankings</NavLink>
-                        <NavLink to="/recruiting" className={style.dropdownLink}>Recruiting</NavLink>
-                        <NavLink to='/stats' className={style.dropdownLink} >Stats</NavLink>
-                    </div>
-                </div> */}
                 
                 <div className={style.navDropDownContainer}>
                     <button className={style.dropdownBtn} onClick={() => setIsRecordsSelected(!isRecordsSelected)}>
@@ -79,7 +67,7 @@ const Navbar = () => {
                         <>
                             <div className={style.dropDownContainer}>
                                 <NavLink
-                                    to ='/records/career'
+                                    to ='/records/player/career'
                                     className={style.dropdownLink}
                                     onClick={() => setIsRecordsSelected(!isRecordsSelected)}
                                     
@@ -87,7 +75,7 @@ const Navbar = () => {
                                     Career
                                 </NavLink>
                                 <NavLink
-                                    to ='/records/game'
+                                    to ='/records/player/game'
                                     className={style.dropdownLink}
                                     onClick={() => setIsRecordsSelected(!isRecordsSelected)}
                                     
@@ -95,7 +83,7 @@ const Navbar = () => {
                                     Game
                                 </NavLink>
                                 <NavLink
-                                    to ='/records/season'
+                                    to ='/records/player/season'
                                     className={style.dropdownLink}
                                     onClick={() => setIsRecordsSelected(!isRecordsSelected)}
                                     
@@ -114,16 +102,6 @@ const Navbar = () => {
                         </>
                     )}
                 </div>
-
-                {/* <div className={style.navDropDownContainer}>
-                    <button className={style.dropdownBtn}>Records</button>
-                    <div className={style.dropdownContent}>
-                        <NavLink to ='/records/career' className={style.dropdownLink}>Career</NavLink>
-                        <NavLink to ='/records/game' className={style.dropdownLink}>Game</NavLink>
-                        <NavLink to ='/records/season' className={style.dropdownLink}>Season</NavLink>
-                        <NavLink to='/hof' className={style.dropdownLink}>HOF</NavLink>
-                    </div>
-                </div> */}
 
             </div>
         </div>

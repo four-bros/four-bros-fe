@@ -7,17 +7,17 @@ import { PlayerStatsStructure } from 'api/players';
 import PlayerAbilities from './components/PlayerAbilities';
 import PlayerDetails from './components/PlayerDetails';
 import PlayerStats from './components/PlayerStats';
+import style from './playerPage.module.scss';
 
 
 const PlayerPage = () => {
-    const isFirstRender = React.useRef(true);
     const { playerId } = useParams();
     const [singlePlayer, setSinglePlayer] =
         React.useState<PlayerStatsStructure>();
     const [infoType, setInfoType] = React.useState('abilities');
 
     React.useEffect(() => {
-        if (isFirstRender.current && playerId) {
+        if (playerId) {
             (async () => {
                 const player = await Players.getPlayer(playerId);
                 if (player) {
@@ -25,38 +25,30 @@ const PlayerPage = () => {
                 }
             })();
 
-            isFirstRender.current = false;
             return;
         }
     }, [playerId]);
 
-    const handleClick = (value: string) => {
-        setInfoType(value);
-    };
 
     return (
-        <div>
-
             <div className='page-container'>
                 {singlePlayer && (
                     <div>
                         <>
                             <PlayerDetails player={singlePlayer} />
 
-                            <hr />
-
-                            <div className='buttonsContainer'>
+                            <div className={style.btnContainer}>
                                 <Button
                                     name='abilities'
                                     active={infoType === 'abilities'}
-                                    onClick={() => handleClick('abilities')}
+                                    onClick={() => setInfoType('abilities')}
                                 >
                                     Abilities
                                 </Button>
                                 <Button
                                     name='stats'
                                     active={infoType === 'stats'}
-                                    onClick={() => handleClick('stats')}
+                                    onClick={() => setInfoType('stats')}
                                 >
                                     Stats
                                 </Button>
@@ -75,7 +67,6 @@ const PlayerPage = () => {
                     </div>
                 )}
             </div>
-        </div>
     );
 };
 

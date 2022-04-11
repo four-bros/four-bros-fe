@@ -18,7 +18,6 @@ function App() {
     return (
         <>
         <NavBar />
-        {/* <MenuNav /> */}
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/teams' element={<TeamsPage />} />
@@ -26,7 +25,7 @@ function App() {
                 <Route path='/players/:playerId' element={<PlayerPage />} />
                 <Route path='/season/leaders/players' element={<SeasonLeadersPage />} />
                 <Route path='/season/rankings' element={<RankingsPage />} />
-                <Route path={'/records/:recordType'} element={<RecordsPage />} />
+                <Route path={'/records/player/:recordType'} element={<RecordsPage />} />
                 <Route path='/season/recruiting' element={<RecruitingPage />} />
                 <Route path='/hof' element={<HallOfFamePage />} />
                 <Route path='/season/stats' element={<StatsPage />} />

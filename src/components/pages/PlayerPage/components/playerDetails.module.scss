@@ -1,0 +1,51 @@
+.playerContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+
+    @media screen and (min-width: 767px) {
+        width: 50%;
+    }
+}
+
+.playerSummary {
+    display: flex;
+    justify-content: center;
+    margin: 1em auto;
+    width: 60%;
+
+    @media screen and (min-width: 767px) {
+        width: 75%;
+    }
+}
+
+.playerNameContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: baseline;
+
+    h3 {
+        padding: 0 3%;
+        font-size: 1em;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    @media screen and (min-width: 767px) {
+        h3 {
+            font-size: 1.5em;
+            padding: 0 2%;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            font-weight: 400;
+        }
+    }
+}

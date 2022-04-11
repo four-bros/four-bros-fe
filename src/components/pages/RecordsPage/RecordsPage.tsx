@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react';
 import { Records } from 'api';
 import { RecordsInfo} from 'api/records';
 import RecordsTable from './RecordsTable';
-import style from './recordPage.module.scss'
+import style from './recordsPage.module.scss'
 import { useParams } from 'react-router-dom';
 
 const RecordsPage = () => {

@@ -5,6 +5,7 @@ import { Table } from 'semantic-ui-react';
 import { rosterHeaders } from '../tableTransform';
 import { RosterPlayer } from 'api/teams';
 import {getPlayerYearAndRedshirt} from 'utils';
+import style from '../teamsPage.module.scss';
 
 type Props = {
     roster: RosterPlayer[];
@@ -16,7 +17,7 @@ const TeamRoster = ({ roster }: Props) => {
             <React.Fragment key={player.id}>
                 <Table.Row>
                     <Table.Cell>
-                        <Link to={`/players/${player.id}`}>
+                        <Link to={`/players/${player.id}`} className={style.tableLink}>
                             {player.first_name} {player.last_name}
                         </Link>
                     </Table.Cell>
