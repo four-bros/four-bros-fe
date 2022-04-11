@@ -64,6 +64,7 @@ export interface TeamStats {
     ff: number;
     fr: number;
     ints: number;
+    ints_made: number;
     kr_tds: number;
     kr_yds: number;
     pass_def: number;
@@ -82,8 +83,9 @@ export interface TeamStats {
     sacks: number;
     safeties: number;
     total_points: number;
+    off_ypg: number;
     total_ypg: number;
-    turnovers: number;
+    def_turnovers: number;
 }
 
 // type SingleTeamInfo = TeamDetails & RosterPlayer & TeamStats;
