@@ -1,4 +1,4 @@
-import { baseGet } from '../baseApi';
+import { baseGet } from '../../baseApi';
 
 import {
     Defense,
@@ -10,7 +10,7 @@ import {
     Receiving,
     Rushing,
     Total,
-} from '../teams';
+} from '../../teams';
 
 
 export interface DefensiveLeadersCategories {

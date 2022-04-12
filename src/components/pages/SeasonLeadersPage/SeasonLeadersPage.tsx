@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Button } from 'semantic-ui-react';
 
 import { Stats, Users } from 'api';
-import { RecordsInfo} from 'api/records';
-import RecordsTable from '../RecordsPage/RecordsTable';
+import { RecordsInfo} from 'api/records/playerRecords';
+import PlayerRecordsTable from '../Records/PlayerRecordsPage/PlayerRecordsTable';
 import style from './statsPage.module.scss';
 
 const SeasonLeadersPage = () => {
@@ -107,28 +107,28 @@ const SeasonLeadersPage = () => {
 
                 {seasonLeaders && leaderCategory === 'total' && (
                     <>
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='yards'
                             statCategory='total_stats'
                             fieldName='total_yards'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='ypg'
                             statCategory='total_stats'
                             fieldName='total_ypg'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='tds'
                             statCategory='total_stats'
                             fieldName='total_tds'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='turnovers'
@@ -140,63 +140,63 @@ const SeasonLeadersPage = () => {
 
                 {seasonLeaders && leaderCategory === 'passing' && (
                     <>
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='pass_yards'
                             statCategory='passing_stats'
                             fieldName='pass_yards'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='pass_tds'
                             statCategory='passing_stats'
                             fieldName='pass_tds'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='pass_yp_game'
                             statCategory='passing_stats'
                             fieldName='pass_yp_game'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='comp_pct'
                             statCategory='passing_stats'
                             fieldName='comp_pct'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='pass_att'
                             statCategory='passing_stats'
                             fieldName='pass_att'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='pass_yp_attempt'
                             statCategory='passing_stats'
                             fieldName='pass_yp_attempt'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='completions'
                             statCategory='passing_stats'
                             fieldName='completions'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='longest_pass'
                             statCategory='passing_stats'
                             fieldName='longest_pass'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='interceptions'
@@ -208,56 +208,56 @@ const SeasonLeadersPage = () => {
 
                 {seasonLeaders && leaderCategory === 'rushing' && (
                     <>
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='rush_yards'
                             statCategory='rushing_stats'
                             fieldName='rush_yards'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='rush_yp_game'
                             statCategory='rushing_stats'
                             fieldName='rush_yp_game'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='rush_yp_carry'
                             statCategory='rushing_stats'
                             fieldName='rush_yp_carry'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='broken_tackles'
                             statCategory='rushing_stats'
                             fieldName='broke_tkls'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='rush_att'
                             statCategory='rushing_stats'
                             fieldName='rush_att'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='ya_contact'
                             statCategory='rushing_stats'
                             fieldName='ya_contact'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='twenty_plus_runs'
                             statCategory='rushing_stats'
                             fieldName='twenty_plus_yd_runs'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='fumbles'
@@ -269,7 +269,7 @@ const SeasonLeadersPage = () => {
 
                 {seasonLeaders && leaderCategory === 'receiving' && (
                     <>
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='rec_yards'
@@ -277,7 +277,7 @@ const SeasonLeadersPage = () => {
                             fieldName='rec_yards'
                         />
 
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='rec_tds'
@@ -285,7 +285,7 @@ const SeasonLeadersPage = () => {
                             fieldName='rec_tds'
                         />
 
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='receptions'
@@ -293,7 +293,7 @@ const SeasonLeadersPage = () => {
                             fieldName='receptions'
                         />
 
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='rec_yp_game'
@@ -301,7 +301,7 @@ const SeasonLeadersPage = () => {
                             fieldName='rec_yp_game'
                         />
 
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='rec_yp_catch'
@@ -309,7 +309,7 @@ const SeasonLeadersPage = () => {
                             fieldName='rec_yp_catch'
                         />
 
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='yac'
@@ -317,7 +317,7 @@ const SeasonLeadersPage = () => {
                             fieldName='yac'
                         />
 
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='drops'
@@ -329,91 +329,91 @@ const SeasonLeadersPage = () => {
 
                 {seasonLeaders && leaderCategory === 'defense' && (
                     <>
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='total_tkls'
                             statCategory='defensive_stats'
                             fieldName='total_tkls'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='total_sack'
                             statCategory='defensive_stats'
                             fieldName='total_sacks'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='tfl'
                             statCategory='defensive_stats'
                             fieldName='tfl'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='ints_made'
                             statCategory='defensive_stats'
                             fieldName='ints_made'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='pass_def'
                             statCategory='defensive_stats'
                             fieldName='pass_def'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='long_int_ret'
                             statCategory='defensive_stats'
                             fieldName='long_int_ret'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='forced_fumbles'
                             statCategory='defensive_stats'
                             fieldName='forced_fumbles'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='fumbles_rec'
                             statCategory='defensive_stats'
                             fieldName='fumbles_rec'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='def_tds'
                             statCategory='defensive_stats'
                             fieldName='def_tds'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='blocked_kicks'
                             statCategory='defensive_stats'
                             fieldName='blocked_kicks'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='safeties'
                             statCategory='defensive_stats'
                             fieldName='safeties'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='fum_rec_yards'
                             statCategory='defensive_stats'
                             fieldName='fum_rec_yards'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='int_ret_yards'
@@ -425,35 +425,35 @@ const SeasonLeadersPage = () => {
 
                 {seasonLeaders && leaderCategory === 'kick_return' && (
                     <>
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='kr_tds'
                             statCategory='kick_return_stats'
                             fieldName='kr_tds'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='kr_avg'
                             statCategory='kick_return_stats'
                             fieldName='kr_avg'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='long_kr'
                             statCategory='kick_return_stats'
                             fieldName='long_kr'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='kr_yards'
                             statCategory='kick_return_stats'
                             fieldName='kr_yds'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='kick_returns'
@@ -465,35 +465,35 @@ const SeasonLeadersPage = () => {
 
                 {seasonLeaders && leaderCategory === 'punt_return' && (
                     <>
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='pr_tds'
                             statCategory='punt_return_stats'
                             fieldName='pr_tds'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='pr_avg'
                             statCategory='punt_return_stats'
                             fieldName='pr_avg'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='long_pr'
                             statCategory='punt_return_stats'
                             fieldName='long_pr'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='pr_yards'
                             statCategory='punt_return_stats'
                             fieldName='pr_yds'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='punt_returns'
@@ -505,42 +505,42 @@ const SeasonLeadersPage = () => {
 
                 {seasonLeaders && leaderCategory === 'kicking' && (
                     <>
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='long_fg'
                             statCategory='kicking_stats'
                             fieldName='long_fg'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='fg_pct'
                             statCategory='kicking_stats'
                             fieldName='fg_pct'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='fg_made_50_plus'
                             statCategory='kicking_stats'
                             fieldName='fg_made_50_plus'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='fg_made'
                             statCategory='kicking_stats'
                             fieldName='fg_made'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='fg_made_50_plus_pct'
                             statCategory='kicking_stats'
                             fieldName='fg_50_plus_pct'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='fg_att'
@@ -552,42 +552,42 @@ const SeasonLeadersPage = () => {
 
                 {seasonLeaders && leaderCategory === 'punting' && (
                     <>
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='long_punt'
                             statCategory='punting_stats'
                             fieldName='long_punt'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='punt_avg'
                             statCategory='punting_stats'
                             fieldName='punt_avg'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='net_avg'
                             statCategory='punting_stats'
                             fieldName='net_avg'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='inside_twenty'
                             statCategory='punting_stats'
                             fieldName='inside_twenty'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='number_punts'
                             statCategory='punting_stats'
                             fieldName='number_punts'
                         />
-                        <RecordsTable 
+                        <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
                             record='total_punt_yards'

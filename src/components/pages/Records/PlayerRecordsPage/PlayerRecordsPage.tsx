@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { Button } from 'semantic-ui-react';
 
-import { Records } from 'api';
-import { RecordsInfo} from 'api/records';
-import RecordsTable from './RecordsTable';
+import { PlayerRecords } from 'api';
+import { RecordsInfo} from 'api/records/playerRecords';
+import PlayerRecordsTable from './PlayerRecordsTable';
 import style from './recordsPage.module.scss'
 import { useParams } from 'react-router-dom';
 
-const RecordsPage = () => {
+const PlayerRecordsPage = () => {
 
     const recordType = useParams();
-    const [records, setRecords] = React.useState<RecordsInfo>();
+    const [playerRecords, setPlayerRecords] = React.useState<RecordsInfo>();
     const [recordCategory, setRecordCategory] = React.useState('total');
 
     const recordHeader = recordType?.recordType?.toString();
@@ -29,9 +29,9 @@ const RecordsPage = () => {
 
         if (recordType) {
             (async () => {
-                const response = await Records.getRecords(`${recordType.recordType}`);
+                const response = await PlayerRecords.getRecords(`${recordType.recordType}`);
                 if (response) {
-                    setRecords(response);
+                    setPlayerRecords(response);
                 }
             })();
 
@@ -43,8 +43,8 @@ const RecordsPage = () => {
     return (
         <>
             <div className={style.headerContainer}>
-                    <h1>{header}</h1>
-                </div>
+                <h1>{header}</h1>
+            </div>
 
             <div className={style.btnContainer}>
                 <Button
@@ -114,31 +114,31 @@ const RecordsPage = () => {
 
             <div className={style.recordTableContainer}>
 
-            {records && recordCategory === 'total' && (
+            {playerRecords && recordCategory === 'total' && (
                 <>
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='yards'
                         statCategory='total_stats'
                         fieldName='total_yards'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='ypg'
                         statCategory='total_stats'
                         fieldName='total_ypg'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='tds'
                         statCategory='total_stats'
                         fieldName='total_tds'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='turnovers'
                         statCategory='total_stats'
@@ -147,73 +147,73 @@ const RecordsPage = () => {
                 </>
             )}
 
-            {records && recordCategory === 'passing' && (
+            {playerRecords && recordCategory === 'passing' && (
                 <>
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='pass_rating'
                         statCategory='passing_stats'
                         fieldName='pass_rating'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='pass_yards'
                         statCategory='passing_stats'
                         fieldName='pass_yards'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='pass_tds'
                         statCategory='passing_stats'
                         fieldName='pass_tds'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='pass_yp_game'
                         statCategory='passing_stats'
                         fieldName='pass_yp_game'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='comp_pct'
                         statCategory='passing_stats'
                         fieldName='comp_pct'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='pass_att'
                         statCategory='passing_stats'
                         fieldName='pass_att'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='pass_yp_attempt'
                         statCategory='passing_stats'
                         fieldName='pass_yp_attempt'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='completions'
                         statCategory='passing_stats'
                         fieldName='completions'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='longest_pass'
                         statCategory='passing_stats'
                         fieldName='longest_pass'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='interceptions'
                         statCategory='passing_stats'
@@ -222,59 +222,59 @@ const RecordsPage = () => {
                 </>
             )}
 
-            {records && recordCategory === 'rushing' && (
+            {playerRecords && recordCategory === 'rushing' && (
                 <>
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='rush_yards'
                         statCategory='rushing_stats'
                         fieldName='rush_yards'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='rush_yp_game'
                         statCategory='rushing_stats'
                         fieldName='rush_yp_game'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='rush_yp_carry'
                         statCategory='rushing_stats'
                         fieldName='rush_yp_carry'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='broken_tackles'
                         statCategory='rushing_stats'
                         fieldName='broke_tkls'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='rush_att'
                         statCategory='rushing_stats'
                         fieldName='rush_att'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='ya_contact'
                         statCategory='rushing_stats'
                         fieldName='ya_contact'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='twenty_plus_runs'
                         statCategory='rushing_stats'
                         fieldName='twenty_plus_yd_runs'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='fumbles'
                         statCategory='rushing_stats'
@@ -283,58 +283,58 @@ const RecordsPage = () => {
                 </>
             )}
 
-            {records && recordCategory === 'receiving' && (
+            {playerRecords && recordCategory === 'receiving' && (
                 <>
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='rec_yards'
                         statCategory='receiving_stats'
                         fieldName='rec_yards'
                     />
 
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='rec_tds'
                         statCategory='receiving_stats'
                         fieldName='rec_tds'
                     />
 
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='receptions'
                         statCategory='receiving_stats'
                         fieldName='receptions'
                     />
 
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='rec_yp_game'
                         statCategory='receiving_stats'
                         fieldName='rec_yp_game'
                     />
 
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='rec_yp_catch'
                         statCategory='receiving_stats'
                         fieldName='rec_yp_catch'
                     />
 
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='yac'
                         statCategory='receiving_stats'
                         fieldName='yac'
                     />
 
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='drops'
                         statCategory='receiving_stats'
@@ -343,94 +343,94 @@ const RecordsPage = () => {
                 </>
             )}
 
-            {records && recordCategory === 'defense' && (
+            {playerRecords && recordCategory === 'defense' && (
                 <>
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='total_tkls'
                         statCategory='defensive_stats'
                         fieldName='total_tkls'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='total_sack'
                         statCategory='defensive_stats'
                         fieldName='total_sacks'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='tfl'
                         statCategory='defensive_stats'
                         fieldName='tfl'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='ints_made'
                         statCategory='defensive_stats'
                         fieldName='ints_made'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='pass_def'
                         statCategory='defensive_stats'
                         fieldName='pass_def'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='long_int_ret'
                         statCategory='defensive_stats'
                         fieldName='long_int_ret'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='forced_fumbles'
                         statCategory='defensive_stats'
                         fieldName='forced_fumbles'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='fumbles_rec'
                         statCategory='defensive_stats'
                         fieldName='fumbles_rec'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='def_tds'
                         statCategory='defensive_stats'
                         fieldName='def_tds'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='blocked_kicks'
                         statCategory='defensive_stats'
                         fieldName='blocked_kicks'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='safeties'
                         statCategory='defensive_stats'
                         fieldName='safeties'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='fum_rec_yards'
                         statCategory='defensive_stats'
                         fieldName='fum_rec_yards'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='int_ret_yards'
                         statCategory='defensive_stats'
@@ -439,38 +439,38 @@ const RecordsPage = () => {
                 </>
             )}
 
-            {records && recordCategory === 'kick_return' && (
+            {playerRecords && recordCategory === 'kick_return' && (
                 <>
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='kr_tds'
                         statCategory='kick_return_stats'
                         fieldName='kr_tds'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='kr_avg'
                         statCategory='kick_return_stats'
                         fieldName='kr_avg'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='long_kr'
                         statCategory='kick_return_stats'
                         fieldName='long_kr'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='kr_yards'
                         statCategory='kick_return_stats'
                         fieldName='kr_yds'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='kick_returns'
                         statCategory='kick_return_stats'
@@ -479,38 +479,38 @@ const RecordsPage = () => {
                 </>
             )}
 
-            {records && recordCategory === 'punt_return' && (
+            {playerRecords && recordCategory === 'punt_return' && (
                 <>
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='pr_tds'
                         statCategory='punt_return_stats'
                         fieldName='pr_tds'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='pr_avg'
                         statCategory='punt_return_stats'
                         fieldName='pr_avg'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='long_pr'
                         statCategory='punt_return_stats'
                         fieldName='long_pr'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='pr_yards'
                         statCategory='punt_return_stats'
                         fieldName='pr_yds'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='punt_returns'
                         statCategory='punt_return_stats'
@@ -519,45 +519,45 @@ const RecordsPage = () => {
                 </>
             )}
 
-            {records && recordCategory === 'kicking' && (
+            {playerRecords && recordCategory === 'kicking' && (
                 <>
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='long_fg'
                         statCategory='kicking_stats'
                         fieldName='long_fg'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='fg_pct'
                         statCategory='kicking_stats'
                         fieldName='fg_pct'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='fg_made_50_plus'
                         statCategory='kicking_stats'
                         fieldName='fg_made_50_plus'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='fg_made'
                         statCategory='kicking_stats'
                         fieldName='fg_made'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='fg_made_50_plus_pct'
                         statCategory='kicking_stats'
                         fieldName='fg_50_plus_pct'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='fg_att'
                         statCategory='kicking_stats'
@@ -566,45 +566,45 @@ const RecordsPage = () => {
                 </>
             )}
 
-            {records && recordCategory === 'punting' && (
+            {playerRecords && recordCategory === 'punting' && (
                 <>
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='long_punt'
                         statCategory='punting_stats'
                         fieldName='long_punt'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='punt_avg'
                         statCategory='punting_stats'
                         fieldName='punt_avg'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='net_avg'
                         statCategory='punting_stats'
                         fieldName='net_avg'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='inside_twenty'
                         statCategory='punting_stats'
                         fieldName='inside_twenty'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='number_punts'
                         statCategory='punting_stats'
                         fieldName='number_punts'
                     />
-                    <RecordsTable 
-                        recordInfo={records}
+                    <PlayerRecordsTable 
+                        recordInfo={playerRecords}
                         genCategory={recordCategory}
                         record='total_punt_yards'
                         statCategory='punting_stats'
@@ -617,4 +617,4 @@ const RecordsPage = () => {
     );
 };
 
-export default RecordsPage;
+export default PlayerRecordsPage;

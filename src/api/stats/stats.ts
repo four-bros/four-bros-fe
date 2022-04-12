@@ -1,6 +1,6 @@
 import { baseGet } from '../baseApi';
 
-import { RecordsInfo } from 'api/records';
+import { RecordsInfo } from 'api/records/playerRecords';
 
  export const getSeasonLeaders = async (): Promise<RecordsInfo | void> => {
     try {
