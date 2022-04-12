@@ -13,7 +13,7 @@ import {
     Rushing,
     Total,
 } from 'api/teams';
-import {  RecordsInfo } from 'api/records';
+import {  RecordsInfo } from 'api/records/playerRecords';
 import { TableContainer, LargeTable } from 'components/common';
 import { getTableHeader } from 'utils';
 import style from './recordsPage.module.scss';
@@ -27,7 +27,7 @@ type Props = {
     fieldName: string
 }
 
-const RecordsTable = ( {recordInfo, genCategory, record, statCategory, fieldName}: Props ) => {
+const PlayerRecordsTable = ( {recordInfo, genCategory, record, statCategory, fieldName}: Props ) => {
 
     const fieldRows = (
         recordInfo: RecordsInfo,
@@ -127,4 +127,4 @@ const RecordsTable = ( {recordInfo, genCategory, record, statCategory, fieldName
 
 }
 
-export default RecordsTable;
+export default PlayerRecordsTable;

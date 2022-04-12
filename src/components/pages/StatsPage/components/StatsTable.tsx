@@ -57,7 +57,7 @@ import type {
     Rushing,
     Total,
 } from 'api/teams';
-import { RecordsInfo } from 'api/records';
+import { RecordsInfo } from 'api/records/playerRecords';
 import style from '../statsPage.module.scss';
 import useMediaQuery from '../../../../hooks/useMediaQuery';
 

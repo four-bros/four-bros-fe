@@ -60,32 +60,42 @@ export interface RosterPlayer {
 }
 
 export interface TeamStats {
-    def_tds: number;
-    ff: number;
-    fr: number;
-    ints: number;
-    ints_made: number;
-    kr_tds: number;
-    kr_yds: number;
-    pass_def: number;
-    pass_tds: number;
-    pass_yds: number;
-    pass_ypg: number;
-    ppg: number;
-    pr_tds: number;
-    pr_yds: number;
-    rec_tds: number;
-    rec_yds: number;
-    rec_ypg: number;
-    rush_tds: number;
-    rush_yds: number;
-    rush_ypg: number;
-    sacks: number;
-    safeties: number;
-    total_points: number;
-    off_ypg: number;
-    total_ypg: number;
-    def_turnovers: number;
+    blocked_kicks: number,
+    def_tds: number,
+    def_turnovers: number,
+    drops: number,
+    ff: number,
+    fr: number,
+    fumbles: number,
+    games_played: number,
+    ints: number,
+    kr_tds: number,
+    kr_yds: number,
+    off_turnovers: number,
+    off_yards: number,
+    off_ypg: number,
+    pass_def: number,
+    pass_tds: number,
+    pass_yds: number,
+    pass_ypg: number,
+    ppg: number,
+    pr_tds: number,
+    pr_yds: number,
+    rec_tds: number,
+    rec_yds: number,
+    rec_ypg: number,
+    rush_tds: number,
+    rush_yds: number,
+    rush_ypg: number,
+    sacked: number,
+    sacks: number,
+    safeties: number,
+    tfl: number,
+    to_margin: number,
+    total_points: number,
+    total_yards: number,
+    total_ypg: number,
+    year: number
 }
 
 // type SingleTeamInfo = TeamDetails & RosterPlayer & TeamStats;

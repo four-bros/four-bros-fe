@@ -91,6 +91,22 @@ const Navbar = () => {
                                     Season
                                 </NavLink>
                                 <NavLink
+                                    to ='/records/team'
+                                    className={style.dropdownLink}
+                                    onClick={() => setIsRecordsSelected(!isRecordsSelected)}
+                                    
+                                >
+                                    Team
+                                </NavLink>
+                                <NavLink
+                                    to ='/records/coach'
+                                    className={style.dropdownLink}
+                                    onClick={() => setIsRecordsSelected(!isRecordsSelected)}
+                                    
+                                >
+                                    Coach
+                                </NavLink>
+                                <NavLink
                                     to='/hof'
                                     className={style.dropdownLink}
                                     onClick={() => setIsRecordsSelected(!isRecordsSelected)}

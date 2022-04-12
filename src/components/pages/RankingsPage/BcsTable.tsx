@@ -4,6 +4,7 @@ import { Table } from 'semantic-ui-react';
 
 import { TableContainer, LargeTable } from 'components/common';
 import { TeamDetails } from 'api/teams';
+import style from './rankingsPage.module.scss';
 
 
 type Props = {
@@ -42,6 +43,7 @@ const BcsTable = ( { poll, rankingsArr }: Props ) => {
                                 >
                                     <Link
                                         to={`/teams/${leader.id}`}
+                                        className={style.tableLink}
                                     >
                                         {leader.team_name}
                                     </Link>
