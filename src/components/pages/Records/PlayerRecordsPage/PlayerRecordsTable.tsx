@@ -16,7 +16,7 @@ import {
 import {  RecordsInfo } from 'api/records/playerRecords';
 import { TableContainer, LargeTable } from 'components/common';
 import { getTableHeader } from 'utils';
-import style from './recordsPage.module.scss';
+import style from './playerRecords.module.scss';
 
 
 type Props = {
@@ -109,9 +109,10 @@ const PlayerRecordsTable = ( {recordInfo, genCategory, record, statCategory, fie
 
     return (
         <div>
-            {recordInfo && (<TableContainer title={getTableHeader(fieldName)}>
+            {recordInfo && (
+            <TableContainer title={getTableHeader(fieldName)} small>
                 <LargeTable
-                    header={['#', 'Name', 'Team', 'Years', getTableHeader(fieldName)]}
+                    header={['#', 'Name', 'Team', 'Year', getTableHeader(fieldName)]}
                     contents={fieldRows(
                         recordInfo,
                         genCategory,

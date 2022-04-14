@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react';
 import { Stats, Users } from 'api';
 import { RecordsInfo} from 'api/records/playerRecords';
 import PlayerRecordsTable from '../Records/PlayerRecordsPage/PlayerRecordsTable';
-import style from './statsPage.module.scss';
+import style from './seasonLeaders.module.scss';
 
 const SeasonLeadersPage = () => {
 

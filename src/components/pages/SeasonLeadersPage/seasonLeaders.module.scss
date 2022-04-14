@@ -19,16 +19,19 @@
 }
 
 .recordTableContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
     margin: 1em auto;
-    width: 90%;
+    width: 95%;
+
+    @media screen and (min-width: 767px) {
+        width: 95%;
+        flex-flow: row wrap;
+    }
 }
 
 .tableLink {
     color: #9ebcd5;
 }
 
-@media screen and (min-width: 767px) {
-    .recordTableContainer {
-        width: 40%;
-    }
-}

@@ -84,8 +84,8 @@ const CoachRecordsTable = ( { coachData }: Props ) => {
     return (
         <div>
             {coachData && (
-                <>
-                    <TableContainer title={coachData.name}>
+                <div className={style.tableContainer}>
+                    <TableContainer title={coachData.name} small>
                         <LargeTable contents={getCoachOverview(coachData)} />
                     </TableContainer>
                     <TableContainer title={'Season Records'}>
@@ -94,7 +94,7 @@ const CoachRecordsTable = ( { coachData }: Props ) => {
                             contents={getTableContent(coachData.season_records)}
                         />
                     </TableContainer>
-                </>
+                </div>
             )}
         </div>
     )
