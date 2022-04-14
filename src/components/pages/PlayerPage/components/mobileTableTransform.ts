@@ -91,13 +91,20 @@ const mobileTackleAbilityFields = new Set([
     'play_recognition',
 ]);
 
-const mobileCoverageAbilitiesHeaders = ['Man', 'Zone', 'Press', 'Catch'];
+const mobileCoverageAbilitiesHeaders = [
+    'Man',
+    'Zone',
+    'Press',
+    'Catch',
+    'Awr',
+];
 
 const mobileCoverageAbilityFields = new Set([
     'man_coverage',
     'zone_coverage',
     'press',
     'catch',
+    'awareness'
 ]);
 
 const mobilePassingHeaders = [

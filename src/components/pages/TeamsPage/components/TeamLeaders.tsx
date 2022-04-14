@@ -58,6 +58,7 @@ import type {
 import style from '../teamsPage.module.scss';
 import useMediaQuery from '../../../../hooks/useMediaQuery';
 
+
 type Props = {
     leaders: SingleTeamLeaders;
     infoType: string;

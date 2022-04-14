@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react';
 import { PlayerRecords } from 'api';
 import { RecordsInfo} from 'api/records/playerRecords';
 import PlayerRecordsTable from './PlayerRecordsTable';
-import style from './recordsPage.module.scss'
+import style from './playerRecords.module.scss';
 import { useParams } from 'react-router-dom';
 
 const PlayerRecordsPage = () => {
@@ -113,7 +113,6 @@ const PlayerRecordsPage = () => {
             </div>
 
             <div className={style.recordTableContainer}>
-
             {playerRecords && recordCategory === 'total' && (
                 <>
                     <PlayerRecordsTable 

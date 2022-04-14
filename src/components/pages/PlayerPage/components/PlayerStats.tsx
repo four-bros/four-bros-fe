@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Table, Dropdown, Menu } from 'semantic-ui-react';
+import { Button, Table, Menu, Dropdown } from 'semantic-ui-react';
 
 import { TableContainer, LargeTable } from 'components/common';
 import {
@@ -196,7 +196,7 @@ const Stats = ({ player }: Props) => {
                         </TableContainer>
                     )}
                     {stats.defensive && !mobile && (
-                        <TableContainer title='Turnovers'>
+                        <TableContainer title='Defense'>
                             <LargeTable
                                 header={desktopDefHeaders}
                                 contents={fieldRows(desktopDefenseFields, 'defensive')}

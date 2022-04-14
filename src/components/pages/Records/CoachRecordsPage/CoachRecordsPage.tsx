@@ -59,7 +59,6 @@ const CoachRecordsPage = () => {
                     {coachRecords?.seth.name}
                 </Button>
             </div>
-            <div className={style.tableContainer}>
                 {coachRecords && coach === 'ben' && (
                     <CoachRecordsTable coachData={coachRecords.ben} />
                 )}
@@ -75,7 +74,6 @@ const CoachRecordsPage = () => {
                 {coachRecords && coach === 'seth' && (
                     <CoachRecordsTable coachData={coachRecords.seth} />
                 )}
-            </div>
         </div>
     )
 }
