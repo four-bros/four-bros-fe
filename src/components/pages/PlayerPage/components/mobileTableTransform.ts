@@ -121,7 +121,7 @@ const mobilePassingFields = new Set([
     'completions',
     'pass_att',
     'pass_yards',
-    'pass_yp_game',
+    'pass_ypg',
     'pass_tds',
     'ints',
     'pass_rating',
@@ -139,7 +139,7 @@ const mobileRushingHeaders = [
 const mobileRushingFields = new Set([
     'rush_att',
     'rush_yards',
-    'rush_yp_game',
+    'rush_ypg',
     'rush_tds',
     'broke_tkls',
     'fumbles',
@@ -157,7 +157,7 @@ const mobileRecHeaders = [
 const mobileReceivingFields = new Set([
     'receptions',
     'rec_yards',
-    'rec_yp_game',
+    'rec_ypg',
     'rec_tds',
     'yac',
     'drops',

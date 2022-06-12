@@ -27,7 +27,7 @@ const mobilePassingHeaders = [
 
 const mobilePassingFields = new Set([
     'pass_yards',
-    'pass_yp_game',
+    'pass_ypg',
     'pass_tds',
     'ints',
 ]);
@@ -44,7 +44,7 @@ const mobileRushingHeaders = [
 const mobileRushingFields = new Set([
     'rush_att',
     'rush_yards',
-    'rush_yp_game',
+    'rush_ypg',
     'rush_tds',
 ]);
 
@@ -60,7 +60,7 @@ const mobileReceivingHeaders = [
 const mobileReceivingFields = new Set([
     'receptions',
     'rec_yards',
-    'rec_yp_game',
+    'rec_ypg',
     'rec_tds',
 ]);
 

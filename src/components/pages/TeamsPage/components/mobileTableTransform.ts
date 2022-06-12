@@ -28,8 +28,8 @@ const mobileRushingHeaders = [
 const mobileRushingFields = new Set([
     'rush_att',
     'rush_yards',
-    'rush_yp_carry',
-    'rush_yp_game',
+    'rush_ypc',
+    'rush_ypg',
     'rush_tds',
 ]);
 
@@ -45,8 +45,8 @@ const mobileReceivingHeaders = [
 const mobileReceivingFields = new Set([
     'receptions',
     'rec_yards',
-    'rec_yp_catch',
-    'rec_yp_game',
+    'rec_ypc',
+    'rec_ypg',
     'rec_tds',
 ]);
 
