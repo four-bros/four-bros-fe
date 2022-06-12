@@ -157,9 +157,9 @@ const SeasonLeadersPage = () => {
                         <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
-                            record='pass_yp_game'
+                            record='pass_ypg'
                             statCategory='passing_stats'
-                            fieldName='pass_yp_game'
+                            fieldName='pass_ypg'
                         />
                         <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
@@ -178,9 +178,9 @@ const SeasonLeadersPage = () => {
                         <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
-                            record='pass_yp_attempt'
+                            record='pass_ypa'
                             statCategory='passing_stats'
-                            fieldName='pass_yp_attempt'
+                            fieldName='pass_ypa'
                         />
                         <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
@@ -218,16 +218,16 @@ const SeasonLeadersPage = () => {
                         <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
-                            record='rush_yp_game'
+                            record='rush_ypg'
                             statCategory='rushing_stats'
-                            fieldName='rush_yp_game'
+                            fieldName='rush_ypg'
                         />
                         <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
-                            record='rush_yp_carry'
+                            record='rush_ypc'
                             statCategory='rushing_stats'
-                            fieldName='rush_yp_carry'
+                            fieldName='rush_ypc'
                         />
                         <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
@@ -296,17 +296,17 @@ const SeasonLeadersPage = () => {
                         <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
-                            record='rec_yp_game'
+                            record='rec_ypg'
                             statCategory='receiving_stats'
-                            fieldName='rec_yp_game'
+                            fieldName='rec_ypg'
                         />
 
                         <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
-                            record='rec_yp_catch'
+                            record='rec_ypc'
                             statCategory='receiving_stats'
-                            fieldName='rec_yp_catch'
+                            fieldName='rec_ypc'
                         />
 
                         <PlayerRecordsTable 
