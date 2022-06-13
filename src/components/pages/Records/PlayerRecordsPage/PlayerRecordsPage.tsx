@@ -169,12 +169,21 @@ const PlayerRecordsPage = () => {
                         statCategory='passing_stats'
                         fieldName='pass_tds'
                     />
+                    {recordHeader !== 'game' && (
+                        <PlayerRecordsTable 
+                            recordInfo={playerRecords}
+                            genCategory={recordCategory}
+                            record='pass_ypg'
+                            statCategory='passing_stats'
+                            fieldName='pass_ypg'
+                        />
+                    )}
                     <PlayerRecordsTable 
                         recordInfo={playerRecords}
                         genCategory={recordCategory}
-                        record='pass_ypg'
+                        record='pass_ypa'
                         statCategory='passing_stats'
-                        fieldName='pass_ypg'
+                        fieldName='pass_ypa'
                     />
                     <PlayerRecordsTable 
                         recordInfo={playerRecords}
@@ -183,20 +192,7 @@ const PlayerRecordsPage = () => {
                         statCategory='passing_stats'
                         fieldName='comp_pct'
                     />
-                    <PlayerRecordsTable 
-                        recordInfo={playerRecords}
-                        genCategory={recordCategory}
-                        record='pass_att'
-                        statCategory='passing_stats'
-                        fieldName='pass_att'
-                    />
-                    <PlayerRecordsTable 
-                        recordInfo={playerRecords}
-                        genCategory={recordCategory}
-                        record='pass_ypa'
-                        statCategory='passing_stats'
-                        fieldName='pass_ypa'
-                    />
+
                     <PlayerRecordsTable 
                         recordInfo={playerRecords}
                         genCategory={recordCategory}
@@ -230,13 +226,15 @@ const PlayerRecordsPage = () => {
                         statCategory='rushing_stats'
                         fieldName='rush_yards'
                     />
-                    <PlayerRecordsTable 
-                        recordInfo={playerRecords}
-                        genCategory={recordCategory}
-                        record='rush_ypg'
-                        statCategory='rushing_stats'
-                        fieldName='rush_ypg'
-                    />
+                    {recordHeader !== 'game' && (
+                      <PlayerRecordsTable 
+                          recordInfo={playerRecords}
+                          genCategory={recordCategory}
+                          record='rush_ypg'
+                          statCategory='rushing_stats'
+                          fieldName='rush_ypg'
+                      />
+                    )}
                     <PlayerRecordsTable 
                         recordInfo={playerRecords}
                         genCategory={recordCategory}
@@ -307,14 +305,15 @@ const PlayerRecordsPage = () => {
                         statCategory='receiving_stats'
                         fieldName='receptions'
                     />
-
-                    <PlayerRecordsTable 
-                        recordInfo={playerRecords}
-                        genCategory={recordCategory}
-                        record='rec_ypg'
-                        statCategory='receiving_stats'
-                        fieldName='rec_ypg'
-                    />
+                    {recordHeader !== 'game' && (
+                      <PlayerRecordsTable 
+                          recordInfo={playerRecords}
+                          genCategory={recordCategory}
+                          record='rec_ypg'
+                          statCategory='receiving_stats'
+                          fieldName='rec_ypg'
+                      />
+                    )}
 
                     <PlayerRecordsTable 
                         recordInfo={playerRecords}
