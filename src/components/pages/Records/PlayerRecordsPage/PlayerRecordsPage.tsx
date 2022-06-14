@@ -122,13 +122,15 @@ const PlayerRecordsPage = () => {
                         statCategory='total_stats'
                         fieldName='total_yards'
                     />
-                    <PlayerRecordsTable 
-                        recordInfo={playerRecords}
-                        genCategory={recordCategory}
-                        record='ypg'
-                        statCategory='total_stats'
-                        fieldName='total_ypg'
-                    />
+                    {recordHeader !== 'game' && (
+                      <PlayerRecordsTable 
+                          recordInfo={playerRecords}
+                          genCategory={recordCategory}
+                          record='ypg'
+                          statCategory='total_stats'
+                          fieldName='total_ypg'
+                      />
+                    )}
                     <PlayerRecordsTable 
                         recordInfo={playerRecords}
                         genCategory={recordCategory}
