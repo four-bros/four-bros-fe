@@ -11,7 +11,13 @@ const RecruitingPage = () => {
 
     const isFirstRender = React.useRef(true);
     const [recruitInfo, setRecruitInfo] = React.useState<CommitInfo>();
-    const [school, setSchool] = React.useState('baylor');
+    
+    const ben: string = 'ecu'
+    const brent: string = 'syracuse'
+    const dan: string = 'umass'
+    const seth: string = 'florida_atlantic'
+
+    const [school, setSchool] = React.useState<string>(ben);
 
     React.useEffect(() => {
         (async () => {
@@ -33,55 +39,55 @@ const RecruitingPage = () => {
             
             <div className={style.btnContainer}>
                 <Button
-                    name='ecu'
-                    active={school === 'ecu'}
-                    onClick={() => setSchool('ecu')}
+                    name={ben}
+                    active={school === ben}
+                    onClick={() => setSchool(ben)}
                 >
                     ECU
                 </Button>
                 <Button
-                    name='florida_atlantic'
-                    active={school === 'florida_atlantic'}
-                    onClick={() => setSchool('florida_atlantic')}
+                    name={seth}
+                    active={school === seth}
+                    onClick={() => setSchool(seth)}
                 >
                     Florida Atlantic
                 </Button>
                 <Button
-                    name='syracuse'
-                    active={school === 'syracuse'}
-                    onClick={() => setSchool('syracuse')}
+                    name={brent}
+                    active={school === brent}
+                    onClick={() => setSchool(brent)}
                 >
                     Syracuse
                 </Button>
                 <Button
-                    name='umass'
-                    active={school === 'umass'}
-                    onClick={() => setSchool('umass')}
+                    name={dan}
+                    active={school === dan}
+                    onClick={() => setSchool(dan)}
                 >
                     Umass
                 </Button>
             </div>
 
             <div className={style.recruitingContainer}>
-                {recruitInfo && school === 'ecu' && (
+                {recruitInfo && school === ben && (
                     <RecruitingTable 
                     commitsArr={recruitInfo[school]}
                     />
                 )}
 
-                {recruitInfo && school === 'florida_atlantic' && (
+                {recruitInfo && school === seth && (
                     <RecruitingTable 
                     commitsArr={recruitInfo[school]}
                     />
                 )}
 
-                {recruitInfo && school === 'syracuse' && (
+                {recruitInfo && school === brent && (
                     <RecruitingTable 
                     commitsArr={recruitInfo[school]}
                     />
                 )}
 
-                {recruitInfo && school === 'umass' && (
+                {recruitInfo && school === dan && (
                     <RecruitingTable 
                     commitsArr={recruitInfo[school]}
                     />
