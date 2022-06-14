@@ -33,55 +33,55 @@ const RecruitingPage = () => {
             
             <div className={style.btnContainer}>
                 <Button
-                    name='baylor'
-                    active={school === 'baylor'}
-                    onClick={() => setSchool('baylor')}
+                    name='ecu'
+                    active={school === 'ecu'}
+                    onClick={() => setSchool('ecu')}
                 >
-                    Baylor
+                    ECU
                 </Button>
                 <Button
-                    name='ole_miss'
-                    active={school === 'ole_miss'}
-                    onClick={() => setSchool('ole_miss')}
+                    name='florida_atlantic'
+                    active={school === 'florida_atlantic'}
+                    onClick={() => setSchool('florida_atlantic')}
                 >
-                    Ole Miss
+                    Florida Atlantic
                 </Button>
                 <Button
-                    name='vanderbilt'
-                    active={school === 'vanderbilt'}
-                    onClick={() => setSchool('vanderbilt')}
+                    name='syracuse'
+                    active={school === 'syracuse'}
+                    onClick={() => setSchool('syracuse')}
                 >
-                    Vanderbilt
+                    Syracuse
                 </Button>
                 <Button
-                    name='wyoming'
-                    active={school === 'wyoming'}
-                    onClick={() => setSchool('wyoming')}
+                    name='umass'
+                    active={school === 'umass'}
+                    onClick={() => setSchool('umass')}
                 >
-                    Wyoming
+                    Umass
                 </Button>
             </div>
 
             <div className={style.recruitingContainer}>
-                {recruitInfo && school === 'baylor' && (
+                {recruitInfo && school === 'ecu' && (
                     <RecruitingTable 
                     commitsArr={recruitInfo[school]}
                     />
                 )}
 
-                {recruitInfo && school === 'ole_miss' && (
+                {recruitInfo && school === 'florida_atlantic' && (
                     <RecruitingTable 
                     commitsArr={recruitInfo[school]}
                     />
                 )}
 
-                {recruitInfo && school === 'vanderbilt' && (
+                {recruitInfo && school === 'syracuse' && (
                     <RecruitingTable 
                     commitsArr={recruitInfo[school]}
                     />
                 )}
 
-                {recruitInfo && school === 'wyoming' && (
+                {recruitInfo && school === 'umass' && (
                     <RecruitingTable 
                     commitsArr={recruitInfo[school]}
                     />
