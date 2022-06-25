@@ -5,6 +5,7 @@ import { Recruiting } from 'api';
 import { CommitInfo } from 'api/recruiting';
 import style from './recruitingPage.module.scss';
 import RecruitingTable from './RecruitingTable';
+import { getTableHeader } from 'utils';
 
 
 const RecruitingPage = () => {
@@ -12,10 +13,10 @@ const RecruitingPage = () => {
     const isFirstRender = React.useRef(true);
     const [recruitInfo, setRecruitInfo] = React.useState<CommitInfo>();
     
-    const ben: string = 'ecu'
+    const ben: string = 'oklahoma_state'
     const brent: string = 'syracuse'
-    const dan: string = 'umass'
-    const seth: string = 'florida_atlantic'
+    const dan: string = 'usc'
+    const seth: string = 'northwestern'
 
     const [school, setSchool] = React.useState<string>(ben);
 
@@ -43,28 +44,28 @@ const RecruitingPage = () => {
                     active={school === ben}
                     onClick={() => setSchool(ben)}
                 >
-                    ECU
+                    {getTableHeader(ben)}
                 </Button>
                 <Button
                     name={seth}
                     active={school === seth}
                     onClick={() => setSchool(seth)}
                 >
-                    Florida Atlantic
+                    {getTableHeader(seth)}
                 </Button>
                 <Button
                     name={brent}
                     active={school === brent}
                     onClick={() => setSchool(brent)}
                 >
-                    Syracuse
+                    {getTableHeader(brent)}
                 </Button>
                 <Button
                     name={dan}
                     active={school === dan}
                     onClick={() => setSchool(dan)}
                 >
-                    Umass
+                    {getTableHeader(dan)}
                 </Button>
             </div>
 
