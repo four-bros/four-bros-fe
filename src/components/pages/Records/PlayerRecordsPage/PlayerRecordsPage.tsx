@@ -355,9 +355,9 @@ const PlayerRecordsPage = () => {
                     <PlayerRecordsTable 
                         recordInfo={playerRecords}
                         genCategory={recordCategory}
-                        record='total_sack'
+                        record='sacks'
                         statCategory='defensive_stats'
-                        fieldName='total_sacks'
+                        fieldName='sacks'
                     />
                     <PlayerRecordsTable 
                         recordInfo={playerRecords}
