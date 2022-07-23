@@ -1,34 +1,35 @@
 import * as React from 'react';
 
 import { Button } from 'semantic-ui-react';
-import { Recruiting } from 'api';
+import { Recruiting, Users } from 'api';
 import { CommitInfo } from 'api/recruiting';
 import style from './recruitingPage.module.scss';
 import RecruitingTable from './RecruitingTable';
-import { getTableHeader } from 'utils';
+import { convertTeamNameToSnakeCase } from 'utils';
+import { Team } from 'api/teams';
 
 
 const RecruitingPage = () => {
 
-    const isFirstRender = React.useRef(true);
+    const [userTeams, setUserTeams] = React.useState<Team[]>();
     const [recruitInfo, setRecruitInfo] = React.useState<CommitInfo>();
-    
-    const ben: string = 'oklahoma_state'
-    const brent: string = 'syracuse'
-    const dan: string = 'usc'
-    const seth: string = 'northwestern'
-
-    const [school, setSchool] = React.useState<string>(ben);
+    const [school, setSchool] = React.useState<string>(userTeams ? userTeams[0].team_name : 'Syracuse');
 
     React.useEffect(() => {
         (async () => {
+            const userTeamsResponse = await Users.getUserTeams();
             const response = await Recruiting.getRecruits();
+
             if (response) {
                 setRecruitInfo(response)
             }
+
+            if (userTeamsResponse) {
+                for (let i = 0; i < userTeamsResponse.user_teams.length; i++) {
+                    setUserTeams(userTeamsResponse.user_teams);
+                }
+            }
         })();
-        isFirstRender.current = false;
-        return;
     }, []);
 
 
@@ -39,62 +40,36 @@ const RecruitingPage = () => {
             </div>
             
             <div className={style.btnContainer}>
-                <Button
-                    name={ben}
-                    active={school === ben}
-                    onClick={() => setSchool(ben)}
-                >
-                    {getTableHeader(ben)}
-                </Button>
-                <Button
-                    name={seth}
-                    active={school === seth}
-                    onClick={() => setSchool(seth)}
-                >
-                    {getTableHeader(seth)}
-                </Button>
-                <Button
-                    name={brent}
-                    active={school === brent}
-                    onClick={() => setSchool(brent)}
-                >
-                    {getTableHeader(brent)}
-                </Button>
-                <Button
-                    name={dan}
-                    active={school === dan}
-                    onClick={() => setSchool(dan)}
-                >
-                    {getTableHeader(dan)}
-                </Button>
+                { userTeams && (
+                    userTeams.map( team => {
+                        return (
+                            <Button
+                                name={team.team_name}
+                                active={school === team.team_name}
+                                onClick={() => setSchool(team.team_name)}
+                            >
+                                {team.team_name}
+                            </Button>
+                        )
+                    })
+                )}
             </div>
 
             <div className={style.recruitingContainer}>
-                {recruitInfo && school === ben && (
-                    <RecruitingTable 
-                    commitsArr={recruitInfo[school]}
-                    />
-                )}
-
-                {recruitInfo && school === seth && (
-                    <RecruitingTable 
-                    commitsArr={recruitInfo[school]}
-                    />
-                )}
-
-                {recruitInfo && school === brent && (
-                    <RecruitingTable 
-                    commitsArr={recruitInfo[school]}
-                    />
-                )}
-
-                {recruitInfo && school === dan && (
-                    <RecruitingTable 
-                    commitsArr={recruitInfo[school]}
-                    />
+                { userTeams && (
+                        userTeams.map( team => {
+                            if (recruitInfo && school === (team.team_name)) {
+                                return (
+                                    <RecruitingTable 
+                                        commitsArr={recruitInfo[convertTeamNameToSnakeCase(school)]}
+                                    />
+                                )
+                            } else {
+                                return null;
+                            }
+                        })
                 )}
             </div>
-
         </div>
     )
 }

@@ -38,7 +38,12 @@ const getPlayerYearAndRedshirt = (playerDetails: PlayerDetails | RosterPlayer) =
     } else {
         return `${playerDetails.player_year}.`;
     }
-};
+}
+
+const convertTeamNameToSnakeCase = (teamName: string) => {
+    const teamNameSnakeCase: string = teamName.toLowerCase().replace(' ', '_');
+    return teamNameSnakeCase;
+}
 
 
-export { getFields, getTableHeader, getPlayerYearAndRedshirt };
+export { getFields, getTableHeader, getPlayerYearAndRedshirt, convertTeamNameToSnakeCase };
