@@ -20,14 +20,14 @@ const RecruitingPage = () => {
             const userTeamsResponse = await Users.getUserTeams();
             const response = await Recruiting.getRecruits();
 
-            if (response) {
-                setRecruitInfo(response)
-            }
-
             if (userTeamsResponse) {
                 for (let i = 0; i < userTeamsResponse.user_teams.length; i++) {
                     setUserTeams(userTeamsResponse.user_teams);
                 }
+            }
+
+            if (response) {
+                setRecruitInfo(response);
             }
         })();
     }, []);
