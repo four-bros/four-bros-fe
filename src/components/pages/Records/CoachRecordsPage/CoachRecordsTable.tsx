@@ -27,13 +27,7 @@ const CoachRecordsTable = ( { coachData }: Props ) => {
     };
 
     const convertTitle = (title: boolean): string => {
-
-        if (title) {
-            return 'Yes'
-        } else {
-            return 'No'
-        }
-
+        return title ? 'Yes' : 'No';
     }
     
 
@@ -69,9 +63,9 @@ const CoachRecordsTable = ( { coachData }: Props ) => {
                                 </Table.Cell>
 
                                 <Table.Cell
-                                    key={`cell-${idx}-${season.title}`}
+                                    key={`cell-${idx}-${season.national_title}`}
                                 >
-                                    {convertTitle(season.title)}
+                                    {convertTitle(season.national_title)}
                                 </Table.Cell>
                             </Table.Row>
                         </React.Fragment>
