@@ -13,7 +13,7 @@ const RecruitingPage = () => {
 
     const [userTeams, setUserTeams] = React.useState<Team[]>();
     const [recruitInfo, setRecruitInfo] = React.useState<CommitInfo>();
-    const [school, setSchool] = React.useState<string>(userTeams ? userTeams[0].team_name : 'Syracuse');
+    const [school, setSchool] = React.useState<string>(userTeams ? userTeams[0].team_name : 'Baylor');
 
     React.useEffect(() => {
         (async () => {
@@ -62,6 +62,7 @@ const RecruitingPage = () => {
                                 return (
                                     <RecruitingTable 
                                         commitsArr={recruitInfo[convertTeamNameToSnakeCase(school)]}
+                                        tableHeader={team.team_name}
                                     />
                                 )
                             } else {
