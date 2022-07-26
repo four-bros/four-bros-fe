@@ -5,19 +5,20 @@ import { Table } from 'semantic-ui-react';
 import { rosterHeaders } from '../tableTransform';
 import { RosterPlayer } from 'api/teams';
 import {getPlayerYearAndRedshirt} from 'utils';
-import style from '../teamsPage.module.scss';
+import globalStyle from '../../../../../styles/global.module.scss';
 
 type Props = {
     roster: RosterPlayer[];
+    header: string
 };
 
-const TeamRoster = ({ roster }: Props) => {
+const TeamRoster = ({ roster, header }: Props) => {
     const getRosterInfo = () => {
         return roster.map((player: RosterPlayer) => (
             <React.Fragment key={player.id}>
                 <Table.Row>
                     <Table.Cell>
-                        <Link to={`/players/${player.id}`} className={style.tableLink}>
+                        <Link to={`/players/${player.id}`} className={globalStyle.tableLink}>
                             {player.first_name} {player.last_name}
                         </Link>
                     </Table.Cell>
@@ -33,9 +34,11 @@ const TeamRoster = ({ roster }: Props) => {
         ));
     };
 
+    const tableHeader: string = `${header} Roster`
+
     return (
         <>
-            <TableContainer title='Roster'>
+            <TableContainer title={tableHeader}>
                 <LargeTable header={rosterHeaders} contents={getRosterInfo()} />
             </TableContainer>
         </>

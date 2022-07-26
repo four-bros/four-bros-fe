@@ -16,7 +16,7 @@ import {
 import {  RecordsInfo } from 'api/records/playerRecords';
 import { TableContainer, LargeTable } from 'components/common';
 import { getTableHeader } from 'utils';
-import style from './playerRecords.module.scss';
+import globalStyle from '../../../../../../styles/global.module.scss';
 
 
 type Props = {
@@ -72,7 +72,7 @@ const PlayerRecordsTable = ( {recordInfo, genCategory, record, statCategory, fie
                                 >
                                     <Link
                                         to={`/players/${leader.player_details.id}`}
-                                        className={style.tableLink}
+                                        className={globalStyle.tableLink}
                                     >
                                         {leader.player_details.first_name}{' '}
                                         {leader.player_details.last_name}
@@ -83,7 +83,7 @@ const PlayerRecordsTable = ( {recordInfo, genCategory, record, statCategory, fie
                                 >
                                     <Link
                                         to={`/team/${leader.player_details.team_id}`}
-                                        className={style.tableLink}
+                                        className={globalStyle.tableLink}
                                     >
                                         {leader.player_details.team_name}
                                     </Link>

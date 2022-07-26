@@ -9,7 +9,7 @@ import {
     desktopOffenseAbilitiesFields,
     desktopDefenseAbilitiesHeaders,
     desktopDefenseAbilitiesFields,
-} from './desktopTableTransform';
+} from '../desktopTableTransform';
 import {
     mobileAthleticAbilitiesHeaders,
     mobilePassingAbilityHeaders,
@@ -23,11 +23,11 @@ import {
     mobileRecAbilityFields,
     mobileTackleAbilityFields,
     mobileCoverageAbilityFields,
-} from './mobileTableTransform';
+} from '../mobileTableTransform';
 import { PlayerStatsStructure } from 'api/players';
 import { getFields } from 'utils';
-import useMediaQuery from '../../../../hooks/useMediaQuery';
-
+import useMediaQuery from '../../../../../hooks/useMediaQuery';
+import style from './playerAbilities.module.scss';
 
 type Props = {
     player: PlayerStatsStructure;
@@ -55,7 +55,7 @@ const PlayerAbilities = ({ player }: Props) => {
 
     return (
         <div>
-            <div className='buttonsContainer'>
+            <div className={style.btnContainer}>
                 <Button
                     name='athletic'
                     active={tableType === 'athletic'}

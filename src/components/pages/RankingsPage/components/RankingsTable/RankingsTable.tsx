@@ -4,7 +4,8 @@ import { Table } from 'semantic-ui-react';
 
 import { TableContainer, LargeTable } from 'components/common';
 import { TeamDetails } from 'api/teams';
-import style from './rankingsPage.module.scss';
+import { getTableHeader } from 'utils';
+import globalStyle from '../../../../../styles/global.module.scss';
 
 
 type Props = {
@@ -13,19 +14,22 @@ type Props = {
 }
 
 
-const BcsTable = ( { poll, rankingsArr }: Props ) => {
+const RankingsTable = ( { poll, rankingsArr }: Props ) => {
+
+    const rankedArr: TeamDetails[] = rankingsArr.slice(0, 25);
+    const others: TeamDetails[] = rankingsArr.slice(25, rankingsArr.length);
 
     const fieldRows = (
         poll: string,
         rankingsArr: TeamDetails[]
     ) => {
 
-
         return (
             <>
                 {rankingsArr.map((leader: any, idx: number) => {
 
                     const fieldName: string = `${poll}_rank`;
+                    const points: string = `${poll}_points`
                     const record: string = `${leader.wins}-${leader.losses}`;
 
                     return (
@@ -42,8 +46,8 @@ const BcsTable = ( { poll, rankingsArr }: Props ) => {
                                     key={`cell-${leader.id}`}
                                 >
                                     <Link
-                                        to={`/teams/${leader.id}`}
-                                        className={style.tableLink}
+                                        to={`/team/${leader.id}`}
+                                        className={globalStyle.tableLink}
                                     >
                                         {leader.team_name}
                                     </Link>
@@ -52,6 +56,12 @@ const BcsTable = ( { poll, rankingsArr }: Props ) => {
                                     key={`cell-${idx}-${record}`}
                                 >
                                     {record}
+                                </Table.Cell>
+
+                                <Table.Cell
+                                    key={`cell-${idx}-${points}`}
+                                >
+                                    {leader[points]}
                                 </Table.Cell>
                             </Table.Row>
                         </React.Fragment>
@@ -62,20 +72,32 @@ const BcsTable = ( { poll, rankingsArr }: Props ) => {
     };
 
     return (
-        <div>
-            {rankingsArr && (<TableContainer title='BCS'>
+        <>
+        {rankingsArr && (
+            <TableContainer title={getTableHeader(poll)}>
                 <LargeTable
-                    header={['Rank', 'Team', 'Record']}
+                    header={['Rank', 'Team', 'Record', 'Pts']}
                     contents={fieldRows(
                         poll,
-                        rankingsArr
+                        rankedArr
                     )}
                 />
             </TableContainer>
             )}
-        </div>
+        {others && (
+            <TableContainer title='Others Receiving Votes'>
+                <LargeTable
+                    header={['Rank', 'Team', 'Record', 'Pts']}
+                    contents={fieldRows(
+                        poll,
+                        others
+                    )}
+                />
+            </TableContainer>
+            )}
+        </>
     )
 
 }
 
-export default BcsTable;
+export default RankingsTable;

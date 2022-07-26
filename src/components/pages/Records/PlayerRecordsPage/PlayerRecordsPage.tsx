@@ -3,7 +3,7 @@ import { Button } from 'semantic-ui-react';
 
 import { PlayerRecords } from 'api';
 import { RecordsInfo} from 'api/records/playerRecords';
-import PlayerRecordsTable from './PlayerRecordsTable';
+import PlayerRecordsTable from './components/PlayerRecordsTable/PlayerRecordsTable';
 import style from './playerRecords.module.scss';
 import { useParams } from 'react-router-dom';
 

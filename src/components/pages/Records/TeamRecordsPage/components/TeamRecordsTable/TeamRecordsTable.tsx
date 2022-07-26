@@ -4,7 +4,7 @@ import { Table } from 'semantic-ui-react';
 
 import { TableContainer, LargeTable } from 'components/common';
 import { getTableHeader } from 'utils';
-import style from './teamRecords.module.scss';
+import globalStyle from '../../../../../../styles/global.module.scss';
 import { TeamRecord, TeamRecordData } from 'api/records/teamRecords';
 
 
@@ -50,7 +50,7 @@ const TeamRecordsTable = ( {recordData, recordCategory, record, fieldName}: Prop
                                 >
                                     <Link
                                         to={`/team/${leader.team_info.id}`}
-                                        className={style.tableLink}
+                                        className={globalStyle.tableLink}
                                     >
                                         {leader.team_info.team_name}
                                     </Link>

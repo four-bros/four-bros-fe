@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react';
 import { Recruiting, Users } from 'api';
 import { CommitInfo } from 'api/recruiting';
 import style from './recruitingPage.module.scss';
-import RecruitingTable from './RecruitingTable';
+import RecruitingTable from './components/RecrutingTable/RecruitingTable';
 import { convertTeamNameToSnakeCase } from 'utils';
 import { Team } from 'api/teams';
 

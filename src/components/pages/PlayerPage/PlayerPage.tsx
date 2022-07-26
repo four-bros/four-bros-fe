@@ -4,9 +4,9 @@ import { Button } from 'semantic-ui-react';
 
 import { Players } from 'api';
 import { PlayerStatsStructure } from 'api/players';
-import PlayerAbilities from './components/PlayerAbilities';
-import PlayerDetails from './components/PlayerDetails';
-import PlayerStats from './components/PlayerStats';
+import PlayerAbilities from './components/PlayerAbilities/PlayerAbilities';
+import PlayerDetails from './components/PlayerDetails/PlayerDetails';
+import PlayerStats from './components/PlayerStats/PlayerStats';
 import style from './playerPage.module.scss';
 
 

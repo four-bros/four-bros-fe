@@ -20,7 +20,7 @@ import {
     desktopPuntReturnFields,
     desktopKickingFields,
     desktopPuntingFields,
-} from './desktopTableTransform';
+} from '../desktopTableTransform';
 import {
     mobilePassingHeaders,
     mobileRushingHeaders,
@@ -40,7 +40,7 @@ import {
     mobilePuntReturnFields,
     mobileKickingFields,
     mobilePuntingFields,
-} from './mobileTableTransform';
+} from '../mobileTableTransform';
 import { getTopThree } from '../tableTransform';
 import { getFields } from 'utils';
 import type {
@@ -55,8 +55,9 @@ import type {
     Rushing,
     Total,
 } from 'api/teams';
-import style from '../teamsPage.module.scss';
-import useMediaQuery from '../../../../hooks/useMediaQuery';
+import style from './teamLeaders.module.scss';
+import globalStyle from '../../../../../styles/global.module.scss';
+import useMediaQuery from '../../../../../hooks/useMediaQuery';
 
 
 type Props = {
@@ -106,7 +107,7 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
                                 >
                                     <Link
                                         to={`/players/${leader.player_details.id}`}
-                                        className={style.tableLink}
+                                        className={globalStyle.tableLink}
                                     >
                                         {leader.player_details.first_name}{' '}
                                         {leader.player_details.last_name}

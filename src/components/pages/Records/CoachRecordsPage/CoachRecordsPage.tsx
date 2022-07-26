@@ -3,7 +3,7 @@ import { Button } from 'semantic-ui-react';
 
 import { CoachRecords } from 'api';
 import { CoachRecordsData } from 'api/records/coachRecords';
-import CoachRecordsTable from './CoachRecordsTable';
+import CoachRecordsTable from './components/CoachRecordsTable/CoachRecordsTable';
 import style from './coachRecords.module.scss';
 
 

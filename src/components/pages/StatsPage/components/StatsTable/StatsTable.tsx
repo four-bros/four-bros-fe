@@ -58,8 +58,9 @@ import type {
     Total,
 } from 'api/teams';
 import { RecordsInfo } from 'api/records/playerRecords';
-import style from '../statsPage.module.scss';
-import useMediaQuery from '../../../../hooks/useMediaQuery';
+import style from './statsTable.module.scss';
+import globalStyle from '../../../../../styles/global.module.scss';
+import useMediaQuery from '../../../../../hooks/useMediaQuery';
 
 
 type Props = {
@@ -102,7 +103,7 @@ const StatsTable = ({ leaders }: Props) => {
                                 >
                                     <Link
                                         to={`/players/${leader.player_details.id}`}
-                                        className={style.tableLink}
+                                        className={globalStyle.tableLink}
                                     >
                                         {leader.player_details.first_name}{' '}
                                         {leader.player_details.last_name}
@@ -113,7 +114,7 @@ const StatsTable = ({ leaders }: Props) => {
                                 >
                                     <Link
                                         to={`/team/${leader.player_details.team_id}`}
-                                        className={style.tableLink}
+                                        className={globalStyle.tableLink}
                                     >
                                         {leader.player_details.team_name}
                                     </Link>

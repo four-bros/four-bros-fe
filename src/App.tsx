@@ -4,7 +4,7 @@ import { NavBar } from 'components/common';
 import { Route, Routes } from 'react-router-dom';
 import CoachRecordsPage from 'components/pages/Records/CoachRecordsPage/CoachRecordsPage';
 import HomePage from './components/pages/HomePage/HomePage';
-import TeamPage from 'components/pages/TeamsPage/TeamPage';
+import TeamPage from 'components/pages/TeamPage/TeamPage';
 import TeamsPage from './components/pages/TeamsPage/TeamsPage';
 import PlayerPage from './components/pages/PlayerPage/PlayerPage';
 import SeasonLeadersPage from './components/pages/SeasonLeadersPage/SeasonLeadersPage';

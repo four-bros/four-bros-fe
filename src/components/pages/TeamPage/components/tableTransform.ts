@@ -1,5 +1,6 @@
 import { TeamDetails, Team, TeamStats } from 'api/teams';
 
+
 const getOverviewInfo = (
     overview: TeamDetails,
     simplifiedTeam: Team

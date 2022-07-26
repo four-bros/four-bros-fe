@@ -6,11 +6,11 @@ import { Teams } from 'api';
 import { TeamsDropdown } from 'components/common';
 import type { SingleTeamInfo, Team } from 'api/teams';
 import { SingleTeamLeaders } from 'api/teams';
-import TeamOverview from './components/TeamOverview';
-import TeamRoster from './components/TeamRoster';
-import TeamLeaders from './components/TeamLeaders';
-import style from '../TeamsPage/teamsPage.module.scss';
-import { DropdownTeamOption } from './TeamsPage';
+import TeamOverview from './components/TeamOverview/TeamOverview';
+import TeamRoster from './components/TeamRoster/TeamRoster';
+import TeamLeaders from './components/TeamLeaders/TeamLeaders';
+import style from './teamPage.module.scss';
+import { DropdownTeamOption } from '../TeamsPage/TeamsPage';
 
 
 const TeamPage = () => {
@@ -120,12 +120,9 @@ const TeamPage = () => {
                             <hr />
 
                             {infoType === 'overview' && (
-                                <>
-                                    <div className={style.headerContainer}>
-                                        <h1>{singleTeam.team_details.team_name} Roster</h1>
-                                    </div>
-                                    <TeamRoster roster={singleTeam.team_roster} />
-                                </>
+                                <div className={style.rosterContainer}>
+                                    <TeamRoster roster={singleTeam.team_roster} header={singleTeam.team_details.team_name} />
+                                </div>
                             )}
                         </>
                     </div>

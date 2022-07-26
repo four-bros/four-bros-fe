@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Table, Menu, Dropdown } from 'semantic-ui-react';
+import { Button, Table } from 'semantic-ui-react';
 
 import { TableContainer, LargeTable } from 'components/common';
 import {
@@ -19,7 +19,7 @@ import {
     desktopPuntReturnFields,
     desktopKickingFields,
     desktopPuntingFields,
-} from './desktopTableTransform';
+} from '../desktopTableTransform';
 import {
     mobilePassingHeaders,
     mobileRushingHeaders,
@@ -39,10 +39,11 @@ import {
     mobilePuntReturnFields,
     mobileKickingFields,
     mobilePuntingFields,
-} from './mobileTableTransform';
+} from '../mobileTableTransform';
 import { PlayerStatsStructure } from 'api/players';
 import { getFields } from 'utils';
-import useMediaQuery from '../../../../hooks/useMediaQuery';
+import useMediaQuery from '../../../../../hooks/useMediaQuery';
+import style from './playerStats.module.scss';
 
 
 type Props = {
@@ -79,7 +80,7 @@ const Stats = ({ player }: Props) => {
 
     return (
         <div>
-            <div className='buttonsContainer'>
+            <div className={style.btnContainer}>
                 <Button
                     name='offense'
                     active={tableType === 'offense'}
@@ -103,7 +104,7 @@ const Stats = ({ player }: Props) => {
                 </Button>
             </div>
             <hr />
-            <div className='buttonsContainer'>
+            <div className={style.btnContainer}>
                 <Button
                     name='season'
                     active={statsType === 'season'}

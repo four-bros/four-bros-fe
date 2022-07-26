@@ -4,7 +4,7 @@
     justify-content: center;
     justify-items: center;
     align-items: baseline;
-    margin: 0 auto;
+    margin: 1em auto;
     width: 80%;
 
     h1 {
@@ -12,11 +12,11 @@
         margin: 3% auto;
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (min-width: 767px) {
         width: 100%;
 
         h1 {
-            margin: 5% auto;
+            margin: 1% auto;
         }
     }
 }

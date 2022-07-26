@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Button } from 'semantic-ui-react';
 
 import { Rankings } from 'api';
-import BcsTable from './BcsTable';
-import RankingsTable from './RankingsTable';
+import BcsTable from './components/BcsTable/BcsTable';
+import RankingsTable from './components/RankingsTable/RankingsTable';
 import { RankingsInfo } from 'api/rankings';
 import style from './rankingsPage.module.scss'
 

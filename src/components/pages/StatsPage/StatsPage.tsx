@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Stats, Users } from 'api';
 import { RecordsInfo} from 'api/records/playerRecords';
-import StatsTable from './components/StatsTable';
+import StatsTable from './components/StatsTable/StatsTable';
 import style from './statsPage.module.scss';
 
 

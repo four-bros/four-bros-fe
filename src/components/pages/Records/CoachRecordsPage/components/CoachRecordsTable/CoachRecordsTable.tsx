@@ -4,7 +4,8 @@ import { Table } from 'semantic-ui-react';
 
 import { TableContainer, LargeTable } from 'components/common';
 import { CoachSeasonRecord, CoachData } from 'api/records/coachRecords';
-import style from './coachRecords.module.scss';
+import style from './coachRecordsTable.module.scss';
+import globalStyle from '../../../../../../styles/global.module.scss';
 
 
 type Props = {
@@ -51,7 +52,7 @@ const CoachRecordsTable = ( { coachData }: Props ) => {
                                 >
                                     <Link
                                         to={`/team/${season.team_id}`}
-                                        className={style.tableLink}
+                                        className={globalStyle.tableLink}
                                     >
                                         {season.team_name}
                                     </Link>

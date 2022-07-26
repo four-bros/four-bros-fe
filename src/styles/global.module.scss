@@ -17,10 +17,6 @@ body,
     background-color: #03111e;
 }
 
-html {
-    font-size: 62.5%;
-}
-
 .App {
     min-width: 350px;
     display: flex;
@@ -63,4 +59,8 @@ hr {
     justify-content: center;
     margin: 2em auto;
     padding-top: 2%;
+}
+
+.tableLink {
+    color: #9ebcd5;
 }

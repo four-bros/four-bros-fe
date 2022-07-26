@@ -24,38 +24,37 @@ const Navbar = () => {
                 <div className={style.navDropDownContainer}>
                     <button className={style.dropdownBtn} onClick={() => setIsSeasonSelected(!isSeasonSelected)}>Season</button>
                     {isSeasonSelected && (
-                        <>
-                            <div className={style.dropDownContainer}>
-                                <NavLink 
-                                    to='/season/leaders/players'
-                                    className={style.dropdownLink}
-                                    onClick={() => {setIsSeasonSelected(!isSeasonSelected)}}
-                                >
-                                    Leaders
-                                </NavLink>
-                                <NavLink
-                                    to='/season/rankings'
-                                    className={style.dropdownLink}
-                                    onClick={() => {setIsSeasonSelected(!isSeasonSelected)}}
-                                >
-                                    Rankings
-                                </NavLink>
-                                <NavLink
-                                    to="/season/recruiting"
-                                    className={style.dropdownLink}
-                                    onClick={() => {setIsSeasonSelected(!isSeasonSelected)}}
-                                >
-                                    Recruiting
-                                </NavLink>
-                                <NavLink
-                                to='/season/stats'
+                        
+                        <div className={style.dropDownContainer}>
+                            <NavLink 
+                                to='/season/leaders/players'
                                 className={style.dropdownLink}
                                 onClick={() => {setIsSeasonSelected(!isSeasonSelected)}}
-                                >
-                                    Stats
-                                </NavLink>
-                            </div>
-                        </>
+                            >
+                                Leaders
+                            </NavLink>
+                            <NavLink
+                                to='/season/rankings'
+                                className={style.dropdownLink}
+                                onClick={() => {setIsSeasonSelected(!isSeasonSelected)}}
+                            >
+                                Rankings
+                            </NavLink>
+                            <NavLink
+                                to="/season/recruiting"
+                                className={style.dropdownLink}
+                                onClick={() => {setIsSeasonSelected(!isSeasonSelected)}}
+                            >
+                                Recruiting
+                            </NavLink>
+                            <NavLink
+                            to='/season/stats'
+                            className={style.dropdownLink}
+                            onClick={() => {setIsSeasonSelected(!isSeasonSelected)}}
+                            >
+                                Stats
+                            </NavLink>
+                        </div>
                     )}
                 </div>
                 

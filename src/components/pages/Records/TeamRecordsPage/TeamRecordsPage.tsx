@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react';
 import { TeamRecords } from 'api';
 import { TeamRecordData } from 'api/records/teamRecords';
 import style from './teamRecords.module.scss';
-import TeamRecordsTable from './TeamRecordsTable';
+import TeamRecordsTable from './components/TeamRecordsTable/TeamRecordsTable';
 
 
 const TeamRecordsPage = () => {

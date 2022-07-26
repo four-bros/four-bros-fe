@@ -19,10 +19,13 @@ hr {
     margin: 2em auto;
 }
 
-.tableLink {
-    color: #9ebcd5;
-}
-
 h1 {
     font-weight: 400;
+}
+
+@media screen and (min-width: 767px) {
+    .rosterContainer {
+        width: 50%;
+        margin: 0 auto;
+    }
 }
