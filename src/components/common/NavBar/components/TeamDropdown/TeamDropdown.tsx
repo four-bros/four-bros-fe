@@ -23,7 +23,7 @@ const TeamDropdown = ({
 				className={btnClass} 
 				onClick={() => setIsTeamSelected(!isTeamSelected)}
 			>
-				Team<Icon name='angle down' size='small' />
+				Team<Icon name='caret down' size='small' />
 			</button>
 			{isTeamSelected && (
 				<div className={style.subDropdownContainer}>

@@ -24,7 +24,7 @@ const PlayerDropdown = ({
 				className={btnClass}
 				onClick={() => setIsPlayerSelected(!isPlayerSelected)}
 			>
-				Player<Icon name='angle down' size='small' />
+				Player<Icon name='caret down' size='small' />
 			</button>
 			
 			{isPlayerSelected && (
