@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import style from '../../navBar.module.scss';
 import PlayerDropdown from '../PlayerDropdown/PlayerDropdown';
 import TeamDropdown from '../TeamDropdown/TeamDropdown';
+import { handleCaretIcon } from 'utils/components';
 
 
 const RecordsDropdown = () => {
@@ -12,7 +13,7 @@ const RecordsDropdown = () => {
 	return (
 		<div className={style.navDropDownContainer}>
 			<button className={style.dropdownBtn} onClick={() => setIsRecordsSelected(!isRecordsSelected)}>
-                Records
+                Records{handleCaretIcon(isRecordsSelected)}
             </button>
 
 			{isRecordsSelected && (

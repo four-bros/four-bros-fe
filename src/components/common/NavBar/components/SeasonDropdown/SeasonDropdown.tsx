@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
+import { handleCaretIcon } from 'utils/components';
 import style from '../../navBar.module.scss';
 
 
@@ -10,7 +11,7 @@ const SeasonDropDown = () => {
 	return (
 		<div className={style.navDropDownContainer}>
 			<button className={style.dropdownBtn} onClick={() => setIsSeasonSelected(!isSeasonSelected)}>
-				Season
+				Season{handleCaretIcon(isSeasonSelected)}
 			</button>
 			
 			{isSeasonSelected && (

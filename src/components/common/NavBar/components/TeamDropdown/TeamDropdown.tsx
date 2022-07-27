@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Icon } from 'semantic-ui-react'
+import { handleCaretIcon } from 'utils/components';
 import style from '../../navBar.module.scss';
 
 
@@ -16,7 +16,6 @@ const TeamDropdown = ({
 
 	const [isTeamSelected, setIsTeamSelected] = React.useState<boolean>(false);
 	const btnClass = isTeamSelected ? style.btnSelected : style.dropdownBtn;
-	const icon = isTeamSelected ? <Icon name='caret up' size='small' /> : <Icon name='caret down' size='small' />;
 
 	return (
 		<div className={style.navDropDownContainer}>
@@ -24,7 +23,7 @@ const TeamDropdown = ({
 				className={btnClass} 
 				onClick={() => setIsTeamSelected(!isTeamSelected)}
 			>
-				Team{icon}
+				Team{handleCaretIcon(isTeamSelected)}
 			</button>
 			{isTeamSelected && (
 				<div className={style.subDropdownContainer}>

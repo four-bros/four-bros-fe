@@ -32,7 +32,7 @@ const getTableHeader = (header: string): string => {
 
 }
 
-const getPlayerYearAndRedshirt = (playerDetails: PlayerDetails | RosterPlayer) => {
+const getPlayerYearAndRedshirt = (playerDetails: PlayerDetails | RosterPlayer): string => {
     if (playerDetails.redshirt) {
         return `${playerDetails.player_year}. (Rs.)`;
     } else {
@@ -40,10 +40,9 @@ const getPlayerYearAndRedshirt = (playerDetails: PlayerDetails | RosterPlayer) =
     }
 }
 
-const convertTeamNameToSnakeCase = (teamName: string) => {
+const convertTeamNameToSnakeCase = (teamName: string): string => {
     const teamNameSnakeCase: string = teamName.toLowerCase().replace(' ', '_');
     return teamNameSnakeCase;
 }
-
 
 export { getFields, getTableHeader, getPlayerYearAndRedshirt, convertTeamNameToSnakeCase };
