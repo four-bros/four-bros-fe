@@ -16,39 +16,28 @@ const RecruitingTable = ({ commitsArr, tableHeader }: Props ) => {
 
         return (
             <>
-                {commitsArr.length && (
-                    commitsArr.map((commit: any, idx: number) => {
-                        return (
-                            <React.Fragment
-                                key={`row-${idx}-${commit.rank}`}
-                            >
-                                <Table.Row>
-                                    <Table.Cell
-                                        key={`cell-${commit.rank}`}
-                                    >
-                                        {commit.rank}
-                                    </Table.Cell>
-                                    <Table.Cell
-                                        key={`cell-${commit.name}`}
-                                    >
-                                        {commit.name}
-                                    </Table.Cell>
-                                    <Table.Cell
-                                        key={`cell-${idx}-${commit.position}`}
-                                    >
-                                        {commit.position}
-                                    </Table.Cell>
-    
-                                    <Table.Cell
-                                        key={`cell-${idx}-${commit.stars}`}
-                                    >
-                                        {commit.stars}
-                                    </Table.Cell>
-                                </Table.Row>
-                            </React.Fragment>
-                        );
-                    })
-                )}
+            {commitsArr.length && (
+                commitsArr.map((commit: any, idx: number) => {
+                    return (
+                        <React.Fragment key={`row-${idx}-${commit.rank}`}>
+                            <Table.Row>
+                                <Table.Cell key={`cell-${commit.rank}`}>
+                                    {commit.rank}
+                                </Table.Cell>
+                                <Table.Cell key={`cell-${commit.name}`}>
+                                    {commit.name}
+                                </Table.Cell>
+                                <Table.Cell key={`cell-${idx}-${commit.position}`}>
+                                    {commit.position}
+                                </Table.Cell>
+                                <Table.Cell key={`cell-${idx}-${commit.stars}`}>
+                                    {commit.stars}
+                                </Table.Cell>
+                            </Table.Row>
+                        </React.Fragment>
+                    );
+                })
+            )}
             </>
         );
     };
@@ -65,7 +54,7 @@ const RecruitingTable = ({ commitsArr, tableHeader }: Props ) => {
                     )}
                 />
             </TableContainer>
-            )}
+        )}
         </>
     )
 

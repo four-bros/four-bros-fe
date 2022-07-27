@@ -29,48 +29,46 @@ const TeamRecordsTable = ( {recordData, recordCategory, record, fieldName}: Prop
         recordArr = recordData[recordCategory][record]
 
         return (
-            <>
-                {recordArr.map((leader: any, idx: number) => {
+            recordArr.map((leader: any, idx: number) => {
 
-                    const value = leader['team_stats'][fieldName]
-                    const year = leader['team_stats']['year']
+                const value = leader['team_stats'][fieldName]
+                const year = leader['team_stats']['year']
 
-                    return (
-                        <React.Fragment
-                            key={`row-${idx}-${leader.team_info.id}`}
-                        >
-                            <Table.Row>
-                                <Table.Cell
-                                    key={`cell-${idx+1}`}
+                return (
+                    <React.Fragment
+                        key={`row-${idx}-${leader.team_info.id}`}
+                    >
+                        <Table.Row>
+                            <Table.Cell
+                                key={`cell-${idx+1}`}
+                            >
+                                {idx+1}
+                            </Table.Cell>
+                            <Table.Cell
+                                key={`cell-${leader.team_info.id}`}
+                            >
+                                <Link
+                                    to={`/team/${leader.team_info.id}`}
+                                    className={globalStyle.tableLink}
                                 >
-                                    {idx+1}
-                                </Table.Cell>
-                                <Table.Cell
-                                    key={`cell-${leader.team_info.id}`}
-                                >
-                                    <Link
-                                        to={`/team/${leader.team_info.id}`}
-                                        className={globalStyle.tableLink}
-                                    >
-                                        {leader.team_info.team_name}
-                                    </Link>
-                                </Table.Cell>
-                                <Table.Cell
-                                    key={`cell-${idx}-${year}`}
-                                >
-                                    {year}
-                                </Table.Cell>
+                                    {leader.team_info.team_name}
+                                </Link>
+                            </Table.Cell>
+                            <Table.Cell
+                                key={`cell-${idx}-${year}`}
+                            >
+                                {year}
+                            </Table.Cell>
 
-                                <Table.Cell
-                                    key={`cell-${idx}-${value}`}
-                                >
-                                    {value}
-                                </Table.Cell>
-                            </Table.Row>
-                        </React.Fragment>
-                    );
-                })}
-            </>
+                            <Table.Cell
+                                key={`cell-${idx}-${value}`}
+                            >
+                                {value}
+                            </Table.Cell>
+                        </Table.Row>
+                    </React.Fragment>
+                );
+            })
         );
     };
 

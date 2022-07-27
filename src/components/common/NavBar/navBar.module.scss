@@ -72,10 +72,31 @@
     transition: all 0.3s;
 }
 
+.btnSelected {
+    display: inline-block;
+    position: relative;
+    padding: 7px;
+    width: 6em;
+    border: none;
+    background-color: inherit;
+    color: #cb2c2c;
+    font-weight: 400;
+}
+
+.btnSelected:hover {
+    color: #cb2c2c;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
 .dropDownContainer {
     top: 0;
     height: 0;
     background-color: inherit;
+}
+
+.subDropdownContainer {
+    background-color: #767676;
 }
 
 .dropdownLink {

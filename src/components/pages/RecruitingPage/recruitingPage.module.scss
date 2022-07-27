@@ -14,14 +14,13 @@
     display: flex;
     justify-content: center;
     align-content: space-between;
-    flex-flow: column nowrap;
-    width: 25%;
+    flex-flow: row nowrap;
     margin: 2em auto;
 }
 
 .recruitingContainer {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column wrap;
     justify-content: center;
     width: 80%;
     margin: 2em auto;
@@ -29,11 +28,6 @@
 
 // Media Queries
 @media screen and (min-width: 767px) {
-
-    .btnContainer {
-        flex-flow: row nowrap;
-        width: 100%;
-    }
     
     .recruitingContainer {
         width: 25%;

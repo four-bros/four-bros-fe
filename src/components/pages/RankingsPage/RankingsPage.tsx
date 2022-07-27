@@ -10,7 +10,6 @@ import style from './rankingsPage.module.scss'
 
 const RankingsPage = () => {
 
-    const isFirstRender = React.useRef(true);
     const [rankings, setRankings] = React.useState<RankingsInfo>();
     const [pollType, setPollType] = React.useState('coachs_poll');
 
@@ -21,8 +20,6 @@ const RankingsPage = () => {
                 setRankings(response)
             }
         })();
-        isFirstRender.current = false;
-        return;
     }, []);
 
     return (
