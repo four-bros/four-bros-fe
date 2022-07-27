@@ -16,6 +16,7 @@ const TeamDropdown = ({
 
 	const [isTeamSelected, setIsTeamSelected] = React.useState<boolean>(false);
 	const btnClass = isTeamSelected ? style.btnSelected : style.dropdownBtn;
+	const icon = isTeamSelected ? <Icon name='caret up' size='small' /> : <Icon name='caret down' size='small' />;
 
 	return (
 		<div className={style.navDropDownContainer}>
@@ -23,7 +24,7 @@ const TeamDropdown = ({
 				className={btnClass} 
 				onClick={() => setIsTeamSelected(!isTeamSelected)}
 			>
-				Team<Icon name='caret down' size='small' />
+				Team{icon}
 			</button>
 			{isTeamSelected && (
 				<div className={style.subDropdownContainer}>

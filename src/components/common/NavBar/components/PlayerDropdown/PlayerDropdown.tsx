@@ -15,8 +15,8 @@ const PlayerDropdown = ({
 	setIsRecordsSelected }: Props) => {
 
 	const [isPlayerSelected, setIsPlayerSelected] = React.useState<boolean>(false);
-
 	const btnClass = isPlayerSelected ? style.btnSelected : style.dropdownBtn;
+	const icon = isPlayerSelected ? <Icon name='caret up' size='small' /> : <Icon name='caret down' size='small' />;
 
 	return (
 		<div className={style.navDropDownContainer}>
@@ -24,7 +24,7 @@ const PlayerDropdown = ({
 				className={btnClass}
 				onClick={() => setIsPlayerSelected(!isPlayerSelected)}
 			>
-				Player<Icon name='caret down' size='small' />
+				Player{icon}
 			</button>
 			
 			{isPlayerSelected && (

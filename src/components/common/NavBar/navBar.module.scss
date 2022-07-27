@@ -58,12 +58,14 @@
 .dropdownBtn {
     display: inline-block;
     position: relative;
-    padding: 5px;
+    padding: 10px;
     width: 6em;
     background-color: inherit;
     border: none;
     color: #d5d5d6;
     font-weight: 400;
+    text-align: center;
+    z-index: 1;
 }
 
 .dropdownBtn:hover {
@@ -75,12 +77,13 @@
 .btnSelected {
     display: inline-block;
     position: relative;
-    padding: 7px;
+    padding: 10px;
     width: 6em;
     border: none;
     background-color: inherit;
     color: #cb2c2c;
     font-weight: 400;
+    z-index: 1;
 }
 
 .btnSelected:hover {
@@ -108,7 +111,6 @@
     width: 6em;
     position: relative;
     font-weight: 400;
-    overflow: auto;
     z-index: 1;
 }
 
@@ -160,7 +162,8 @@
         padding: 5px;
     }
 
-    .dropdownBtn {
+    .dropdownBtn, .btnSelected {
         padding: 10px;
     }
+
 }
