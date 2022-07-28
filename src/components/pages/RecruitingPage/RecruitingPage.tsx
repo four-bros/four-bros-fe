@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Button } from 'semantic-ui-react';
 import { Recruiting, Users } from 'api';
 import { CommitInfo } from 'api/recruiting';
+import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import style from './recruitingPage.module.scss';
 import RecruitingTable from './components/RecrutingTable/RecruitingTable';
 import { convertTeamNameToSnakeCase } from 'utils';
@@ -11,6 +12,7 @@ import { Team } from 'api/teams';
 
 const RecruitingPage = () => {
 
+    const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const [userTeams, setUserTeams] = React.useState<Team[]>();
     const [recruitInfo, setRecruitInfo] = React.useState<CommitInfo>();
     const [school, setSchool] = React.useState<string>(userTeams ? userTeams[0].team_name : 'Baylor');
@@ -29,11 +31,12 @@ const RecruitingPage = () => {
             if (response) {
                 setRecruitInfo(response);
             }
+            setIsLoading(false);
         })();
     }, []);
 
 
-    return (
+    const recruitingPage = (
         <div>
             <div className={style.headerContainer}>
                 <h1 className={style.header}>Recruiting</h1>
@@ -72,7 +75,10 @@ const RecruitingPage = () => {
                 )}
             </div>
         </div>
-    )
+    );
+
+
+    return isLoading ? <LoadingSpinner /> : recruitingPage;
 }
 
 export default RecruitingPage

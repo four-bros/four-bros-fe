@@ -6,10 +6,12 @@ import BcsTable from './components/BcsTable/BcsTable';
 import RankingsTable from './components/RankingsTable/RankingsTable';
 import { RankingsInfo } from 'api/rankings';
 import style from './rankingsPage.module.scss'
+import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 
 
 const RankingsPage = () => {
 
+    const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const [rankings, setRankings] = React.useState<RankingsInfo>();
     const [pollType, setPollType] = React.useState('coachs_poll');
 
@@ -17,12 +19,13 @@ const RankingsPage = () => {
         (async () => {
             const response = await Rankings.getRankings();
             if (response) {
-                setRankings(response)
+                setRankings(response);
+                setIsLoading(false);
             }
         })();
     }, []);
 
-    return (
+    const rankingsPage = (
         <div>
             <div className={style.headerContainer}>
                 <h1>Rankings</h1>
@@ -75,7 +78,9 @@ const RankingsPage = () => {
                 )}
             </div>
         </div>
-    )
+    );
+
+    return isLoading ? <LoadingSpinner /> : rankingsPage;
 
 }
 

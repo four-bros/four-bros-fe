@@ -1,21 +1,21 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Users } from 'api';
+import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import { TeamsDropdown } from 'components/common';
 
 import style from './homePage.module.scss';
 import { Team } from 'api/teams';
 
 export const HomePage = () => {
-    const isFirstRender = React.useRef(true);
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const [userTeams, setUserTeams] = React.useState<Team[]>();
     const [teamOptions, setTeamOptions] = React.useState();
     const [week, setWeek] = React.useState<number>();
     const [year, setYear] = React.useState<number>();
 
     React.useEffect(() => {
-        if (isFirstRender.current) {
             (async () => {
                 const data = await Users.getUserTeams();
                 let newList: any = [];
@@ -30,12 +30,10 @@ export const HomePage = () => {
                     setTeamOptions(newList);
                     setWeek(data.week_year.week);
                     setYear(data.week_year.year);
-                    setUserTeams(data.user_teams)
+                    setUserTeams(data.user_teams);
+                    setIsLoading(false);
                 }
             })();
-            isFirstRender.current = false;
-            return;
-        }
     }, []);
 
     const handleTeamChange = async (_: any, { value }: any) => {
@@ -46,7 +44,7 @@ export const HomePage = () => {
         }
     };
 
-    return (
+    const homePage = (
         <div>
             {week && (
                 <div className='page-container'>
@@ -66,7 +64,10 @@ export const HomePage = () => {
                 </div>
             )}
         </div>
-    );
-};
+    )
+
+    return isLoading ? <LoadingSpinner /> : homePage;
+
+}
 
 export default HomePage;

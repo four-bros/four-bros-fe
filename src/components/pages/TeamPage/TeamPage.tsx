@@ -6,6 +6,7 @@ import { Teams } from 'api';
 import { TeamsDropdown } from 'components/common';
 import type { SingleTeamInfo, Team } from 'api/teams';
 import { SingleTeamLeaders } from 'api/teams';
+import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import TeamOverview from './components/TeamOverview/TeamOverview';
 import TeamRoster from './components/TeamRoster/TeamRoster';
 import TeamLeaders from './components/TeamLeaders/TeamLeaders';
@@ -16,6 +17,7 @@ import { DropdownTeamOption } from '../TeamsPage/TeamsPage';
 const TeamPage = () => {
 
     const { teamId } = useParams();
+    const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const [allTeams, setAllTeams] = React.useState<Team[]>();
     const [teamOptions, setTeamOptions] = React.useState<DropdownTeamOption[]>();
     const [singleTeam, setSingleTeam] = React.useState<SingleTeamInfo>();
@@ -26,6 +28,7 @@ const TeamPage = () => {
     React.useEffect(() => {
         if (teamId) {
             (async () => {
+                setIsLoading(true);
                 const allTeams = await Teams.getTeams();
                 const team = await Teams.getSingleTeam(teamId);
                 const leaders = await Teams.getSingleTeamLeaders(teamId
@@ -48,6 +51,7 @@ const TeamPage = () => {
                 if (leaders) {
                     setTeamLeaders(leaders);
                 }
+                setIsLoading(false);
             })();
 
             return;
@@ -62,10 +66,8 @@ const TeamPage = () => {
         }
     };
 
-
-    return (
+    const teamPage = (
         <div>
-
             {teamOptions && (
                 <TeamsDropdown
                     options={teamOptions}
@@ -129,7 +131,10 @@ const TeamPage = () => {
                 )}
             </div>
         </div>
-    )
+    );
+
+
+    return isLoading ? <LoadingSpinner /> : teamPage;
 
 }
 

@@ -2,13 +2,14 @@ import * as React from 'react';
 
 import { Stats, Users } from 'api';
 import { RecordsInfo} from 'api/records/playerRecords';
+import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import StatsTable from './components/StatsTable/StatsTable';
 import style from './statsPage.module.scss';
 
 
 const StatsPage = () => {
 
-    const isFirstRender = React.useRef(true);
+    const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const [stats, setStats] = React.useState<RecordsInfo>();
     const [year, setYear] = React.useState<number>();
 
@@ -17,17 +18,16 @@ const StatsPage = () => {
             const stats = await Stats.getSeasonLeaders();
             const weekYear = await Users.getUserTeams();
             if (stats) {
-                setStats(stats)
+                setStats(stats);
             }
             if (weekYear) {
-                setYear(weekYear.week_year.year)
+                setYear(weekYear.week_year.year);
             }
+            setIsLoading(false);
         })();
-        isFirstRender.current = false;
-        return;
     }, []);
 
-    return (
+    const statsPage = (
         <div>
             {year && (
                 <div className={style.headerContainer}>
@@ -41,7 +41,10 @@ const StatsPage = () => {
                 />
             )}
         </div>
-    )
+    );
+
+    return isLoading ? <LoadingSpinner /> : statsPage;
+
 }
 
 export default StatsPage;

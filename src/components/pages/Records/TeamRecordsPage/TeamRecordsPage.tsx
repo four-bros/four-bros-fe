@@ -3,12 +3,14 @@ import { Button } from 'semantic-ui-react';
 
 import { TeamRecords } from 'api';
 import { TeamRecordData } from 'api/records/teamRecords';
+import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import style from './teamRecords.module.scss';
 import TeamRecordsTable from './components/TeamRecordsTable/TeamRecordsTable';
 
 
 const TeamRecordsPage = () => {
 
+    const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const [teamRecords, setTeamRecords] = React.useState<TeamRecordData | void>()
     const [recordCategory, setRecordCategory] = React.useState<string>('offense');
 
@@ -17,15 +19,15 @@ const TeamRecordsPage = () => {
         (async () => {
             const response = await TeamRecords.getTeamRecords();
             if (response) {
-                setTeamRecords(response)
+                setTeamRecords(response);
+                setIsLoading(false);
             }
         })();
-        return;
     }, []);
 
 
-    return (
-        <div>
+    const teamRecordsPage = (
+        <>
             <div className={style.btnContainer}>
                 <Button
                     name='offense'
@@ -235,8 +237,10 @@ const TeamRecordsPage = () => {
                     )}
                 </>
             </div>
-        </div>
-    )
+        </>
+    );
+
+    return isLoading ? <LoadingSpinner /> : teamRecordsPage;
 }
 
 export default TeamRecordsPage;

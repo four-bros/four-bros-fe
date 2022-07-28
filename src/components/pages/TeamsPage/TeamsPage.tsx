@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Teams } from 'api';
+import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import { TeamsDropdown } from 'components/common';
 import type { Team } from 'api/teams';
 
@@ -12,32 +13,28 @@ export interface DropdownTeamOption {
 }
 
 const TeamsPage = () => {
-    const isFirstRender = React.useRef(true);
+    const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const [allTeams, setAllTeams] = React.useState<Team[]>();
-    const [teamOptions, setTeamOptions] =
-        React.useState<DropdownTeamOption[]>();
+    const [teamOptions, setTeamOptions] = React.useState<DropdownTeamOption[]>();
     const navigate = useNavigate();
 
     React.useEffect(() => {
-        if (isFirstRender.current) {
-            (async () => {
-                const teams = await Teams.getTeams();
-                let newList: DropdownTeamOption[] = [];
-                if (teams) {
-                    for (let i = 0; i < teams.length; i++) {
-                        newList.push({
-                            key: teams[i].id,
-                            value: i,
-                            text: `${teams[i].team_name} ${teams[i].nickname}`,
-                        });
-                    }
-                    setTeamOptions(newList);
-                    setAllTeams(teams);
+        (async () => {
+            const teams = await Teams.getTeams();
+            let newList: DropdownTeamOption[] = [];
+            if (teams) {
+                for (let i = 0; i < teams.length; i++) {
+                    newList.push({
+                        key: teams[i].id,
+                        value: i,
+                        text: `${teams[i].team_name} ${teams[i].nickname}`,
+                    });
                 }
-            })();
-            isFirstRender.current = false;
-            return;
-        }
+                setTeamOptions(newList);
+                setAllTeams(teams);
+                setIsLoading(false);
+            }
+        })();
     }, []);
 
     const handleTeamChange = async (_: any, { value }: any) => {
@@ -47,7 +44,7 @@ const TeamsPage = () => {
         }
     };
 
-    return (
+    const teamsPage = (
         <>
             {teamOptions && (
                 <TeamsDropdown
@@ -57,6 +54,8 @@ const TeamsPage = () => {
             )}
         </>
     );
+
+    return isLoading ? <LoadingSpinner /> : teamsPage;
 };
 
 export default TeamsPage;

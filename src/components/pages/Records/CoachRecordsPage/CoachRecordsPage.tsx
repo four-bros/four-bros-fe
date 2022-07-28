@@ -3,27 +3,28 @@ import { Button } from 'semantic-ui-react';
 
 import { CoachRecords } from 'api';
 import { CoachRecordsData } from 'api/records/coachRecords';
+import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import CoachRecordsTable from './components/CoachRecordsTable/CoachRecordsTable';
 import style from './coachRecords.module.scss';
 
 
 const CoachRecordsPage = () => {
+
+    const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const [coachRecords, setCoachRecords] = React.useState<CoachRecordsData | void>()
     const [coach, setCoach] = React.useState<string>('ben')
-
 
     React.useEffect(() => {
         (async () => {
             const response = await CoachRecords.getCoachRecords();
             if (response) {
                 setCoachRecords(response)
+                setIsLoading(false);
             }
         })();
-        return;
     }, []);
 
-
-    return (
+    const coachRecordsPage = (
         <div>
             <div className={style.headerContainer}>
                 <h1>Coaching Records</h1>
@@ -59,23 +60,26 @@ const CoachRecordsPage = () => {
                     {coachRecords?.seth.name}
                 </Button>
             </div>
-                {coachRecords && coach === 'ben' && (
-                    <CoachRecordsTable coachData={coachRecords.ben} />
-                )}
+            {coachRecords && coach === 'ben' && (
+                <CoachRecordsTable coachData={coachRecords.ben} />
+            )}
 
-                {coachRecords && coach === 'brent' && (
-                    <CoachRecordsTable coachData={coachRecords.brent} />
-                )}
+            {coachRecords && coach === 'brent' && (
+                <CoachRecordsTable coachData={coachRecords.brent} />
+            )}
 
-                {coachRecords && coach === 'dan' && (
-                    <CoachRecordsTable coachData={coachRecords.dan} />
-                )}
+            {coachRecords && coach === 'dan' && (
+                <CoachRecordsTable coachData={coachRecords.dan} />
+            )}
 
-                {coachRecords && coach === 'seth' && (
-                    <CoachRecordsTable coachData={coachRecords.seth} />
-                )}
+            {coachRecords && coach === 'seth' && (
+                <CoachRecordsTable coachData={coachRecords.seth} />
+            )}
         </div>
-    )
+    );
+
+
+    return isLoading ? <LoadingSpinner /> : coachRecordsPage;
 }
 
 export default CoachRecordsPage;

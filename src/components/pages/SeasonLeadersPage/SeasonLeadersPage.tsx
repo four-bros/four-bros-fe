@@ -3,12 +3,13 @@ import { Button } from 'semantic-ui-react';
 
 import { Stats, Users } from 'api';
 import { RecordsInfo} from 'api/records/playerRecords';
+import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import PlayerRecordsTable from '../Records/PlayerRecordsPage/components/PlayerRecordsTable/PlayerRecordsTable';
 import style from './seasonLeaders.module.scss';
 
 const SeasonLeadersPage = () => {
 
-    const isFirstRender = React.useRef(true);
+    const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const [seasonLeaders, setSeasonLeaders] = React.useState<RecordsInfo>();
     const [leaderCategory, setLeaderCategory] = React.useState('total');
     const [year, setYear] = React.useState<number>();
@@ -23,13 +24,11 @@ const SeasonLeadersPage = () => {
             if (weekYear) {
                 setYear(weekYear.week_year.year)
             }
+            setIsLoading(false);
         })();
-        isFirstRender.current = false;
-        return;
     }, []);
 
-
-    return (
+    const seasonLeadersPage = (
         <div>
             {year && (
                 <div className={style.headerContainer}>
@@ -598,7 +597,10 @@ const SeasonLeadersPage = () => {
                 )}
             </div>
         </div>
-    );
+    )
+
+
+    return isLoading ? <LoadingSpinner /> : seasonLeadersPage;
 };
 
 export default SeasonLeadersPage;
