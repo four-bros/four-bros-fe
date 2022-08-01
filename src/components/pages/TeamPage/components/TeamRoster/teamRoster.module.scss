@@ -1,0 +1,29 @@
+
+
+.btnContainer {
+	display: flex;
+	justify-content: flex-start;
+	flex-flow: row wrap;
+	margin: 0 auto;
+	width: 90%;
+}
+
+.btn {
+	padding: 0.5em;
+	color: #03111e;
+	background-color: #9ebcd5;
+	border: 1px solid #03111e;
+}
+
+.activeBtn {
+	padding: 0.5em;
+	color: #d5d5d6;
+	background-color: #0d5796;
+	border: 1px solid #03111e;
+}
+
+.btn:hover {
+	cursor: pointer;
+	background-color: #0d5796;
+	color: #d5d5d6;
+}

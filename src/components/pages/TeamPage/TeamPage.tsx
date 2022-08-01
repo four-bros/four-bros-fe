@@ -53,8 +53,6 @@ const TeamPage = () => {
                 }
                 setIsLoading(false);
             })();
-
-            return;
         }
     }, [teamId]);
 

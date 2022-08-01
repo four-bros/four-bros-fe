@@ -217,6 +217,13 @@ const SeasonLeadersPage = () => {
                         <PlayerRecordsTable 
                             recordInfo={seasonLeaders}
                             genCategory={leaderCategory}
+                            record='rush_tds'
+                            statCategory='rushing_stats'
+                            fieldName='rush_tds'
+                        />
+                        <PlayerRecordsTable 
+                            recordInfo={seasonLeaders}
+                            genCategory={leaderCategory}
                             record='rush_ypg'
                             statCategory='rushing_stats'
                             fieldName='rush_ypg'

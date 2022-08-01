@@ -228,6 +228,13 @@ const PlayerRecordsPage = () => {
                     statCategory='rushing_stats'
                     fieldName='rush_yards'
                 />
+                <PlayerRecordsTable 
+                    recordInfo={playerRecords}
+                    genCategory={recordCategory}
+                    record={recordHeader === 'career' ? 'tds' : 'rush_tds'}
+                    statCategory='rushing_stats'
+                    fieldName='rush_tds'
+                />
                 {recordHeader !== 'game' && (
                   <PlayerRecordsTable 
                       recordInfo={playerRecords}
