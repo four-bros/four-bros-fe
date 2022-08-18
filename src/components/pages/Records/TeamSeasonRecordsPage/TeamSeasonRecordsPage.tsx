@@ -2,22 +2,22 @@ import * as React from 'react';
 import { Button } from 'semantic-ui-react';
 
 import { TeamRecords } from 'api';
-import { TeamRecordData } from 'api/records/teamRecords';
+import { TeamSeasonRecordData } from 'api/records/teamRecords';
 import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import style from './teamRecords.module.scss';
 import TeamRecordsTable from './components/TeamRecordsTable/TeamRecordsTable';
 
 
-const TeamRecordsPage = () => {
+const TeamSeasonRecordsPage = () => {
 
     const [isLoading, setIsLoading] = React.useState<boolean>(true);
-    const [teamRecords, setTeamRecords] = React.useState<TeamRecordData | void>()
+    const [teamRecords, setTeamRecords] = React.useState<TeamSeasonRecordData | void>()
     const [recordCategory, setRecordCategory] = React.useState<string>('offense');
 
 
     React.useEffect(() => {
         (async () => {
-            const response = await TeamRecords.getTeamRecords();
+            const response = await TeamRecords.getTeamSeasonRecords();
             if (response) {
                 setTeamRecords(response);
                 setIsLoading(false);
@@ -243,4 +243,4 @@ const TeamRecordsPage = () => {
     return isLoading ? <LoadingSpinner /> : teamRecordsPage;
 }
 
-export default TeamRecordsPage;
+export default TeamSeasonRecordsPage;

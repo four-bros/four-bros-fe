@@ -11,7 +11,7 @@ import SeasonLeadersPage from './components/pages/SeasonLeadersPage/SeasonLeader
 import StatsPage from 'components/pages/StatsPage/StatsPage';
 import RankingsPage from 'components/pages/RankingsPage/RankingsPage';
 import PlayerRecordsPage from './components/pages/Records/PlayerRecordsPage/PlayerRecordsPage';
-import TeamRecordsPage from 'components/pages/Records/TeamRecordsPage/TeamRecordsPage';
+import TeamSeasonRecordsPage from 'components/pages/Records/TeamSeasonRecordsPage/TeamSeasonRecordsPage';
 import RecruitingPage from 'components/pages/RecruitingPage/RecruitingPage';
 import HallOfFamePage from './components/pages/HallOfFamePage/HallOfFamePage';
 
@@ -27,8 +27,8 @@ function App() {
                 <Route path='/players/:playerId' element={<PlayerPage />} />
                 <Route path='/season/leaders/players' element={<SeasonLeadersPage />} />
                 <Route path='/season/rankings' element={<RankingsPage />} />
-                <Route path={'/records/player/:recordType'} element={<PlayerRecordsPage />} />
-                <Route path={'/records/team'} element={<TeamRecordsPage />} />
+                <Route path={'/records/:recordType/:recordGroup'} element={<PlayerRecordsPage />} />
+                <Route path={'/records/team'} element={<TeamSeasonRecordsPage />} />
                 <Route path={'/records/coach'} element={<CoachRecordsPage />} />
                 <Route path='/season/recruiting' element={<RecruitingPage />} />
                 <Route path='/hof' element={<HallOfFamePage />} />

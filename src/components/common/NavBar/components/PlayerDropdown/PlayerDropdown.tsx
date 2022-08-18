@@ -29,7 +29,7 @@ const PlayerDropdown = ({
 			{isPlayerSelected && (
 				<div className={style.subDropdownContainer}>
 					<NavLink
-						to ='/records/player/career'
+						to ='/records/career/player'
 						className={style.dropdownLink}
 						onClick={() => setIsRecordsSelected(!isRecordsSelected)}
 						
@@ -37,7 +37,7 @@ const PlayerDropdown = ({
 						Career
 					</NavLink>
 					<NavLink
-						to ='/records/player/game'
+						to ='/records/game/player'
 						className={style.dropdownLink}
 						onClick={() => setIsRecordsSelected(!isRecordsSelected)}
 						
@@ -45,7 +45,7 @@ const PlayerDropdown = ({
 						Game
 					</NavLink>
 					<NavLink
-						to ='/records/player/season'
+						to ='/records/season/player'
 						className={style.dropdownLink}
 						onClick={() => setIsRecordsSelected(!isRecordsSelected)}
 						

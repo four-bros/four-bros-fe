@@ -53,16 +53,26 @@ export type TeamSpecialTeamsRecord = {
     pr_yds: TeamRecord[]
 }
 
-export type TeamRecordData = {
+export type TeamSeasonRecordData = {
     defense: TeamDefensiveRecord,
     offense: TeamOffensiveRecord,
     special_teams: TeamSpecialTeamsRecord
 }
 
 
-export const getTeamRecords = async (): Promise<TeamRecordData | void> => {
+export const getTeamGameRecords = async (): Promise<TeamSeasonRecordData | void> => {
     try {
-        const response = await baseGet('/records/team');
+        const response = await baseGet('/records/game/team');
+        return response.data;
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+
+export const getTeamSeasonRecords = async (): Promise<TeamSeasonRecordData | void> => {
+    try {
+        const response = await baseGet('/records/season/team');
         return response.data;
     } catch (err) {
         console.log(err);

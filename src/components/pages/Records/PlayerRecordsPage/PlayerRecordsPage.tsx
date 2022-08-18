@@ -11,11 +11,11 @@ import { useParams } from 'react-router-dom';
 
 const PlayerRecordsPage = () => {
 
-    const recordType = useParams();
+    const { recordType, recordGroup } = useParams();
     const [playerRecords, setPlayerRecords] = React.useState<RecordsInfo>();
     const [recordCategory, setRecordCategory] = React.useState('total');
     const [isLoading, setIsLoading] = React.useState<boolean>(true);
-    const recordHeader = recordType?.recordType?.toString();
+    const recordHeader = recordType?.toString();
     let header: string;
 
     if (recordHeader) {
@@ -31,7 +31,7 @@ const PlayerRecordsPage = () => {
         if (recordType) {
             (async () => {
                 setIsLoading(true);
-                const response = await PlayerRecords.getRecords(`${recordType.recordType}`);
+                const response = await PlayerRecords.getRecords(`${recordType}`, `${recordGroup}`);
                 if (response) {
                     setPlayerRecords(response);
                     setIsLoading(false);

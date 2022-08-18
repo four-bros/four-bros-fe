@@ -43,14 +43,14 @@ const TeamRoster = ({ roster, header }: Props) => {
     const positionBtns = (
         <div className={style.btnContainer}>
             <button 
-                className={activeBtn === 'All' ? style.activeBtn :style.btn}
+                className={activeBtn === 'All' ? style.activeBtn : style.btn}
                 onClick={() => resetRoster()}
             >
                 All
             </button>
             {playerPositions.map(pos => 
                 <button 
-                    className={pos === activeBtn ? style.activeBtn :style.btn}
+                    className={pos === activeBtn ? style.activeBtn : style.btn}
                     onClick={() => handleClick(pos)}
                 >
                     {pos}
