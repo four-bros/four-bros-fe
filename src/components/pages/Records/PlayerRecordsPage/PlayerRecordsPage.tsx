@@ -38,7 +38,7 @@ const PlayerRecordsPage = () => {
                 }
             })();
         } 
-    }, [recordType]);
+    }, [recordType, recordGroup]);
 
     const recordsPage = (
         <>

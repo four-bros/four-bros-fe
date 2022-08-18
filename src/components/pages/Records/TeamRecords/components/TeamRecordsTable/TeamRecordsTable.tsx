@@ -5,11 +5,11 @@ import { Table } from 'semantic-ui-react';
 import { TableContainer, LargeTable } from 'components/common';
 import { getTableHeader } from 'utils';
 import globalStyle from '../../../../../../styles/global.module.scss';
-import { TeamRecord, TeamSeasonRecordData } from 'api/records/teamRecords';
+import { TeamGameRecordData, TeamRecord, TeamSeasonRecordData } from 'api/records/teamRecords';
 
 
 type Props = {
-    recordData: TeamSeasonRecordData,
+    recordData: TeamSeasonRecordData | TeamGameRecordData,
     recordCategory: string,
     record: string
     fieldName: string
@@ -18,7 +18,7 @@ type Props = {
 const TeamRecordsTable = ( {recordData, recordCategory, record, fieldName}: Props ) => {
 
     const fieldRows = (
-        recordData: TeamSeasonRecordData,
+        recordData: TeamSeasonRecordData | TeamGameRecordData,
         recordCategory: string,
         record: string,
         fieldName: string

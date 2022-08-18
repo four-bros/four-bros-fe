@@ -2,22 +2,22 @@ import * as React from 'react';
 import { Button } from 'semantic-ui-react';
 
 import { TeamRecords } from 'api';
-import { TeamSeasonRecordData } from 'api/records/teamRecords';
+import { TeamGameRecordData } from 'api/records/teamRecords';
 import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
-import style from './teamRecords.module.scss';
-import TeamRecordsTable from './components/TeamRecordsTable/TeamRecordsTable';
+import style from '../../TeamRecords/teamRecords.module.scss';
+import TeamRecordsTable from '../components/TeamRecordsTable/TeamRecordsTable';
 
 
-const TeamSeasonRecordsPage = () => {
+const TeamGameRecordsPage = () => {
 
     const [isLoading, setIsLoading] = React.useState<boolean>(true);
-    const [teamRecords, setTeamRecords] = React.useState<TeamSeasonRecordData | void>()
+    const [teamRecords, setTeamRecords] = React.useState<TeamGameRecordData | void>()
     const [recordCategory, setRecordCategory] = React.useState<string>('offense');
 
 
     React.useEffect(() => {
         (async () => {
-            const response = await TeamRecords.getTeamSeasonRecords();
+            const response = await TeamRecords.getTeamGameRecords();
             if (response) {
                 setTeamRecords(response);
                 setIsLoading(false);
@@ -28,6 +28,9 @@ const TeamSeasonRecordsPage = () => {
 
     const teamRecordsPage = (
         <>
+            <div className={style.headerContainer}>
+                <h1>Team Game Records</h1>
+            </div>
             <div className={style.btnContainer}>
                 <Button
                     name='offense'
@@ -64,32 +67,14 @@ const TeamSeasonRecordsPage = () => {
                             <TeamRecordsTable
                                 recordData={teamRecords}
                                 recordCategory={recordCategory}
-                                record='ppg'
-                                fieldName='ppg'
-                            />
-                            <TeamRecordsTable
-                                recordData={teamRecords}
-                                recordCategory={recordCategory}
                                 record='total_yards'
                                 fieldName='total_yards'
                             />
                             <TeamRecordsTable
                                 recordData={teamRecords}
                                 recordCategory={recordCategory}
-                                record='total_ypg'
-                                fieldName='total_ypg'
-                            />
-                            <TeamRecordsTable
-                                recordData={teamRecords}
-                                recordCategory={recordCategory}
                                 record='off_yards'
                                 fieldName='off_yards'
-                            />
-                            <TeamRecordsTable
-                                recordData={teamRecords}
-                                recordCategory={recordCategory}
-                                record='off_ypg'
-                                fieldName='off_ypg'
                             />
                             <TeamRecordsTable
                                 recordData={teamRecords}
@@ -202,7 +187,7 @@ const TeamSeasonRecordsPage = () => {
                                 recordData={teamRecords}
                                 recordCategory={recordCategory}
                                 record='def_td'
-                                fieldName='def_td'
+                                fieldName='def_tds'
                             />
                         </>
                     )}
@@ -243,4 +228,4 @@ const TeamSeasonRecordsPage = () => {
     return isLoading ? <LoadingSpinner /> : teamRecordsPage;
 }
 
-export default TeamSeasonRecordsPage;
+export default TeamGameRecordsPage;

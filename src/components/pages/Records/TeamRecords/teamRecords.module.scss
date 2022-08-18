@@ -1,4 +1,14 @@
 
+.headerContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    font-size: 2em;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    width: 80%;
+    margin: 1em auto;
+}
 
 .btnContainer {
     display: flex;

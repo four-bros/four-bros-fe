@@ -28,7 +28,22 @@ export type TeamDefensiveRecord = {
     turnovers: TeamRecord[]
 }
 
-export type TeamOffensiveRecord = {
+export type TeamGameOffensiveRecord = {
+    drops: TeamRecord[],
+    fumbles: TeamRecord[],
+    ints: TeamRecord[],
+    off_yards: TeamRecord[],
+    pass_tds: TeamRecord[],
+    pass_yards: TeamRecord[],
+    points: TeamRecord[],
+    rush_tds: TeamRecord[],
+    rush_yards: TeamRecord[],
+    sacked: TeamRecord[],
+    total_yards: TeamRecord[],
+    turnovers: TeamRecord[]
+}
+
+export type TeamSeasonOffensiveRecord = {
     drops: TeamRecord[],
     fumbles: TeamRecord[],
     ints: TeamRecord[],
@@ -53,14 +68,20 @@ export type TeamSpecialTeamsRecord = {
     pr_yds: TeamRecord[]
 }
 
+export type TeamGameRecordData = {
+    defense: TeamDefensiveRecord,
+    offense: TeamGameOffensiveRecord,
+    special_teams: TeamSpecialTeamsRecord
+}
+
 export type TeamSeasonRecordData = {
     defense: TeamDefensiveRecord,
-    offense: TeamOffensiveRecord,
+    offense: TeamSeasonOffensiveRecord,
     special_teams: TeamSpecialTeamsRecord
 }
 
 
-export const getTeamGameRecords = async (): Promise<TeamSeasonRecordData | void> => {
+export const getTeamGameRecords = async (): Promise<TeamGameRecordData | void> => {
     try {
         const response = await baseGet('/records/game/team');
         return response.data;
