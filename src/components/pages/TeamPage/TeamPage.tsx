@@ -73,24 +73,22 @@ const TeamPage = () => {
                 />
             )}
 
-            {singleTeam && (
-                <div className={style.btnContainer}>
-                    <Button
-                        name='overview'
-                        active={infoType === 'overview'}
-                        onClick={() => setInfoType('overview')}
-                    >
-                        Overview
-                    </Button>
-                    <Button
-                        name='stats'
-                        active={infoType === 'stats'}
-                        onClick={() => setInfoType('stats')}
-                    >
-                        Stats
-                    </Button>
-                </div>
-            )}
+            <div className={style.btnContainer}>
+                <Button
+                    name='overview'
+                    active={infoType === 'overview'}
+                    onClick={() => setInfoType('overview')}
+                >
+                    Overview
+                </Button>
+                <Button
+                    name='stats'
+                    active={infoType === 'stats'}
+                    onClick={() => setInfoType('stats')}
+                >
+                    Stats
+                </Button>
+            </div>
 
             <div className='page-container'>
                 {allTeams && singleTeam && (
@@ -118,13 +116,12 @@ const TeamPage = () => {
                             )}
 
                             <hr />
-
-                            {infoType === 'overview' && (
-                                <div className={style.rosterContainer}>
-                                    <TeamRoster roster={singleTeam.team_roster} header={singleTeam.team_details.team_name} />
-                                </div>
-                            )}
                         </>
+                    </div>
+                )}
+                {singleTeam && infoType === 'overview' && (
+                    <div className={style.rosterContainer}>
+                        <TeamRoster roster={singleTeam.team_roster} header={singleTeam.team_details.team_name} />
                     </div>
                 )}
             </div>
