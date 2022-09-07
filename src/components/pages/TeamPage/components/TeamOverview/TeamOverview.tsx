@@ -45,14 +45,16 @@ const TeamOverview = ({
                         </TableContainer>
                     </div>
                     {/* 3rd section */}
-                    <div className={style.teamStatsContainer}>
-                        <TableContainer title='Offense' small>
-                            <LargeTable contents={getOffenseOverview(overallStats)} />
-                        </TableContainer>
-                        <TableContainer title='Defense' small>
-                            <LargeTable contents={getDefenseOverview(overallStats)} />
-                        </TableContainer>
-                    </div>
+                    {overallStats.games_played > 0 &&
+                        (<div className={style.teamStatsContainer}>
+                            <TableContainer title='Offense' small>
+                                <LargeTable contents={getOffenseOverview(overallStats)} />
+                            </TableContainer>
+                            <TableContainer title='Defense' small>
+                                <LargeTable contents={getDefenseOverview(overallStats)} />
+                            </TableContainer>
+                        </div>)
+                    }
                 </>
             )}
         </div>
