@@ -48,13 +48,14 @@ import style from './playerStats.module.scss';
 
 type Props = {
     player: PlayerStatsStructure;
+    statsType: string;
 };
 
-const Stats = ({ player }: Props) => {
+const Stats = ({ player, statsType }: Props) => {
     const [tableType, setTableType] = React.useState('offense');
-    const [statsType, setStatsType] = React.useState('season');
     const mobile = useMediaQuery('(max-width: 767px)');
     let stats: any;
+    const statsHeader: string = statsType === 'season' ? 'Season Stats' : 'Career Stats'
 
     if (statsType === 'season') {
         stats = player.season_stats;
@@ -80,6 +81,8 @@ const Stats = ({ player }: Props) => {
 
     return (
         <div>
+            <h1 className={style.header}>{statsHeader}</h1>
+
             <div className={style.btnContainer}>
                 <Button
                     name='offense'
@@ -103,23 +106,7 @@ const Stats = ({ player }: Props) => {
                     Special Teams
                 </Button>
             </div>
-            <hr />
-            <div className={style.btnContainer}>
-                <Button
-                    name='season'
-                    active={statsType === 'season'}
-                    onClick={() => setStatsType('season')}
-                >
-                    Season
-                </Button>
-                <Button
-                    name='career'
-                    active={statsType === 'career'}
-                    onClick={() => setStatsType('career')}
-                >
-                    Career
-                </Button>
-            </div>
+            
 
             {tableType === 'offense' && (
                 <>

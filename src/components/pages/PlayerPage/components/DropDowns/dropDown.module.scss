@@ -1,0 +1,46 @@
+.dropdownBtn {
+	width: 7em;
+	background-color: #0d5796;
+	border: none;
+	border-radius: 5px;
+	color: #d5d5d6;
+	padding: 1em;
+}
+
+.dropdownBtn:hover {
+	cursor: pointer;
+	background-color: #0a4376;
+}
+
+.btnSelected {
+	width: 7em;
+	background-color: #0d5796;
+	border: none;
+	border-radius: 5px 5px 0 0;
+	color: #cb2c2c;
+	padding: 1em;
+}
+
+.btnSelected:hover {
+	cursor: pointer;
+	background-color: #0a4376;
+}
+
+.btnContainer {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.btn {
+	width: 7em;
+	background-color: #0d5796;
+	border: none;
+	color: #d5d5d6;
+	padding: 1em;
+}
+
+.btn:hover {
+	cursor: pointer;
+	background-color: #0a4376;
+	color: #cb2c2c;
+}

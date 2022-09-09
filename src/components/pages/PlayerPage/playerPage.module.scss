@@ -2,6 +2,7 @@
 .btnContainer {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center;
+    justify-content: space-between;
+    width: 15em;
     margin: 1em auto;
 }
