@@ -17,8 +17,7 @@ const mobileTotalFields = new Set([
 
 
 const mobilePassingHeaders = [
-    'Name',
-    'Team',
+    'Yr',
     'Yds',
     'YPG',
     'TDs',
@@ -26,6 +25,7 @@ const mobilePassingHeaders = [
 ];
 
 const mobilePassingFields = new Set([
+    'year',
     'pass_yards',
     'pass_ypg',
     'pass_tds',
@@ -33,8 +33,7 @@ const mobilePassingFields = new Set([
 ]);
 
 const mobileRushingHeaders = [
-    'Name',
-    'Team',
+    'Yr',
     'Att',
     'Yds',
     'YPG',
@@ -42,6 +41,7 @@ const mobileRushingHeaders = [
 ];
 
 const mobileRushingFields = new Set([
+    'year',
     'rush_att',
     'rush_yards',
     'rush_ypg',
@@ -49,8 +49,7 @@ const mobileRushingFields = new Set([
 ]);
 
 const mobileReceivingHeaders = [
-    'Name',
-    'Team',
+    'Yr',
     'Rec',
     'Yds',
     'YPG',
@@ -58,6 +57,7 @@ const mobileReceivingHeaders = [
 ];
 
 const mobileReceivingFields = new Set([
+    'year',
     'receptions',
     'rec_yards',
     'rec_ypg',
@@ -65,22 +65,21 @@ const mobileReceivingFields = new Set([
 ]);
 
 const mobileTackleHeaders = [
-    'Name',
-    'Team',
+    'Yr',
     'Tkls',
     'TFL',
     'Sacks',
 ];
 
 const mobileTackleFields = new Set([
+    'year',
     'total_tkls',
     'tfl',
     'sacks',
 ]);
 
 const mobileDefToHeaders = [
-    'Name',
-    'Team',
+    'Yr',
     'INTs',
     'FF',
     'FR',
@@ -88,6 +87,7 @@ const mobileDefToHeaders = [
 ];
 
 const mobileDefToFields = new Set([
+    'year',
     'ints_made',
     'forced_fumbles',
     'fumbles_rec',
@@ -95,8 +95,7 @@ const mobileDefToFields = new Set([
 ]);
 
 const mobileKickReturnHeaders = [
-    'Name',
-    'Team',
+    'Yr',
     'Ret',
     'Yds',
     'AVG',
@@ -104,6 +103,7 @@ const mobileKickReturnHeaders = [
 ];
 
 const mobileKickReturnFields = new Set([
+    'year',
     'kick_returns',
     'kr_yds',
     'kr_avg',
@@ -111,8 +111,7 @@ const mobileKickReturnFields = new Set([
 ]);
 
 const mobilePuntReturnHeaders = [
-    'Name',
-    'Team',
+    'Yr',
     'Ret',
     'Yds',
     'AVG',
@@ -120,6 +119,7 @@ const mobilePuntReturnHeaders = [
 ];
 
 const mobilePuntReturnFields = new Set([
+    'year',
     'punt_returns',
     'pr_yds',
     'pr_avg',

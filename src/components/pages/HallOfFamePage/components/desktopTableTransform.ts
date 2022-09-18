@@ -18,8 +18,7 @@ const desktopTotalFields = new Set([
 ])
 
 const desktopPassingHeaders = [
-    'Name',
-    'Team',
+    'Year',
     'Games',
     'Comp',
     'Att',
@@ -35,6 +34,7 @@ const desktopPassingHeaders = [
 ];
 
 const desktopPassingFields = new Set([
+    'year',
     'games_played',
     'completions',
     'pass_att',
@@ -50,8 +50,7 @@ const desktopPassingFields = new Set([
 ]);
 
 const desktopRushingHeaders = [
-    'Name',
-    'Team',
+    'Year',
     'Games',
     'Att',
     'Yards',
@@ -66,6 +65,7 @@ const desktopRushingHeaders = [
 ];
 
 const desktopRushingFields = new Set([
+    'year',
     'games_played',
     'rush_att',
     'rush_yards',
@@ -80,8 +80,7 @@ const desktopRushingFields = new Set([
 ]);
 
 const desktopReceivingHeaders = [
-    'Name',
-    'Team',
+    'Year',
     'Games',
     'Catches',
     'Yards',
@@ -94,6 +93,7 @@ const desktopReceivingHeaders = [
 ];
 
 const desktopReceivingFields = new Set([
+    'year',
     'games_played',
     'receptions',
     'rec_yards',
@@ -106,8 +106,7 @@ const desktopReceivingFields = new Set([
 ]);
 
 const desktopDefenseHeaders = [
-    'Name',
-    'Team',
+    'Year',
     'Games',
     'Tackles',
     'TFL',
@@ -124,6 +123,7 @@ const desktopDefenseHeaders = [
 ]
 
 const desktopDefenseFields = new Set([
+    'year',
     'games_played',
     'total_tkls',
     'tfl',
@@ -141,8 +141,7 @@ const desktopDefenseFields = new Set([
 
 
 const desktopKickReturnHeaders = [
-    'Name',
-    'Team',
+    'Year',
     'Games',
     'Returns',
     'Yards',
@@ -152,6 +151,7 @@ const desktopKickReturnHeaders = [
 ];
 
 const desktopKickReturnFields = new Set([
+    'year',
     'games_played',
     'kick_returns',
     'kr_yds',
@@ -161,8 +161,7 @@ const desktopKickReturnFields = new Set([
 ]);
 
 const desktopPuntReturnHeaders = [
-    'Name',
-    'Team',
+    'Year',
     'Games',
     'Returns',
     'Yards',
@@ -172,6 +171,7 @@ const desktopPuntReturnHeaders = [
 ];
 
 const desktopPuntReturnFields = new Set([
+    'year',
     'games_played',
     'punt_returns',
     'pr_yds',
