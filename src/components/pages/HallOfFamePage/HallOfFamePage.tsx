@@ -3,7 +3,10 @@ import * as React from 'react';
 
 import { Players } from 'api';
 import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
-import HofPlayerTable from './components/HofPlayerTable';
+import HofPlayerTable from './components/HofPlayerTable/HofPlayerTable';
+import HofPlayerDetails from './components/HofPlayerDetails/HofPlayerDetails';
+import globalStyle from '../../../styles/global.module.scss';
+import style from './hallOfFamePage.module.scss';
 
 const HallOfFamePage = () => {
 
@@ -20,16 +23,20 @@ const HallOfFamePage = () => {
         })();
     }, []);
 
-    console.log(hofPlayers);
 
     const HallOfFamePage = (
         <>
+            <h1 className={globalStyle.pageHeader}>Hall of Fame</h1>
             {hofPlayers?.map((player) => {
                 return (
-                    <>
-                        <p>{player.details.first_name} {player.details.last_name}</p>
-                        <HofPlayerTable seasonStats={player.season_stats} careerStats={player.career_stats} />
-                    </>
+                    <div className={style.container}>
+                        <HofPlayerDetails playerAbilities={player.abilities} playerDetails={player.details} />
+                        <HofPlayerTable
+                            seasonStats={player.season_stats}
+                            careerStats={player.career_stats}
+                            playerPosition={player.details.position}
+                        />
+                    </div>
                 )
             })}
         </>

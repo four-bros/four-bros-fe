@@ -1,0 +1,36 @@
+
+.btnContainer {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.btn {
+    height: 3em;
+    width: 25%;
+    border: 1px solid #03111e;
+    border-radius: 0;
+    background-color: #d5d5d6;
+
+    @media screen and (min-width: 767px) {
+            font-size: 1.25em;
+        }
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #696969;
+    transition: all ease 0.3s;
+}
+
+.activeBtn {
+    height: 3em;
+    width: 25%;
+    border: 1px solid #03111e;
+    border-radius: 0;
+    background-color: #696969;
+
+    @media screen and (min-width: 767px) {
+        font-size: 1.25em;
+    }
+}

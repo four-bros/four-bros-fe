@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom';
-import { Button, Table } from 'semantic-ui-react';
-
+import { Table } from 'semantic-ui-react';
 import { PlayerHofStructure } from 'api/players';
 import {
     DefensiveStats,
@@ -17,19 +15,56 @@ import useMediaQuery from 'hooks/useMediaQuery';
 import * as React from 'react';
 import { getFields } from 'utils';
 import { LargeTable, TableContainer } from 'components/common';
-import { mobileDefToFields, mobileDefToHeaders, mobileKickReturnFields, mobileKickReturnHeaders, mobilePassingFields, mobilePassingHeaders, mobilePuntReturnFields, mobilePuntReturnHeaders, mobileReceivingFields, mobileReceivingHeaders, mobileRushingFields, mobileRushingHeaders, mobileTackleFields, mobileTackleHeaders, mobileTotalFields, mobileTotalHeaders } from './mobileTableTransform';
+import {
+    mobileDefToFields,
+    mobileDefToHeaders,
+    mobileKickReturnFields,
+    mobileKickReturnHeaders,
+    mobilePassingFields,
+    mobilePassingHeaders,
+    mobilePuntReturnFields,
+    mobilePuntReturnHeaders,
+    mobileReceivingFields,
+    mobileReceivingHeaders,
+    mobileRushingFields,
+    mobileRushingHeaders,
+    mobileTackleFields,
+    mobileTackleHeaders,
+    mobileTotalFields,
+    mobileTotalHeaders
+} from './mobileTableTransform';
+import {
+    desktopDefenseFields,
+    desktopDefenseHeaders,
+    desktopKickReturnFields,
+    desktopKickReturnHeaders,
+    desktopPassingFields,
+    desktopPassingHeaders,
+    desktopPuntReturnFields,
+    desktopPuntReturnHeaders,
+    desktopReceivingFields,
+    desktopReceivingHeaders,
+    desktopRushingFields,
+    desktopRushingHeaders,
+    desktopTotalFields,
+    desktopTotalHeaders
+} from './desktopTableTransform';
+import HofButtons from '../HofButtons/HofButtons';
+import { offensivePositions } from 'constants/constants';
 import style from './hofPlayerTable.module.scss';
-import { desktopDefenseFields, desktopDefenseHeaders, desktopKickReturnFields, desktopKickReturnHeaders, desktopPassingFields, desktopPassingHeaders, desktopPuntReturnFields, desktopPuntReturnHeaders, desktopReceivingFields, desktopReceivingHeaders, desktopRushingFields, desktopRushingHeaders, desktopTotalFields, desktopTotalHeaders } from './desktopTableTransform';
 
 
 type Props = {
     seasonStats: PlayerHofStructure['season_stats'];
     careerStats: PlayerHofStructure['career_stats'];
+    playerPosition: string;
 };
 
 
-const HofPlayerTable = ({ seasonStats, careerStats }: Props) => {
-    const [tableType, setTableType] = React.useState('total');
+const HofPlayerTable = ({ seasonStats, careerStats, playerPosition }: Props) => {
+
+    const isOffensivePlayer: boolean = offensivePositions.includes(playerPosition);
+    const [tableType, setTableType] = React.useState(isOffensivePlayer ? 'total' : 'defense');
     const mobile = useMediaQuery('(max-width: 767px)');
 
 
@@ -40,7 +75,7 @@ const HofPlayerTable = ({ seasonStats, careerStats }: Props) => {
             <Table.Row>
                 {values.map((value, idx) => (
                     <Table.Cell key={`${value}-${idx}`}>
-                        {idx === 0? 'Total' : Math.floor(value)}
+                        {idx === 0 ? 'Career' : Math.floor(value).toLocaleString('en-US')}
                     </Table.Cell>
                 ))}
             </Table.Row>
@@ -74,11 +109,12 @@ const HofPlayerTable = ({ seasonStats, careerStats }: Props) => {
                             <Table.Row>
                                 {fieldsArr.map(
                                     (fieldValue: number, idx: number) => {
+                                        const value: any = idx === 0 ? Math.floor(fieldValue) : Math.floor(fieldValue).toLocaleString('en-US')
                                         return (
                                             <Table.Cell
                                                 key={`cell-${idx}-${fieldValue}`}
                                             >
-                                                {Math.floor(fieldValue)}
+                                                {value}
                                             </Table.Cell>
                                         );
                                     }
@@ -94,36 +130,7 @@ const HofPlayerTable = ({ seasonStats, careerStats }: Props) => {
 
     return (
         <>
-            <div className='buttonsContainer'>
-                <Button
-                    name='total'
-                    active={tableType === 'total'}
-                    onClick={() => setTableType('total')}
-                >
-                    Total
-                </Button>
-                <Button
-                    name='offense'
-                    active={tableType === 'offense'}
-                    onClick={() => setTableType('offense')}
-                >
-                    Offense
-                </Button>
-                <Button
-                    name='defense'
-                    active={tableType === 'defense'}
-                    onClick={() => setTableType('defense')}
-                >
-                    Defense
-                </Button>
-                <Button
-                    name='special'
-                    active={tableType === 'special'}
-                    onClick={() => setTableType('special')}
-                >
-                    Special Teams
-                </Button>
-            </div>
+            <HofButtons setTableType={setTableType} defaultTable={tableType} />
 
             <div className={style.tableContainer}>
                 {tableType === 'total' && (
