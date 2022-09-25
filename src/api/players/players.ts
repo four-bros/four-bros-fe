@@ -82,9 +82,45 @@ export interface PlayerStatsStructure {
     };
 }
 
-export const getPlayer = async (
-    id: string
-): Promise<PlayerStatsStructure | void> => {
+export interface PlayerHofStructure {
+    abilities: Abilities;
+    career_stats: {
+        defensive?: DefensiveStats;
+        kick_return?: KickReturnStats;
+        kicking?: KickingStats;
+        passing?: PassingStats;
+        punt_return?: PuntReturnsStats;
+        punting?: PuntingStats;
+        receiving?: ReceivingStats;
+        rushing?: RushingStats;
+        total?: TotalStats;
+    };
+    details: PlayerDetails;
+    season_stats: {
+        defensive?: DefensiveStats[];
+        kick_return?: KickReturnStats[];
+        kicking?: KickingStats[];
+        passing?: PassingStats[];
+        punt_return?: PuntReturnsStats[];
+        punting?: PuntingStats[];
+        receiving?: ReceivingStats[];
+        rushing?: RushingStats[];
+        total?: TotalStats[];
+    };
+}
+
+
+export const getHofPlayers = async (): Promise<PlayerHofStructure[] | void> => {
+    try {
+        const response = await baseGet('/players/hof');
+        return response.data.players;
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+
+export const getPlayer = async (id: string): Promise<PlayerStatsStructure | void> => {
     try {
         const response = await baseGet(`/players/${id}`);
         return response.data;

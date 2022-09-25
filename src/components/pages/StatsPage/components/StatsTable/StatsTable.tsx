@@ -121,12 +121,11 @@ const StatsTable = ({ leaders }: Props) => {
                                 </Table.Cell>
                                 {fieldsArr.map(
                                     (fieldValue: number, idx: number) => {
-                                        const flooredValue = Math.floor(fieldValue)
                                         return (
                                             <Table.Cell
                                                 key={`cell-${idx}-${fieldValue}`}
                                             >
-                                                {flooredValue}
+                                                {fieldValue}
                                             </Table.Cell>
                                         );
                                     }
