@@ -97,7 +97,7 @@ const PlayerRecordsTable = ( {recordInfo, genCategory, record, statCategory, fie
                                 <Table.Cell
                                     key={`cell-${idx}-${value}`}
                                 >
-                                    {value}
+                                    {Math.floor(value).toLocaleString('en-US')}
                                 </Table.Cell>
                             </Table.Row>
                         </React.Fragment>

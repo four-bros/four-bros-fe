@@ -107,7 +107,24 @@ const mobileCoverageAbilityFields = new Set([
     'awareness'
 ]);
 
+const mobileTotalHeaders = [
+    'GP',
+    'TDs',
+    'Yds',
+    'YPG',
+    'TO'
+]
+
+const mobileTotalFields = new Set([
+    'games_played',
+    'total_tds',
+    'total_yards',
+    'total_ypg',
+    'turnovers',
+]);
+
 const mobilePassingHeaders = [
+    'Wk',
     'Comp',
     'Att',
     'Yds',
@@ -117,7 +134,9 @@ const mobilePassingHeaders = [
     'Rtg',
 ];
 
+
 const mobilePassingFields = new Set([
+    'games_played',
     'completions',
     'pass_att',
     'pass_yards',
@@ -128,6 +147,7 @@ const mobilePassingFields = new Set([
 ]);
 
 const mobileRushingHeaders = [
+    'GP',
     'Att',
     'Yds',
     'YPG',
@@ -137,6 +157,7 @@ const mobileRushingHeaders = [
 ];
 
 const mobileRushingFields = new Set([
+    'games_played',
     'rush_att',
     'rush_yards',
     'rush_ypg',
@@ -146,6 +167,7 @@ const mobileRushingFields = new Set([
 ]);
 
 const mobileRecHeaders = [
+    'GP',
     'Rec',
     'Yds',
     'YPG',
@@ -155,6 +177,7 @@ const mobileRecHeaders = [
 ];
 
 const mobileReceivingFields = new Set([
+    'games_played',
     'receptions',
     'rec_yards',
     'rec_ypg',
@@ -164,6 +187,7 @@ const mobileReceivingFields = new Set([
 ]);
 
 const mobileTackleHeaders = [
+    'GP',
     'Tkls',
     'TFL',
     'Sacks',
@@ -171,6 +195,7 @@ const mobileTackleHeaders = [
 ];
 
 const mobileTackleFields = new Set([
+    'games_played',
     'total_tkls',
     'tfl',
     'sacks',
@@ -178,6 +203,7 @@ const mobileTackleFields = new Set([
 ]);
 
 const mobileDefToHeaders = [
+    'GP',
     'INTs',
     'FF',
     'FR',
@@ -186,6 +212,7 @@ const mobileDefToHeaders = [
 ];
 
 const mobileDefToFields = new Set([
+    'games_played',
     'ints_made',
     'forced_fumbles',
     'fumbles_rec',
@@ -194,6 +221,7 @@ const mobileDefToFields = new Set([
 ]);
 
 const mobileKrHeaders = [
+    'GP',
     'Ret',
     'Yds',
     'AVG',
@@ -202,6 +230,7 @@ const mobileKrHeaders = [
 ];
 
 const mobileKickReturnFields = new Set([
+    'games_played',
     'kick_returns',
     'kr_yds',
     'kr_avg',
@@ -210,6 +239,7 @@ const mobileKickReturnFields = new Set([
 ]);
 
 const mobilePrHeaders = [
+    'GP',
     'Ret',
     'Yds',
     'AVG',
@@ -218,6 +248,7 @@ const mobilePrHeaders = [
 ];
 
 const mobilePuntReturnFields = new Set([
+    'games_played',
     'punt_returns',
     'pr_yds',
     'pr_avg',
@@ -277,6 +308,7 @@ export {
     mobilePrHeaders,
     mobileKickingHeaders,
     mobilePuntingHeaders,
+    mobileTotalHeaders,
     mobileAthleticAbilityFields,
     mobilePassingAbilityFields,
     mobileRushingAbilityFields,
@@ -292,4 +324,5 @@ export {
     mobilePuntReturnFields,
     mobileKickingFields,
     mobilePuntingFields,
+    mobileTotalFields
 };

@@ -115,12 +115,11 @@ const TeamLeaders = ({ leaders, infoType }: Props) => {
                                 </Table.Cell>
                                 {fieldsArr.map(
                                     (fieldValue: number, idx: number) => {
-                                        const flooredValue = Math.floor(fieldValue)
                                         return (
                                             <Table.Cell
                                                 key={`cell-${idx}-${fieldValue}`}
                                             >
-                                                {flooredValue}
+                                                {Math.floor(fieldValue).toLocaleString('en-US')}
                                             </Table.Cell>
                                         );
                                     }
