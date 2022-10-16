@@ -87,8 +87,24 @@ const desktopDefenseAbilitiesFields = new Set([
     'catch',
 ]);
 
+const desktopTotalHeaders = [
+    'Games Played',
+    'TDs',
+    'Yards',
+    'YPG',
+    'TOs',
+];
+
+const desktopTotalFields = new Set([
+    'games_played',
+    'total_tds',
+    'total_yards',
+    'total_ypg',
+    'turnovers',
+]);
+
 const desktopPassingHeaders = [
-    'Games',
+    'Games Played',
     'Comp',
     'Att',
     '%',
@@ -118,7 +134,7 @@ const desktopPassingFields = new Set([
 ]);
 
 const desktopRushingHeaders = [
-    'Games',
+    'Games Played',
     'Att',
     'Yards',
     'YPC',
@@ -146,7 +162,7 @@ const desktopRushingFields = new Set([
 ]);
 
 const desktopRecHeaders = [
-    'Games',
+    'Games Played',
     'Catches',
     'Yards',
     'YPC',
@@ -170,7 +186,7 @@ const desktopReceivingFields = new Set([
 ]);
 
 const desktopDefHeaders = [
-    'Games',
+    'Games Played',
     'Tackles',
     'TFL',
     'Sacks',
@@ -203,7 +219,7 @@ const desktopDefenseFields = new Set([
 
 
 const desktopKrHeaders = [
-    'Games',
+    'Games Played',
     'Returns',
     'Yards',
     'AVG',
@@ -221,7 +237,7 @@ const desktopKickReturnFields = new Set([
 ]);
 
 const desktopPrHeaders = [
-    'Games',
+    'Games Played',
     'Returns',
     'Yards',
     'AVG',
@@ -239,7 +255,7 @@ const desktopPuntReturnFields = new Set([
 ]);
 
 const desktopKickingHeaders = [
-    'Games',
+    'Games Played',
     'FG',
     'FG Att',
     'FG %',
@@ -265,7 +281,7 @@ const desktopKickingFields = new Set([
 ]);
 
 const desktopPuntingHeaders = [
-    'Games',
+    'Games Played',
     'Punts',
     'Yards',
     'AVG',
@@ -297,6 +313,7 @@ export {
     desktopPrHeaders,
     desktopKickingHeaders,
     desktopPuntingHeaders,
+    desktopTotalHeaders,
     desktopAthleticAbilityFields,
     desktopDefenseAbilitiesFields,
     desktopPassingFields,
@@ -307,4 +324,5 @@ export {
     desktopPuntReturnFields,
     desktopKickingFields,
     desktopPuntingFields,
+    desktopTotalFields
 };

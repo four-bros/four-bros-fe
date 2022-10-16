@@ -69,6 +69,17 @@ export interface PlayerStatsStructure {
         total?: TotalStats;
     };
     details: PlayerDetails;
+    game_stats: {
+        defensive?: DefensiveStats[];
+        kick_return?: KickReturnStats[];
+        kicking?: KickingStats[];
+        passing?: PassingStats[];
+        punt_return?: PuntReturnsStats[];
+        punting?: PuntingStats[];
+        receiving?: ReceivingStats[];
+        rushing?: RushingStats[];
+        total?: TotalStats[];
+    }
     season_stats: {
         defensive?: DefensiveStats;
         kick_return?: KickReturnStats;
