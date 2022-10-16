@@ -125,7 +125,7 @@ const mobileTotalFields = new Set([
 
 const mobilePassingHeaders = [
     'Wk',
-    'Comp',
+    'Cmp',
     'Att',
     'Yds',
     'YPG',

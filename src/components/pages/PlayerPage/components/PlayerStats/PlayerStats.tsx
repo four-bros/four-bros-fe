@@ -128,10 +128,10 @@ const Stats = ({ player, statsType }: Props) => {
     }
     
 
-    const determineYearOrValue = (value: number, idx: number, statsType: string): number | string => {
+    const determineYearOrValue = (value: number, idx: number, statsType: string, mobile: boolean): number | string => {
         if (statsType === 'season') {
             if (idx === 0) {
-                return 'Year';
+                return mobile ? 'Yr' : 'Year';
             } else {
                 return Math.floor(value).toLocaleString('en-US');
             }
@@ -160,7 +160,7 @@ const Stats = ({ player, statsType }: Props) => {
                 <Table.Row>
                     {values.map((value, idx) => (
                         <Table.Cell key={`${value}-${idx}`}>
-                            {determineYearOrValue(value, idx, statsType)}
+                            {determineYearOrValue(value, idx, statsType, mobile)}
                         </Table.Cell>
                     ))}
                 </Table.Row>
