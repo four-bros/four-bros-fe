@@ -79,27 +79,6 @@ const Stats = ({ player, statsType }: Props) => {
         stats = player.career_stats;
     }
 
-    // let mobileTotalHeadersGame: string[] = mobileTotalHeaders;
-    // let mobilePassingHeadersGame: string[] = mobilePassingHeaders;
-    // let mobileRushingHeadersGame: string[] = mobileRushingHeaders;
-    // let mobileRecHeadersGame: string[] = mobileRecHeaders;
-    // let mobileTackleHeadersGame: string[] = mobileTackleHeaders;
-    // let mobileDefToHeadersGame: string[] = mobileDefToHeaders;
-    // let mobileKrHeadersGame: string[] = mobileKrHeaders;
-    // let mobilePrHeadersGame: string[] = mobilePrHeaders;
-    // let mobileKickingHeadersGame: string[] = mobileKickingHeaders;
-    // let mobilePuntingHeadersGame: string[] = mobilePuntingHeaders;
-
-    // let desktopTotalHeadersGame: string[] = desktopTotalHeaders;
-    // let desktopPassingHeadersGame: string[] = desktopPassingHeaders;
-    // let desktopRushingHeadersGame: string[] = desktopRushingHeaders;
-    // let desktopRecHeadersGame: string[] = desktopDefHeaders;
-    // let desktopDefHeadersGame: string[] = desktopDefHeaders;
-    // let desktopKrHeadersGame: string[] = desktopKrHeaders;
-    // let desktopPrHeadersGame: string[] = desktopPrHeaders;
-    // let desktopKickingHeadersGame: string[] = desktopKickingHeaders;
-    // let desktopPuntingHeadersGame: string[] = desktopPuntingHeaders;
-
     // Set Week as table header for season
     if (statsType === 'season') {
         mobileTotalHeaders[0] = 'Wk'
@@ -124,6 +103,7 @@ const Stats = ({ player, statsType }: Props) => {
         desktopPuntingHeaders[0] = 'Week'
     }
 
+    // Set games played as the table header for career
     if (statsType === 'career') {
         mobileTotalHeaders[0] = 'GP'
         mobilePassingHeaders[0] = 'GP'
