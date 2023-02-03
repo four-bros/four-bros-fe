@@ -33,7 +33,7 @@ const RecruitingPage = () => {
             }
             setIsLoading(false);
         })();
-    }, [school]);
+    }, []);
 
 
     const recruitingPage = (
