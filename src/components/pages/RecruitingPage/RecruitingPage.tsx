@@ -15,7 +15,7 @@ const RecruitingPage = () => {
     const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const [userTeams, setUserTeams] = React.useState<Team[]>();
     const [recruitInfo, setRecruitInfo] = React.useState<CommitInfo>();
-    const [school, setSchool] = React.useState<string>(userTeams ? userTeams[0].team_name : 'Baylor');
+    const [school, setSchool] = React.useState<string>(userTeams ? userTeams[0].team_name : 'New Mexico');
 
     React.useEffect(() => {
         (async () => {
