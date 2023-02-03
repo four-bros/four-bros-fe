@@ -125,7 +125,7 @@ const StatsTable = ({ leaders }: Props) => {
                                             <Table.Cell
                                                 key={`cell-${idx}-${fieldValue}`}
                                             >
-                                                {fieldValue}
+                                                {Math.floor(fieldValue).toLocaleString('en-US')}
                                             </Table.Cell>
                                         );
                                     }

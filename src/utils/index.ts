@@ -45,4 +45,9 @@ const convertTeamNameToSnakeCase = (teamName: string): string => {
     return teamNameSnakeCase;
 }
 
-export { getFields, getTableHeader, getPlayerYearAndRedshirt, convertTeamNameToSnakeCase };
+const roundValue = (value: number): string => {
+    const roundedValue = (Math.round(value * 100) / 100).toFixed(2);
+    return parseFloat(roundedValue) % 1 === 0 ? value.toLocaleString() : roundedValue;
+}
+
+export { getFields, getTableHeader, getPlayerYearAndRedshirt, convertTeamNameToSnakeCase, roundValue };
