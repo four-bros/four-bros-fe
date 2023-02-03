@@ -68,5 +68,8 @@
         "@testing-library/jest-dom": "^5.16.4",
         "@testing-library/react": "^11.2.7",
         "@testing-library/user-event": "^14.0.4"
+    },
+    "engines": {
+        "node": "15.11.0"
     }
 }
