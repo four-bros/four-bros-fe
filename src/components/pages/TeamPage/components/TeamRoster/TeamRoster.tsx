@@ -3,6 +3,7 @@ import { LargeTable, TableContainer } from 'components/common';
 import { Link } from 'react-router-dom';
 import { Table } from 'semantic-ui-react';
 import { rosterHeaders } from '../tableTransform';
+import { Teams } from 'api';
 import { RosterPlayer } from 'api/teams';
 import {getPlayerYearAndRedshirt} from 'utils';
 import { playerPositions } from 'constants/constants';
@@ -11,17 +12,31 @@ import style from './teamRoster.module.scss';
 
 
 type Props = {
-    roster: RosterPlayer[];
-    header: string
+    header: string,
+    teamId: string
 };
 
 
-const TeamRoster = ({ roster, header }: Props) => {
+const TeamRoster = ({ header, teamId }: Props) => {
 
+    const [isLoading, setIsLoading] = React.useState<boolean>(true);
+    const [roster, setRoster] = React.useState<RosterPlayer[]>([]);
     const [filteredRoster, setFilteredRoster] = React.useState<RosterPlayer[]>(roster);
     const [activeBtn, setActiveBtn] = React.useState<string>('All');
 
-    React.useEffect(() => {}, [filteredRoster]);
+    React.useEffect(() => {
+        (async () => {
+            setIsLoading(true);
+            const roster = await Teams.getTeamRoster(teamId);
+
+            if (!roster) {throw new Error('Failed to load roster')}
+
+            setRoster(roster);
+            setFilteredRoster(roster);
+
+            setIsLoading(false);
+        })();
+    }, [roster, filteredRoster]);
 
     const handleClick = (position: string): void=> {
         const updatedRoster: RosterPlayer[] = [];

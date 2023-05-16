@@ -119,9 +119,9 @@ const TeamPage = () => {
                         </>
                     </div>
                 )}
-                {singleTeam && infoType === 'overview' && (
+                {teamId && singleTeam && infoType === 'overview' && (
                     <div className={style.rosterContainer}>
-                        <TeamRoster roster={singleTeam.team_roster} header={singleTeam.team_details.team_name} />
+                        <TeamRoster teamId={teamId} header={singleTeam.team_details.team_name} />
                     </div>
                 )}
             </div>

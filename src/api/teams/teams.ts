@@ -116,6 +116,40 @@ export const getSingleTeam = async (
     }
 };
 
+export const getTeamDetails = async (
+    teamId: string
+): Promise<SingleTeamInfo | void> => {
+    try {
+        const response = await baseGet(`/teams/${teamId}/details`);
+        return response.data;
+    } catch (err) {
+        console.log(err);
+    }
+};
+
+export const getTeamRoster = async (
+    teamId: string
+): Promise<RosterPlayer[]> => {
+    try {
+        const response = await baseGet(`/teams/${teamId}/roster`);
+        return response.data;
+    } catch (err) {
+        console.log(err);
+        throw new Error('Error trying to retrieve roster');
+    }
+};
+
+export const getTeamStats = async (
+    teamId: string
+): Promise<SingleTeamInfo | void> => {
+    try {
+        const response = await baseGet(`/teams/${teamId}/stats`);
+        return response.data;
+    } catch (err) {
+        console.log(err);
+    }
+};
+
 export interface PlayerDetails {
     first_name: string;
     height: string;
