@@ -1,6 +1,6 @@
 
 .spinContainer {
-	margin-top: 6em;
+	margin: 10em;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
@@ -28,9 +28,4 @@
 	left: 50%;
 	transform: translate3d(-50%, -50%, 0);
 	will-change: transform;
-}
-
-.loading {
-	margin: 4em auto;
-	text-align: center;
 }

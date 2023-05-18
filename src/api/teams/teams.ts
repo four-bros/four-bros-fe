@@ -16,12 +16,13 @@ export interface Team {
     wins: number;
 }
 
-export const getTeams = async (): Promise<Team[] | void> => {
+export const getTeams = async (): Promise<Team[]> => {
     try {
         const response = await baseGet('/teams');
         return response.data.teams;
     } catch (err) {
         console.log(err);
+        throw new Error('failed to get all teams');
     }
 };
 
@@ -98,39 +99,9 @@ export interface TeamStats {
     year: number
 }
 
-// type SingleTeamInfo = TeamDetails & RosterPlayer & TeamStats;
-export type SingleTeamInfo = {
-    team_details: TeamDetails;
-    team_roster: RosterPlayer[];
-    team_stats: TeamStats;
-};
-
-export type SingleTeamDetails = {
-    team_details: TeamDetails;
-}
-
-export type SingleTeamRoster = {
-    team_roster: RosterPlayer[];
-}
-
-export type SingleTeamStats = {
-    team_stats: TeamStats;
-}
-
-export const getSingleTeam = async (
-    teamId: string
-): Promise<SingleTeamInfo | void> => {
-    try {
-        const response = await baseGet(`/teams/${teamId}`);
-        return response.data;
-    } catch (err) {
-        console.log(err);
-    }
-};
-
 export const getTeamDetails = async (
     teamId: string
-): Promise<SingleTeamDetails> => {
+): Promise<TeamDetails> => {
     try {
         const response = await baseGet(`/teams/${teamId}/details`);
         return response.data;
@@ -142,7 +113,7 @@ export const getTeamDetails = async (
 
 export const getTeamRoster = async (
     teamId: string
-): Promise<SingleTeamRoster> => {
+): Promise<RosterPlayer[]> => {
     try {
         const response = await baseGet(`/teams/${teamId}/roster`);
         return response.data;
@@ -166,7 +137,7 @@ export const getTeamPlayerStats = async (
 
 export const getTeamStats = async (
     teamId: string
-): Promise<SingleTeamStats> => {
+): Promise<TeamStats> => {
     try {
         const response = await baseGet(`/teams/${teamId}/stats`);
         return response.data;
@@ -348,11 +319,12 @@ export type SingleTeamLeaders = {
 
 export const getSingleTeamLeaders = async (
     teamId: string
-): Promise<SingleTeamLeaders | void> => {
+): Promise<SingleTeamLeaders> => {
     try {
         const response = await baseGet(`/teams/${teamId}/stats`);
         return response.data;
     } catch (err) {
         console.log(err);
+        throw new Error('failed to get team player stats leaders')
     }
 };

@@ -12,25 +12,22 @@ import style from './teamRoster.module.scss';
 
 
 type Props = {
-    teamId: string
+    teamId: string;
+    teamDetails: TeamDetails;
 };
 
 
-const TeamRoster = ({ teamId }: Props) => {
+const TeamRoster = ({ teamId, teamDetails }: Props) => {
     const [roster, setRoster] = React.useState<RosterPlayer[]>([]);
-    const [teamDetails, setTeamDetails] = React.useState<TeamDetails>();
     const [filteredRoster, setFilteredRoster] = React.useState<RosterPlayer[]>([]);
     const [activeBtn, setActiveBtn] = React.useState<string>('All');
 
     React.useEffect(() => {
         (async () => {
             setFilteredRoster([]);
-            const teamDetails = await Teams.getTeamDetails(teamId);
             const roster = await Teams.getTeamRoster(teamId);
-            if (!teamDetails) {throw new Error('Failed to get team details')}
             if (!roster) {throw new Error('Failed to load roster')}
-            setTeamDetails(teamDetails.team_details);
-            setRoster(roster.team_roster);
+            setRoster(roster);
         })();
     }, [teamId]);
 
@@ -70,7 +67,7 @@ const TeamRoster = ({ teamId }: Props) => {
         </div>
     );
 
-    const tableHeader: string = `${teamDetails?.team_name} Roster`;
+    const tableHeader: string = `${teamDetails.team_name} Roster`;
 
     const getRosterInfo = () => {
         return roster.map((player: RosterPlayer) => (

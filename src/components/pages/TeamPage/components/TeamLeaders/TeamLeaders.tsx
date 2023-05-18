@@ -54,34 +54,35 @@ import type {
     Receiving,
     Rushing,
     Total,
+    TeamDetails,
 } from 'api/teams';
 import style from './teamLeaders.module.scss';
 import globalStyle from '../../../../../styles/global.module.scss';
 import useMediaQuery from '../../../../../hooks/useMediaQuery';
 import { Teams } from 'api';
+import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 
 
 type Props = {
     infoType: string;
     teamId: string;
+    teamDetails: TeamDetails;
 };
 
-const TeamLeaders = ({ infoType, teamId }: Props) => {
+const TeamLeaders = ({ infoType, teamId, teamDetails }: Props) => {
     const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const [teamLeaders, setTeamLeaders] = React.useState<SingleTeamLeaders>();
     const [tableType, setTableType] = React.useState('offense');
     const mobile = useMediaQuery('(max-width: 767px)');
 
     React.useEffect(() => {
-        if (teamId) {
-            (async () => {
-                setIsLoading(true);
-                const teamPlayerStats = await Teams.getTeamPlayerStats(teamId);
-                if (!teamPlayerStats) throw new Error('unable to get team player stats');
-                setTeamLeaders(teamPlayerStats);
-                setIsLoading(false);
-            })();
-        }
+        (async () => {
+            setIsLoading(true);
+            const teamPlayerStats = await Teams.getTeamPlayerStats(teamId);
+            if (!teamPlayerStats) throw new Error('unable to get team player stats');
+            setTeamLeaders(teamPlayerStats);
+            setIsLoading(false);
+        })();
     }, [teamId]);
 
     const fieldRows = (
@@ -147,8 +148,11 @@ const TeamLeaders = ({ infoType, teamId }: Props) => {
         );
     };
 
-    return (
+    const header = infoType === 'overview' ? `${teamDetails.team_name} Statistical Leaders` : `${teamDetails.team_name} Player Stats`
+
+    const teamLeadersComponent =  (
         <>
+        <h1 className={style.header}>{header}</h1>
             <div className={style.btnContainer}>
                 <Button
                     name='offense'
@@ -402,6 +406,8 @@ const TeamLeaders = ({ infoType, teamId }: Props) => {
             )}
         </>
     );
+
+    return isLoading ? <LoadingSpinner /> : teamLeadersComponent;
 };
 
 export default TeamLeaders;

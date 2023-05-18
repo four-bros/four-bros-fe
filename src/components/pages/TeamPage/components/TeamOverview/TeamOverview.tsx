@@ -14,30 +14,26 @@ import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 type Props = {
     infoType: string;
     teamId: string;
+    teamDetails: TeamDetails;
 };
 
 const TeamOverview = ({
     infoType,
-    teamId
+    teamId,
+    teamDetails
 }: Props) => {
 
     const [isLoading, setIsLoading] = React.useState<boolean>(true);
-    const [teamDetails, setTeamDetails] = React.useState<TeamDetails>();
     const [teamStats, setTeamStats] = React.useState<TeamStats>();
 
     React.useEffect(() => {
-        if (teamId) {
-            (async () => {
-                setIsLoading(true);
-                const teamDetails = await Teams.getTeamDetails(teamId);
-                const teamStats = await Teams.getTeamStats(teamId)
-                if (!teamDetails) throw new Error('unable to get team details');
-                if (!teamStats) throw new Error('unable to get team stats');
-                setTeamDetails(teamDetails.team_details);
-                setTeamStats(teamStats.team_stats);
-                setIsLoading(false);
-            })();
-        }
+        (async () => {
+            setIsLoading(true);
+            const teamStats = await Teams.getTeamStats(teamId)
+            if (!teamStats) throw new Error('unable to get team stats');
+            setTeamStats(teamStats);
+            setIsLoading(false);
+        })();
     }, [teamId]);
 
     const teamOverview = (
