@@ -9,7 +9,6 @@ import {getPlayerYearAndRedshirt} from 'utils';
 import { playerPositions } from 'constants/constants';
 import globalStyle from '../../../../../styles/global.module.scss';
 import style from './teamRoster.module.scss';
-import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 
 
 type Props = {
@@ -18,8 +17,6 @@ type Props = {
 
 
 const TeamRoster = ({ teamId }: Props) => {
-
-    const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const [roster, setRoster] = React.useState<RosterPlayer[]>([]);
     const [teamDetails, setTeamDetails] = React.useState<TeamDetails>();
     const [filteredRoster, setFilteredRoster] = React.useState<RosterPlayer[]>([]);
@@ -27,16 +24,15 @@ const TeamRoster = ({ teamId }: Props) => {
 
     React.useEffect(() => {
         (async () => {
-            setIsLoading(true);
+            setFilteredRoster([]);
             const teamDetails = await Teams.getTeamDetails(teamId);
             const roster = await Teams.getTeamRoster(teamId);
             if (!teamDetails) {throw new Error('Failed to get team details')}
             if (!roster) {throw new Error('Failed to load roster')}
             setTeamDetails(teamDetails.team_details);
             setRoster(roster.team_roster);
-            setIsLoading(false);
         })();
-    }, [teamId, filteredRoster]);
+    }, [teamId]);
 
     const handleClick = (position: string): void=> {
         const updatedRoster: RosterPlayer[] = [];
