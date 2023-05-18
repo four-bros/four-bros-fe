@@ -4,39 +4,39 @@ import { Link } from 'react-router-dom';
 import { Table } from 'semantic-ui-react';
 import { rosterHeaders } from '../tableTransform';
 import { Teams } from 'api';
-import { RosterPlayer } from 'api/teams';
+import { RosterPlayer, TeamDetails } from 'api/teams';
 import {getPlayerYearAndRedshirt} from 'utils';
 import { playerPositions } from 'constants/constants';
 import globalStyle from '../../../../../styles/global.module.scss';
 import style from './teamRoster.module.scss';
+import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 
 
 type Props = {
-    header: string,
     teamId: string
 };
 
 
-const TeamRoster = ({ header, teamId }: Props) => {
+const TeamRoster = ({ teamId }: Props) => {
 
     const [isLoading, setIsLoading] = React.useState<boolean>(true);
     const [roster, setRoster] = React.useState<RosterPlayer[]>([]);
-    const [filteredRoster, setFilteredRoster] = React.useState<RosterPlayer[]>(roster);
+    const [teamDetails, setTeamDetails] = React.useState<TeamDetails>();
+    const [filteredRoster, setFilteredRoster] = React.useState<RosterPlayer[]>([]);
     const [activeBtn, setActiveBtn] = React.useState<string>('All');
 
     React.useEffect(() => {
         (async () => {
             setIsLoading(true);
+            const teamDetails = await Teams.getTeamDetails(teamId);
             const roster = await Teams.getTeamRoster(teamId);
-
+            if (!teamDetails) {throw new Error('Failed to get team details')}
             if (!roster) {throw new Error('Failed to load roster')}
-
-            setRoster(roster);
-            setFilteredRoster(roster);
-
+            setTeamDetails(teamDetails.team_details);
+            setRoster(roster.team_roster);
             setIsLoading(false);
         })();
-    }, [roster, filteredRoster]);
+    }, [teamId, filteredRoster]);
 
     const handleClick = (position: string): void=> {
         const updatedRoster: RosterPlayer[] = [];
@@ -74,10 +74,10 @@ const TeamRoster = ({ header, teamId }: Props) => {
         </div>
     );
 
-    const tableHeader: string = `${header} Roster`;
+    const tableHeader: string = `${teamDetails?.team_name} Roster`;
 
     const getRosterInfo = () => {
-        return filteredRoster.map((player: RosterPlayer) => (
+        return roster.map((player: RosterPlayer) => (
             <React.Fragment key={player.id}>
                 <Table.Row>
                     <Table.Cell>
@@ -97,15 +97,37 @@ const TeamRoster = ({ header, teamId }: Props) => {
         ));
     };
 
+    const getFilteredRosterInfo = () => {
+        return filteredRoster.map((player: RosterPlayer) => (
+            <React.Fragment key={player.id}>
+                <Table.Row>
+                    <Table.Cell>
+                        <Link to={`/players/${player.id}`} className={globalStyle.tableLink}>
+                            {player.first_name} {player.last_name}
+                        </Link>
+                    </Table.Cell>
+                    <Table.Cell>{getPlayerYearAndRedshirt(player)}</Table.Cell>
+                    <Table.Cell>
+                        {`${player.height} / ${player.weight}`}
+                    </Table.Cell>
+                    <Table.Cell>{player.jersey_number}</Table.Cell>
+                    <Table.Cell>{player.position}</Table.Cell>
+                    <Table.Cell>{player.overall}</Table.Cell>
+                </Table.Row>
+            </React.Fragment>
+        ));
+    }
 
-    return (
+    const teamRoster = (
         <>
             {positionBtns}
             <TableContainer title={tableHeader}>
-                <LargeTable header={rosterHeaders} contents={getRosterInfo()} />
+                <LargeTable header={rosterHeaders} contents={filteredRoster.length === 0 ? getRosterInfo() : getFilteredRosterInfo()} />
             </TableContainer>
         </>
     );
+
+    return teamRoster;
 };
 
 export default TeamRoster;

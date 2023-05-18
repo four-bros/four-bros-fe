@@ -1,57 +1,70 @@
+import * as React from 'react';
 import { LargeTable, TableContainer } from 'components/common';
-import { Team, TeamDetails, TeamStats } from 'api/teams';
+import { TeamDetails, TeamStats } from 'api/teams';
 import style from './teamOverview.module.scss';
 import {
     getOverviewInfo,
     getDefenseOverview,
     getOffenseOverview,
 } from '../tableTransform';
+import { Teams } from 'api';
+import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 
 
 type Props = {
-    simplifiedTeam: Team;
-    overview: TeamDetails;
-    overallStats: TeamStats;
     infoType: string;
+    teamId: string;
 };
 
 const TeamOverview = ({
-    simplifiedTeam,
-    overview,
-    overallStats,
     infoType,
+    teamId
 }: Props) => {
 
-    return (
+    const [isLoading, setIsLoading] = React.useState<boolean>(true);
+    const [teamDetails, setTeamDetails] = React.useState<TeamDetails>();
+    const [teamStats, setTeamStats] = React.useState<TeamStats>();
+
+    React.useEffect(() => {
+        if (teamId) {
+            (async () => {
+                setIsLoading(true);
+                const teamDetails = await Teams.getTeamDetails(teamId);
+                const teamStats = await Teams.getTeamStats(teamId)
+                if (!teamDetails) throw new Error('unable to get team details');
+                if (!teamStats) throw new Error('unable to get team stats');
+                setTeamDetails(teamDetails.team_details);
+                setTeamStats(teamStats.team_stats);
+                setIsLoading(false);
+            })();
+        }
+    }, [teamId]);
+
+    const teamOverview = (
         <div className={style.teamOverview}>
-            {/* 1st section */}
-            <div className={style.teamName}>
-                <h3>#{simplifiedTeam.coachs_poll_rank}</h3>
-                <h2>
-                    {simplifiedTeam.team_name} {simplifiedTeam.nickname}
-                </h2>
-            </div>
-            {/* 2nd section */}
-            {infoType === 'overview' && (
+            {teamDetails && infoType === 'overview' && (
                 <>
+                {/* 1st section */}
+                    <div className={style.teamName}>
+                        <h3>#{teamDetails.coachs_poll_rank}</h3>
+                        <h2>
+                            {teamDetails.team_name} {teamDetails.nickname}
+                        </h2>
+                    </div>
+                    {/* 2nd section */}
                     <div className={style.teamSummary}>
                         <TableContainer title='Overview' small>
-                            <LargeTable
-                                contents={getOverviewInfo(
-                                    overview,
-                                    simplifiedTeam
-                                )}
-                            />
+                            <LargeTable contents={getOverviewInfo(teamDetails)}/>
                         </TableContainer>
                     </div>
                     {/* 3rd section */}
-                    {overallStats.games_played > 0 &&
+                    {teamStats && teamStats.games_played > 0 &&
                         (<div className={style.teamStatsContainer}>
                             <TableContainer title='Offense' small>
-                                <LargeTable contents={getOffenseOverview(overallStats)} />
+                                <LargeTable contents={getOffenseOverview(teamStats)} />
                             </TableContainer>
                             <TableContainer title='Defense' small>
-                                <LargeTable contents={getDefenseOverview(overallStats)} />
+                                <LargeTable contents={getDefenseOverview(teamStats)} />
                             </TableContainer>
                         </div>)
                     }
@@ -59,6 +72,8 @@ const TeamOverview = ({
             )}
         </div>
     );
+
+    return isLoading ? <LoadingSpinner /> : teamOverview;
 };
 
 export default TeamOverview;

@@ -105,6 +105,18 @@ export type SingleTeamInfo = {
     team_stats: TeamStats;
 };
 
+export type SingleTeamDetails = {
+    team_details: TeamDetails;
+}
+
+export type SingleTeamRoster = {
+    team_roster: RosterPlayer[];
+}
+
+export type SingleTeamStats = {
+    team_stats: TeamStats;
+}
+
 export const getSingleTeam = async (
     teamId: string
 ): Promise<SingleTeamInfo | void> => {
@@ -118,18 +130,19 @@ export const getSingleTeam = async (
 
 export const getTeamDetails = async (
     teamId: string
-): Promise<SingleTeamInfo | void> => {
+): Promise<SingleTeamDetails> => {
     try {
         const response = await baseGet(`/teams/${teamId}/details`);
         return response.data;
     } catch (err) {
         console.log(err);
+        throw new Error('Error trying to retrieve team details');
     }
 };
 
 export const getTeamRoster = async (
     teamId: string
-): Promise<RosterPlayer[]> => {
+): Promise<SingleTeamRoster> => {
     try {
         const response = await baseGet(`/teams/${teamId}/roster`);
         return response.data;
@@ -139,14 +152,27 @@ export const getTeamRoster = async (
     }
 };
 
+export const getTeamPlayerStats = async (
+    teamId: string
+): Promise<SingleTeamLeaders> => {
+    try {
+        const response = await baseGet(`/teams/${teamId}/player/stats`);
+        return response.data;
+    } catch (err) {
+        console.log(err);
+        throw new Error('Error trying to retrieve team player stats');
+    }
+};
+
 export const getTeamStats = async (
     teamId: string
-): Promise<SingleTeamInfo | void> => {
+): Promise<SingleTeamStats> => {
     try {
         const response = await baseGet(`/teams/${teamId}/stats`);
         return response.data;
     } catch (err) {
         console.log(err);
+        throw new Error('Error trying to retrieve team stats');
     }
 };
 
