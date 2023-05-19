@@ -56,8 +56,8 @@ import type {
     Receiving,
     Rushing,
     Total,
-} from 'api/teams';
-import { RecordsInfo } from 'api/records/playerRecords';
+    RecordsInfo
+} from '../../../../../interfaces/Stats';
 import style from './statsTable.module.scss';
 import globalStyle from '../../../../../styles/global.module.scss';
 import useMediaQuery from '../../../../../hooks/useMediaQuery';

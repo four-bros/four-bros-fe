@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Players } from 'api';
-import { PlayerStatsStructure } from 'api/players';
+import { PlayerStatsStructure } from '../../../interfaces/Player';
 import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import AbilitiesDropDown from './components/DropDowns/AbilitiesDropDown';
 import StatsDropDown from './components/DropDowns/StatsDropDown';

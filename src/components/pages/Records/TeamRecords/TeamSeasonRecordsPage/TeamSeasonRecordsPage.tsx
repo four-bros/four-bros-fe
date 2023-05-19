@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button } from 'semantic-ui-react';
 
 import { TeamRecords } from 'api';
-import { TeamSeasonRecordData } from 'api/records/teamRecords';
+import { TeamSeasonRecordData } from '../../../../../interfaces/Teams';
 import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import style from '../../TeamRecords/teamRecords.module.scss';
 import TeamRecordsTable from '../components/TeamRecordsTable/TeamRecordsTable';

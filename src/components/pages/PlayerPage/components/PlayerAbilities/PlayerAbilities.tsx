@@ -23,7 +23,7 @@ import {
     mobileTackleAbilityFields,
     mobileCoverageAbilityFields,
 } from '../mobileTableTransform';
-import { PlayerStatsStructure } from 'api/players';
+import { PlayerStatsStructure } from '../../../../../interfaces/Player';
 import { getFields, getTableHeader } from 'utils';
 import useMediaQuery from '../../../../../hooks/useMediaQuery';
 import style from './playerAbilities.module.scss';

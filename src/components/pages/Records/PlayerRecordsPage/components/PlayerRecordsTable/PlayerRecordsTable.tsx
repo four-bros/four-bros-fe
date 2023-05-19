@@ -12,8 +12,8 @@ import {
     Receiving,
     Rushing,
     Total,
-} from 'api/teams';
-import {  RecordsInfo } from 'api/records/playerRecords';
+    RecordsInfo
+} from '../../../../../../interfaces/Stats';
 import { TableContainer, LargeTable } from 'components/common';
 import { getTableHeader } from 'utils';
 import globalStyle from '../../../../../../styles/global.module.scss';

@@ -1,5 +1,5 @@
 import { LargeTable, TableContainer } from 'components/common';
-import { PlayerStatsStructure } from 'api/players';
+import { PlayerStatsStructure } from '../../../../../interfaces/Player';
 import style from './playerDetails.module.scss';
 import {getPlayerYearAndRedshirt} from 'utils';
 

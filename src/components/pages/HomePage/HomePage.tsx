@@ -5,7 +5,7 @@ import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import { TeamsDropdown } from 'components/common';
 
 import style from './homePage.module.scss';
-import { Team } from 'api/teams';
+import { Team } from '../../../interfaces/Teams';
 
 export const HomePage = () => {
     const navigate = useNavigate();

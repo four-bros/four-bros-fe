@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import { Teams } from 'api';
 import { TeamsDropdown } from 'components/common';
-import type { Team, TeamDetails } from 'api/teams';
+import type { Team, TeamDetails } from '../../../interfaces/Teams';
 import TeamOverview from './components/TeamOverview/TeamOverview';
 import TeamRoster from './components/TeamRoster/TeamRoster';
 import TeamLeaders from './components/TeamLeaders/TeamLeaders';
@@ -84,13 +84,11 @@ const TeamPage = () => {
                             teamId={teamId}
                             teamDetails={teamDetails}
                         />
-                        <hr />
                         <TeamLeaders
                             teamId={teamId}
                             infoType={infoType}
                             teamDetails={teamDetails}
                         />
-                        <hr />
                         {infoType === 'overview' && (
                             <div className={style.rosterContainer}>
                                 <TeamRoster teamId={teamId} teamDetails={teamDetails} />

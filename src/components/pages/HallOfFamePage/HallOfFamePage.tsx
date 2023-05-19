@@ -1,4 +1,4 @@
-import { PlayerHofStructure } from 'api/players';
+import { PlayerHofStructure } from '../../../interfaces/Player';
 import * as React from 'react';
 
 import { Players } from 'api';

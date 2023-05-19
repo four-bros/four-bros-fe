@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { LargeTable, TableContainer } from 'components/common';
-import { TeamDetails, TeamStats } from 'api/teams';
+import { TeamDetails, TeamStats } from '../../../../../interfaces/Teams';
 import style from './teamOverview.module.scss';
 import {
     getOverviewInfo,

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Table } from 'semantic-ui-react';
 import { rosterHeaders } from '../tableTransform';
 import { Teams } from 'api';
-import { RosterPlayer, TeamDetails } from 'api/teams';
+import { RosterPlayer, TeamDetails } from '../../../../../interfaces/Teams';
 import {getPlayerYearAndRedshirt} from 'utils';
 import { playerPositions } from 'constants/constants';
 import globalStyle from '../../../../../styles/global.module.scss';
@@ -25,6 +25,7 @@ const TeamRoster = ({ teamId, teamDetails }: Props) => {
     React.useEffect(() => {
         (async () => {
             setFilteredRoster([]);
+            setActiveBtn('All');
             const roster = await Teams.getTeamRoster(teamId);
             if (!roster) {throw new Error('Failed to load roster')}
             setRoster(roster);
@@ -112,12 +113,12 @@ const TeamRoster = ({ teamId, teamDetails }: Props) => {
     }
 
     const teamRoster = (
-        <>
+        <div>
             {positionBtns}
             <TableContainer title={tableHeader}>
                 <LargeTable header={rosterHeaders} contents={filteredRoster.length === 0 ? getRosterInfo() : getFilteredRosterInfo()} />
             </TableContainer>
-        </>
+        </div>
     );
 
     return teamRoster;

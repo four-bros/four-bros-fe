@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button } from 'semantic-ui-react';
 
 import { Stats, Users } from 'api';
-import { RecordsInfo} from 'api/records/playerRecords';
+import { RecordsInfo} from '../../../interfaces/Stats';
 import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import PlayerRecordsTable from '../Records/PlayerRecordsPage/components/PlayerRecordsTable/PlayerRecordsTable';
 import style from './seasonLeaders.module.scss';
