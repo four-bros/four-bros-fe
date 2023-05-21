@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Teams } from 'api';
 import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import { TeamsDropdown } from 'components/common';
-import type { Team } from 'api/teams';
+import type { Team } from '../../../interfaces/Teams';
 
 export interface DropdownTeamOption {
     key: number;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Table } from 'semantic-ui-react';
 
 import { TableContainer, LargeTable } from 'components/common';
-import { CoachSeasonRecord, CoachData } from 'api/records/coachRecords';
+import { CoachSeasonRecord, CoachData } from '../../../../../../interfaces/Coach';
 import style from './coachRecordsTable.module.scss';
 import globalStyle from '../../../../../../styles/global.module.scss';
 

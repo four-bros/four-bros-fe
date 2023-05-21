@@ -1,5 +1,4 @@
 import { Table } from 'semantic-ui-react';
-import { PlayerHofStructure } from 'api/players';
 import {
     DefensiveStats,
     KickingStats,
@@ -10,7 +9,7 @@ import {
     ReceivingStats,
     RushingStats,
     TotalStats
-} from 'api/teams';
+} from '../../../../../interfaces/Stats';
 import useMediaQuery from 'hooks/useMediaQuery';
 import * as React from 'react';
 import { getFields } from 'utils';
@@ -52,6 +51,7 @@ import {
 import HofButtons from '../HofButtons/HofButtons';
 import { offensivePositions } from 'constants/constants';
 import style from './hofPlayerTable.module.scss';
+import { PlayerHofStructure } from 'interfaces/Player';
 
 
 type Props = {

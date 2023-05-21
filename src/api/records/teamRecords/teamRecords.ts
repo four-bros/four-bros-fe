@@ -1,101 +1,24 @@
+import { TeamGameRecordData, TeamSeasonRecordData } from 'interfaces/Teams';
 import { baseGet } from '../../baseApi';
-import { TeamStats } from 'api/teams';
 
 
-export type TeamInfo = {
-    id: number,
-    is_user: boolean,
-    team_name: string,
-    nickname: string
-}
-
-export type TeamRecord = {
-    team_info: TeamInfo,
-    team_stats: TeamStats
-}
-
-export type TeamDefensiveRecord = {
-    blocked_kicks: TeamRecord[],
-    def_td: TeamRecord[],
-    ff: TeamRecord[],
-    fr: TeamRecord[],
-    ints_made: TeamRecord[],
-    pass_def: TeamRecord[],
-    sacks: TeamRecord[],
-    safeties: TeamRecord[],
-    tfl: TeamRecord[],
-    to_margin: TeamRecord[],
-    turnovers: TeamRecord[]
-}
-
-export type TeamGameOffensiveRecord = {
-    drops: TeamRecord[],
-    fumbles: TeamRecord[],
-    ints: TeamRecord[],
-    off_yards: TeamRecord[],
-    pass_tds: TeamRecord[],
-    pass_yards: TeamRecord[],
-    points: TeamRecord[],
-    rush_tds: TeamRecord[],
-    rush_yards: TeamRecord[],
-    sacked: TeamRecord[],
-    total_yards: TeamRecord[],
-    turnovers: TeamRecord[]
-}
-
-export type TeamSeasonOffensiveRecord = {
-    drops: TeamRecord[],
-    fumbles: TeamRecord[],
-    ints: TeamRecord[],
-    off_yards: TeamRecord[],
-    off_ypg: TeamRecord[],
-    pass_tds: TeamRecord[],
-    pass_yards: TeamRecord[],
-    points: TeamRecord[],
-    ppg: TeamRecord[],
-    rush_tds: TeamRecord[],
-    rush_yards: TeamRecord[],
-    sacked: TeamRecord[],
-    total_yards: TeamRecord[],
-    total_ypg: TeamRecord[],
-    turnovers: TeamRecord[]
-}
-
-export type TeamSpecialTeamsRecord = {
-    kr_tds: TeamRecord[],
-    kr_yds: TeamRecord[],
-    pr_tds: TeamRecord[],
-    pr_yds: TeamRecord[]
-}
-
-export type TeamGameRecordData = {
-    defense: TeamDefensiveRecord,
-    offense: TeamGameOffensiveRecord,
-    special_teams: TeamSpecialTeamsRecord
-}
-
-export type TeamSeasonRecordData = {
-    defense: TeamDefensiveRecord,
-    offense: TeamSeasonOffensiveRecord,
-    special_teams: TeamSpecialTeamsRecord
-}
-
-
-export const getTeamGameRecords = async (): Promise<TeamGameRecordData | void> => {
+export const getTeamGameRecords = async (): Promise<TeamGameRecordData> => {
     try {
         const response = await baseGet('/records/game/team');
         return response.data;
     } catch (err) {
         console.log(err);
+        throw err;
     }
 };
 
 
-export const getTeamSeasonRecords = async (): Promise<TeamSeasonRecordData | void> => {
+export const getTeamSeasonRecords = async (): Promise<TeamSeasonRecordData> => {
     try {
         const response = await baseGet('/records/season/team');
         return response.data;
     } catch (err) {
         console.log(err);
+        throw err;
     }
 };

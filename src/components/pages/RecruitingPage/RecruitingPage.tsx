@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import { Button } from 'semantic-ui-react';
 import { Recruiting, Users } from 'api';
-import { CommitInfo } from 'api/recruiting';
+import { CommitInfo } from '../../../interfaces/Commits';
 import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import style from './recruitingPage.module.scss';
 import RecruitingTable from './components/RecrutingTable/RecruitingTable';
 import { convertTeamNameToSnakeCase } from 'utils';
-import { Team } from 'api/teams';
+import { Team } from '../../../interfaces/Teams';
 
 
 const RecruitingPage = () => {

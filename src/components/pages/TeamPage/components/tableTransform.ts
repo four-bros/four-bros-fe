@@ -1,9 +1,8 @@
-import { TeamDetails, Team, TeamStats } from 'api/teams';
+import { TeamDetails, TeamStats } from '../../../../interfaces/Teams';
 
 
 const getOverviewInfo = (
-    overview: TeamDetails,
-    simplifiedTeam: Team
+    teamDetails: TeamDetails
 ): [
     string[],
     (string | number)[],
@@ -12,11 +11,11 @@ const getOverviewInfo = (
     (string | number)[]
 ] => {
     return [
-        ['Record', `${simplifiedTeam.wins} - ${simplifiedTeam.losses}`],
-        ['Overall', overview.avg_overall],
-        ['Offense', overview.avg_offense],
-        ['Defense', overview.avg_defense],
-        ['Sp. Teams', overview.avg_sp_teams],
+        ['Record', `${teamDetails.wins} - ${teamDetails.losses}`],
+        ['Overall', teamDetails.avg_overall],
+        ['Offense', teamDetails.avg_offense],
+        ['Defense', teamDetails.avg_defense],
+        ['Sp. Teams', teamDetails.avg_sp_teams],
     ];
 };
 

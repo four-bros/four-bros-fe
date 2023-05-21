@@ -1,4 +1,5 @@
-import { PlayerDetails, RosterPlayer } from 'api/teams';
+import { RosterPlayer } from 'interfaces/Teams';
+import { PlayerDetails } from '../interfaces/Player';
 
 
 const getFields = (obj: any, fields: Set<string>): Set<number> => {

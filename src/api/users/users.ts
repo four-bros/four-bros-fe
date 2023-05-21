@@ -1,6 +1,5 @@
 import { baseGet } from '../baseApi';
-
-import { Team } from 'api/teams';
+import { Team } from '../../interfaces/Teams';
 
 export interface UserTeams {
     user_teams: Team[];

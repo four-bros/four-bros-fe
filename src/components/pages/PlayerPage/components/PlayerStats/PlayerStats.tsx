@@ -44,7 +44,7 @@ import {
     mobileTotalFields,
     mobileTotalHeaders,
 } from '../mobileTableTransform';
-import { PlayerStatsStructure } from 'api/players';
+import { PlayerStatsStructure } from '../../../../../interfaces/Player';
 import { getFields } from 'utils';
 import useMediaQuery from '../../../../../hooks/useMediaQuery';
 import style from './playerStats.module.scss';
@@ -58,7 +58,7 @@ import {
     ReceivingStats,
     RushingStats,
     TotalStats
-} from 'api/teams';
+} from '../../../../../interfaces/Stats';
 
 
 type Props = {

@@ -5,7 +5,7 @@ import { Table } from 'semantic-ui-react';
 import { TableContainer, LargeTable } from 'components/common';
 import { getTableHeader } from 'utils';
 import globalStyle from '../../../../../../styles/global.module.scss';
-import { TeamGameRecordData, TeamRecord, TeamSeasonRecordData } from 'api/records/teamRecords';
+import { TeamGameRecordData, TeamRecord, TeamSeasonRecordData } from '../../../../../../interfaces/Teams';
 
 
 type Props = {
