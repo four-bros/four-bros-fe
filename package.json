@@ -13,7 +13,7 @@
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-router-dom": "^6.11.1",
-        "react-scripts": "^4.0.3",
+        "react-scripts": "^5.0.1",
         "react-select": "^5.7.3",
         "sass": "^1.49.9",
         "semantic-ui-css": "^2.5.0",
@@ -22,10 +22,10 @@
         "typescript": "^4.9.5"
     },
     "scripts": {
-        "start": "react-scripts --openssl-legacy-provider start",
-        "deploy": "react-scripts --openssl-legacy-provider build",
-        "dev": "react-scripts --openssl-legacy-provider start",
-        "build": "react-scripts --openssl-legacy-provider build",
+        "start": "react-scripts start",
+        "deploy": "react-scripts build",
+        "dev": "react-scripts start",
+        "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
