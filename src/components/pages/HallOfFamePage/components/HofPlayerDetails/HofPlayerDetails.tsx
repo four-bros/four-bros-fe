@@ -1,8 +1,6 @@
-import { Abilities } from 'api/players';
-import { PlayerDetails } from 'api/teams';
 import { Link } from 'react-router-dom';
-
 import style from './hofPlayerDetails.module.scss';
+import { Abilities, PlayerDetails } from 'interfaces/Player';
 
 
 type Props = {
