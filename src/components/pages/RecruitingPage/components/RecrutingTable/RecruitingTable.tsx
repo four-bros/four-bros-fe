@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Table } from 'semantic-ui-react';
 
 import { TableContainer, LargeTable } from 'components/common';
-import { Commit } from 'api/recruiting';
 import { getTableHeader } from 'utils';
+import { Commit } from 'interfaces/Commits';
 
 type Props = {
     commitsArr: Commit[]
