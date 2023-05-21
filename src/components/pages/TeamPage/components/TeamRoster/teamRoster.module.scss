@@ -4,7 +4,11 @@
 	justify-content: flex-start;
 	flex-flow: row wrap;
 	margin: 0 auto;
-	width: 90%;
+	width: 85%;
+
+	@media screen and (min-width: 767px) {
+        width: 95%;
+    }
 }
 
 .btn {
