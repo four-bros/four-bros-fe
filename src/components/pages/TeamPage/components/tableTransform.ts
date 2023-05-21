@@ -1,4 +1,4 @@
-import { TeamDetails, Team, TeamStats } from 'api/teams';
+import { TeamDetails, TeamStats } from '../../../../interfaces/Teams';
 
 
 const getOverviewInfo = (
