@@ -1,5 +1,5 @@
+import { RecordsInfo } from 'interfaces/Stats';
 import { baseGet } from '../baseApi';
-import { RecordsInfo } from 'api/records/playerRecords';
 
  export const getSeasonLeaders = async (): Promise<RecordsInfo> => {
     try {
