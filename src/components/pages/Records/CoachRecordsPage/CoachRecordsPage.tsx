@@ -1,17 +1,16 @@
 import * as React from 'react';
 import { Button } from 'semantic-ui-react';
-
 import { CoachRecords } from 'api';
-import { CoachRecordsData } from 'api/records/coachRecords';
 import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import CoachRecordsTable from './components/CoachRecordsTable/CoachRecordsTable';
 import style from './coachRecords.module.scss';
+import { CoachRecordsData } from 'interfaces/Coach';
 
 
 const CoachRecordsPage = () => {
 
     const [isLoading, setIsLoading] = React.useState<boolean>(true);
-    const [coachRecords, setCoachRecords] = React.useState<CoachRecordsData | void>()
+    const [coachRecords, setCoachRecords] = React.useState<CoachRecordsData>()
     const [coach, setCoach] = React.useState<string>('ben')
 
     React.useEffect(() => {
