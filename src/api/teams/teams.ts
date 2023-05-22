@@ -1,4 +1,4 @@
-import { RosterPlayer, Team, TeamDetails, TeamRoster, TeamStats } from 'interfaces/Teams';
+import { Team, TeamDetails, TeamRoster, TeamStats } from 'interfaces/Teams';
 import { baseGet } from '../baseApi';
 import { TeamPlayerStats } from 'interfaces/Stats';
 
