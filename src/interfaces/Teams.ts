@@ -49,6 +49,10 @@ export interface RosterPlayer {
     weight: number;
 }
 
+export interface TeamRoster {
+    roster: RosterPlayer[]
+}
+
 export interface TeamStats {
     blocked_kicks: number,
     def_tds: number,

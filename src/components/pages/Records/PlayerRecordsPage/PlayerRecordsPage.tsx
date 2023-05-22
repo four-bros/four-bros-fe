@@ -201,6 +201,13 @@ const PlayerRecordsPage = () => {
                     record='completions'
                     statCategory='passing_stats'
                     fieldName='completions'
+                        />
+                <PlayerRecordsTable
+                    recordInfo={playerRecords}
+                    genCategory={recordCategory}
+                    record='pass_att'
+                    statCategory='passing_stats'
+                    fieldName='pass_att'
                 />
                 <PlayerRecordsTable 
                     recordInfo={playerRecords}

@@ -28,7 +28,7 @@ const TeamRoster = ({ teamId, teamDetails }: Props) => {
             setActiveBtn('All');
             const roster = await Teams.getTeamRoster(teamId);
             if (!roster) {throw new Error('Failed to load roster')}
-            setRoster(roster);
+            setRoster(roster.roster);
         })();
     }, [teamId]);
 
