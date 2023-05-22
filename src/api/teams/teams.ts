@@ -1,4 +1,4 @@
-import { RosterPlayer, Team, TeamDetails, TeamStats } from 'interfaces/Teams';
+import { RosterPlayer, Team, TeamDetails, TeamRoster, TeamStats } from 'interfaces/Teams';
 import { baseGet } from '../baseApi';
 import { TeamPlayerStats } from 'interfaces/Stats';
 
@@ -26,7 +26,7 @@ export const getTeamDetails = async (
 
 export const getTeamRoster = async (
     teamId: string
-): Promise<RosterPlayer[]> => {
+): Promise<TeamRoster> => {
     try {
         const response = await baseGet(`/teams/${teamId}/roster`);
         return response.data;
