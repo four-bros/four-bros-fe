@@ -68,7 +68,7 @@ const TeamRoster = ({ teamId, teamDetails }: Props) => {
         </div>
     );
 
-    const tableHeader: string = `${teamDetails.team_name} Roster`;
+    const tableHeader: string = activeBtn === 'All' ? `${teamDetails.team_name} Roster` : `${teamDetails.team_name} ${activeBtn}s`;
 
     const getRosterInfo = () => {
         return roster.map((player: RosterPlayer) => (
