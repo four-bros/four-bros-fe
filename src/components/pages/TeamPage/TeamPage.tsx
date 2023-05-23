@@ -21,25 +21,25 @@ const TeamPage = () => {
     const navigate = useNavigate()
 
     React.useEffect(() => {
-        if (teamId) {
-            (async () => {
-                const allTeams = await Teams.getTeams();
-                const teamDetails = await Teams.getTeamDetails(teamId);
-                let newList: DropdownTeamOption[] = [];
-                if (allTeams) {
-                    for (let i = 0; i < allTeams.length; i++) {
-                        newList.push({
-                            key: allTeams[i].id,
-                            value: i,
-                            text: `${allTeams[i].team_name} ${allTeams[i].nickname}`,
-                        });
-                    }
-                    setTeamOptions(newList);
-                    setAllTeams(allTeams);
-                    setTeamDetails(teamDetails);
+        (async () => {
+            if (!teamId) throw new Error('missing teamId');
+            const allTeams = await Teams.getTeams();
+            const teamDetails = await Teams.getTeamDetails(teamId);
+            let newList: DropdownTeamOption[] = [];
+            if (allTeams) {
+                for (let i = 0; i < allTeams.length; i++) {
+                    newList.push({
+                        key: allTeams[i].id,
+                        value: i,
+                        text: `${allTeams[i].team_name} ${allTeams[i].nickname}`,
+                    });
                 }
-            })();
-        }
+                setTeamOptions(newList);
+                setAllTeams(allTeams);
+                setTeamDetails(teamDetails);
+            }
+        })();
+        
     }, [teamId]);
 
 
