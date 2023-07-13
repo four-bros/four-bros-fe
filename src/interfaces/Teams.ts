@@ -99,6 +99,10 @@ export type TeamInfo = {
     nickname: string
 }
 
+export type TeamGameStats = {
+    team_game_stats: TeamStats[];
+}
+
 export type TeamRecord = {
     team_info: TeamInfo,
     team_stats: TeamStats

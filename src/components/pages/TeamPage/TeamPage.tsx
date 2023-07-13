@@ -7,6 +7,7 @@ import type { Team, TeamDetails } from '../../../interfaces/Teams';
 import TeamOverview from './components/TeamOverview/TeamOverview';
 import TeamRoster from './components/TeamRoster/TeamRoster';
 import TeamLeaders from './components/TeamLeaders/TeamLeaders';
+import TeamStatsComponent from './components/TeamStats/TeamStats';
 import style from './teamPage.module.scss';
 import { DropdownTeamOption } from '../TeamsPage/TeamsPage';
 
@@ -85,6 +86,11 @@ const TeamPage = () => {
                             teamDetails={teamDetails}
                         />
                         <TeamLeaders
+                            teamId={teamId}
+                            infoType={infoType}
+                            teamDetails={teamDetails}
+                        />
+                        <TeamStatsComponent 
                             teamId={teamId}
                             infoType={infoType}
                             teamDetails={teamDetails}

@@ -29,7 +29,7 @@ const TeamOverview = ({
     React.useEffect(() => {
         (async () => {
             setIsLoading(true);
-            const teamStats = await Teams.getTeamStats(teamId)
+            const teamStats = await Teams.getTeamSeasonStats(teamId)
             if (!teamStats) throw new Error('unable to get team stats');
             setTeamStats(teamStats);
             setIsLoading(false);

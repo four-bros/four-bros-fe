@@ -148,7 +148,7 @@ const TeamLeaders = ({ infoType, teamId, teamDetails }: Props) => {
         );
     };
 
-    const header = infoType === 'overview' ? `${teamDetails.team_name} Statistical Leaders` : `${teamDetails.team_name} Player Stats`
+    const header = infoType === 'overview' ? `${teamDetails.team_name} Stat Leaders` : `${teamDetails.team_name} Player Stats`
 
     const teamLeadersComponent =  (
         <>

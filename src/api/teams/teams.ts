@@ -1,4 +1,10 @@
-import { Team, TeamDetails, TeamRoster, TeamStats } from 'interfaces/Teams';
+import {
+    Team,
+    TeamDetails,
+    TeamRoster,
+    TeamStats,
+    TeamGameStats
+} from 'interfaces/Teams';
 import { baseGet } from '../baseApi';
 import { TeamPlayerStats } from 'interfaces/Stats';
 
@@ -36,11 +42,23 @@ export const getTeamRoster = async (
     }
 };
 
+export const getTeamGameStats = async (
+    teamId: string
+): Promise<TeamGameStats> => {
+    try {
+        const response = await baseGet(`/teams/${teamId}/stats/game`);
+        return response.data;
+    } catch (err) {
+        console.log(err);
+        throw new Error('Error trying to retrieve team game stats');
+    }
+};
+
 export const getTeamPlayerStats = async (
     teamId: string
 ): Promise<TeamPlayerStats> => {
     try {
-        const response = await baseGet(`/teams/${teamId}/player/stats`);
+        const response = await baseGet(`/teams/${teamId}/stats/player`);
         return response.data;
     } catch (err) {
         console.log(err);
@@ -48,14 +66,14 @@ export const getTeamPlayerStats = async (
     }
 };
 
-export const getTeamStats = async (
+export const getTeamSeasonStats = async (
     teamId: string
 ): Promise<TeamStats> => {
     try {
-        const response = await baseGet(`/teams/${teamId}/stats`);
+        const response = await baseGet(`/teams/${teamId}/stats/season`);
         return response.data;
     } catch (err) {
         console.log(err);
-        throw new Error('Error trying to retrieve team stats');
+        throw new Error('Error trying to retrieve team season stats');
     }
 };
