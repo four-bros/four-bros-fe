@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Users } from 'api';
+import { Users, Teams } from 'api';
 import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import { TeamsDropdown } from 'components/common';
 
 import style from './homePage.module.scss';
 import { Team } from '../../../interfaces/Teams';
+import UserTeamsPlayerStats from './components/UserTeamsPlayerStats/UserTeamsPlayerStats';
+import { Button } from 'semantic-ui-react';
+import UserTeamsStatsPage from './components/UserTeamsStats/UserTeamsStats';
 
 export const HomePage = () => {
     const navigate = useNavigate();
@@ -14,26 +17,28 @@ export const HomePage = () => {
     const [teamOptions, setTeamOptions] = React.useState();
     const [week, setWeek] = React.useState<number>();
     const [year, setYear] = React.useState<number>();
+    const [statsCategory, setStatsCategory] = React.useState<string>('playerStats');
 
     React.useEffect(() => {
-            (async () => {
-                const data = await Users.getUserTeams();
-                let newList: any = [];
-                if (data) {
-                    for (let i = 0; i < data.user_teams.length; i++) {
-                        newList.push({
-                            key: data.user_teams[i].id,
-                            value: i,
-                            text: `${data.user_teams[i].team_name} ${data.user_teams[i].nickname}`,
-                        });
-                    }
-                    setTeamOptions(newList);
-                    setWeek(data.week_year.week);
-                    setYear(data.week_year.year);
-                    setUserTeams(data.user_teams);
-                    setIsLoading(false);
+        (async () => {
+            const home = await Users.getUserTeams()
+            const teams = await Teams.getTeams();
+            let newList: any = [];
+            if (teams) {
+                for (let i = 0; i < teams.length; i++) {
+                    newList.push({
+                        key: teams[i].id,
+                        value: i,
+                        text: `${teams[i].team_name} ${teams[i].nickname}`,
+                    });
                 }
-            })();
+                setTeamOptions(newList);
+                setWeek(home.week_year.week);
+                setYear(home.week_year.year);
+                setUserTeams(teams);
+                setIsLoading(false);
+            }
+        })();
     }, []);
 
     const handleTeamChange = async (_: any, { value }: any) => {
@@ -59,7 +64,30 @@ export const HomePage = () => {
                         <TeamsDropdown
                             options={teamOptions}
                             setSelection={handleTeamChange}
-                    />
+                        />
+                    )}
+                    <div className={style.btnContainer}>
+                        <Button
+                            name='playerStats'
+                            active={statsCategory === 'playerStats'}
+                            onClick={() => setStatsCategory('playerStats')}
+                        >
+                            Users Player Stats
+                        </Button>
+                        <Button
+                            name='teamStats'
+                            active={statsCategory === 'teamStats'}
+                            onClick={() => setStatsCategory('teamStats')}
+                        >
+                            Users Team Stats
+                        </Button>
+                    </div>
+                    {statsCategory === 'playerStats' && (
+                        <UserTeamsPlayerStats />
+                    )}
+
+                    {statsCategory === 'teamStats' && (
+                        <UserTeamsStatsPage />
                     )}
                 </div>
             )}
