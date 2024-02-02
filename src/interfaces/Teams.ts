@@ -35,6 +35,18 @@ export interface TeamDetails {
     wins: number;
 }
 
+export interface UserTeamDetails {
+    data: TeamDetails[]
+}
+
+export interface UserTeamsStats {
+    data: UserTeamsStatsData[]
+}
+
+export interface UserTeamsStatsData {
+    [key: string]: TeamStats
+}
+
 export interface RosterPlayer {
     first_name: string;
     height: string;

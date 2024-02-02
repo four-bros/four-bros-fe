@@ -9,12 +9,12 @@ export interface UserTeams {
     };
 }
 
-export const getUserTeams = async (): Promise<UserTeams | void> => {
+export const getUserTeams = async (): Promise<UserTeams> => {
     try {
         const response = await baseGet('/home/');
-        console.log(response.data);
         return response.data;
     } catch (err) {
         console.log(err);
+        throw new Error('unable to retrieve user teams')
     }
 };

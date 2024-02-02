@@ -1,4 +1,4 @@
-import { PlayerDetails } from "./Player";
+import { PlayerDetails } from './Player';
 
 export interface DefensiveStats {
     asst_tkls: number;
