@@ -12,7 +12,7 @@ import {
 } from '../../../../../interfaces/Stats';
 import useMediaQuery from 'hooks/useMediaQuery';
 import * as React from 'react';
-import { getFields } from 'utils';
+import { getFieldValues } from 'utils';
 import { LargeTable, TableContainer } from 'components/common';
 import {
     mobileDefToFields,
@@ -69,7 +69,7 @@ const HofPlayerTable = ({ seasonStats, careerStats, playerPosition }: Props) => 
 
 
     const careerFieldRow = (fields: Set<string>, fieldType: string) => {
-        const values = Array.from(getFields(careerStats[fieldType], fields));
+        const values = Array.from(getFieldValues(careerStats[fieldType], fields));
 
         return (
             <Table.Row>
@@ -101,7 +101,7 @@ const HofPlayerTable = ({ seasonStats, careerStats, playerPosition }: Props) => 
         return (
             <>
                 {seasonsArr.map((leader: any, idx: number) => {
-                    const otherFields = getFields(leader, fields);
+                    const otherFields = getFieldValues(leader, fields);
                     const fieldsArr = Array.from(otherFields);
 
                     return (
@@ -170,95 +170,95 @@ const HofPlayerTable = ({ seasonStats, careerStats, playerPosition }: Props) => 
                         {/* Passing  */}
                         {/* If mobile, render mobile tables */}
                         {careerStats.passing && careerStats.passing.pass_att > 0 &&
-                         seasonStats.passing && mobile && (
-                            <TableContainer title='Passing'>
-                                <LargeTable
-                                    header={mobilePassingHeaders}
-                                    contents={seasonFieldRows(
-                                        seasonStats.passing,
-                                        mobilePassingFields,
-                                        'passing'
-                                    )}
-                                />
-                            </TableContainer>
-                        )}
+                            seasonStats.passing && mobile && (
+                                <TableContainer title='Passing'>
+                                    <LargeTable
+                                        header={mobilePassingHeaders}
+                                        contents={seasonFieldRows(
+                                            seasonStats.passing,
+                                            mobilePassingFields,
+                                            'passing'
+                                        )}
+                                    />
+                                </TableContainer>
+                            )}
 
                         {/* If desktop, render desktop tables */}
                         {careerStats.passing && careerStats.passing.pass_att > 0 &&
-                         seasonStats.passing && !mobile && (
-                            <TableContainer title='Passing'>
-                                <LargeTable
-                                    header={desktopPassingHeaders}
-                                    contents={seasonFieldRows(
-                                        seasonStats.passing,
-                                        desktopPassingFields,
-                                        'passing'
-                                    )}
-                                />
-                            </TableContainer>
-                        )}
-                        
+                            seasonStats.passing && !mobile && (
+                                <TableContainer title='Passing'>
+                                    <LargeTable
+                                        header={desktopPassingHeaders}
+                                        contents={seasonFieldRows(
+                                            seasonStats.passing,
+                                            desktopPassingFields,
+                                            'passing'
+                                        )}
+                                    />
+                                </TableContainer>
+                            )}
+
                         {/* Rushing */}
                         {/* If mobile, render mobile tables */}
                         {careerStats.rushing && careerStats.rushing.rush_att > 0 &&
-                         seasonStats.rushing && mobile && (
-                            <TableContainer title='Rushing'>
-                                <LargeTable
-                                    header={mobileRushingHeaders}
-                                    contents={seasonFieldRows(
-                                        seasonStats.rushing,
-                                        mobileRushingFields,
-                                        'rushing'
-                                    )}
-                                />
-                            </TableContainer>
-                        )}
+                            seasonStats.rushing && mobile && (
+                                <TableContainer title='Rushing'>
+                                    <LargeTable
+                                        header={mobileRushingHeaders}
+                                        contents={seasonFieldRows(
+                                            seasonStats.rushing,
+                                            mobileRushingFields,
+                                            'rushing'
+                                        )}
+                                    />
+                                </TableContainer>
+                            )}
 
                         {/* If desktop, render desktop tables */}
                         {careerStats.rushing && careerStats.rushing.rush_att > 0 &&
-                         seasonStats.rushing && !mobile && (
-                            <TableContainer title='Rushing'>
-                                <LargeTable
-                                    header={desktopRushingHeaders}
-                                    contents={seasonFieldRows(
-                                        seasonStats.rushing,
-                                        desktopRushingFields,
-                                        'rushing'
-                                    )}
-                                />
-                            </TableContainer>
-                        )}
+                            seasonStats.rushing && !mobile && (
+                                <TableContainer title='Rushing'>
+                                    <LargeTable
+                                        header={desktopRushingHeaders}
+                                        contents={seasonFieldRows(
+                                            seasonStats.rushing,
+                                            desktopRushingFields,
+                                            'rushing'
+                                        )}
+                                    />
+                                </TableContainer>
+                            )}
 
                         {/* Receiving */}
                         {/* If mobile, render mobile tables */}
                         {careerStats.receiving && careerStats.receiving.receptions > 0 &&
                             seasonStats.receiving && mobile && (
-                            <TableContainer title='Receiving'>
-                                <LargeTable
-                                    header={mobileReceivingHeaders}
-                                    contents={seasonFieldRows(
-                                        seasonStats.receiving,
-                                        mobileReceivingFields,
-                                        'receiving'
-                                    )}
-                                />
-                            </TableContainer>
-                        )}
+                                <TableContainer title='Receiving'>
+                                    <LargeTable
+                                        header={mobileReceivingHeaders}
+                                        contents={seasonFieldRows(
+                                            seasonStats.receiving,
+                                            mobileReceivingFields,
+                                            'receiving'
+                                        )}
+                                    />
+                                </TableContainer>
+                            )}
 
                         {/* If desktop, render desktop tables */}
                         {careerStats.receiving && careerStats.receiving.receptions > 0 &&
-                         seasonStats.receiving && !mobile && (
-                            <TableContainer title='Receiving'>
-                                <LargeTable
-                                    header={desktopReceivingHeaders}
-                                    contents={seasonFieldRows(
-                                        seasonStats.receiving,
-                                        desktopReceivingFields,
-                                        'receiving'
-                                    )}
-                                />
-                            </TableContainer>
-                        )}
+                            seasonStats.receiving && !mobile && (
+                                <TableContainer title='Receiving'>
+                                    <LargeTable
+                                        header={desktopReceivingHeaders}
+                                        contents={seasonFieldRows(
+                                            seasonStats.receiving,
+                                            desktopReceivingFields,
+                                            'receiving'
+                                        )}
+                                    />
+                                </TableContainer>
+                            )}
                     </>
                 )}
 
@@ -266,45 +266,45 @@ const HofPlayerTable = ({ seasonStats, careerStats, playerPosition }: Props) => 
                     <>
                         {/* If mobile, render mobile tables */}
                         {careerStats.defensive && careerStats.defensive.total_tkls > 0 &&
-                         seasonStats.defensive && mobile && (
-                        <>
-                            <TableContainer title='Defense'>
-                                <LargeTable
-                                    header={mobileTackleHeaders}
-                                    contents={seasonFieldRows(
-                                        seasonStats.defensive,
-                                        mobileTackleFields,
-                                        'defensive'
-                                    )}
-                                />
-                            </TableContainer>
-                            <TableContainer title='Defense TOs'>
-                                <LargeTable
-                                    header={mobileDefToHeaders}
-                                    contents={seasonFieldRows(
-                                        seasonStats.defensive,
-                                        mobileDefToFields,
-                                        'defensive'
-                                    )}
-                                />
-                                </TableContainer>
-                        </>
-                        )}
+                            seasonStats.defensive && mobile && (
+                                <>
+                                    <TableContainer title='Defense'>
+                                        <LargeTable
+                                            header={mobileTackleHeaders}
+                                            contents={seasonFieldRows(
+                                                seasonStats.defensive,
+                                                mobileTackleFields,
+                                                'defensive'
+                                            )}
+                                        />
+                                    </TableContainer>
+                                    <TableContainer title='Defense TOs'>
+                                        <LargeTable
+                                            header={mobileDefToHeaders}
+                                            contents={seasonFieldRows(
+                                                seasonStats.defensive,
+                                                mobileDefToFields,
+                                                'defensive'
+                                            )}
+                                        />
+                                    </TableContainer>
+                                </>
+                            )}
 
                         {/* If desktop, render desktop tables */}
                         {careerStats.defensive && careerStats.defensive.total_tkls > 0 &&
-                         seasonStats.defensive && !mobile && (
-                            <TableContainer title='Defense'>
-                                <LargeTable
-                                    header={desktopDefenseHeaders}
-                                    contents={seasonFieldRows(
-                                        seasonStats.defensive,
-                                        desktopDefenseFields,
-                                        'defensive'
-                                    )}
-                                />
-                            </TableContainer>
-                        )}
+                            seasonStats.defensive && !mobile && (
+                                <TableContainer title='Defense'>
+                                    <LargeTable
+                                        header={desktopDefenseHeaders}
+                                        contents={seasonFieldRows(
+                                            seasonStats.defensive,
+                                            desktopDefenseFields,
+                                            'defensive'
+                                        )}
+                                    />
+                                </TableContainer>
+                            )}
                     </>
                 )}
 
@@ -313,60 +313,60 @@ const HofPlayerTable = ({ seasonStats, careerStats, playerPosition }: Props) => 
                         {/* If mobile, render mobile tables */}
                         {careerStats.kick_return && careerStats.kick_return.kick_returns > 0 &&
                             seasonStats.kick_return && mobile && (
-                            <TableContainer title='Kick Return'>
-                                <LargeTable
-                                    header={mobileKickReturnHeaders}
-                                    contents={seasonFieldRows(
-                                        seasonStats.kick_return,
-                                        mobileKickReturnFields,
-                                        'kick_return'
-                                    )}
-                                />
-                            </TableContainer>
-                        )}
+                                <TableContainer title='Kick Return'>
+                                    <LargeTable
+                                        header={mobileKickReturnHeaders}
+                                        contents={seasonFieldRows(
+                                            seasonStats.kick_return,
+                                            mobileKickReturnFields,
+                                            'kick_return'
+                                        )}
+                                    />
+                                </TableContainer>
+                            )}
 
                         {careerStats.punt_return && careerStats.punt_return.punt_returns > 0 &&
                             seasonStats.punt_return && mobile && (
-                            <TableContainer title='Punt Return'>
-                                <LargeTable
-                                    header={mobilePuntReturnHeaders}
-                                    contents={seasonFieldRows(
-                                        seasonStats.punt_return,
-                                        mobilePuntReturnFields,
-                                        'punt_return'
-                                    )}
-                                />
-                            </TableContainer>
-                        )}
+                                <TableContainer title='Punt Return'>
+                                    <LargeTable
+                                        header={mobilePuntReturnHeaders}
+                                        contents={seasonFieldRows(
+                                            seasonStats.punt_return,
+                                            mobilePuntReturnFields,
+                                            'punt_return'
+                                        )}
+                                    />
+                                </TableContainer>
+                            )}
 
                         {/* If desktop, render desktop tables */}
                         {careerStats.kick_return && careerStats.kick_return.kick_returns > 0 &&
                             seasonStats.kick_return && !mobile && (
-                            <TableContainer title='Kick Return'>
-                                <LargeTable
-                                    header={desktopKickReturnHeaders}
-                                    contents={seasonFieldRows(
-                                        seasonStats.kick_return,
-                                        desktopKickReturnFields,
-                                        'kick_return'
-                                    )}
-                                />
-                            </TableContainer>
-                        )}
+                                <TableContainer title='Kick Return'>
+                                    <LargeTable
+                                        header={desktopKickReturnHeaders}
+                                        contents={seasonFieldRows(
+                                            seasonStats.kick_return,
+                                            desktopKickReturnFields,
+                                            'kick_return'
+                                        )}
+                                    />
+                                </TableContainer>
+                            )}
 
                         {careerStats.punt_return && careerStats.punt_return.punt_returns > 0 &&
                             seasonStats.punt_return && !mobile && (
-                            <TableContainer title='Kick Return'>
-                                <LargeTable
-                                    header={desktopPuntReturnHeaders}
-                                    contents={seasonFieldRows(
-                                        seasonStats.punt_return,
-                                        desktopPuntReturnFields,
-                                        'punt_return'
-                                    )}
-                                />
-                            </TableContainer>
-                        )}
+                                <TableContainer title='Kick Return'>
+                                    <LargeTable
+                                        header={desktopPuntReturnHeaders}
+                                        contents={seasonFieldRows(
+                                            seasonStats.punt_return,
+                                            desktopPuntReturnFields,
+                                            'punt_return'
+                                        )}
+                                    />
+                                </TableContainer>
+                            )}
                     </>
                 )}
 
