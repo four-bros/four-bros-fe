@@ -2,7 +2,7 @@ import { RosterPlayer } from 'interfaces/Teams';
 import { PlayerDetails } from '../interfaces/Player';
 
 
-const getFields = (obj: any, fields: Set<string>): Set<number> => {
+const getFieldValues = (obj: any, fields: Set<string>): Set<number> => {
     let valuesSet: Set<number> = new Set();
     let incrementor = 0.1;
 
@@ -51,4 +51,4 @@ const roundValue = (value: number): string => {
     return parseFloat(roundedValue) % 1 === 0 ? value.toLocaleString() : roundedValue;
 }
 
-export { getFields, getTableHeader, getPlayerYearAndRedshirt, convertTeamNameToSnakeCase, roundValue };
+export { getFieldValues, getTableHeader, getPlayerYearAndRedshirt, convertTeamNameToSnakeCase, roundValue };

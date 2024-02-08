@@ -1,0 +1,107 @@
+.container {
+    @media screen and (min-width: 767px) {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .componentHeader {
+        margin: 1em auto;
+        background-color: #0d5796;
+        text-align: center;
+    }
+
+    .playerOverview {
+        border: 2px solid #4c6474;
+        background-color: #03111e;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: baseline;
+        width: 95%;
+        margin: 0 auto;
+
+
+        .playerDetails {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin: 1em auto;
+            width: 70%;
+    
+            .playerName {
+                color:#d5d5d6;
+                font-size: 1.5em;
+    
+                @media screen and (min-width: 767px) {
+                    font-size: 2em;
+                }
+            }
+    
+            .teamName {
+                color: #d5d5d6;
+    
+                @media screen and (min-width: 767px) {
+                    font-size: 1.5em;
+                }
+            }
+    
+            @media screen and (min-width: 767px) {
+                width: 40%;
+                justify-content: space-around;
+                margin: 0 auto;
+            }
+        }
+    
+        .playerTotals {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            text-align: center;
+            background-color: #4c6474;
+            width: 100%;
+    
+            .category {
+                padding: 0.5em;
+            }
+    
+            .playerStat {
+                font-size: 2em;
+                margin: 0 auto;
+            }
+    
+    
+            @media screen and (min-width: 767px) {
+                margin: 0 auto;
+                flex-flow: row nowrap;
+                justify-content: space-around;
+                width: 60%;
+            }
+        }
+
+        @media screen and (min-width: 767px) {
+            margin: 0 auto;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            width: 80%;
+        }
+    }
+
+    .divider {
+        margin: 3em auto;
+        width: 80%;
+        border: 1px solid #4c6474;
+    }
+
+    .playerTables {
+        display: flex;
+        flex-flow: column nowrap;
+        width: 95%;
+        margin: 0 auto;
+
+        @media screen and (min-width: 767px) {
+            justify-content: center;
+            align-content: center;
+            width: 80%;
+        }
+    }
+}

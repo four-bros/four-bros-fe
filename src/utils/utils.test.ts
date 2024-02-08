@@ -1,4 +1,4 @@
-import {getFields} from './index';
+import { getFieldValues } from './index';
 
 describe('utils test suite', () => {
     it("should return correct values when there are no duplicates", () => {
@@ -26,7 +26,7 @@ describe('utils test suite', () => {
             "year": "2033"
         }
 
-        const result = getFields(obj, fields);
+        const result = getFieldValues(obj, fields);
         const expectation = new Set([17, 23, 305, 306, 4, 1])
         expect(result).toEqual(expectation);
     })
@@ -56,7 +56,7 @@ describe('utils test suite', () => {
             "year": "2033"
         }
 
-        const result = getFields(obj, fields);
+        const result = getFieldValues(obj, fields);
         const expectation = new Set([23, 23.1, 305, 305.2, 4, 1])
         expect(result).toEqual(expectation);
     })

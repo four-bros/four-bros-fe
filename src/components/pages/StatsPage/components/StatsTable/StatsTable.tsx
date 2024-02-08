@@ -45,7 +45,7 @@ import {
     mobileKickingFields,
     mobilePuntingFields,
 } from './mobileTableTransform';
-import { getFields } from 'utils';
+import { getFieldValues } from 'utils';
 import type {
     Defense,
     KickReturn,
@@ -90,7 +90,7 @@ const StatsTable = ({ leaders }: Props) => {
             <>
                 {leadersArr.map((leader: any, idx: number) => {
 
-                    const otherFields = getFields(leader[fieldType], fields);
+                    const otherFields = getFieldValues(leader[fieldType], fields);
                     const fieldsArr = Array.from(otherFields);
 
                     return (
@@ -174,7 +174,7 @@ const StatsTable = ({ leaders }: Props) => {
             <div className={style.tableContainer}>
                 {tableType === 'total' && (
                     <>
-                    {/* If mobile, render mobile tables */}
+                        {/* If mobile, render mobile tables */}
                         {leaders.total.yards.length > 0 && mobile && (
                             <TableContainer title='Total Offense'>
                                 <LargeTable
@@ -187,7 +187,7 @@ const StatsTable = ({ leaders }: Props) => {
                                 />
                             </TableContainer>
                         )}
-                    {/* If desktop, render desktop tables */}
+                        {/* If desktop, render desktop tables */}
                         {leaders.total.yards.length > 0 && !mobile && (
                             <TableContainer title='Total Offense'>
                                 <LargeTable
@@ -205,7 +205,7 @@ const StatsTable = ({ leaders }: Props) => {
 
                 {tableType === 'offense' && (
                     <>
-                    {/* If mobile, render mobile tables */}
+                        {/* If mobile, render mobile tables */}
                         {leaders.passing.pass_yards.length > 0 && mobile && (
                             <TableContainer title='Passing'>
                                 <LargeTable
@@ -245,7 +245,7 @@ const StatsTable = ({ leaders }: Props) => {
                             </TableContainer>
                         )}
 
-                    {/* If desktop, render desktop tables */}
+                        {/* If desktop, render desktop tables */}
                         {leaders.passing.pass_yards.length > 0 && !mobile && (
                             <TableContainer title='Passing'>
                                 <LargeTable
@@ -289,7 +289,7 @@ const StatsTable = ({ leaders }: Props) => {
 
                 {tableType === 'defense' && (
                     <>
-                    {/* If mobile, render mobile tables */}
+                        {/* If mobile, render mobile tables */}
                         {leaders.defense.total_tkls.length > 0 && mobile && (
                             <TableContainer title='Defense'>
                                 <LargeTable
@@ -315,8 +315,8 @@ const StatsTable = ({ leaders }: Props) => {
                                 />
                             </TableContainer>
                         )}
-                    {/* If desktop, render desktop tables */}
-                    {leaders.defense.ints_made.length > 0 && !mobile && (
+                        {/* If desktop, render desktop tables */}
+                        {leaders.defense.ints_made.length > 0 && !mobile && (
                             <TableContainer title='Defense'>
                                 <LargeTable
                                     header={desktopDefenseHeaders}
@@ -333,7 +333,7 @@ const StatsTable = ({ leaders }: Props) => {
 
                 {tableType === 'special' && (
                     <>
-                    {/* If mobile, render mobile tables */}
+                        {/* If mobile, render mobile tables */}
                         {leaders.kick_return.kr_yards.length > 0 && mobile && (
                             <TableContainer title='Kick Return'>
                                 <LargeTable
@@ -386,8 +386,8 @@ const StatsTable = ({ leaders }: Props) => {
                             </TableContainer>
                         )}
 
-                    {/* If desktop, render desktop tables */}
-                    {leaders.kick_return.kr_yards.length > 0 && !mobile && (
+                        {/* If desktop, render desktop tables */}
+                        {leaders.kick_return.kr_yards.length > 0 && !mobile && (
                             <TableContainer title='Kick Return'>
                                 <LargeTable
                                     header={desktopKickReturnHeaders}

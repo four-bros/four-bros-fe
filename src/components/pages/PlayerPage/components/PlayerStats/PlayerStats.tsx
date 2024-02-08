@@ -45,7 +45,7 @@ import {
     mobileTotalHeaders,
 } from '../mobileTableTransform';
 import { PlayerStatsStructure } from '../../../../../interfaces/Player';
-import { getFields } from 'utils';
+import { getFieldValues } from 'utils';
 import useMediaQuery from '../../../../../hooks/useMediaQuery';
 import style from './playerStats.module.scss';
 import {
@@ -70,7 +70,7 @@ const Stats = ({ player, statsType }: Props) => {
     const [tableType, setTableType] = React.useState('offense');
     const mobile = useMediaQuery('(max-width: 767px)');
     let stats: any;
-    const gameStats: any = player.game_stats; 
+    const gameStats: any = player.game_stats;
     const statsHeader: string = statsType === 'season' ? 'Season Stats' : 'Career Stats'
 
     if (statsType === 'season') {
@@ -91,7 +91,7 @@ const Stats = ({ player, statsType }: Props) => {
         mobilePrHeaders[0] = 'Wk'
         mobileKickingHeaders[0] = 'Wk'
         mobilePuntingHeaders[0] = 'Wk'
-    
+
         desktopTotalHeaders[0] = 'Week'
         desktopPassingHeaders[0] = 'Week'
         desktopRushingHeaders[0] = 'Week'
@@ -126,7 +126,7 @@ const Stats = ({ player, statsType }: Props) => {
         desktopKickingHeaders[0] = 'Games'
         desktopPuntingHeaders[0] = 'Games'
     }
-    
+
 
     const determineYearOrValue = (value: number, idx: number, statsType: string, mobile: boolean): number | string => {
         if (statsType === 'season') {
@@ -154,7 +154,7 @@ const Stats = ({ player, statsType }: Props) => {
     }
 
     const fieldRows = (fields: Set<string>, fieldType: string) => {
-        const values = Array.from(getFields(stats[fieldType], fields));
+        const values = Array.from(getFieldValues(stats[fieldType], fields));
         return (
             <>
                 <Table.Row>
@@ -186,7 +186,7 @@ const Stats = ({ player, statsType }: Props) => {
         return (
             <>
                 {gamesArr.map((leader: any, idx: number) => {
-                    const otherFields = getFields(leader, fields);
+                    const otherFields = getFieldValues(leader, fields);
                     const fieldsArr = Array.from(otherFields);
 
                     return (
@@ -380,254 +380,254 @@ const Stats = ({ player, statsType }: Props) => {
 
     const seasonStatsTable = (
         <>
-        { tableType === 'offense' && (
-            <>
-                {gameStats.total && gameStats.total.length > 0 && mobile && (
-                    <TableContainer title='Total Offense'>
-                        <LargeTable
-                            header={mobileTotalHeaders}
-                            contents={gameFieldRows(
-                                gameStats.total,
-                                mobileTotalFields,
-                                'total'
-                            )}
-                        />
-                    </TableContainer>
-                )}
-                {gameStats.total && gameStats.total.length > 0 && !mobile && (
-                    <TableContainer title='Total Offense'>
-                        <LargeTable
-                            header={desktopTotalHeaders}
-                            contents={gameFieldRows(
-                                gameStats.total,
-                                desktopTotalFields,
-                                'total'
-                            )}
-                        />
-                    </TableContainer>
-                )}
+            {tableType === 'offense' && (
+                <>
+                    {gameStats.total && gameStats.total.length > 0 && mobile && (
+                        <TableContainer title='Total Offense'>
+                            <LargeTable
+                                header={mobileTotalHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.total,
+                                    mobileTotalFields,
+                                    'total'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {gameStats.total && gameStats.total.length > 0 && !mobile && (
+                        <TableContainer title='Total Offense'>
+                            <LargeTable
+                                header={desktopTotalHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.total,
+                                    desktopTotalFields,
+                                    'total'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
 
-                {gameStats.passing && gameStats.passing.length > 0 && mobile && (
-                    <TableContainer title='Passing'>
-                        <LargeTable
-                            header={mobilePassingHeaders}
-                            contents={gameFieldRows(
-                                gameStats.passing,
-                                mobilePassingFields,
-                                'passing'
-                            )}
-                        />
-                    </TableContainer>
-                )}
-                {gameStats.passing && gameStats.passing.length > 0 && !mobile && (
-                    <TableContainer title='Passing'>
-                        <LargeTable
-                            header={desktopPassingHeaders}
-                            contents={gameFieldRows(
-                                gameStats.passing,
-                                desktopPassingFields,
-                                'passing'
-                            )}
-                        />
-                    </TableContainer>
-                )}
+                    {gameStats.passing && gameStats.passing.length > 0 && mobile && (
+                        <TableContainer title='Passing'>
+                            <LargeTable
+                                header={mobilePassingHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.passing,
+                                    mobilePassingFields,
+                                    'passing'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {gameStats.passing && gameStats.passing.length > 0 && !mobile && (
+                        <TableContainer title='Passing'>
+                            <LargeTable
+                                header={desktopPassingHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.passing,
+                                    desktopPassingFields,
+                                    'passing'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
 
-                {gameStats.rushing && gameStats.rushing.length > 0 && mobile && (
-                    <TableContainer title='Rushing'>
-                        <LargeTable
-                            header={mobileRushingHeaders}
-                            contents={gameFieldRows(
-                                gameStats.rushing,
-                                mobileRushingFields,
-                                'rushing'
-                            )}
-                        />
-                    </TableContainer>
-                )}
-                {gameStats.rushing && gameStats.rushing.length > 0 && !mobile && (
-                    <TableContainer title='Rushing'>
-                        <LargeTable
-                            header={desktopRushingHeaders}
-                            contents={gameFieldRows(
-                                gameStats.rushing,
-                                desktopRushingFields,
-                                'rushing'
-                            )}
-                        />
-                    </TableContainer>
-                )}
+                    {gameStats.rushing && gameStats.rushing.length > 0 && mobile && (
+                        <TableContainer title='Rushing'>
+                            <LargeTable
+                                header={mobileRushingHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.rushing,
+                                    mobileRushingFields,
+                                    'rushing'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {gameStats.rushing && gameStats.rushing.length > 0 && !mobile && (
+                        <TableContainer title='Rushing'>
+                            <LargeTable
+                                header={desktopRushingHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.rushing,
+                                    desktopRushingFields,
+                                    'rushing'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
 
-                {gameStats.receiving && gameStats.receiving.length > 0 && mobile && (
-                    <TableContainer title='Receiving'>
-                        <LargeTable
-                            header={mobileRecHeaders}
-                            contents={gameFieldRows(
-                                gameStats.receiving,
-                                mobileReceivingFields,
-                                'receiving'
-                            )}
-                        />
-                    </TableContainer>
-                )}
-                {gameStats.receiving && gameStats.receiving.length > 0 && !mobile && (
-                    <TableContainer title='Receiving'>
-                        <LargeTable
-                            header={desktopRecHeaders}
-                            contents={gameFieldRows(
-                                gameStats.receiving,
-                                desktopReceivingFields,
-                                'receiving'
-                            )}
-                        />
-                    </TableContainer>
-                )}
-            </>
-        )}
-        {tableType === 'defense' && (
-            <>
-                {gameStats.defensive && gameStats.defensive.length > 0 && mobile && (
-                    <TableContainer title='Tackles'>
-                        <LargeTable
-                            header={mobileTackleHeaders}
-                            contents={gameFieldRows(
-                                gameStats.defensive,
-                                mobileTackleFields,
-                                'defensive'
-                            )}
-                        />
-                    </TableContainer>
-                )}
-                {gameStats.defensive && gameStats.defensive.length > 0 && mobile && (
-                    <TableContainer title='Def. Turnovers'>
-                        <LargeTable
-                            header={mobileDefToHeaders}
-                            contents={gameFieldRows(
-                                gameStats.defensive,
-                                mobileDefToFields,
-                                'defensive'
-                            )}
-                        />
-                    </TableContainer>
-                )}
-                {gameStats.defensive && gameStats.defensive.length > 0 && !mobile && (
-                    <TableContainer title='Defense'>
-                        <LargeTable
-                            header={desktopDefHeaders}
-                            contents={gameFieldRows(
-                                gameStats.defensive,
-                                desktopDefenseFields,
-                                'defensive'
-                            )}
-                        />
-                    </TableContainer>
-                )}
-            </>
-        )}
+                    {gameStats.receiving && gameStats.receiving.length > 0 && mobile && (
+                        <TableContainer title='Receiving'>
+                            <LargeTable
+                                header={mobileRecHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.receiving,
+                                    mobileReceivingFields,
+                                    'receiving'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {gameStats.receiving && gameStats.receiving.length > 0 && !mobile && (
+                        <TableContainer title='Receiving'>
+                            <LargeTable
+                                header={desktopRecHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.receiving,
+                                    desktopReceivingFields,
+                                    'receiving'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                </>
+            )}
+            {tableType === 'defense' && (
+                <>
+                    {gameStats.defensive && gameStats.defensive.length > 0 && mobile && (
+                        <TableContainer title='Tackles'>
+                            <LargeTable
+                                header={mobileTackleHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.defensive,
+                                    mobileTackleFields,
+                                    'defensive'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {gameStats.defensive && gameStats.defensive.length > 0 && mobile && (
+                        <TableContainer title='Def. Turnovers'>
+                            <LargeTable
+                                header={mobileDefToHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.defensive,
+                                    mobileDefToFields,
+                                    'defensive'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {gameStats.defensive && gameStats.defensive.length > 0 && !mobile && (
+                        <TableContainer title='Defense'>
+                            <LargeTable
+                                header={desktopDefHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.defensive,
+                                    desktopDefenseFields,
+                                    'defensive'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                </>
+            )}
 
-        {tableType === 'special' && (
-            <>
-                {gameStats.kick_return && gameStats.kick_return.length > 0 && mobile && (
-                    <TableContainer title='Kick Return'>
-                        <LargeTable
-                            header={mobileKrHeaders}
-                            contents={gameFieldRows(
-                                gameStats.kick_return,
-                                mobileKickReturnFields,
-                                'kick_return'
-                            )}
-                        />
-                    </TableContainer>
-                )}
-                {gameStats.kick_return && gameStats.kick_return.length > 0 && !mobile && (
-                    <TableContainer title='Kick Return'>
-                        <LargeTable
-                            header={desktopKrHeaders}
-                            contents={gameFieldRows(
-                                gameStats.kick_return,
-                                desktopKickReturnFields,
-                                'kick_return'
-                            )}
-                        />
-                    </TableContainer>
-                )}
+            {tableType === 'special' && (
+                <>
+                    {gameStats.kick_return && gameStats.kick_return.length > 0 && mobile && (
+                        <TableContainer title='Kick Return'>
+                            <LargeTable
+                                header={mobileKrHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.kick_return,
+                                    mobileKickReturnFields,
+                                    'kick_return'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {gameStats.kick_return && gameStats.kick_return.length > 0 && !mobile && (
+                        <TableContainer title='Kick Return'>
+                            <LargeTable
+                                header={desktopKrHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.kick_return,
+                                    desktopKickReturnFields,
+                                    'kick_return'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
 
-                {gameStats.punt_return && gameStats.punt_return.length > 0 && mobile && (
-                    <TableContainer title='Punt Return'>
-                        <LargeTable
-                            header={mobilePrHeaders}
-                            contents={gameFieldRows(
-                                gameStats.punt_return,
-                                mobilePuntReturnFields,
-                                'punt_return'
-                            )}
-                        />
-                    </TableContainer>
-                )}
-                {gameStats.punt_return && gameStats.punt_return.length > 0 && !mobile && (
-                    <TableContainer title='Punt Return'>
-                        <LargeTable
-                            header={desktopPrHeaders}
-                            contents={gameFieldRows(
-                                gameStats.punt_return,
-                                desktopPuntReturnFields,
-                                'punt_return'
-                            )}
-                        />
-                    </TableContainer>
-                )}
+                    {gameStats.punt_return && gameStats.punt_return.length > 0 && mobile && (
+                        <TableContainer title='Punt Return'>
+                            <LargeTable
+                                header={mobilePrHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.punt_return,
+                                    mobilePuntReturnFields,
+                                    'punt_return'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {gameStats.punt_return && gameStats.punt_return.length > 0 && !mobile && (
+                        <TableContainer title='Punt Return'>
+                            <LargeTable
+                                header={desktopPrHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.punt_return,
+                                    desktopPuntReturnFields,
+                                    'punt_return'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
 
-                {gameStats.kicking && gameStats.kicking.length > 0 && mobile && (
-                    <TableContainer title='Kicking'>
-                        <LargeTable
-                            header={mobileKickingHeaders}
-                            contents={gameFieldRows(
-                                gameStats.kicking,
-                                mobileKickingFields,
-                                'kicking'
-                            )}
-                        />
-                    </TableContainer>
-                )}
-                {gameStats.kicking && gameStats.kicking.length > 0 && !mobile && (
-                    <TableContainer title='Kicking'>
-                        <LargeTable
-                            header={desktopKickingHeaders}
-                            contents={gameFieldRows(
-                                gameStats.kicking,
-                                desktopKickingFields,
-                                'kicking'
-                            )}
-                        />
-                    </TableContainer>
-                )}
-                {gameStats.punting && gameStats.punting.length > 0 && mobile && (
-                    <TableContainer title='Punting'>
-                        <LargeTable
-                            header={mobilePuntingHeaders}
-                            contents={gameFieldRows(
-                                gameStats.punting,
-                                mobilePuntingFields,
-                                'punting'
-                            )}
-                        />
-                    </TableContainer>
-                )}
-                {gameStats.punting && gameStats.punting.length > 0 && !mobile && (
-                    <TableContainer title='Punting'>
-                        <LargeTable
-                            header={desktopPuntingHeaders}
-                            contents={gameFieldRows(
-                                gameStats.punting,
-                                desktopPuntingFields,
-                                'punting'
-                            )}
-                        />
-                    </TableContainer>
-                )}
-            </>
-        )}
-    </>
-)
+                    {gameStats.kicking && gameStats.kicking.length > 0 && mobile && (
+                        <TableContainer title='Kicking'>
+                            <LargeTable
+                                header={mobileKickingHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.kicking,
+                                    mobileKickingFields,
+                                    'kicking'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {gameStats.kicking && gameStats.kicking.length > 0 && !mobile && (
+                        <TableContainer title='Kicking'>
+                            <LargeTable
+                                header={desktopKickingHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.kicking,
+                                    desktopKickingFields,
+                                    'kicking'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {gameStats.punting && gameStats.punting.length > 0 && mobile && (
+                        <TableContainer title='Punting'>
+                            <LargeTable
+                                header={mobilePuntingHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.punting,
+                                    mobilePuntingFields,
+                                    'punting'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                    {gameStats.punting && gameStats.punting.length > 0 && !mobile && (
+                        <TableContainer title='Punting'>
+                            <LargeTable
+                                header={desktopPuntingHeaders}
+                                contents={gameFieldRows(
+                                    gameStats.punting,
+                                    desktopPuntingFields,
+                                    'punting'
+                                )}
+                            />
+                        </TableContainer>
+                    )}
+                </>
+            )}
+        </>
+    )
 
 
 
@@ -658,9 +658,9 @@ const Stats = ({ player, statsType }: Props) => {
                     Special Teams
                 </Button>
             </div>
-            
+
             {statsType === 'season' ? seasonStatsTable : careerStatsTable}
-            
+
         </div>
     );
 };

@@ -1,14 +1,14 @@
 import {
     DefensiveStats,
-    KickReturnStats, 
-    KickingStats, 
-    PassingStats, 
-    PuntReturnsStats, 
-    PuntingStats, 
-    ReceivingStats, 
-    RushingStats, 
+    KickReturnStats,
+    KickingStats,
+    PassingStats,
+    PuntReturnsStats,
+    PuntingStats,
+    ReceivingStats,
+    RushingStats,
     TotalStats
-} from "./Stats";
+} from './Stats';
 
 export interface Abilities {
     acceleration: number;
@@ -66,6 +66,29 @@ export interface PlayerDetails {
     team_id: number;
     team_name: string;
     weight: number;
+}
+
+export interface PlayerOfTheWeekStructure {
+    player_of_the_week: IPlayerOfTheWeek;
+    honorable_mention: IPlayerOfTheWeek[];
+}
+
+export interface IPlayerOfTheWeek {
+    game_points: number;
+    player: {
+        details: PlayerDetails;
+        game_stats: {
+            defensive: DefensiveStats;
+            kick_return: KickReturnStats;
+            kicking: KickingStats;
+            passing: PassingStats;
+            punt_return: PuntReturnsStats;
+            punting: PuntingStats;
+            receiving: ReceivingStats;
+            rushing: RushingStats;
+            total: TotalStats;
+        }
+    }
 }
 
 export interface PlayerHofStructure {
