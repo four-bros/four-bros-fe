@@ -1,40 +1,9 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import { Players } from 'api';
 import { IPlayerOfTheWeek } from 'interfaces/Player';
 import style from './components/playerOfTheWeek.module.scss';
 import useMediaQuery from '../../../../../hooks/useMediaQuery';
 import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
-import {
-    mobileDefToFields,
-    mobileDefToHeaders,
-    mobileKickReturnFields,
-    mobileKickReturnHeaders,
-    mobilePassingFields,
-    mobilePassingHeaders,
-    mobilePuntReturnFields,
-    mobilePuntReturnHeaders,
-    mobileReceivingFields,
-    mobileReceivingHeaders,
-    mobileRushingFields,
-    mobileRushingHeaders
-} from './components/mobileTableTransform';
-import {
-    desktopPassingHeaders,
-    desktopPassingFields,
-    desktopRushingHeaders,
-    desktopRushingFields,
-    desktopReceivingHeaders,
-    desktopReceivingFields,
-    desktopDefenseHeaders,
-    desktopDefenseFields,
-    desktopKickReturnHeaders,
-    desktopKickReturnFields,
-    desktopPuntReturnHeaders,
-    desktopPuntReturnFields
-} from './components/desktopTableTransform';
-import MobileTable from 'components/common/Tables/MobileTable';
-import DesktopTable from 'components/common/Tables/DesktopTable';
 import PlayerOverview from './components/PlayerOverview';
 import PlayerOfTheWeekTable from './components/PlayerOfTheWeekTable';
 

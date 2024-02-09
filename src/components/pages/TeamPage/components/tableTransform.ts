@@ -130,8 +130,6 @@ const puntingFields = new Set([
     'inside_twenty',
 ]);
 
-const rosterHeaders = ['Name', 'Class', 'Ht / Wt', '#', 'Pos', 'Ovr'];
-
 const rosterFields = new Set([
     'player_year',
     'jersey_number',
@@ -175,7 +173,7 @@ const getTopThree = (topPerformers: Array<any>): Array<any> => {
     if (topPerformers.length <= 3) {
         return topPerformers;
     }
-    return [topPerformers[0], topPerformers[1], topPerformers[2]];
+    return topPerformers.slice(0,2);
 };
 
 export {
@@ -188,7 +186,6 @@ export {
     returnsHeaders,
     kickingHeaders,
     puntingHeaders,
-    rosterHeaders,
     getDefenseOverview,
     getOffenseOverview,
     getTopThree,

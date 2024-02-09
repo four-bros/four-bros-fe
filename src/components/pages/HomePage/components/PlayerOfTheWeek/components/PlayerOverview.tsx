@@ -33,7 +33,6 @@ const PlayerOverview = ({ playerOfTheWeek }: Props) => {
                     <p>Game Points</p>
                 </div>
             </div>
-
         </div>
     )
 }

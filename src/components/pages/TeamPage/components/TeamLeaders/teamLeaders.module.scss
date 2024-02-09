@@ -9,3 +9,19 @@
     margin: 1em auto;
     text-align: center;
 }
+
+.mobileTableContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 95%;
+}
+
+.desktopTableContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 60%;
+}

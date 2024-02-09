@@ -78,6 +78,32 @@ const MobileTable = ({ dataObjects, category, headers, fields, title, includePla
                                 </Table.Row>
                             )}
 
+                            {includePlayerDetails && !includeTeamDetails && (
+                                <Table.Row>
+                                    <Table.Cell key={`cell-${playerDetails.id}`} className={style.tableCell}>
+                                        <Link
+                                            to={`/players/${playerDetails.id}`}
+                                            className={globalStyle.tableLink}
+                                        >
+                                            {playerDetails.first_name}{' '}
+                                            {playerDetails.last_name}
+                                        </Link>
+                                    </Table.Cell>
+                                    {fieldsArray.map(
+                                        (fieldValue: number, idx: number) => {
+                                            return (
+                                                <Table.Cell
+                                                    key={`cell-${idx}-${fieldValue}`}
+                                                    className={style.tableCell}
+                                                >
+                                                    {Math.floor(fieldValue).toLocaleString('en-US')}
+                                                </Table.Cell>
+                                            );
+                                        }
+                                    )}
+                                </Table.Row>
+                            )}
+
                             {!includePlayerDetails && includeTeamDetails && (
                                 <Table.Row>
                                     <Table.Cell key={`cell-${teamId}`} className={style.tableCell}>

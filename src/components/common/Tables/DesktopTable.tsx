@@ -17,6 +17,7 @@ type Props = {
 }
 
 const DesktopTable = ({ dataObjects, category, headers, fields, title, includePlayerDetails, includeTeamDetails }: Props) => {
+
     const table = (
         <Table className={style.table}>
             <Table.Header>
@@ -61,6 +62,32 @@ const DesktopTable = ({ dataObjects, category, headers, fields, title, includePl
                                             className={globalStyle.tableLink}
                                         >
                                             {teamName}
+                                        </Link>
+                                    </Table.Cell>
+                                    {fieldsArray.map(
+                                        (fieldValue: number, idx: number) => {
+                                            return (
+                                                <Table.Cell
+                                                    key={`cell-${idx}-${fieldValue}`}
+                                                    className={style.tableCell}
+                                                >
+                                                    {Math.floor(fieldValue).toLocaleString('en-US')}
+                                                </Table.Cell>
+                                            );
+                                        }
+                                    )}
+                                </Table.Row>
+                            )}
+
+                            {includePlayerDetails && !includeTeamDetails && (
+                                <Table.Row>
+                                    <Table.Cell key={`cell-${playerDetails.id}`} className={style.tableCell}>
+                                        <Link
+                                            to={`/players/${playerDetails.id}`}
+                                            className={globalStyle.tableLink}
+                                        >
+                                            {playerDetails.first_name}{' '}
+                                            {playerDetails.last_name}
                                         </Link>
                                     </Table.Cell>
                                     {fieldsArray.map(

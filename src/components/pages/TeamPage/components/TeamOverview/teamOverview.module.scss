@@ -1,73 +1,123 @@
 .teamOverview {
-    width: 90%;
-    margin: 0 auto;
-
-}
-
-.tablesContainer {
     display: flex;
-    width: 90%;
-    margin: 0 auto;
-    align-items: baseline;
-    justify-content: space-between;
-
-    @media screen and (min-width: 767px) {
-        flex-direction: column;
-    }
-}
-
-.teamName {
-    display: flex;
-    margin: 0 auto 1em auto;
-    align-content: center;
+    flex-flow: column nowrap;
     justify-content: center;
-    flex-wrap: nowrap;
     align-items: baseline;
 
-    h3 {
-        padding-right: 2%;
-        font-weight: 400;
+    .teamNameAndRatingContainer {
+        display: flex;
+        flex-flow: column nowrap;
+        width: 90%;
+        margin: 0 auto;
+
+        .teamName {
+            display: flex;
+            flex-flow: row nowrap;
+            margin: 0 auto;
+            justify-content: center;
+            flex-wrap: nowrap;
+            align-items: baseline;
+            border: 1px solid #4c6474;
+            width: 100%;
+    
+            .teamNameChild {
+                padding: 0 10px;
+            }
+    
+            @media screen and (min-width: 767px) {
+                margin: 0 auto;
+                flex-flow: row nowrap;
+                justify-content: center;
+                width: 80%;
+            }
+        }
+    
+        .teamRatings {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-evenly;
+            text-align: center;
+            background-color: #4c6474;
+            width: 100%;
+    
+            .ratingCategory {
+                padding: 0.5em;
+            }
+    
+            .rating {
+                font-size: 2em;
+                margin: 0 auto;
+            }
+    
+            @media screen and (min-width: 767px) {
+                margin: 0 auto;
+                flex-flow: row nowrap;
+                justify-content: space-evenly;
+                width: 80%;
+            }
+        }
 
         @media screen and (min-width: 767px) {
-            padding-right: 0.5%;
+            width: 50%;
         }
     }
 
-    h2 {
-        font-size: 2rem;
-        font-weight: 400;
-    }
-}
+    .teamStatsContainer {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        margin: 0 auto;
+        width: 90%;
 
-.teamSummary {
-    display: flex;
-    width: 66%;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: baseline;
+        .teamStats {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: baseline;
+            border: 1px solid #4c6474;
+            padding: 1em;
+            margin: 0;
+            width: 100%;
 
-    h3 {
-        padding: 0 2%;
+            h2 {
+                margin: 0.5em auto;
+                text-align: center;
+            }
+
+            hr {
+                border-bottom: 1px solid #4c6474;
+                width: 80%;
+                margin: 0.5em auto;
+            }
+
+            .statCategory {
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: center;
+                margin: 0.5em auto;
+                text-align: center;
+            }
+
+            .stat {
+                font-size: 2.5em;
+                padding: 0;
+                margin: 0;
+            }
+
+            @media screen and (min-width: 767px) {
+                margin: 0;
+                width: 80%;
+            }
+        }
+
+        @media screen and (min-width: 767px) {
+            width: 40%;
+            margin: 0;
+        }
     }
 
     @media screen and (min-width: 767px) {
-        width: 25%;
-    }
-}
-
-.teamStatsContainer {
-    display: flex;
-    flex-flow: row nowrap;
-    width: 90%;
-    margin: 0 auto;
-    justify-content: space-around;
-    align-items: baseline;
-
-    h3 {
-        padding: 0 2%;
-    }
-
-    @media screen and (min-width: 767px) {
-        width: 33%;
+        align-items: center;
+        align-content: center;
     }
 }
