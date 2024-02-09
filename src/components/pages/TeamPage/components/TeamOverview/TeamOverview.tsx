@@ -78,7 +78,7 @@ const TeamOverview = ({
                                     <p>Pass YPG</p>
                                 </div>
                                 <div className={style.statCategory}>
-                                    <p className={style.stat}>{teamStats.pass_ypg}</p>
+                                    <p className={style.stat}>{teamStats.rush_ypg}</p>
                                     <p>Rush YPG</p>
                                 </div>
                             </div>
