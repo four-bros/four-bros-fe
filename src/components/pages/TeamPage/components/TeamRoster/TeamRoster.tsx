@@ -1,14 +1,13 @@
 import * as React from 'react';
-import { LargeTable, TableContainer } from 'components/common';
 import { Link } from 'react-router-dom';
 import { Table } from 'semantic-ui-react';
-import { rosterHeaders } from '../tableTransform';
 import { Teams } from 'api';
 import { RosterPlayer, TeamDetails } from '../../../../../interfaces/Teams';
 import {getPlayerYearAndRedshirt} from 'utils';
 import { playerPositions } from 'constants/constants';
 import globalStyle from '../../../../../styles/global.module.scss';
 import style from './teamRoster.module.scss';
+import useMediaQuery from 'hooks/useMediaQuery';
 
 
 type Props = {
@@ -16,11 +15,11 @@ type Props = {
     teamDetails: TeamDetails;
 };
 
-
 const TeamRoster = ({ teamId, teamDetails }: Props) => {
     const [roster, setRoster] = React.useState<RosterPlayer[]>([]);
     const [filteredRoster, setFilteredRoster] = React.useState<RosterPlayer[]>([]);
     const [activeBtn, setActiveBtn] = React.useState<string>('All');
+    const mobile = useMediaQuery('(max-width: 767px)');
 
     React.useEffect(() => {
         (async () => {
@@ -31,6 +30,8 @@ const TeamRoster = ({ teamId, teamDetails }: Props) => {
             setRoster(roster.roster);
         })();
     }, [teamId]);
+
+    const rosterHeaders = ['Name', 'Class', 'Ht / Wt', '#', 'Pos', 'Ovr'];
 
     const handleClick = (position: string): void=> {
         const updatedRoster: RosterPlayer[] = [];
@@ -69,55 +70,86 @@ const TeamRoster = ({ teamId, teamDetails }: Props) => {
     );
 
     const tableHeader: string = activeBtn === 'All' ? `${teamDetails.team_name} Roster` : `${teamDetails.team_name} ${activeBtn}s`;
+    const tableSize = mobile ? 'small' : 'large';
 
-    const getRosterInfo = () => {
-        return roster.map((player: RosterPlayer) => (
-            <React.Fragment key={player.id}>
-                <Table.Row>
-                    <Table.Cell>
-                        <Link to={`/players/${player.id}`} className={globalStyle.tableLink}>
-                            {player.first_name} {player.last_name}
-                        </Link>
-                    </Table.Cell>
-                    <Table.Cell>{getPlayerYearAndRedshirt(player)}</Table.Cell>
-                    <Table.Cell>
-                        {`${player.height} / ${player.weight}`}
-                    </Table.Cell>
-                    <Table.Cell>{player.jersey_number}</Table.Cell>
-                    <Table.Cell>{player.position}</Table.Cell>
-                    <Table.Cell>{player.overall}</Table.Cell>
-                </Table.Row>
-            </React.Fragment>
-        ));
+    const renderFullRoster = () => {
+        return (
+            <Table className={style.table} size={tableSize} compact={mobile} unstackable={mobile}>
+                <Table.Header>
+                    <Table.Row>
+                        <Table.HeaderCell colSpan={rosterHeaders.length} className={style.tableTitle}>{tableHeader}</Table.HeaderCell>
+                    </Table.Row>
+                </Table.Header>
+                <Table.Header>
+                    <Table.Row>
+                        {rosterHeaders.map((text: string, idx: number) => {
+                            return <Table.HeaderCell className={style.tableHeader} key={`${text}-${idx}`}>{text}</Table.HeaderCell>
+                        })}
+                    </Table.Row>
+                </Table.Header>
+                <Table.Body>
+                {roster.map((player: RosterPlayer) => {
+                    return (
+                        <Table.Row>
+                            <Table.Cell className={style.tableCell}>
+                                <Link to={`/players/${player.id}`} className={globalStyle.tableLink}>
+                                    {player.first_name} {player.last_name}
+                                </Link>
+                            </Table.Cell>
+                            <Table.Cell className={style.tableCell}>{getPlayerYearAndRedshirt(player)}</Table.Cell>
+                            <Table.Cell className={style.tableCell}>{`${player.height} / ${player.weight}`}</Table.Cell>
+                            <Table.Cell className={style.tableCell}>{player.jersey_number}</Table.Cell>
+                            <Table.Cell className={style.tableCell}>{player.position}</Table.Cell>
+                            <Table.Cell className={style.tableCell}>{player.overall}</Table.Cell>
+                        </Table.Row>
+                    )
+                })}
+                </Table.Body>
+            </Table>
+        );
     };
 
-    const getFilteredRosterInfo = () => {
-        return filteredRoster.map((player: RosterPlayer) => (
-            <React.Fragment key={player.id}>
-                <Table.Row>
-                    <Table.Cell>
-                        <Link to={`/players/${player.id}`} className={globalStyle.tableLink}>
-                            {player.first_name} {player.last_name}
-                        </Link>
-                    </Table.Cell>
-                    <Table.Cell>{getPlayerYearAndRedshirt(player)}</Table.Cell>
-                    <Table.Cell>
-                        {`${player.height} / ${player.weight}`}
-                    </Table.Cell>
-                    <Table.Cell>{player.jersey_number}</Table.Cell>
-                    <Table.Cell>{player.position}</Table.Cell>
-                    <Table.Cell>{player.overall}</Table.Cell>
-                </Table.Row>
-            </React.Fragment>
-        ));
+    const renderFilteredRoster = () => {
+        return (
+            <Table className={style.table} size={tableSize} compact={mobile} unstackable={mobile}>
+                <Table.Header>
+                    <Table.Row>
+                        <Table.HeaderCell colSpan={rosterHeaders.length} className={style.tableTitle}>{tableHeader}</Table.HeaderCell>
+                    </Table.Row>
+                </Table.Header>
+                <Table.Header>
+                    <Table.Row>
+                        {rosterHeaders.map((text: string, idx: number) => {
+                            return <Table.HeaderCell className={style.tableHeader}>{text}</Table.HeaderCell>
+                        })}
+                    </Table.Row>
+                </Table.Header>
+                <Table.Body>
+                    {filteredRoster.map((player: RosterPlayer) => {
+                        return (
+                            <Table.Row>
+                                <Table.Cell  className={style.tableCell}>
+                                    <Link to={`/players/${player.id}`} className={globalStyle.tableLink}>
+                                        {player.first_name} {player.last_name}
+                                    </Link>
+                                </Table.Cell>
+                                <Table.Cell className={style.tableCell}>{getPlayerYearAndRedshirt(player)}</Table.Cell>
+                                <Table.Cell className={style.tableCell}>{`${player.height} / ${player.weight}`}</Table.Cell>
+                                <Table.Cell className={style.tableCell}>{player.jersey_number}</Table.Cell>
+                                <Table.Cell className={style.tableCell}>{player.position}</Table.Cell>
+                                <Table.Cell className={style.tableCell}>{player.overall}</Table.Cell>
+                            </Table.Row>
+                        )
+                    })}
+                </Table.Body>
+            </Table>
+        );
     }
 
     const teamRoster = (
         <div>
             {positionBtns}
-            <TableContainer title={tableHeader}>
-                <LargeTable header={rosterHeaders} contents={filteredRoster.length === 0 ? getRosterInfo() : getFilteredRosterInfo()} />
-            </TableContainer>
+            {filteredRoster.length === 0 ? renderFullRoster() : renderFilteredRoster()}
         </div>
     );
 

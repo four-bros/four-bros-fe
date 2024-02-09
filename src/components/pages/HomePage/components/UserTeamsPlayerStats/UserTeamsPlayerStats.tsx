@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Table } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import {
     desktopPassingHeaders,
     desktopRushingHeaders,
@@ -39,27 +38,13 @@ import {
     mobileKickingFields,
     mobilePuntingFields,
 } from './mobileTableTransform';
-import { getFieldValues } from 'utils';
-import type {
-    TeamPlayerStats,
-    Defense,
-    KickReturn,
-    Kicking,
-    Passing,
-    PuntReturn,
-    Punting,
-    Receiving,
-    Rushing,
-    Total,
-} from '../../../../../interfaces/Stats';
+import type { TeamPlayerStats } from '../../../../../interfaces/Stats';
 import style from './userTeamsPlayerStats.module.scss';
-import globalStyle from '../../../../../styles/global.module.scss';
 import useMediaQuery from '../../../../../hooks/useMediaQuery';
 import { Teams } from 'api';
 import LoadingSpinner from 'components/common/LoadingSpinner/LoadingSpinner';
 import DesktopTable from 'components/common/Tables/DesktopTable';
 import MobileTable from 'components/common/Tables/MobileTable';
-import { mobileDefenseFields, mobileDefenseHeaders } from '../UserTeamsStats/components/mobileTableTransform';
 
 const UserTeamsPlayerStats = () => {
     const [isLoading, setIsLoading] = React.useState<boolean>(true);
