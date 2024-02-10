@@ -17,8 +17,27 @@ type Props = {
 }
 
 const MobileTable = ({ dataObjects, category, headers, fields, title, includePlayerDetails, includeTeamDetails }: Props) => {
+    const [sortedDataObjects, setSortedDataObjects] = React.useState<any[]>(dataObjects);
+    const fieldsArray = Array.from(fields);
+    const headersToFieldsMap: Map<string, string> = new Map();
+    const statHeaders = headers.filter(header => header !== 'Name' && header !== 'Team');
+
+    statHeaders.map((header: string, i: number) => {
+        if (header )
+        headersToFieldsMap.set(header, fieldsArray[i])
+    });
+
+    const handleSort = (header: string) => {
+        const field = headersToFieldsMap.get(header);
+        if (!field) throw new Error('whoops');
+        const sortedArray = category 
+                                ? dataObjects.sort((a: any, b: any) => b[category][field] - a[category][field]) 
+                                : dataObjects.sort((a: any, b: any) => b[field] - a[field]);
+        setSortedDataObjects([...sortedArray]);
+    }
+
     const table = (
-        <Table className={style.table} size='small' compact={true} unstackable={true}>
+        <Table className={style.table} size='small' compact={true} unstackable={true} sortable={true}>
             <Table.Header>
                 <Table.Row>
                     <Table.HeaderCell colSpan={headers.length} className={style.tableTitle}>{title}</Table.HeaderCell>
@@ -27,14 +46,14 @@ const MobileTable = ({ dataObjects, category, headers, fields, title, includePla
             <Table.Header>
                 <Table.Row>
                     {headers.map((text: string, idx: number) => (
-                        <Table.HeaderCell key={`${text}-${idx}`} className={style.tableHeader}>
+                        <Table.HeaderCell key={`${text}-${idx}`} className={style.tableHeader} onClick={() => handleSort(text)}>
                             {text}
                         </Table.HeaderCell>
                     ))}
                 </Table.Row>
             </Table.Header>
             <Table.Body>
-                {dataObjects.map((object: any, idx: number) => {
+                {sortedDataObjects.map((object: any, idx: number) => {
                     const data = category ? object[category] : object;
                     const fieldValues = getFieldValues(data, fields);
                     const fieldsArray = Array.from(fieldValues);
