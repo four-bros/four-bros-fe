@@ -27,10 +27,7 @@ const DesktopTable = ({ dataObjects, category, headers, fields, title, includePl
         headersToFieldsMap.set(header, fieldsArray[i])
     });
 
-    console.log(headersToFieldsMap);
-
     const handleSort = (header: string) => {
-        console.log(`attempting to get value for key ${header}`)
         const field = headersToFieldsMap.get(header);
         if (!field) throw new Error('whoops');
         const sortedArray = category 
