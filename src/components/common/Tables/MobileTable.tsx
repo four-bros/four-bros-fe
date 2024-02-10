@@ -40,7 +40,7 @@ const MobileTable = ({ dataObjects, category, headers, fields, title, includePla
     }
 
     const table = (
-        <Table className={style.table} size='small' compact={true} unstackable={true}>
+        <Table className={style.table} size='small' compact={true} unstackable={true} sortable={true}>
             <Table.Header>
                 <Table.Row>
                     <Table.HeaderCell colSpan={headers.length} className={style.tableTitle}>{title}</Table.HeaderCell>
