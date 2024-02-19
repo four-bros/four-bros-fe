@@ -11,7 +11,7 @@
     }
 
     .playerOverview {
-        border: 2px solid #4c6474;
+        border: 1px solid #9ebcd5;
         background-color: #03111e;
         display: flex;
         flex-flow: column nowrap;
@@ -57,7 +57,7 @@
             flex-flow: row wrap;
             justify-content: space-around;
             text-align: center;
-            background-color: #4c6474;
+            background-color: #658aa9;
             width: 100%;
     
             .category {
@@ -89,7 +89,7 @@
     .divider {
         margin: 3em auto;
         width: 80%;
-        border: 1px solid #4c6474;
+        border: 1px solid #658aa9;
     }
 
     .playerTables {

@@ -15,12 +15,15 @@ import TeamSeasonRecordsPage from 'components/pages/Records/TeamRecords/TeamSeas
 import RecruitingPage from 'components/pages/RecruitingPage/RecruitingPage';
 import HallOfFamePage from './components/pages/HallOfFamePage/HallOfFamePage';
 import TeamGameRecordsPage from 'components/pages/Records/TeamRecords/TeamGameRecordsPage/TeamGameRecordsPage';
+import Footer from 'components/common/Footer/Footer';
+
+
 
 function App() {
 
     return (
         <>
-        <NavBar />
+            <NavBar />
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/teams' element={<TeamsPage />} />
@@ -36,6 +39,7 @@ function App() {
                 <Route path='/hof' element={<HallOfFamePage />} />
                 <Route path='/season/stats' element={<StatsPage />} />
             </Routes>
+        <Footer />
         </>
     );
 }

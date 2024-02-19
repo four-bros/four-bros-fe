@@ -1,21 +1,26 @@
 .table {
+    margin: 0 auto !important;
+    border: 1px solid #658aa9 !important;
+    border-radius: 0 !important;
+
     .tableTitle {
         text-align: center !important;
         background-color: #03111e !important;
         color: #d5d5d6 !important;
         font-size: 1.5em;
+        border-radius: 0 !important;
     }
 
     .tableHeader {
         background-color: #0d5796 !important;
         color: #d5d5d6 !important;
-        border: 1px solid #a6b6c6 !important;
-        border-radius: 0pm !important;
+        border: 1px solid #658aa9 !important;
+        border-radius: 0 !important;
     }
 
     .tableCell {
         background-color: #4c6474;
         color: #d5d5d6;
-        border: 1px solid #a6b6c6;
+        border: 1px solid #658aa9;
     }
 }
