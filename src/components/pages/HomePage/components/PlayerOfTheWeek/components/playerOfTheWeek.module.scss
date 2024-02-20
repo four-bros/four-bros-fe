@@ -16,17 +16,17 @@
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
-        align-items: baseline;
+        align-items: center;
         width: 95%;
         margin: 0 auto;
 
 
         .playerDetails {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
             align-items: baseline;
             margin: 1em auto;
-            width: 70%;
+            width: 100%;
     
             .playerName {
                 color:#d5d5d6;
@@ -46,8 +46,8 @@
             }
     
             @media screen and (min-width: 767px) {
-                width: 40%;
-                justify-content: space-around;
+                width: 50%;
+                justify-content: space-evenly;
                 margin: 0 auto;
             }
         }
@@ -55,7 +55,7 @@
         .playerTotals {
             display: flex;
             flex-flow: row wrap;
-            justify-content: space-around;
+            justify-content: space-evenly;
             text-align: center;
             background-color: #658aa9;
             width: 100%;
@@ -73,8 +73,8 @@
             @media screen and (min-width: 767px) {
                 margin: 0 auto;
                 flex-flow: row nowrap;
-                justify-content: space-around;
-                width: 60%;
+                justify-content: space-evenly;
+                width: 50%;
             }
         }
 

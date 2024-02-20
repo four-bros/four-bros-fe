@@ -3,11 +3,12 @@
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
+    flex-shrink: 0;
     justify-content: space-evenly;
     align-items: center;
     background-color: #0d5796;
     padding: 1em 0;
-    margin: 1em 0;
+    margin-top: 2em;
 
     a {
         color: #d5d5d6;
@@ -34,34 +35,7 @@
 
 }
 @media screen and (min-width: 767px) {
-    .navbarContainer {
-        font-weight: bold;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #0d5796;
-        padding: 1em 0;
-
-        a {
-            color: #d5d5d6;
-        }
-    }
-
-    .navLogo {
-        display: flex;
-        height: 4em;
-        width: 6em;
-        margin-left: 5em;
-        background-color: inherit;
-    }
-
-    .logoLink {
-        background-color: inherit;
-    }
-
-    .navLink {
-        background-color: inherit;
-        padding: 5px;
+    .footerContainer {
+        margin-top: 3em;
     }
 }

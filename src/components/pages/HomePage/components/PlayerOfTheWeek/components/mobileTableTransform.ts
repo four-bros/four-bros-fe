@@ -4,7 +4,8 @@ const mobilePassingHeaders = [
     'Att',
     'Yds',
     'TD',
-    'INT'
+    'INT',
+    'QBR'
 ];
 
 const mobilePassingFields = new Set([
@@ -12,7 +13,8 @@ const mobilePassingFields = new Set([
     'pass_att',
     'pass_yards',
     'pass_tds',
-    'ints'
+    'ints',
+    'pass_rating'
 ]);
 
 const mobileRushingHeaders = [
