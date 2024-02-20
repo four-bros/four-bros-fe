@@ -1,6 +1,5 @@
 import './styles/index.scss';
 import { NavBar } from 'components/common';
-// import MenuNav from 'components/common/Menu/MenuNav';
 import { Route, Routes } from 'react-router-dom';
 import CoachRecordsPage from 'components/pages/Records/CoachRecordsPage/CoachRecordsPage';
 import HomePage from './components/pages/HomePage/HomePage';
@@ -16,13 +15,14 @@ import RecruitingPage from 'components/pages/RecruitingPage/RecruitingPage';
 import HallOfFamePage from './components/pages/HallOfFamePage/HallOfFamePage';
 import TeamGameRecordsPage from 'components/pages/Records/TeamRecords/TeamGameRecordsPage/TeamGameRecordsPage';
 import Footer from 'components/common/Footer/Footer';
+import style from './App.module.scss';
 
 
 
-function App() {
+const App = () => {
 
     return (
-        <>
+        <div className={style.appContainer}>
             <NavBar />
             <Routes>
                 <Route path='/' element={<HomePage />} />
@@ -39,8 +39,8 @@ function App() {
                 <Route path='/hof' element={<HallOfFamePage />} />
                 <Route path='/season/stats' element={<StatsPage />} />
             </Routes>
-        <Footer />
-        </>
+            <Footer />
+        </div>
     );
 }
 

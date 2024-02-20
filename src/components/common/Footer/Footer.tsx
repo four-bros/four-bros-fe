@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Icon, Input } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 import ncaaLogo from 'assets/ncaa_football_logo.png';
 import style from './footer.module.scss';
 
@@ -7,7 +7,6 @@ import style from './footer.module.scss';
 const Footer = () => {
 
     const handleClick = () => {
-        console.log('hi');
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
