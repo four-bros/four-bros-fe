@@ -62,8 +62,6 @@ const mobileTackleFields = new Set([
 ]);
 
 const mobileDefToHeaders = [
-    'Name',
-    'Team',
     'INTs',
     'FF',
     'FR',
@@ -78,8 +76,6 @@ const mobileDefToFields = new Set([
 ]);
 
 const mobileKickReturnHeaders = [
-    'Name',
-    'Team',
     'Ret',
     'Yds',
     'AVG',
@@ -96,8 +92,6 @@ const mobileKickReturnFields = new Set([
 ]);
 
 const mobilePuntReturnHeaders = [
-    'Name',
-    'Team',
     'Ret',
     'Yds',
     'AVG',
