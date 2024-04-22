@@ -72,6 +72,7 @@ const RecruitingPage = () => {
                                 <div className={style.overview}>
                                     <div className={style.teamOverview}>
                                         <h1 className={style.teamName}>{team.team_name}</h1>
+                                        <h3 className={style.commitCount}>Total commits: {recruitInfo[convertTeamNameToSnakeCase(school)]['commits'].length}</h3>
                                         <h3 className={style.commitCount}>Top 100 commits: {recruitInfo[convertTeamNameToSnakeCase(school)]['top_100']}</h3>
                                     </div>
                                     <div className={style.starContainer}>
